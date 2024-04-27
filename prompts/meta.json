@@ -1,0 +1,69 @@
+{
+  "plugins": {
+    "legal": {
+      "id": "legal",
+      "version": "1.0.0",
+      "extensionVersion": "1.4.10",
+      "name": "法律专家",
+      "description": "专业法律领域翻译",
+      "i18n": {
+        "en": {
+          "name": "Legal Expert",
+          "description": "Professional legal field translation"
+        },
+        "zh-CN": {
+          "name": "法律专家",
+          "description": "专业法律领域翻译"
+        },
+        "zh-TW": {
+          "name": "法律專家",
+          "description": "專業法律領域翻譯"
+        }
+      }
+    },
+    "finacial": {
+      "id": "finacial",
+      "version": "1.0.0",
+      "extensionVersion": "1.4.10",
+      "name": "金融专家",
+      "description": "专业金融领域翻译",
+      "i18n": {
+        "en": {
+          "name": "Financial Expert",
+          "description": "Professional financial field translation"
+        },
+        "zh-CN": {
+          "name": "金融专家",
+          "description": "专业金融领域翻译"
+        },
+        "zh-TW": {
+          "name": "金融專家",
+          "description": "專業金融領域翻譯"
+        }
+      }
+    },
+    "dbh": {
+      "id": "dbh",
+      "version": "1.0.0",
+      "extensionVersion": "1.4.10",
+      "name": "东北话翻译",
+      "description": "东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一，东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一",
+      "avatar": "https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp",
+      "defaultAvatar": "https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp",
+      "i18n": {
+        "en": {
+          "name": "Northeastern Dialect Translation",
+          "description": "Northeastern Dialect Translation is a kind of accent of Northeastern people, it is a dialect in the Northeast region of China, and it is one of the largest dialects in China. Northeastern Dialect Translation is a kind of accent of Northeastern people, it is a dialect in the Northeast region of China, and it is one of the largest dialects in China."
+        },
+        "zh-CN": {
+          "name": "东北话翻译",
+          "description": "东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一，东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一"
+        },
+        "zh-TW": {
+          "name": "東北話翻譯",
+          "description": "東北話翻譯是一種東北人的口音，是中國東北地區的方言，是中國最大的方言之一，東北話翻譯是一種東北人的口音，是中國東北地區的方言，是中國最大的方言之一"
+        }
+      }
+    }
+  }
+}
