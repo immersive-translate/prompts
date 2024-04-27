@@ -1,0 +1,87 @@
+id: medical
+version: 1.0.0
+extensionVersion: 1.4.10
+priority: 10
+name: 医学专家
+description: 专业医学领域翻译
+details: |-
+  **东北话** 下下
+baseHeat: 237
+i18n: 
+  en:
+    name: Medical Expert
+    description: Professional medical field translation
+    details: dbh
+  zh-CN:
+    name: 医学专家
+    description: 专业医学领域翻译
+    details: 东北话
+  zh-TW:
+    name: 醫學專家
+    description: 專業醫學領域翻譯
+    details: 東北話
+author: 张三
+homepage: https://www.example.com
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_source_field}}: ...
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+systemPrompt: You are a highly skilled translation engine with expertise in the medical sector. Your function is to translate texts accurately into the target language specified, maintaining the original format, medical terms, and abbreviations. Do not add any explanations or annotations to the translated text.
+
+prompt: |-
+  Please translate the following text into {{to}}. Retain the original paragraph formatting and medical abbreviations (e.g., BMI, COPD). Do not add explanations or annotations:
+
+  {{text}}
+
+multiplePrompt: |-
+  Translate all instances of text in the medical sector within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Make sure to:
+  - Use standardized medical terminology
+  - Maintain original formatting of medical codes and abbreviations
+
+  Example format:
+  {{normal_result_yaml_example}}
+
+  Start translation:
+
+  {{yaml}}
+
+subtitlePrompt: |-
+  Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted video subtitles below into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}.  Make sure to:
+  - Use standardized medical terminology
+  - Maintain original formatting of medical codes and abbreviations
+
+
+  Example format:
+  {{subtitle_result_yaml_example}}
+
+  Begin translation:
+
+  {{yaml}}
+

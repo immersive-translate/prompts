@@ -1,5 +1,47 @@
 {
   "plugins": {
+    "tech": {
+      "id": "tech",
+      "version": "1.0.1",
+      "extensionVersion": "1.4.10",
+      "name": "科技类翻译专家",
+      "description": "专业科技领域翻译",
+      "i18n": {
+        "en": {
+          "name": "Technology translation expert",
+          "description": "Expert in translating technology-related content"
+        },
+        "zh-CN": {
+          "name": "科技类翻译专家",
+          "description": "专业科技领域翻译"
+        },
+        "zh-TW": {
+          "name": "科技類翻譯專家",
+          "description": "專業科技領域翻譯"
+        }
+      }
+    },
+    "medical": {
+      "id": "medical",
+      "version": "1.0.0",
+      "extensionVersion": "1.4.10",
+      "name": "医学专家",
+      "description": "专业医学领域翻译",
+      "i18n": {
+        "en": {
+          "name": "Medical Expert",
+          "description": "Professional medical field translation"
+        },
+        "zh-CN": {
+          "name": "医学专家",
+          "description": "专业医学领域翻译"
+        },
+        "zh-TW": {
+          "name": "醫學專家",
+          "description": "專業醫學領域翻譯"
+        }
+      }
+    },
     "legal": {
       "id": "legal",
       "version": "1.0.0",
@@ -58,6 +100,25 @@
         "zh-CN": {
           "name": "东北话翻译",
           "description": "东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一，东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一"
+        },
+        "zh-TW": {
+          "name": "東北話翻譯",
+          "description": "東北話翻譯是一種東北人的口音，是中國東北地區的方言，是中國最大的方言之一，東北話翻譯是一種東北人的口音，是中國東北地區的方言，是中國最大的方言之一"
+        }
+      }
+    },
+    "bilingual-mix": {
+      "id": "bilingual-mix",
+      "version": "1.0.0",
+      "extensionVersion": "1.4.10",
+      "name": "中英夹杂",
+      "description": "翻译中文到英文的时候，只将关键词翻译成英文，其他词保持中文，这样可以加深用户对重点词汇的记忆。",
+      "avatar": "https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp",
+      "defaultAvatar": "https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp",
+      "i18n": {
+        "en": {
+          "name": "Northeastern Dialect Translation",
+          "description": "Northeastern Dialect Translation is a kind of accent of Northeastern people, it is a dialect in the Northeast region of China, and it is one of the largest dialects in China. Northeastern Dialect Translation is a kind of accent of Northeastern people, it is a dialect in the Northeast region of China, and it is one of the largest dialects in China."
         },
         "zh-TW": {
           "name": "東北話翻譯",

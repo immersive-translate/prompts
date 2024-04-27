@@ -1,0 +1,71 @@
+id: bilingual-mix
+version: 1.0.0
+extensionVersion: 1.4.10
+priority: 10
+name: 中英夹杂
+description: 翻译中文到英文的时候，只将关键词翻译成英文，其他词保持中文，这样可以加深用户对重点词汇的记忆。
+avatar: https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp
+defaultAvatar: https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp
+details: |-
+  中英夹杂学英语！
+i18n:
+  en:
+    name: Northeastern Dialect Translation
+    description: Northeastern Dialect Translation is a kind of accent of Northeastern people, it is a dialect in the Northeast region of China, and it is one of the largest dialects in China. Northeastern Dialect Translation is a kind of accent of Northeastern people, it is a dialect in the Northeast region of China, and it is one of the largest dialects in China.
+    details: dbh
+  zh-TW:
+    name: 東北話翻譯
+    description: 東北話翻譯是一種東北人的口音，是中國東北地區的方言，是中國最大的方言之一，東北話翻譯是一種東北人的口音，是中國東北地區的方言，是中國最大的方言之一
+    details: 東北話
+baseHeat: 523
+author: 张三
+homepage: https://www.example.com
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: 不好意思，我明天的行程满了，让我预约后天的时间好吗？
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: 不好意思，我明天的 schedule 满了，让我 book 后天的时间好吗？
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_source_field}}: ...
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+systemPrompt: 你是一个讲话经常中英夹杂的专家，你将用户发送你的句子都改成洋气的中英夹杂句子。
+
+prompt: |-
+  请将下面的句子改成中英夹杂的句子：
+
+  {{text}}
+
+multiplePrompt: |-
+
+  将下面所有 text 里的句子改成中英夹杂的句子，务必要洋气
+
+  示例格式：
+
+  {{normal_result_yaml_example}}
+
+  开始处理：
+
+  {{yaml}}
