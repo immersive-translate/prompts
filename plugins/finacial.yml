@@ -14,9 +14,9 @@ i18n:
     description: 通过精心设计的 Prompt，使得财经类文章的翻译更加准确和专业。
   zh-TW:
     name: 金融專家
-    description: 專業金融領域翻譯
-author: 张三
-homepage: https://www.example.com
+    description: 透過精心設計的 Prompt，使得財經類文章的翻譯更加準確和專業。
+author: Official
+homepage: https://immersivetranslate.com/
 env:
   imt_source_field: text
   imt_trans_field: text

@@ -2,26 +2,21 @@ id: medical
 version: 1.0.0
 extensionVersion: 1.4.10
 priority: 10
-name: 医学专家
-description: 专业医学领域翻译
-details: |-
-  **东北话** 下下
+name: Medical Expert
+description: With meticulously crafted Prompts, translations in the medical field become more accurate and professional.
 baseHeat: 237
-i18n: 
+i18n:
   en:
     name: Medical Expert
     description: Professional medical field translation
-    details: dbh
   zh-CN:
     name: 医学专家
-    description: 专业医学领域翻译
-    details: 东北话
+    description: 通过精心设计的 Prompt，使得医学领域的翻译更加准确和专业。
   zh-TW:
     name: 醫學專家
-    description: 專業醫學領域翻譯
-    details: 東北話
-author: 张三
-homepage: https://www.example.com
+    description: 透過精心設計的 Prompt，使得醫學領域的翻譯更加準確和專業。
+author: Official
+homepage: https://immersivetranslate.com/
 env:
   imt_source_field: text
   imt_trans_field: text
