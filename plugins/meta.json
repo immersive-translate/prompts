@@ -66,9 +66,9 @@
     "finacial": {
       "id": "finacial",
       "version": "1.0.0",
-      "extensionVersion": "1.4.10",
-      "name": "金融专家",
-      "description": "专业金融领域翻译",
+      "extensionVersion": "1.4.12",
+      "name": "Financial Expert",
+      "description": "With carefully designed Prompts, the translation of financial articles becomes more accurate and professional.",
       "i18n": {
         "en": {
           "name": "Financial Expert",
@@ -76,7 +76,7 @@
         },
         "zh-CN": {
           "name": "金融专家",
-          "description": "专业金融领域翻译"
+          "description": "通过精心设计的 Prompt，使得财经类文章的翻译更加准确和专业。"
         },
         "zh-TW": {
           "name": "金融專家",

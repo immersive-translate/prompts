@@ -1,25 +1,20 @@
 id: finacial
 version: 1.0.0
-extensionVersion: 1.4.10
+extensionVersion: 1.4.12
 priority: 10
-name: 金融专家
-description: 专业金融领域翻译
-details: |-
-  **东北话** 下下
+name: Financial Expert
+description: With carefully designed Prompts, the translation of financial articles becomes more accurate and professional.
 baseHeat: 439
 i18n:
   en:
     name: Financial Expert
     description: Professional financial field translation
-    details: dbh
   zh-CN:
     name: 金融专家
-    description: 专业金融领域翻译
-    details: 东北话
+    description: 通过精心设计的 Prompt，使得财经类文章的翻译更加准确和专业。
   zh-TW:
     name: 金融專家
     description: 專業金融領域翻譯
-    details: 東北話
 author: 张三
 homepage: https://www.example.com
 env:
