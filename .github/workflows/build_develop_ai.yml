@@ -1,0 +1,24 @@
+name: Trigger develop-ai Site Build
+
+on:
+  # Trigger the workflow every time you push to the `main` branch
+  # Using a different branch name? Replace `main` with your branch’s name
+  push:
+    paths:
+      - "ai/**"
+      - "extension-utils/**"
+    branches: [feat/ai]
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl --location 'https://api.github.com/repos/immersive-translate/dash/dispatches' \
+          --header 'Content-Type: application/json' \
+          --header 'Authorization: Bearer ${{secrets.PERSONAL_GITHUB_TOKEN}}' \
+          --data '{
+            "event_type": "deploy-develop-ai"
+          }'
