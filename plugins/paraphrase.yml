@@ -52,7 +52,30 @@ env:
         step1: 直译结果
         step2: 意译结果
         {{imt_sub_source_field}}: ...
-systemPrompt: 你是一位精通简体中文的专业翻译，你负责将它翻译成中文，不要有任何解释。
+  normal_result_yaml_example_tranditional: |-
+    示例請求:
+      - id: 1
+        {{imt_source_field}}: Source
+    示例結果:
+      - id: 1
+        step1: 直譯結果
+        step2: 意譯結果
+  subtitle_result_yaml_example_tranditional: |-
+    範例請求:
+      - id: 1
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_source_field}}: ...
+    範例回應:
+      - id: 1
+        step1: 直譯結果
+        step2: 意譯結果
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        step1: 直譯結果
+        step2: 意譯結果
+        {{imt_sub_source_field}}: ...
+systemPrompt: 你是一位精通 {{to}} 的专业翻译，你负责将它翻译成中文，不要有任何解释。
 prompt: |-
   请根据以下要求完成翻译任务： 
   1. 将下面 YAML 对象里的 {{imt_source_field}} 字段直接翻译为 {{to}}，保留原文特定的术语或媒体名称（如有）。将本次翻译的结果放入 YAML 数组中的 step1 字段。 
@@ -88,3 +111,43 @@ subtitlePrompt: |-
   开始翻译：
 
   {{yaml}}
+
+langOverrides:
+  - id: auto2zh-TW
+    systemPrompt: 您是一位精通繁體中文的專業翻譯，您負責將它翻譯成中文，不要有任何解釋。
+    prompt: |-
+      請根據以下要求完成翻譯任務： 
+      1. 將下面 YAML 對象裡的 {{imt_source_field}} 字段直接翻譯為 {{to}}，保留原文特定的術語或媒體名稱（如有）。將本次翻譯的結果放入 YAML 陣列中的 step1 字段。 
+      2：根據第一次翻譯的結果進行意譯，力求信達雅，但還是要保留特定的術語或媒體名稱（如有），在遵守原意的前提下讓文本更通俗易懂，符合中文的表達習慣，將第二次翻譯的結果放入 YAML 陣列中的 step2 字段。 
+
+      示例格式：
+      {{normal_result_yaml_example_tranditional}}
+
+      開始翻譯：
+
+      {{yaml}}
+
+    multiplePrompt: |-
+      請根據以下要求完成翻譯任務： 
+      1. 將下面 YAML 對象裡的 {{imt_source_field}} 字段直接翻譯為 {{to}}，保留原文特定的術語或媒體名稱（如有）。將本次翻譯的結果放入 YAML 陣列中的 step1 字段。 
+      2：根據第一次翻譯的結果進行意譯，力求信達雅，但還是要保留特定的術語或媒體名稱（如有），在遵守原意的前提下讓文本更通俗易懂，符合中文的表達習慣，將第二次翻譯的結果放入 YAML 陣列中的 step2 字段。 
+
+      示例格式：
+      {{normal_result_yaml_example_tranditional}}
+
+      開始翻譯：
+
+      {{yaml}}
+
+    subtitlePrompt: |-
+      將下面 YAML 格式的影片字幕文本中所有的 {{imt_sub_source_field}} 字段中的文本翻譯為 {{to}}，並將翻譯結果寫在 {{imt_sub_trans_field}} 字段中，必須補全每一個 {{imt_sub_trans_field}} 字段，保留每一個 {{imt_sub_source_field}} 字段。要求如下：
+
+      1. 第一次先直接翻譯 {{imt_sub_source_field}} 字段的內容，將本次翻譯的結果放入 YAML 陣列中的 step1 字段。
+      2. 根據第一次翻譯的結果進行意譯，力求信達雅，但還是要保留特定的術語或媒體名稱（如有），在遵守原意的前提下讓文本更通俗易懂，符合中文的表達習慣，將第二次翻譯的結果放入 YAML 陣列中的 step2 字段。 
+
+      示例格式：
+      {{subtitle_result_yaml_example_tranditional}}
+
+      開始翻譯：
+
+      {{yaml}}
