@@ -21,7 +21,7 @@ i18n: 插件信息的多语言描述（包括 name、description、details），
   zh-CN: ...
   zh-TW: ...
 author: 作者名称
-homepage: 主页
+homepage (非必填): 主页
 
 // 提示词信息
 env: 一些环境变量，在后续的提示词中使用
