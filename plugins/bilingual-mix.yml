@@ -4,8 +4,7 @@ extensionVersion: 1.4.10
 priority: 10
 name: 中英夹杂
 description: 翻译中文到英文的时候，只将关键词翻译成英文，其他词保持中文，这样可以加深用户对重点词汇的记忆。
-avatar: https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp
-defaultAvatar: https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp
+avatar: 
 details: |-
   中英夹杂学英语！
 i18n:

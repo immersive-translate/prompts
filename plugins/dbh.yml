@@ -4,8 +4,7 @@ extensionVersion: 1.4.10
 priority: 10
 name: 东北话翻译
 description: 东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一，东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一
-avatar: https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp
-defaultAvatar: https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp
+avatar: 
 details: |-
   **东北话** 详情
 i18n:

@@ -25,8 +25,8 @@
       "id": "medical",
       "version": "1.0.0",
       "extensionVersion": "1.4.10",
-      "name": "医学专家",
-      "description": "专业医学领域翻译",
+      "name": "Medical Expert",
+      "description": "With meticulously crafted Prompts, translations in the medical field become more accurate and professional.",
       "i18n": {
         "en": {
           "name": "Medical Expert",
@@ -34,11 +34,11 @@
         },
         "zh-CN": {
           "name": "医学专家",
-          "description": "专业医学领域翻译"
+          "description": "通过精心设计的 Prompt，使得医学领域的翻译更加准确和专业。"
         },
         "zh-TW": {
           "name": "醫學專家",
-          "description": "專業醫學領域翻譯"
+          "description": "透過精心設計的 Prompt，使得醫學領域的翻譯更加準確和專業。"
         }
       }
     },
@@ -46,8 +46,8 @@
       "id": "legal",
       "version": "1.0.0",
       "extensionVersion": "1.4.10",
-      "name": "法律专家",
-      "description": "专业法律领域翻译",
+      "name": "Legal Expert",
+      "description": "With meticulously crafted Prompts, translations in the legal field become more accurate and professional.",
       "i18n": {
         "en": {
           "name": "Legal Expert",
@@ -55,16 +55,16 @@
         },
         "zh-CN": {
           "name": "法律专家",
-          "description": "专业法律领域翻译"
+          "description": "通过精心设计的 Prompt，使得法律领域的翻译更加准确和专业。"
         },
         "zh-TW": {
           "name": "法律專家",
-          "description": "專業法律領域翻譯"
+          "description": "透過精心設計的 Prompt，使得法律領域的翻譯更加準確和專業。"
         }
       }
     },
-    "finacial": {
-      "id": "finacial",
+    "financial": {
+      "id": "financial",
       "version": "1.0.0",
       "extensionVersion": "1.4.12",
       "name": "Financial Expert",
@@ -80,7 +80,7 @@
         },
         "zh-TW": {
           "name": "金融專家",
-          "description": "專業金融領域翻譯"
+          "description": "透過精心設計的 Prompt，使得財經類文章的翻譯更加準確和專業。"
         }
       }
     },
@@ -90,8 +90,7 @@
       "extensionVersion": "1.4.10",
       "name": "东北话翻译",
       "description": "东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一，东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一",
-      "avatar": "https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp",
-      "defaultAvatar": "https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp",
+      "avatar": null,
       "i18n": {
         "en": {
           "name": "Northeastern Dialect Translation",
@@ -113,8 +112,7 @@
       "extensionVersion": "1.4.10",
       "name": "中英夹杂",
       "description": "翻译中文到英文的时候，只将关键词翻译成英文，其他词保持中文，这样可以加深用户对重点词汇的记忆。",
-      "avatar": "https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp",
-      "defaultAvatar": "https://pic2.zhimg.com/80/v2-31c00bf93a3f6498e50098bffae21a2d_720w.webp",
+      "avatar": null,
       "i18n": {
         "en": {
           "name": "Northeastern Dialect Translation",
