@@ -1,112 +1,21 @@
 id: dbh
 version: 1.0.0
 extensionVersion: 1.4.10
-priority: 10
-name: 东北话翻译
-description: 东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一，东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一
-avatar: 
+name: Northeastern Expert
+description: Northeastern Dialect is a unique and interesting dialect in China. This expert is designed to help you translate text into Northeastern Dialect.
+avatar: https://s.immersivetranslate.com/assets/uploads/223-OX4jT4.png
 details: |-
-  **东北话** 详情
+      哎呀，兄弟们，我这不是闲着呢嘛，就琢磨着整出点新意思来。我这弄了个玩意儿，专门用来把啥话都能翻成咱东北话的。这不，给它起了个名儿叫“东北话翻译引擎”。用这玩意儿，不管你是讲啥外国话，还是咱国内的其他方言，统统能给你转化成地道的东北话。比如你说“Hello”，我这引擎一弄，就给你来个“哎，你咋地”。是不是挺溜的？用这引擎，咱们不仅能让更多的人了解东北话的魅力，还能让咱东北话走向世界，让更多的人感受到咱东北人的热情和豪爽。
 i18n:
-  en:
-    name: Northeastern Dialect Translation
-    description: Northeastern Dialect Translation is a kind of accent of Northeastern people, it is a dialect in the Northeast region of China, and it is one of the largest dialects in China. Northeastern Dialect Translation is a kind of accent of Northeastern people, it is a dialect in the Northeast region of China, and it is one of the largest dialects in China.
-    details: dbh
   zh-CN:
-    name: 东北话翻译
-    description: 东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一，东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一
-    details: 东北话
+    name: 东北话专家
+    description: 哎呀，这天儿冷得慌，咱们得赶紧回家烤火去。
+    details: |-
+      哎呀，兄弟们，我这不是闲着呢嘛，就琢磨着整出点新意思来。我这弄了个玩意儿，专门用来把啥话都能翻成咱东北话的。这不，给它起了个名儿叫“东北话翻译引擎”。用这玩意儿，不管你是讲啥外国话，还是咱国内的其他方言，统统能给你转化成地道的东北话。比如你说“Hello”，我这引擎一弄，就给你来个“哎，你咋地”。是不是挺溜的？用这引擎，咱们不仅能让更多的人了解东北话的魅力，还能让咱东北话走向世界，让更多的人感受到咱东北人的热情和豪爽。
   zh-TW:
     name: 東北話翻譯
-    description: 東北話翻譯是一種東北人的口音，是中國東北地區的方言，是中國最大的方言之一，東北話翻譯是一種東北人的口音，是中國東北地區的方言，是中國最大的方言之一
-    details: 東北話
-baseHeat: 523
-author: 张三
-homepage: https://www.example.com
-props:
-  - name: key
-    label: Key
-    type: number
-    required: true
-matches:
-  - "*"
-excludeMatches:
-  - baidu.com
-languageMatches:
-  - auto2zh-CN
-programMatches:
-  - web
-env:
-  imt_trans_field: translation
-  imt_json_item: |
-    {
-       "id":{{id}},
-       "text":"{{text}}",
-       "translation":""
-    }
-  example_web_json: |-
-    [
-       {
-          "id":1,
-          "translation":"译文"
-       },
-       {
-          "id":2,
-          "translation":"译文"
-       }
-    ]
-  example_sub_json: |-
-    [
-      {
-        "id": 1,
-        "source": "source",
-        "translation": "译文"
-      },
-      {
-        "id": 2,
-        "source": "source",
-        "translation": "译文"
-      }
-    ]
-systemPrompt: 你是一个东北人翻译，请用东北人的口吻进行翻译，尽可能贴近生活,只返回译文，不含任何解释
-prompt: |-
-  完成将下面的JSON翻译为 {{to}} 的任务，要求如下：
-
-  1. 考虑上下文
-  2. 必须补全每一个 {{imt_trans_field}}
-  字段。
-  3. 请返回标准的 JSON ：{{example_web_json}}
-
-  开始翻译:
-
-  {{json}}
-
-singlePrompt: |-
-  请翻译为简体中文（避免解释原文）:
-
-   {{text}}
-
-subtitlePrompt: |-
-  完成将视频字幕文件翻译为 {{to}} 的任务，要求如下：
-
-  1. 这是视频的字幕文件，所以请务必考虑这些句子的上下文，如果上下 2 句才能组成完整的一句话，那么为了完整性，上下两句 {{imt_trans_field}} 都使用完整的译文。
-  2. 必须补全每一个 {{imt_trans_field}} 字段。
-  3. 请返回标准的 JSON ：
-
-
-  示例结果：
-
-  {{example_sub_json}}
-
-  开始翻译：
-
-  {{text}}
-languageOverride:
-  zh2en:
-    systemPrompt: ""
-    prompt: ""
-    singlePrompt: ""
-  auto2en:
-    prompt: ""
-    systemPrompt: ""
-    singlePrompt: ""
+    description: 哎呀，這天兒冷得慌，咱們得趕緊回家烤火去。
+    details: |-
+      哎呀，兄弟們，我這不是閒著呢嘛，就琢磨著整出點新意思來。我這弄了個玩意兒，專門用來把啥話都能翻成咱東北話的。這不，給它起了個名兒叫“東北話翻譯引擎”。用這玩意兒，不管你是講啥外國話，還是咱國內的其他方言，統統能給你轉化成地道的東北話。比如你說“Hello”，我這引擎一弄，就給你來個“哎，你咋地”。是不是挺溜的？用這引擎，咱們不僅能讓更多的人了解東北話的魅力，還能讓咱東北話走向世界，讓更多的人感受到咱東北人的熱情和豪爽。
+author: Official
+homepage: https://immersivetranslate.com/

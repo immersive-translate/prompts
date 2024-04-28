@@ -4,20 +4,17 @@
       "id": "tech",
       "version": "1.0.1",
       "extensionVersion": "1.4.10",
-      "name": "科技类翻译专家",
-      "description": "专业科技领域翻译",
+      "name": "Technology Expert",
+      "description": "With meticulously crafted Prompts, translations in the technology field become more accurate and professional.",
+      "avatar": "https://s.immersivetranslate.com/assets/uploads/333-aKkdu7.png",
       "i18n": {
-        "en": {
-          "name": "Technology translation expert",
-          "description": "Expert in translating technology-related content"
-        },
         "zh-CN": {
           "name": "科技类翻译专家",
-          "description": "专业科技领域翻译"
+          "description": "专为科技领域设计，提供更准确、专业的科技领域翻译"
         },
         "zh-TW": {
           "name": "科技類翻譯專家",
-          "description": "專業科技領域翻譯"
+          "description": "專為科技領域設計，提供更準確、專業的科技領域翻譯"
         }
       }
     },
@@ -27,18 +24,15 @@
       "extensionVersion": "1.4.10",
       "name": "Medical Expert",
       "description": "With meticulously crafted Prompts, translations in the medical field become more accurate and professional.",
+      "avatar": "https://s.immersivetranslate.com/assets/uploads/medi-dgFkFG.png",
       "i18n": {
-        "en": {
-          "name": "Medical Expert",
-          "description": "Professional medical field translation"
-        },
         "zh-CN": {
           "name": "医学专家",
-          "description": "通过精心设计的 Prompt，使得医学领域的翻译更加准确和专业。"
+          "description": "适合用来翻译医学相关的网站、论文、报告等内容"
         },
         "zh-TW": {
           "name": "醫學專家",
-          "description": "透過精心設計的 Prompt，使得醫學領域的翻譯更加準確和專業。"
+          "description": "適合用來翻譯醫學相關的網站、論文、報告等內容"
         }
       }
     },
@@ -48,18 +42,15 @@
       "extensionVersion": "1.4.10",
       "name": "Legal Expert",
       "description": "With meticulously crafted Prompts, translations in the legal field become more accurate and professional.",
+      "avatar": "https://s.immersivetranslate.com/assets/uploads/law-ExOJqH.png",
       "i18n": {
-        "en": {
-          "name": "Legal Expert",
-          "description": "Professional legal field translation"
-        },
         "zh-CN": {
           "name": "法律专家",
-          "description": "通过精心设计的 Prompt，使得法律领域的翻译更加准确和专业。"
+          "description": "专为法律行业优化，适合用来翻译法律相关的网站、论文、报告等内容"
         },
         "zh-TW": {
           "name": "法律專家",
-          "description": "透過精心設計的 Prompt，使得法律領域的翻譯更加準確和專業。"
+          "description": "專為法律行業優化，適合用來翻譯法律相關的網站、論文、報告等內容"
         }
       }
     },
@@ -69,18 +60,15 @@
       "extensionVersion": "1.4.12",
       "name": "Financial Expert",
       "description": "With carefully designed Prompts, the translation of financial articles becomes more accurate and professional.",
+      "avatar": "https://s.immersivetranslate.com/assets/uploads/fina-AXX5s8.png",
       "i18n": {
-        "en": {
-          "name": "Financial Expert",
-          "description": "Professional financial field translation"
-        },
         "zh-CN": {
           "name": "金融专家",
-          "description": "通过精心设计的 Prompt，使得财经类文章的翻译更加准确和专业。"
+          "description": "特别为金融领域优化，适合用来翻译财经，金融类文章。"
         },
         "zh-TW": {
           "name": "金融專家",
-          "description": "透過精心設計的 Prompt，使得財經類文章的翻譯更加準確和專業。"
+          "description": "特別為金融領域優化，適合用來翻譯財經，金融類文章。"
         }
       }
     },
@@ -88,21 +76,17 @@
       "id": "dbh",
       "version": "1.0.0",
       "extensionVersion": "1.4.10",
-      "name": "东北话翻译",
-      "description": "东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一，东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一",
-      "avatar": null,
+      "name": "Northeastern Expert",
+      "description": "Northeastern Dialect is a unique and interesting dialect in China. This expert is designed to help you translate text into Northeastern Dialect.",
+      "avatar": "https://s.immersivetranslate.com/assets/uploads/223-OX4jT4.png",
       "i18n": {
-        "en": {
-          "name": "Northeastern Dialect Translation",
-          "description": "Northeastern Dialect Translation is a kind of accent of Northeastern people, it is a dialect in the Northeast region of China, and it is one of the largest dialects in China. Northeastern Dialect Translation is a kind of accent of Northeastern people, it is a dialect in the Northeast region of China, and it is one of the largest dialects in China."
-        },
         "zh-CN": {
-          "name": "东北话翻译",
-          "description": "东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一，东北话翻译是一种东北人的口音，是中国东北地区的方言，是中国最大的方言之一"
+          "name": "东北话专家",
+          "description": "哎呀，这天儿冷得慌，咱们得赶紧回家烤火去。"
         },
         "zh-TW": {
           "name": "東北話翻譯",
-          "description": "東北話翻譯是一種東北人的口音，是中國東北地區的方言，是中國最大的方言之一，東北話翻譯是一種東北人的口音，是中國東北地區的方言，是中國最大的方言之一"
+          "description": "哎呀，這天兒冷得慌，咱們得趕緊回家烤火去。"
         }
       }
     },
@@ -110,17 +94,17 @@
       "id": "bilingual-mix",
       "version": "1.0.0",
       "extensionVersion": "1.4.10",
-      "name": "中英夹杂",
-      "description": "翻译中文到英文的时候，只将关键词翻译成英文，其他词保持中文，这样可以加深用户对重点词汇的记忆。",
-      "avatar": null,
+      "name": "Chinglish mixing",
+      "description": "When translating from Chinese to English, only key words are translated into English while other words are kept in Chinese. This can help deepen the user's memory of important vocabulary.",
+      "avatar": "https://s.immersivetranslate.com/assets/uploads/chinese-english.png",
       "i18n": {
-        "en": {
-          "name": "Northeastern Dialect Translation",
-          "description": "Northeastern Dialect Translation is a kind of accent of Northeastern people, it is a dialect in the Northeast region of China, and it is one of the largest dialects in China. Northeastern Dialect Translation is a kind of accent of Northeastern people, it is a dialect in the Northeast region of China, and it is one of the largest dialects in China."
+        "zh-CN": {
+          "name": "中英夹杂",
+          "description": "不好意思，我明天的 schedule 满了，让我 book 后天的时间好吗？"
         },
         "zh-TW": {
-          "name": "東北話翻譯",
-          "description": "東北話翻譯是一種東北人的口音，是中國東北地區的方言，是中國最大的方言之一，東北話翻譯是一種東北人的口音，是中國東北地區的方言，是中國最大的方言之一"
+          "name": "中英夾雜",
+          "description": "不好意思，我明天的 schedule 滿了，讓我 book 後天的時間好嗎？"
         }
       }
     }
