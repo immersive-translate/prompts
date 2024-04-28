@@ -1,6 +1,7 @@
 id: paraphrase
 version: 1.0.1
 extensionVersion: 1.4.10
+priority: 10
 name: Paraphrase Expert
 description: Designed for nuanced, interpretive translations, this expert ensures that translations go beyond the literal to capture the essence and tone of the original text.
 avatar: https://s.immersivetranslate.com/assets/uploads/fluent-7JVve6.png

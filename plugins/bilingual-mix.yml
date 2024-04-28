@@ -1,7 +1,7 @@
 id: bilingual-mix
 version: 1.0.0
 extensionVersion: 1.4.10
-priority: 10
+priority: 30
 name: Chinglish mixing
 description: When translating from Chinese to English, only key words are translated into English while other words are kept in Chinese. This can help deepen the user's memory of important vocabulary.
 avatar: https://s.immersivetranslate.com/assets/uploads/chinese-english.png
