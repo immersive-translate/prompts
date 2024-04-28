@@ -1,0 +1,57 @@
+id: ebook
+version: 1.0.1
+extensionVersion: 1.4.10
+name: eBook Translation Expert
+description: Specialized in eBook translations, ensuring accurate and contextually relevant digital book translations across genres.
+avatar: https://s.immersivetranslate.com/assets/uploads/ebook-CXptDe.png
+details: |-
+  Designed specifically for translating eBooks, this expert utilizes advanced linguistic techniques to deliver translations that are not only accurate but also maintain the original tone, style, and formatting of eBooks. Whether it's fiction, non-fiction, educational material, or technical guides, this tool ensures your eBooks are perfectly translated for your target audience, enhancing readability and engagement.
+i18n: 
+  zh-CN:
+    name: 电子书翻译专家
+    description: 专门从事电子书翻译，确保跨类型的电子书翻译准确且符合语境。
+    details: |-
+      该专家专为翻译电子书而设计，采用先进的语言技术，不仅确保翻译的准确性，还保持电子书的原始语气、风格和格式。无论是小说、非小说、教育材料还是技术指南，该工具都能确保您的电子书完美地翻译给目标受众，提升可读性和参与度。
+  zh-TW:
+    name: 電子書翻譯專家
+    description: 專門從事電子書翻譯，確保跨類型的電子書翻譯準確且符合語境。
+    details: |-
+      該專家專為翻譯電子書而設計，採用先進的語言技術，不僅確保翻譯的準確性，還保持電子書的原始語氣、風格和格式。無論是小說、非小說、教育材料還是技術指南，該工具都能確保您的電子書完美地翻譯給目標受眾，提升可讀性和參與度。
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        text: Source
+    Example result:
+      - id: 1
+        text: Translation
+subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        source: ...
+      - id: 2
+        source: ...
+    Example response:
+      - id: 1
+        translation: ...
+        source: ...
+      - id: 2
+        translation: ...
+        source: ...
+systemPrompt: "You are a highly skilled translation engine with expertise in eBook translation. Your function is to translate eBook texts accurately into the target language specified, maintaining the original tone, style, and formatting. Focus on delivering translations that resonate with the intended audience while ensuring the essence of the original text is preserved."
+prompt: |-
+  "Please translate the following eBook content into {{to}}. Retain the original tone, style, and formatting. Ensure the translation resonates with the intended audience and maintains the essence of the original text:"
+multiplePrompt: |-
+  "Translate all instances of eBook content in the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure you maintain the original tone, style, and formatting. The translation should resonate with the intended audience and preserve the essence of the original text:"
+subtitlePrompt: |-
+  "Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted eBook subtitles below into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}. Ensure you maintain the original tone, style, and formatting, and that the translation resonates with the intended audience while preserving the essence of the original text:"

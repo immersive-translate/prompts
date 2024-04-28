@@ -61,7 +61,7 @@ multiplePrompt: |-
   Example format:
   {{normal_result_yaml_example}}
 
-  Start translation:
+  Start:
 
   {{yaml}}
 
@@ -71,6 +71,6 @@ subtitlePrompt: |-
   Example format:
   {{subtitle_result_yaml_example}}
 
-  Begin translation:
+  Begin:
 
   {{yaml}}

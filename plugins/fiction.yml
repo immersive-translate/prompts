@@ -1,0 +1,76 @@
+id: fiction
+version: 1.0.1
+extensionVersion: 1.4.10
+name: Fiction Translation Expert
+description: Designed to enrich the narrative and emotional depth of fiction translations, ensuring each word captures the original's essence.
+avatar: https://s.immersivetranslate.com/assets/uploads/fiction-wZoRao.png
+details: |-
+  This expert excels in translating fiction literature, providing nuanced and faithful renditions of novels, short stories, and other narrative forms. Use it to translate fiction into the target language with enhanced emotional resonance and cultural relevance.
+i18n: 
+  zh-CN:
+    name: 小说翻译专家
+    description: 专注于提升小说类翻译的叙事和情感深度，确保每个词都能捕捉到原文的精髓。
+    details: |-
+      该专家在翻译小说文学方面表现卓越，提供小说、短篇故事等叙事形式的细腻且忠实的呈现。使用它可以将小说翻译成目标语言，增强情感共鸣和文化相关性。
+  zh-TW:
+    name: 小說翻譯專家
+    description: 專注於提升小說類翻譯的敘事和情感深度，確保每個詞都能捕捉到原文的精髓。
+    details: |-
+      該專家在翻譯小說文學方面表現卓越，提供小說、短篇故事等敘事形式的細膩且忠實的呈現。使用它可以將小說翻譯成目標語言，增強情感共鳴和文化相關性。
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_source_field}}: ...
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+systemPrompt: You are a highly skilled translation engine with expertise in fiction literature. Your function is to translate texts into the target language specified, capturing the narrative depth and emotional nuances of the original work. Maintain the original storytelling elements and cultural references without adding any explanations or annotations.
+
+prompt: |-
+  Please translate the following text into {{to}}, ensuring you capture the narrative depth and emotional nuances. Retain the original storytelling elements and cultural references:
+
+  {{text}}
+
+multiplePrompt: |-
+  Translate all instances of text in the fiction literature within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure you capture the narrative depth and emotional nuances, maintaining the original storytelling elements and cultural references. Do not include explanations or annotations.
+
+  Example format:
+  {{normal_result_yaml_example}}
+
+  Start translation:
+
+  {{yaml}}
+
+subtitlePrompt: |-
+  Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted video subtitles below into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}. Ensure you maintain the original formatting, accurately translate the narrative depth and emotional nuances, and do not add explanations or annotations. The output must be in a valid YAML format that retains both the source and translated fields.
+
+  Example format:
+  {{subtitle_result_yaml_example}}
+
+  Begin translation:
+
+  {{yaml}}
