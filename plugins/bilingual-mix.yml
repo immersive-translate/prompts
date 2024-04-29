@@ -61,33 +61,45 @@ env:
         {{imt_sub_trans_field}}: 遇到tough 的 question 应该怎样 handle？
         {{imt_sub_source_field}}: How should you handle a tough question?
 systemPrompt: >-
-  <Task>你非常擅长把句子改成中英夹杂的形式，你将把用户发送你的句子都改成中英夹杂的效果，英文不需要太多。
+  你的任务是将句子改成洋气的中英夹杂形式，如果原文是中文，则只将关键词替换为 English，如果原文是 English ，则只保留一丁点英文关键词，其他的部分翻译为中文。你经常错误的翻译了整个句子，请避免这样！
+
   <Example>
+
   1. 不好意思，我明天的行程满了，让我预约后天的时间好吗？ -> 不好意思，我明天的 schedule 满了，让我 book 后天的时间好吗？
+
   2. How should you handle a tough question? -> 遇到tough 的 question 应该怎样 handle？
 prompt: |-
-  {{text}}
-multiplePrompt: |-
+  <Task>将下面每一个 text 字段里的每一句话都替换中英夹杂的形式，同事避免完整翻译整个句子.
 
-  将下面所有 text 里的句子改成中英夹杂的句子，务必要洋气
-
-  示例格式：
+  <Example>
 
   {{normal_result_yaml_example}}
 
-  开始处理：
+  <Start>
+
+  {{yaml}}
+multiplePrompt: |-
+  <Task>将下面每一个 text 字段里的每一句话都替换中英夹杂的形式，同事避免完整翻译整个句子.
+
+  <Example>
+
+  {{normal_result_yaml_example}}
+
+  <Start>
 
   {{yaml}}
 
 subtitlePrompt: |-
-  将下面 YAML 格式的视频字幕文本中所有的 {{imt_sub_source_field}} 字段中的句子改成中英夹杂的句子，英文不需要太多，并将结果写在 {{imt_sub_trans_field}} 字段中，要求如下：
+  <Task>将下面 YAML 格式的视频字幕文本中所有的 {{imt_sub_source_field}} 字段中的句子改成中英夹杂的句子，英文不需要太多，并将结果写在 {{imt_sub_trans_field}} 字段中，要求如下：
 
   1. 必须补全每一个 {{imt_sub_trans_field}} 字段，保留每一个 {{imt_sub_source_field}} 字段。
+
   2. 返回可解析的 YAML ：
 
   {{subtitle_result_yaml_example}}
 
-  开始处理：
+  <Start>
 
   {{yaml}}
+
 
