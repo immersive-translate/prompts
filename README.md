@@ -6,7 +6,7 @@
 
 请参照如下内容，提交一个包含完整的 yml 文件：
 
-**PS**：关于插件的基础信息我们希望您使用英文进行描述，并在 i18n 配置中添加中文简体和中文繁体相关内容。
+**PS**：关于插件的基础信息我们希望您使用英文进行描述，并在 i18n 配置中至少添加简体中文和繁体中文的对应内容。
 
 ```yaml
 // 插件的基础信息
@@ -16,7 +16,7 @@ name: Financial Expert // 名称。这也是唯一的
 description: The translation of financial articles becomes more professional. // 描述信息
 avatar: https://s.immersivetranslate.com/assets/uploads/fina-AXX5s8.png // 头像，一个可用的图片 URL 地址
 details: This expert is designed for professional financial field translation. You can use it to accurately translate financial articles into the target language specified. // AI 专家的详细信息，支持 markdown 和 html 格式
-i18n: // 插件信息的多语言描述（包括 name、description、details），建议至少支持 zh-CN、zh-TW
+i18n: // 插件信息的多语言描述（包括 name、description、details），至少支持 zh-CN、zh-TW
   zh-CN:
     name: 金融专家
     description: 特别为金融领域优化，适合用来翻译财经，金融类文章。
@@ -142,3 +142,4 @@ subtitlePrompt: |-
 ## 结语
 
 我们期待着您的贡献，感谢您为 AI 专家生态系统的发展做出的贡献！
+
