@@ -8,12 +8,12 @@ details: |-
   This expert is designed for professional financial field translation. You can use it to accurately translate financial articles into the target language specified.
 i18n:
   zh-CN:
-    name: 金融专家
+    name: 金融翻译顾问
     description: 特别为金融领域优化，适合用来翻译财经，金融类文章。
     details: |-
       该专家专为专业金融领域翻译而设计，你可以使用它将金融类文章准确翻译为指定的目标语言。
   zh-TW:
-    name: 金融專家
+    name: 金融翻譯顧問
     description: 特別為金融領域優化，適合用來翻譯財經，金融類文章。
     details: |-
       該專家專為專業金融領域翻譯而設計，你可以使用它將金融類文章準確翻譯為指定的目標語言。

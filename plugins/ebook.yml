@@ -8,12 +8,12 @@ details: |-
   Designed specifically for translating eBooks, this expert utilizes advanced linguistic techniques to deliver translations that are not only accurate but also maintain the original tone, style, and formatting of eBooks. Whether it's fiction, non-fiction, educational material, or technical guides, this tool ensures your eBooks are perfectly translated for your target audience, enhancing readability and engagement.
 i18n: 
   zh-CN:
-    name: 电子书翻译专家
+    name: 电子书译者
     description: 专门从事电子书翻译，确保跨类型的电子书翻译准确且符合语境。
     details: |-
       该专家专为翻译电子书而设计，采用先进的语言技术，不仅确保翻译的准确性，还保持电子书的原始语气、风格和格式。无论是小说、非小说、教育材料还是技术指南，该工具都能确保您的电子书完美地翻译给目标受众，提升可读性和参与度。
   zh-TW:
-    name: 電子書翻譯專家
+    name: 電子書譯者
     description: 專門從事電子書翻譯，確保跨類型的電子書翻譯準確且符合語境。
     details: |-
       該專家專為翻譯電子書而設計，採用先進的語言技術，不僅確保翻譯的準確性，還保持電子書的原始語氣、風格和格式。無論是小說、非小說、教育材料還是技術指南，該工具都能確保您的電子書完美地翻譯給目標受眾，提升可讀性和參與度。

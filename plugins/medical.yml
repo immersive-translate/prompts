@@ -8,12 +8,12 @@ details: |-
   This expert is designed for professional medical field translation. You can use it to translate medical texts accurately into the target language specified, maintaining the original format, medical terms, and abbreviations.
 i18n:
   zh-CN:
-    name: 医学专家
+    name: 医学翻译大师
     description: 适合用来翻译医学相关的网站、论文、报告等内容
     details: |-
       通过精心设计的 Prompt，使得医学领域的翻译更加准确和专业，你可以在医学类网站中使用该专家。
   zh-TW:
-    name: 醫學專家
+    name: 醫學翻譯專家
     description: 適合用來翻譯醫學相關的網站、論文、報告等內容
     details: |-
       透過精心設計的 Prompt，使得醫學領域的翻譯更加準確和專業，你可以在醫學類網站中使用該專家。

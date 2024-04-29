@@ -3,17 +3,17 @@ version: 1.0.1
 extensionVersion: 1.4.10
 name: Academic Paper Translation Expert
 description: Tailored for precise and scholarly translation of academic papers, ensuring fidelity to original academic tones and terminologies.
-avatar: https://s.immersivetranslate.com/assets/uploads/academic-XYZpap.png
+avatar: https://s.immersivetranslate.com/assets/uploads/acedemic-UewrD4.png
 details: |-
   This expert is specifically designed for the translation of academic papers, facilitating the accurate conveyance of complex ideas and specialized terminology into the target language. Ideal for journals, research papers, and scholarly articles across various disciplines.
 i18n: 
   zh-CN:
-    name: 学术论文翻译专家
+    name: 学术论文翻译师
     description: 专为学术论文翻译而设计，确保对原文学术语调和术语的忠实传达
     details: |-
       该专家特别设计用于学术论文的翻译，帮助准确传达复杂概念和专业术语到目标语言。适用于各个学科的期刊、研究报告和学术文章。
   zh-TW:
-    name: 學術論文翻譯專家
+    name: 學術論文翻譯師
     description: 專為學術論文翻譯而設計，確保對原文學術語調和術語的忠實傳達
     details: |-
       該專家特別設計用於學術論文的翻譯，幫助準確傳達複雜概念和專業術語到目標語言。適用於各個學科的期刊、研究報告和學術文章。

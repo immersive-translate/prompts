@@ -6,12 +6,12 @@ description: With meticulously crafted Prompts, translations in the legal field 
 avatar: https://s.immersivetranslate.com/assets/uploads/law-ExOJqH.png
 i18n:
   zh-CN:
-    name: 法律专家
+    name: 法律行业译者
     description: 专为法律行业优化，适合用来翻译法律相关的网站、论文、报告等内容
     details: |-
       该专家专为专业法律领域翻译而设计，你可以使用它将法律类文章准确翻译为指定的目标语言。
   zh-TW:
-    name: 法律專家
+    name: 法律行業譯者
     description: 專為法律行業優化，適合用來翻譯法律相關的網站、論文、報告等內容
     details: |-
       該專家專為專業法律領域翻譯而設計，你可以使用它將法律類文章準確翻譯為指定的目標語言。

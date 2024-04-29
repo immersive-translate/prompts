@@ -1,12 +1,22 @@
-# AI 专家插件提交指南
+# 沉浸式翻译 AI 专家插件提交指南
 
-欢迎为我们的仓库贡献 AI 专家相关的插件内容。为了确保您的贡献能够顺利被采纳，请参照我们已有的 AI 专家文件，并按照以下指南准备和提交您的贡献。
+欢迎为[沉浸式翻译](https://immersivetranslate.com/)贡献更多 [AI 翻译专家](https://ai.immersivetranslate.com/)。
+
+如果您还不具备编写 Prompts 文件的能力，您可以[在此](https://github.com/immersive-translate/prompts/issues) 发起一个 Issue 讨论，描述您想要的 AI 专家。
+
+如果您可以编写 Prompts，您可以直接发起一个 Pull Request 来提交或者改进其中某个 AI 专家。
+
+为了确保您的贡献能够顺利被采纳，请参照我们已有的 AI 专家文件`plugins/`文件夹下。
+
+
+## 本地调试
+
+目前沉浸式翻译的  AI 专家功能属于 Beta 测试功能，您可以通过通过在沉浸式翻译设置页面的【开发者设置】中打开【Beta】开关来启用 AI 专家，启用后，您可以在【开发者设置】中直接编辑【Custom AI Assistant】，在里面编辑 yaml 格式即可，具体格式请参考下文。
 
 ## 提交内容要求
 
-请参照如下内容，提交一个包含完整的 yml 文件：
 
-**PS**：关于插件的基础信息我们希望您使用英文进行描述，并在 i18n 配置中至少添加简体中文和繁体中文的对应内容。
+> 关于插件的基础信息我们希望您使用英文进行描述，并在 i18n 配置中至少添加简体中文和繁体中文的对应内容。
 
 ```yaml
 // 插件的基础信息
@@ -31,19 +41,38 @@ homepage: https://immersivetranslate.com/ // AI 专家主页，非必填
 // 提示词信息
 env: 在提示词中使用的占位符，如源文本字段、翻译文本字段、源字幕字段和翻译字幕字段等。这些变量的值将在提示词中被具体文本替换
 systemPrompt: 系统级别的提示，描述了 AI 专家的角色和功能
-prompt: 关于单句翻译的提示词
-multiplePrompt: 关于多句翻译的提示词
-subtitlePrompt: 关于字幕翻译的提示词
+prompt: 单句翻译的提示词
+multiplePrompt: 多段翻译的提示词，为了保存更多的上下文，沉浸式翻译默认每次请求会包含 3 段文本，请求会按照这个格式提供。
+subtitlePrompt: 字幕翻译的提示词(字幕经常会有多句断句的问题，所以我们单独为字幕设置了提示词)
 ```
 
 提示词相关信息可参考如下内容，这是一个关于金融领域翻译专家相关的提示词：
 
 ```yaml
+id: paraphrase
+version: 1.0.1
+extensionVersion: 1.4.10
+name: Paraphrase Expert
+description: Designed for nuanced, interpretive translations, this expert ensures that translations go beyond the literal to capture the essence and tone of the original text.
+avatar: https://s.immersivetranslate.com/assets/uploads/fluent-7JVve6.png
+details: |-
+  This expert specializes in interpretive translations, aiming to capture not just the words but the meaning and tone behind them. It's perfect for literature, idiomatic expressions, and any text where context matters as much as content. Use this expert to convey the essence of the original text in the target language, ensuring that cultural nuances and implied meanings are not lost in translation.
+i18n: 
+  zh-CN:
+    name: 意译大师
+    description: 专门设计用于富有细腻差异和意译的翻译，经过先直译，再意译的步骤，确保翻译超越字面，捕捉原文的精髓和语调。
+    details: |-
+      该专家专注于意译翻译，旨在捕捉不仅仅是文字，而是背后的意义和语调。它非常适合文学、成语表达以及任何上下文和内容同等重要的文本。使用此专家可以确保在目标语言中传达原文的精髓，确保文化细微差别和隐含意义不会在翻译中丢失。
+  zh-TW:
+    name: 意譯專家
+    description: 專門設計用於豐富細膩差異和意譯的翻譯，經過先直譯，再意譯的步驟，確保翻譯超越字面，捕捉原文的精髓和語調。
+    details: |-
+      該專家專注於意譯翻譯，旨在捕捉不僅僅是文字，而是背後的意義和語調。它非常適合文學、成語表達以及任何上下文和內容同等重要的文本。使用此專家可以確保在目標語言中傳達原文的精髓，確保文化細膩差別和隱含意義不會在翻譯中丟失。
 env:
-  imt_source_field: text
-  imt_trans_field: text
+  imt_source_field: source
+  imt_trans_field: step2
   imt_sub_source_field: source
-  imt_sub_trans_field: translation
+  imt_sub_trans_field: step2
   imt_yaml_item: |-
     - id: {{id}}
       {{imt_source_field}}: {{text}}
@@ -51,12 +80,13 @@ env:
     - id: {{id}}
       {{imt_sub_source_field}}: {{text}}
   normal_result_yaml_example: |-
-    Example request:
+    示例请求:
       - id: 1
         {{imt_source_field}}: Source
-    Example result:
+    示例结果:
       - id: 1
-        {{imt_trans_field}}: Translation
+        step1: 直译结果
+        step2: 意译结果
   subtitle_result_yaml_example: |-
     Example request:
       - id: 1
@@ -65,38 +95,112 @@ env:
         {{imt_sub_source_field}}: ...
     Example response:
       - id: 1
-        {{imt_sub_trans_field}}: ...
+        step1: 直译结果
+        step2: 意译结果
         {{imt_sub_source_field}}: ...
       - id: 2
-        {{imt_sub_trans_field}}: ...
+        step1: 直译结果
+        step2: 意译结果
         {{imt_sub_source_field}}: ...
-
-systemPrompt: You are a highly skilled translation engine with expertise in the financial sector. Your function is to translate texts accurately into the target language specified, maintaining the original format, financial terms, market data, and currency abbreviations. Do not add any explanations or annotations to the translated text.
-
+  normal_result_yaml_example_tranditional: |-
+    示例請求:
+      - id: 1
+        {{imt_source_field}}: Source
+    示例結果:
+      - id: 1
+        step1: 直譯結果
+        step2: 意譯結果
+  subtitle_result_yaml_example_tranditional: |-
+    範例請求:
+      - id: 1
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_source_field}}: ...
+    範例回應:
+      - id: 1
+        step1: 直譯結果
+        step2: 意譯結果
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        step1: 直譯結果
+        step2: 意譯結果
+        {{imt_sub_source_field}}: ...
+systemPrompt: 你是一位精通 {{to}} 的专业翻译，你负责将它翻译成中文，不要有任何解释。
 prompt: |-
-  Please translate the following text into {{to}}. Retain the original paragraph formatting, financial terms (e.g., ETFs, ROI), currency symbols (e.g., $, €), and market data. Ensure all numerical values are accurately represented. Do not add explanations or annotations:
+  请根据以下要求完成翻译任务： 
+  1. 将下面 YAML 对象里的 {{imt_source_field}} 字段直接翻译为 {{to}}，保留原文特定的术语或媒体名称（如有）。将本次翻译的结果放入 YAML 数组中的 step1 字段。 
+  2：根据第一次翻译的结果进行意译，力求信达雅，但还是要保留特定的术语或媒体名改成（如有），在遵守原意的前提下让文本更通俗易懂，符合中文的表达习惯，将第二次翻译的结果放入 YAML 数组中的 step2 字段。 
 
-  {{text}}
-
-multiplePrompt: |-
-  Translate all instances of text in the financial sector within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure financial terms, currency symbols, and market data are accurately translated and retain their original formatting. Do not include explanations or annotations.
-
-  Example format:
+  示例格式：
   {{normal_result_yaml_example}}
 
-  Start translation:
+  开始翻译：
+
+  {{yaml}}
+
+multiplePrompt: |-
+  请根据以下要求完成翻译任务： 
+  1. 将下面 YAML 对象里的 {{imt_source_field}} 字段直接翻译为 {{to}}，保留原文特定的术语或媒体名称（如有）。将本次翻译的结果放入 YAML 数组中的 step1 字段。 
+  2：根据第一次翻译的结果进行意译，力求信达雅，但还是要保留特定的术语或媒体名改成（如有），在遵守原意的前提下让文本更通俗易懂，符合中文的表达习惯，将第二次翻译的结果放入 YAML 数组中的 step2 字段。 
+
+  示例格式：
+  {{normal_result_yaml_example}}
+
+  开始翻译：
 
   {{yaml}}
 
 subtitlePrompt: |-
-  Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted video subtitles below into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}. Ensure you maintain the original formatting, accurately translate financial terms, currency symbols, and market data, and do not add explanations or annotations. The output must be in a valid YAML format that retains both the source and translated fields.
+  将下面 YAML 格式的视频字幕文本中所有的 {{imt_sub_source_field}} 字段中的文本翻译为 {{to}}，并将翻译结果写在 {{imt_sub_trans_field}} 字段中，必须补全每一个 {{imt_sub_trans_field}} 字段，保留每一个 {{imt_sub_source_field}} 字段。要求如下：
 
-  Example format:
+  1. 第一次先直接翻译 {{imt_sub_source_field}} 字段的内容，将本次翻译的结果放入 YAML 数组中的 step1 字段。
+  2. 根据第一次翻译的结果进行意译，力求信达雅，但还是要保留特定的术语或媒体名改成（如有），在遵守原意的前提下让文本更通俗易懂，符合中文的表达习惯，将第二次翻译的结果放入 YAML 数组中的 step2 字段。 
+
   {{subtitle_result_yaml_example}}
 
-  Begin translation:
+  开始翻译：
 
   {{yaml}}
+
+langOverrides:
+  - id: auto2zh-TW
+    systemPrompt: 您是一位精通繁體中文的專業翻譯，您負責將它翻譯成中文，不要有任何解釋。
+    prompt: |-
+      請根據以下要求完成翻譯任務： 
+      1. 將下面 YAML 對象裡的 {{imt_source_field}} 字段直接翻譯為 {{to}}，保留原文特定的術語或媒體名稱（如有）。將本次翻譯的結果放入 YAML 陣列中的 step1 字段。 
+      2：根據第一次翻譯的結果進行意譯，力求信達雅，但還是要保留特定的術語或媒體名稱（如有），在遵守原意的前提下讓文本更通俗易懂，符合中文的表達習慣，將第二次翻譯的結果放入 YAML 陣列中的 step2 字段。 
+
+      示例格式：
+      {{normal_result_yaml_example_tranditional}}
+
+      開始翻譯：
+
+      {{yaml}}
+
+    multiplePrompt: |-
+      請根據以下要求完成翻譯任務： 
+      1. 將下面 YAML 對象裡的 {{imt_source_field}} 字段直接翻譯為 {{to}}，保留原文特定的術語或媒體名稱（如有）。將本次翻譯的結果放入 YAML 陣列中的 step1 字段。 
+      2：根據第一次翻譯的結果進行意譯，力求信達雅，但還是要保留特定的術語或媒體名稱（如有），在遵守原意的前提下讓文本更通俗易懂，符合中文的表達習慣，將第二次翻譯的結果放入 YAML 陣列中的 step2 字段。 
+
+      示例格式：
+      {{normal_result_yaml_example_tranditional}}
+
+      開始翻譯：
+
+      {{yaml}}
+
+    subtitlePrompt: |-
+      將下面 YAML 格式的影片字幕文本中所有的 {{imt_sub_source_field}} 字段中的文本翻譯為 {{to}}，並將翻譯結果寫在 {{imt_sub_trans_field}} 字段中，必須補全每一個 {{imt_sub_trans_field}} 字段，保留每一個 {{imt_sub_source_field}} 字段。要求如下：
+
+      1. 第一次先直接翻譯 {{imt_sub_source_field}} 字段的內容，將本次翻譯的結果放入 YAML 陣列中的 step1 字段。
+      2. 根據第一次翻譯的結果進行意譯，力求信達雅，但還是要保留特定的術語或媒體名稱（如有），在遵守原意的前提下讓文本更通俗易懂，符合中文的表達習慣，將第二次翻譯的結果放入 YAML 陣列中的 step2 字段。 
+
+      示例格式：
+      {{subtitle_result_yaml_example_tranditional}}
+
+      開始翻譯：
+
+      {{yaml}}
 ```
 
 ## 如何提交

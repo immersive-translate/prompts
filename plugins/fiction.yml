@@ -8,12 +8,12 @@ details: |-
   This expert excels in translating fiction literature, providing nuanced and faithful renditions of novels, short stories, and other narrative forms. Use it to translate fiction into the target language with enhanced emotional resonance and cultural relevance.
 i18n: 
   zh-CN:
-    name: 小说翻译专家
+    name: 小说译者
     description: 专注于提升小说类翻译的叙事和情感深度，确保每个词都能捕捉到原文的精髓。
     details: |-
       该专家在翻译小说文学方面表现卓越，提供小说、短篇故事等叙事形式的细腻且忠实的呈现。使用它可以将小说翻译成目标语言，增强情感共鸣和文化相关性。
   zh-TW:
-    name: 小說翻譯專家
+    name: 小說譯者
     description: 專注於提升小說類翻譯的敘事和情感深度，確保每個詞都能捕捉到原文的精髓。
     details: |-
       該專家在翻譯小說文學方面表現卓越，提供小說、短篇故事等敘事形式的細膩且忠實的呈現。使用它可以將小說翻譯成目標語言，增強情感共鳴和文化相關性。

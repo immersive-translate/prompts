@@ -8,12 +8,12 @@ details: |-
   This expert specializes in translating fanfiction and original works on AO3. It ensures that cultural nuances, idiomatic expressions, and fandom-specific terminology are preserved and accurately translated into the target language. Suitable for genres across the board, including but not limited to romance, fantasy, sci-fi, and mystery.
 i18n: 
   zh-CN:
-    name: AO3 翻译专家
+    name: AO3 译者
     description: 专为 AO3 上的同人及原创作品设计，确保文化细节和特定领域术语的准确传达
     details: |-
       该专家专门翻译 AO3 上的同人及原创作品，确保文化细节、成语表达和特定领域术语得到保留并准确翻译成目标语言。适用于各种类型，包括但不限于爱情、幻想、科幻和悬疑。
   zh-TW:
-    name: AO3 翻譯專家
+    name: AO3 譯者
     description: 專為 AO3 上的同人及原創作品設計，確保文化細節和特定領域術語的準確傳達
     details: |-
       該專家專門翻譯 AO3 上的同人及原創作品，確保文化細節、成語表達和特定領域術語得到保留並準確翻譯成目標語言。適用於各種類型，包括但不限於愛情、幻想、科幻和懸疑。
