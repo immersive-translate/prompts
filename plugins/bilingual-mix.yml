@@ -27,6 +27,7 @@ i18n:
     description: 不好意思，我明天的 schedule 滿了，讓我 book 後天的時間好嗎？
 author: Official
 homepage: https://www.immersivetranslate.com
+disableSameLang: true
 env:
   imt_source_field: text
   imt_sub_source_field: source
