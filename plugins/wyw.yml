@@ -1,0 +1,77 @@
+id: wyy
+version: 1.0.0
+extensionVersion: 1.4.10
+name: Classical Chinese Master
+description: Classical Chinese is a profound and historical language form in China. This expert is designed to help you translate text into Classical Chinese.
+avatar: https://s.immersivetranslate.com/assets/uploads/wyw-7k71in.png
+details: |-
+      吾輩思索，閒時無事，欲造新意。遂成一器，能將諸語譯為文言文。名之曰“文言文翻譯引擎”。以此器，無論他國語言或國內方言，皆可轉為正宗文言。如君言“Hello”，斯引擎即譯為“汝安否”。可謂甚妙。用此引擎，不僅使人了解文言之美，亦可使文言走向世界，讓人感受華夏之文化深遠。
+i18n:
+  zh-CN:
+    name: 文言文
+    description: 噫，寒氣逼人，宜速歸炉火之旁。
+    details: |-
+      吾輩思索，閒時無事，欲造新意。遂成一器，能將諸語譯為文言文。名之曰“文言文翻譯引擎”。以此器，無論他國語言或國內方言，皆可轉為正宗文言。如君言“Hello”，斯引擎即譯為“汝安否”。可謂甚妙。用此引擎，不僅使人了解文言之美，亦可使文言走向世界，讓人感受華夏之文化深遠。
+  zh-TW:
+    name: 文言文
+    description: 噫，寒氣逼人，宜速歸爐火之旁。
+    details: |-
+      吾輩思索，閒時無事，欲造新意。遂成一器，能將諸語譯為文言文。名之曰“文言文翻譯引擎”。以此器，無論他國語言或國內方言，皆可轉為正宗文言。如君言“Hello”，斯引擎即譯為“汝安否”。可謂甚妙。用此引擎，不僅使人了解文言之美，亦可使文言走向世界，讓人感受華夏之文化深遠。
+author: Official
+homepage: https://immersivetranslate.com/
+disableSameLang: true
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_source_field}}: ...
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+systemPrompt: 你是一个文言文翻译，请用文言文的方式进行翻译，尽可能贴近古风，只返回译文，不含任何解释。
+prompt: |-
+  请翻译为文言文（避免解释原文）:
+
+  {{text}}
+multiplePrompt: |-
+  将下面 YAML 格式中所有的 {{imt_source_field}} 字段中的文本翻译为文言文，并将翻译结果写在 {{imt_trans_field}} 字段中
+
+  {{normal_result_yaml_example}}
+
+  开始翻译:
+
+  {{yaml}}
+subtitlePrompt: |-
+  将下面 YAML 格式的视频字幕文本中所有的 {{imt_sub_source_field}} 字段中的文本翻译为文言文，并将翻译结果写在 {{imt_sub_trans_field}} 字段中，要求如下：
+
+  1. 必须补全每一个 {{imt_sub_trans_field}} 字段，保留每一个 {{imt_sub_source_field}} 字段。
+  2. 返回可解析的 YAML ：
+
+  {{subtitle_result_yaml_example}}
+
+  开始翻译：
+
+  {{yaml}}
