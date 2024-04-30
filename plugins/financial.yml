@@ -4,6 +4,8 @@ extensionVersion: 1.4.12
 name: Financial Expert
 description: With carefully designed Prompts, the translation of financial articles becomes more accurate and professional.
 avatar: https://s.immersivetranslate.com/assets/uploads/fina-AXX5s8.png
+author: Official
+homepage: https://immersivetranslate.com/
 details: |-
   This expert is designed for professional financial field translation. You can use it to accurately translate financial articles into the target language specified.
 i18n:

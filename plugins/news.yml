@@ -4,6 +4,8 @@ extensionVersion: 1.4.10
 name: Media Expert
 description: Expertly crafted Prompts ensuring accurate and professional translations in the news media field.
 avatar: https://s.immersivetranslate.com/assets/uploads/news-nW0qbs.png
+author: Official
+homepage: https://immersivetranslate.com/
 details: |-
   This expert is specifically designed for professional news media translations. It enables accurate translation of news articles into the specified target language, ensuring that the nuances and styles of journalistic writing are preserved.
 i18n: 

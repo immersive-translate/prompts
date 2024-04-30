@@ -5,6 +5,8 @@ priority: 10
 name: Paraphrase Expert
 description: Designed for nuanced, interpretive translations, this expert ensures that translations go beyond the literal to capture the essence and tone of the original text.
 avatar: https://s.immersivetranslate.com/assets/uploads/fluent-7JVve6.png
+author: Official
+homepage: https://immersivetranslate.com/
 details: |-
   This expert specializes in interpretive translations, aiming to capture not just the words but the meaning and tone behind them. It's perfect for literature, idiomatic expressions, and any text where context matters as much as content. Use this expert to convey the essence of the original text in the target language, ensuring that cultural nuances and implied meanings are not lost in translation.
 i18n: 

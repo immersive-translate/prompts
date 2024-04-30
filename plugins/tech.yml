@@ -3,6 +3,8 @@ version: 1.0.0
 extensionVersion: 1.4.10
 name: Technology Expert
 description: With meticulously crafted Prompts, translations in the technology field become more accurate and professional.
+author: Official
+homepage: https://immersivetranslate.com/
 avatar: https://s.immersivetranslate.com/assets/uploads/333-aKkdu7.png
 details: |-
   This expert is designed for professional technology field translation. You can use it to accurately translate technology articles into the target language specified.

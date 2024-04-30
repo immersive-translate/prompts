@@ -3,6 +3,8 @@ version: 1.0.0
 extensionVersion: 1.4.10
 name: Designer
 description: Specialized in translating art and design articles, enhancing clarity and preserving the original aesthetic and technical nuances.
+author: Official
+homepage: https://immersivetranslate.com/
 avatar: https://s.immersivetranslate.com/assets/uploads/designer-7cApfV.png
 details: |-
   This expert is adept at translating articles related to art and design, ensuring technical terminology and creative concepts are accurately conveyed. Use it to translate design-related content into the target language while maintaining the original's integrity and artistic intent.

@@ -4,6 +4,8 @@ extensionVersion: 1.4.10
 name: AO3 Translation Expert
 description: Designed for seamless translation of fanfiction and original works on AO3, ensuring cultural nuances and fandom-specific terminology are accurately preserved.
 avatar: https://s.immersivetranslate.com/assets/uploads/ao3-NzdLCV.png
+author: Official
+homepage: https://immersivetranslate.com/
 details: |-
   This expert specializes in translating fanfiction and original works on AO3. It ensures that cultural nuances, idiomatic expressions, and fandom-specific terminology are preserved and accurately translated into the target language. Suitable for genres across the board, including but not limited to romance, fantasy, sci-fi, and mystery.
 i18n: 
