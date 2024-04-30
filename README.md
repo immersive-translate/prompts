@@ -1,5 +1,13 @@
 # 沉浸式翻译 AI 专家插件提交指南
 
+通过定制化 AI 翻译策略可以极大地提高翻译质量。沉浸式翻译将这些策略称为 “AI专家” ——本质上是一系列精心设计的提示词。
+
+## 如何在沉浸式翻译中使用【AI专家】？
+
+当前 AI 专家 为 Beta 测试功能，在安装[沉浸式翻译]([沉浸式翻译](https://immersivetranslate.com/))浏览器插件后，需要在设置页面【开发者设置】启用  Beta，然后刷新界面，即可看到 AI 专家的选项，安装需要的“AI专家”后，即可在沉浸式翻译插件的面板中轻松选择不同的AI专家，满足多样化的翻译需求，默认的翻译策略是【通用】, 适合大多数场景。
+
+## 如何贡献【AI专家】？
+
 欢迎为[沉浸式翻译](https://immersivetranslate.com/)贡献更多 [AI 翻译专家](https://ai.immersivetranslate.com/)。
 
 如果您还不具备编写 Prompts 文件的能力，您可以[在此](https://github.com/immersive-translate/prompts/issues) 发起一个 Issue 讨论，描述您想要的 AI 专家。
