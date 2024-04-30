@@ -19,7 +19,7 @@ i18n:
     details: |-
       該專家專注於意譯翻譯，旨在捕捉不僅僅是文字，而是背後的意義和語調。它非常適合文學、成語表達以及任何上下文和內容同等重要的文本。使用此專家可以確保在目標語言中傳達原文的精髓，確保文化細膩差別和隱含意義不會在翻譯中丟失。
 
-maxTextLengthPerRequest: 800,
+maxTextLengthPerRequest: 800
 maxTextGroupLengthPerRequestForSubtitle: 1
 maxTextGroupLengthPerRequest: 1
 env:
