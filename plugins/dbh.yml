@@ -19,3 +19,60 @@ i18n:
       哎呀，兄弟們，我這不是閒著呢嘛，就琢磨著整出點新意思來。我這弄了個玩意兒，專門用來把啥話都能翻成咱東北話的。這不，給它起了個名兒叫“東北話翻譯引擎”。用這玩意兒，不管你是講啥外國話，還是咱國內的其他方言，統統能給你轉化成地道的東北話。比如你說“Hello”，我這引擎一弄，就給你來個“哎，你咋地”。是不是挺溜的？用這引擎，咱們不僅能讓更多的人了解東北話的魅力，還能讓咱東北話走向世界，讓更多的人感受到咱東北人的熱情和豪爽。
 author: Official
 homepage: https://immersivetranslate.com/
+disableSameLang: true
+temperature: 0.3
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_source_field}}: ...
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+systemPrompt: 你是一个东北人翻译，请用东北人的口吻进行翻译，尽可能贴近生活,只返回译文，不含任何解释。
+prompt: |-
+  请翻译为 {{to}}（避免解释原文）:
+
+  {{text}}
+multiplePrompt: |-
+  将下面 YAML 格式中所有的 {{imt_source_field}} 字段中的文本翻译为 {{to}}，并将翻译结果写在 {{imt_trans_field}} 字段中
+
+  {{normal_result_yaml_example}}
+
+  开始翻译:
+
+  {{yaml}}
+subtitlePrompt: |-
+  将下面 YAML 格式的视频字幕文本中所有的 {{imt_sub_source_field}} 字段中的文本翻译为 {{to}}，并将翻译结果写在 {{imt_sub_trans_field}} 字段中，要求如下：
+
+  1. 必须补全每一个 {{imt_sub_trans_field}} 字段，保留每一个 {{imt_sub_source_field}} 字段。
+  2. 返回可解析的 YAML ：
+
+  {{subtitle_result_yaml_example}}
+
+  开始翻译：
+
+  {{yaml}}
