@@ -28,6 +28,7 @@ i18n:
 author: Official
 homepage: https://www.immersivetranslate.com
 disableSameLang: true
+temperature: 0.3
 env:
   imt_source_field: text
   imt_sub_source_field: source
