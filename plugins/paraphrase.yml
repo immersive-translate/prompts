@@ -34,58 +34,71 @@ env:
     - id: {{id}}
       {{imt_sub_source_field}}: {{text}}
   normal_result_yaml_example: |-
-    示例请求:
+
+    <Request>
       - id: 1
-        {{imt_source_field}}: Source
-    示例结果:
+        {{imt_source_field}}: Actions speak louder than words.
+
+    <Response>
       - id: 1
-        step1: 直译结果
-        step2: 意译结果
+        step1: 行动比言语更响亮。
+        step2: 事实胜于雄辩。
   subtitle_result_yaml_example: |-
-    Example request:
+
+    <Request>
+
       - id: 1
-        {{imt_sub_source_field}}: ...
+        {{imt_sub_source_field}}: Actions speak louder than words.
       - id: 2
-        {{imt_sub_source_field}}: ...
-    Example response:
+        {{imt_sub_source_field}}: Every cloud has a silver lining.
+
+    <Response>
       - id: 1
-        step1: 直译结果
-        step2: 意译结果
-        {{imt_sub_source_field}}: ...
+        step1: 行动比言语更响亮。
+        step2: 事实胜于雄辩。
+        {{imt_sub_source_field}}: Actions speak louder than words.
       - id: 2
-        step1: 直译结果
-        step2: 意译结果
-        {{imt_sub_source_field}}: ...
+        step1: 每朵云都有银色的边。
+        step2: 凡事总有积极的一面。
+        {{imt_sub_source_field}}: Every cloud has a silver lining.
   normal_result_yaml_example_tranditional: |-
-    示例請求:
+
+    <Request>
+
       - id: 1
-        {{imt_source_field}}: Source
-    示例結果:
+        {{imt_source_field}}: 行動比言語更響亮。
+
+    <Response>
+
       - id: 1
-        step1: 直譯結果
-        step2: 意譯結果
+        step1: 行動比言語更響亮。
+        step2: 事實勝於雄辯。
+
   subtitle_result_yaml_example_tranditional: |-
-    範例請求:
+
+    <Request>
       - id: 1
-        {{imt_sub_source_field}}: ...
+        {{imt_sub_source_field}}: 行動比言語更響亮。
       - id: 2
-        {{imt_sub_source_field}}: ...
-    範例回應:
+        {{imt_sub_source_field}}: 每朵雲都有銀色的邊。
+
+    <Response>
       - id: 1
-        step1: 直譯結果
-        step2: 意譯結果
-        {{imt_sub_source_field}}: ...
+        step1: 行動比言語更響亮。
+        step2: 事實勝於雄辯。
+        {{imt_sub_source_field}}: 行動比言語更響亮。
       - id: 2
-        step1: 直譯結果
-        step2: 意譯結果
-        {{imt_sub_source_field}}: ...
+        step1: 每朵雲都有銀色的邊。
+        step2: 凡事總有積極的一面。
+        {{imt_sub_source_field}}: 每朵雲都有銀色的邊。
 systemPrompt: 你是一位精通 {{to}} 的专业翻译，你负责将它翻译成 {{to}}，不要有任何解释。
 prompt: |-
   请根据以下要求完成翻译任务： 
   1. 将下面 YAML 对象里的 {{imt_source_field}} 字段直接翻译为 {{to}}，保留原文特定的术语或媒体名称（如有）。将本次翻译的结果放入 YAML 数组中的 step1 字段。 
   2：根据第一次翻译的结果进行意译，力求信达雅，但还是要保留特定的术语或媒体名改成（如有），在遵守原意的前提下让文本更通俗易懂，符合 {{to}} 的表达习惯，将第二次翻译的结果放入 YAML 数组中的 step2 字段。 
 
-  示例格式：
+  <Example>
+
   {{normal_result_yaml_example}}
 
   开始翻译：
@@ -97,10 +110,11 @@ multiplePrompt: |-
   1. 将下面 YAML 对象里的 {{imt_source_field}} 字段直接翻译为 {{to}}，保留原文特定的术语或媒体名称（如有）。将本次翻译的结果放入 YAML 数组中的 step1 字段。 
   2：根据第一次翻译的结果进行意译，力求信达雅，但还是要保留特定的术语或媒体名改成（如有），在遵守原意的前提下让文本更通俗易懂，符合 {{to}} 的表达习惯，将第二次翻译的结果放入 YAML 数组中的 step2 字段。 
 
-  示例格式：
+  <Example>
+
   {{normal_result_yaml_example}}
 
-  开始翻译：
+  <Start>
 
   {{yaml}}
 
@@ -112,7 +126,7 @@ subtitlePrompt: |-
 
   {{subtitle_result_yaml_example}}
 
-  开始翻译：
+  <Start>
 
   {{yaml}}
 
@@ -123,11 +137,11 @@ langOverrides:
       請根據以下要求完成翻譯任務： 
       1. 將下面 YAML 對象裡的 {{imt_source_field}} 字段直接翻譯為 {{to}}，保留原文特定的術語或媒體名稱（如有）。將本次翻譯的結果放入 YAML 陣列中的 step1 字段。 
       2：根據第一次翻譯的結果進行意譯，力求信達雅，但還是要保留特定的術語或媒體名稱（如有），在遵守原意的前提下讓文本更通俗易懂，符合中文的表達習慣，將第二次翻譯的結果放入 YAML 陣列中的 step2 字段。 
+      <Example>
 
-      示例格式：
       {{normal_result_yaml_example_tranditional}}
 
-      開始翻譯：
+      <Start>
 
       {{yaml}}
 
@@ -135,11 +149,11 @@ langOverrides:
       請根據以下要求完成翻譯任務： 
       1. 將下面 YAML 對象裡的 {{imt_source_field}} 字段直接翻譯為 {{to}}，保留原文特定的術語或媒體名稱（如有）。將本次翻譯的結果放入 YAML 陣列中的 step1 字段。 
       2：根據第一次翻譯的結果進行意譯，力求信達雅，但還是要保留特定的術語或媒體名稱（如有），在遵守原意的前提下讓文本更通俗易懂，符合中文的表達習慣，將第二次翻譯的結果放入 YAML 陣列中的 step2 字段。 
+      <Example>
 
-      示例格式：
       {{normal_result_yaml_example_tranditional}}
 
-      開始翻譯：
+      <Start>
 
       {{yaml}}
 
@@ -149,9 +163,10 @@ langOverrides:
       1. 第一次先直接翻譯 {{imt_sub_source_field}} 字段的內容，將本次翻譯的結果放入 YAML 陣列中的 step1 字段。
       2. 根據第一次翻譯的結果進行意譯，力求信達雅，但還是要保留特定的術語或媒體名稱（如有），在遵守原意的前提下讓文本更通俗易懂，符合中文的表達習慣，將第二次翻譯的結果放入 YAML 陣列中的 step2 字段。 
 
-      示例格式：
+      <Example>
+
       {{subtitle_result_yaml_example_tranditional}}
 
-      開始翻譯：
+      <Start>
 
       {{yaml}}
