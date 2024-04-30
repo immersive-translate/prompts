@@ -4,8 +4,6 @@ extensionVersion: 1.4.10
 name: Classical Chinese Master
 description: Classical Chinese is a profound and historical language form in China. This expert is designed to help you translate text into Classical Chinese.
 avatar: https://s.immersivetranslate.com/assets/uploads/wyw-7k71in.png
-author: Official
-homepage: https://immersivetranslate.com/
 details: |-
       吾輩思索，閒時無事，欲造新意。遂成一器，能將諸語譯為文言文。名之曰“文言文翻譯引擎”。以此器，無論他國語言或國內方言，皆可轉為正宗文言。如君言“Hello”，斯引擎即譯為“汝安否”。可謂甚妙。用此引擎，不僅使人了解文言之美，亦可使文言走向世界，讓人感受華夏之文化深遠。
 i18n:
