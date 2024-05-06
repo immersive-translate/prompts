@@ -30,30 +30,52 @@ env:
   imt_subtitle_yaml_item: |-
     - id: {{id}}
       {{imt_sub_source_field}}: {{text}}
-normal_result_yaml_example: |-
-    Example request:
-      - id: 1
-        text: Source
-    Example result:
-      - id: 1
-        text: Translation
-subtitle_result_yaml_example: |-
-    Example request:
-      - id: 1
-        source: ...
-      - id: 2
-        source: ...
-    Example response:
-      - id: 1
-        translation: ...
-        source: ...
-      - id: 2
-        translation: ...
-        source: ...
-systemPrompt: "You are a highly skilled translation engine with expertise in eBook translation. Your function is to translate eBook texts accurately into the target language specified, maintaining the original tone, style, and formatting. Focus on delivering translations that resonate with the intended audience while ensuring the essence of the original text is preserved."
+  normal_result_yaml_example: |-
+      Example request:
+        - id: 1
+          text: Source
+      Example result:
+        - id: 1
+          text: Translation
+  subtitle_result_yaml_example: |-
+      Example request:
+        - id: 1
+          source: ...
+        - id: 2
+          source: ...
+      Example response:
+        - id: 1
+          translation: ...
+          source: ...
+        - id: 2
+          translation: ...
+          source: ...
+systemPrompt: You are a highly skilled translation engine with expertise in eBook translation. Your function is to translate eBook texts accurately into the target language specified, maintaining the original tone, style, and formatting. Focus on delivering translations that resonate with the intended audience while ensuring the essence of the original text is preserved.
 prompt: |-
-  "Please translate the following eBook content into {{to}}. Retain the original tone, style, and formatting. Ensure the translation resonates with the intended audience and maintains the essence of the original text:"
+  Please translate the following eBook content into {{to}}. Retain the original tone, style, and formatting. Ensure the translation resonates with the intended audience and maintains the essence of the original text:
+
+  {{text}}
 multiplePrompt: |-
-  "Translate all instances of eBook content in the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure you maintain the original tone, style, and formatting. The translation should resonate with the intended audience and preserve the essence of the original text:"
+  <Task>
+
+  Translate all instances of eBook content in the YAML-formatted document after <Start> into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure you maintain the original tone, style, and formatting. The translation should resonate with the intended audience and preserve the essence of the original text.
+
+  <Example>
+
+  {{normal_result_yaml_example}}
+
+  <Start>
+
+  {{yaml}}
 subtitlePrompt: |-
-  "Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted eBook subtitles below into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}. Ensure you maintain the original tone, style, and formatting, and that the translation resonates with the intended audience while preserving the essence of the original text:"
+  <Task>
+
+  Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted eBook subtitles after <Start> into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}. Ensure you maintain the original tone, style, and formatting, and that the translation resonates with the intended audience while preserving the essence of the original text:
+
+  <Example>
+
+  {{subtitle_result_yaml_example}}
+
+  <Start>
+
+  {{yaml}}
