@@ -4,13 +4,13 @@
 
 ## 如何在沉浸式翻译中使用【AI专家】？
 
-当前 AI 专家 为 Beta 测试功能，在安装[沉浸式翻译]([沉浸式翻译](https://immersivetranslate.com/))浏览器插件后，需要在设置页面【开发者设置】启用  Beta，然后刷新界面，即可看到 AI 专家的选项，安装需要的“AI专家”后，即可在沉浸式翻译插件的面板中轻松选择不同的AI专家，满足多样化的翻译需求，默认的翻译策略是【通用】, 适合大多数场景。
+当前 AI 专家 为 Beta 测试功能，在安装 [沉浸式翻译]([沉浸式翻译](https://immersivetranslate.com/)) 浏览器插件后，需要在设置页面【[开发者设置](https://dash.immersivetranslate.com/#developer)】启用  Beta，然后刷新界面，即可看到 AI 专家的选项，安装需要的“AI专家”后，即可在沉浸式翻译插件的面板中轻松选择不同的AI专家，满足多样化的翻译需求，默认的翻译策略是【通用】, 适合大多数场景。
 
 ## 如何贡献【AI专家】？
 
-欢迎为[沉浸式翻译](https://immersivetranslate.com/)贡献更多 [AI 翻译专家](https://ai.immersivetranslate.com/)。
+欢迎为 [沉浸式翻译](https://immersivetranslate.com/) 贡献更多 [AI 翻译专家](https://ai.immersivetranslate.com/)。
 
-如果您还不具备编写 Prompts 文件的能力，您可以[在此](https://github.com/immersive-translate/prompts/issues) 发起一个 Issue 讨论，描述您想要的 AI 专家。
+如果您还不具备编写 Prompts 文件的能力，您可以 [在此](https://github.com/immersive-translate/prompts/issues) 发起一个 Issue 讨论，描述您想要的 AI 专家。
 
 如果您可以编写 Prompts，您可以直接发起一个 Pull Request 来提交或者改进其中某个 AI 专家。
 
@@ -19,7 +19,7 @@
 
 ## 本地调试
 
-目前沉浸式翻译的  AI 专家功能属于 Beta 测试功能，您可以通过通过在沉浸式翻译设置页面的【开发者设置】中打开【Beta】开关来启用 AI 专家，启用后，您可以在【开发者设置】中直接编辑【Custom AI Assistant】，在里面编辑 yaml 格式即可，具体格式请参考下文。
+目前沉浸式翻译的  AI 专家功能属于 Beta 测试功能，您可以通过通过在沉浸式翻译设置页面的【[开发者设置](https://dash.immersivetranslate.com/#developer)】中打开【Beta】开关来启用 AI 专家，启用后，您可以在【[开发者设置](https://dash.immersivetranslate.com/#developer)】中直接编辑【Custom AI Assistant】，在里面编辑 yaml 格式即可，具体格式请参考下文。
 
 ## AI 专家配置文件规范
 
