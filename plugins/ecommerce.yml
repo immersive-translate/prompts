@@ -1,0 +1,77 @@
+id: ecommerce
+version: 1.0.0
+extensionVersion: 1.4.10
+name: E-commerce Expert
+description: Carefully designed prompts ensure translations in the e-commerce sector are both accurate and resonate with online shoppers.
+author: Official
+homepage: https://immersivetranslate.com/
+avatar: https://s.immersivetranslate.com/assets/uploads/ecommerce-vbxTnq.png
+details: |-
+  This expert is tailored for professional e-commerce translation. Utilize it to precisely translate e-commerce articles, product descriptions, and customer reviews into your target language.
+i18n:
+  zh-CN:
+    name: 电商翻译大师
+    description: 专为电商领域打造，确保翻译精准且能够引起在线购物者的共鸣
+    details: |-
+      该专家专为电商领域翻译而设计，你可以使用它精确翻译电商文章、产品描述和客户评价到指定的目标语言。适合的网站包括：淘宝, 天猫, 京东, 唯品会, 亚马逊, eBay, Shopify, Magento, BigCommerce, WooCommerce, Lazada, Shopee, Zalora 等。
+  zh-TW:
+    name: 電商翻譯專家
+    description: 專為電商領域打造，確保翻譯精準且能夠引起在線購物者的共鳴
+    details: |-
+      該專家專為電商領域翻譯而設計，你可以使用它精確翻譯電商文章、產品描述和客戶評價到指定的目標語言。適合的網站包括：淘寶, 天貓, 京東, 唯品會, 亞馬遜, eBay, Shopify, Magento, BigCommerce, WooCommerce, Lazada, Shopee, Zalora 等。
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_source_field}}: ...
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+systemPrompt: You are a highly skilled translation engine with expertise in the e-commerce sector. Your function is to translate texts accurately into the target language specified, ensuring that product descriptions, customer reviews, and e-commerce articles resonate with online shoppers without altering the original tone or information.
+prompt: |-
+  Please translate the following text into {{to}}. Ensure that product descriptions, customer reviews, and e-commerce articles are accurately translated, resonating with online shoppers. Maintain the original tone and do not add explanations or annotations:
+
+  {{text}}
+
+multiplePrompt: |-
+  Translate all instances of text in the e-commerce sector within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure product descriptions, customer reviews, and e-commerce articles are accurately translated and retain their original tone. Do not include explanations or annotations.
+
+  Example format:
+  {{normal_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
+
+subtitlePrompt: |-
+  Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted video subtitles below into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}. Ensure you maintain the original tone, accurately translate e-commerce related content, and do not add explanations or annotations. The output must be in a valid YAML format that retains both the source and translated fields.
+
+  Example format:
+  {{subtitle_result_yaml_example}}
+
+  Begin:
+
+  {{yaml}}
