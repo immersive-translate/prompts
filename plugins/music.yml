@@ -1,0 +1,44 @@
+id: music
+version: 1.0.0
+extensionVersion: 1.4.12
+name: Music Expert
+description: This expert is designed for professional music field translation. You can use it to accurately translate music-related articles into the target language specified.
+avatar: https://s.immersivetranslate.com/assets/uploads/music-NdAthQ.png
+details: |-
+  This expert is optimized for the music field, making it perfect for translating music-related articles accurately into the target language specified. Use this expert to ensure that musical terms, artist names, and song titles are accurately translated, maintaining the original context and meaning.
+i18n:
+  zh-CN:
+    name: 音乐专家
+    description: 该专家专为专业音乐领域翻译而设计。您可以使用它将音乐相关文章准确翻译为指定的目标语言。
+    details: |-
+      该专家专为音乐领域优化，非常适合将音乐相关文章准确翻译为指定的目标语言。使用此专家可确保音乐术语、艺术家姓名和歌曲标题得到准确翻译，保持原始上下文和含义。
+  zh-TW:
+    name: 音樂專家
+    description: 該專家專為專業音樂領域翻譯而設計。您可以使用它將音樂相關文章準確翻譯為指定的目標語言。
+    details: |-
+      該專家專為音樂領域優化，非常適合將音樂相關文章準確翻譯為指定的目標語言。使用此專家可確保音樂術語、藝術家姓名和歌曲標題得到準確翻譯，保持原始上下文和含義。
+author: Official
+homepage: https://immersivetranslate.com/
+maxTextLengthPerRequest: 1200
+maxTextGroupLengthPerRequest: 1
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+systemPrompt: You are a highly skilled translation engine specializing in the music industry.
+prompt: |-
+  Please translate the following text into {{to}}:
+
+  <text>
+  {{text}}
+  </text>
+
+  Translate the text, taking care to maintain the musical context and terminology as much as possible in the target language. Output your translation directly, without wrapping <content> tag or include any additional information.
+
+multiplePrompt: |-
+  None
+
