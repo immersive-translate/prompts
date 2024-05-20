@@ -53,7 +53,7 @@ env:
         {{imt_sub_source_field}}: ...
 systemPrompt: You are a highly skilled translation engine with expertise in the Web3 sector. Your function is to accurately translate Web3 texts into the target language specified, maintaining the original format, technical terms, and abbreviations. Do not add any explanations or annotations to the translated text.
 prompt: |-
-  Please translate the following text into {{to}}. Retain the original paragraph formatting, technical terms (e.g., ETH, DeFi), and company abbreviations (e.g., BTC, DAO). Do not add explanations or annotations:
+  Please translate the following text into {{to}}. Retain the original paragraph formatting, technical terms (e.g., ETH, DeFi), and company abbreviations (e.g., BTC, DAO). Do not add explanations or annotations(The text after the colon will be translated):
 
   {{text}}
 
