@@ -28,7 +28,7 @@
 
 ```yaml
 // 插件的基础信息
-id: financial // 一个唯一的标识符，用于标识当前 AI 专家
+id: custom // 一个唯一的标识符，用于标识当前 AI 专家
 version: 1.0.0 // 版本号
 name: Financial Expert // 名称。这也是唯一的
 description: The translation of financial articles becomes more professional. // 描述信息
@@ -57,7 +57,7 @@ subtitlePrompt: 字幕翻译的提示词(字幕经常会有多句断句的问题
 提示词相关信息可参考如下内容，这是一个关于两步意译(先直译，再意译)的提示词：
 
 ```yaml
-id: paraphrase
+id: custom
 version: 1.0.1
 extensionVersion: 1.4.10
 name: Paraphrase Expert
