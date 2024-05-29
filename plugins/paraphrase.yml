@@ -47,9 +47,9 @@ prompt: |-
 
   1. Extract the content from the "source" field in the provided YAML object.
 
-  2. Translate the extracted content into Simplified Chinese. Place this initial translation into the step1 field.
+  2. Translate the extracted content into {{to}}. Place this initial translation into the step1 field.
 
-  3. Refine the initial translation from step1 to make it more natural and understandable in Simplified Chinese. Place this refined translation into the step2 field.
+  3. Refine the initial translation from step1 to make it more natural and understandable in {{to}}. Place this refined translation into the step2 field.
 
   4. Format the result as a YAML array with id, step1, and step2 fields as shown in this example:
 
