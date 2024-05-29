@@ -3,11 +3,11 @@ version: 1.0.1
 extensionVersion: 1.4.10
 name: Vocabulary Assistant
 description: Provide phonetic transcription and {{to}} translation for difficult words in the current paragraph
-avatar: https://s.immersivetranslate.com/assets/uploads/fluent-7JVve6.png
-author: Official
-homepage: https://immersivetranslate.com/
+avatar: https://s.immersivetranslate.com/assets/uploads/vo-8O0GwP.png
+author: cottman
+homepage: https://twitter.com/lfly97786343
 details: |-
-  This expert is specialized in phonetic transcription and {{to}} translation for difficult words in the current paragraph. 
+  This expert is specialized in phonetic transcription and translation for difficult words in the current paragraph. 
 i18n: 
   zh-CN:
     name: 词汇助手
