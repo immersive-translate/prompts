@@ -19,6 +19,8 @@ i18n:
     description: 專為 AO3 上的同人及原創作品設計，確保文化細節和特定領域術語的準確傳達
     details: |-
       該專家專門翻譯 AO3 上的同人及原創作品，確保文化細節、成語表達和特定領域術語得到保留並準確翻譯成目標語言。適用於各種類型，包括但不限於愛情、幻想、科幻和懸疑。
+matches:
+  - https://archiveofourown.org/*
 env:
   imt_source_field: text
   imt_trans_field: text
@@ -53,14 +55,13 @@ env:
 systemPrompt: You are a highly skilled translation engine with expertise in fanfiction and original works on AO3. Your function is to translate texts accurately into the target language specified, preserving cultural nuances, idiomatic expressions, and fandom-specific terminology. Do not add any explanations or annotations to the translated text.
 
 prompt: |-
-  Please translate the following text into {{to}}. Retain the original story flow, cultural nuances, idiomatic expressions, and fandom-specific terminology. Do not add explanations or annotations:
+  Translate the following text to {{to}} Language, Output translation directly without any explanation.
 
-  {{text}}
-
+  Source Text: {{text}}
+  Translation Text:
 multiplePrompt: |-
   Translate all instances of text in fanfiction and original works within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure story flow, cultural nuances, idiomatic expressions, and fandom-specific terminology are accurately translated and retain their original formatting. Do not include explanations or annotations.
 
-  Example format:
   {{normal_result_yaml_example}}
 
   Start:
@@ -73,6 +74,6 @@ subtitlePrompt: |-
   Example format:
   {{subtitle_result_yaml_example}}
 
-  Begin:
+  Start:
 
   {{yaml}}

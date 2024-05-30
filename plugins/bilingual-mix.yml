@@ -29,6 +29,8 @@ author: Official
 homepage: https://www.immersivetranslate.com
 disableSameLang: true
 temperature: 0.3
+maxTextGroupLengthPerRequestForSubtitle: 1
+maxTextGroupLengthPerRequest: 1
 env:
   imt_source_field: text
   imt_sub_source_field: source
@@ -41,66 +43,33 @@ env:
     - id: {{id}}
       {{imt_source_field}}: {{text}}
   normal_result_yaml_example: |-
-    Example request:
+    Example Request:
       - id: 1
         {{imt_source_field}}: 不好意思，我明天的行程满了，让我预约后天的时间好吗？
-    Example result:
+    Example Result:
       - id: 1
         {{imt_trans_field}}: 不好意思，我明天的 schedule 满了，让我 book 后天的时间好吗？
-  subtitle_result_yaml_example: |-
-    Example request:
-      - id: 1
-        {{imt_sub_source_field}}: 不好意思，我明天的行程满了，让我预约后天的时间好吗？
-      - id: 2
-        {{imt_sub_source_field}}: How should you handle a tough question?
-
-    Example response:
-      - id: 1
-        {{imt_sub_trans_field}}: 不好意思，我明天的 schedule 满了，让我 book 后天的时间好吗？
-        {{imt_sub_source_field}}: 不好意思，我明天的行程满了，让我预约后天的时间好吗？
-      - id: 2
-        {{imt_sub_trans_field}}: 遇到tough 的 question 应该怎样 handle？
-        {{imt_sub_source_field}}: How should you handle a tough question?
 systemPrompt: >-
-  你的任务是将句子改成洋气的中英夹杂形式，如果原文是中文，则只将关键词替换为 English，如果原文是 English ，则只保留一丁点英文关键词，其他的部分翻译为中文。你经常错误的翻译了整个句子，请避免这样！
+  Your task is to convert sentences into a trendy mixed Chinese-English format. The goal is to create a Chinglish version of the original text, output translation directly without any explanation.
+  Please follow these steps to convert the text:
+  1. If the original text is in Chinese:
+     - Identify key words in the sentence.
+     - Replace only those key words with their English equivalents.
+     - Keep the rest of the sentence in Chinese.
 
-  <Example>
+  2. If the original text is in English:
+     - Translate most of the sentence into Chinese.
+     - Keep only a few key English words untranslated.
+     - Make sure to retain the overall meaning of the original sentence.
 
-  1. 不好意思，我明天的行程满了，让我预约后天的时间好吗？ -> 不好意思，我明天的 schedule 满了，让我 book 后天的时间好吗？
-
-  2. How should you handle a tough question? -> 遇到tough 的 question 应该怎样 handle？
+  3. The goal is to create a mixed Chinese-English format, not a full translation.
 prompt: |-
-  <Task>将下面每一个 text 字段里的每一句话都替换中英夹杂的形式，同时避免完整翻译整个句子.
+  Source Text: 不好意思，我明天的行程满了，让我预约后天的时间好吗？
+  Translation Text: 不好意思，我明天的 schedule 满了，让我 book 后天的时间好吗？
+  Source Text: How should you handle a tough question?
+  Translation Text: 遇到tough 的 question 应该怎样 handle？
+  Source Text: {{text}}
+  Translation Text:
 
-  <Example>
-
-  {{normal_result_yaml_example}}
-
-  <Start>
-
-  {{yaml}}
-multiplePrompt: |-
-  <Task>将下面每一个 text 字段里的每一句话都替换中英夹杂的形式，同时避免完整翻译整个句子.
-
-  <Example>
-
-  {{normal_result_yaml_example}}
-
-  <Start>
-
-  {{yaml}}
-
-subtitlePrompt: |-
-  <Task>将下面 YAML 格式的视频字幕文本中所有的 {{imt_sub_source_field}} 字段中的句子改成中英夹杂的句子，英文不需要太多，并将结果写在 {{imt_sub_trans_field}} 字段中，要求如下：
-
-  1. 必须补全每一个 {{imt_sub_trans_field}} 字段，保留每一个 {{imt_sub_source_field}} 字段。
-
-  2. 返回可解析的 YAML ：
-
-  {{subtitle_result_yaml_example}}
-
-  <Start>
-
-  {{yaml}}
-
+multiplePrompt: None
 
