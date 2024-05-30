@@ -1,5 +1,5 @@
 id: tech
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
 name: Technology Expert
 description: With meticulously crafted Prompts, translations in the technology field become more accurate and professional.
@@ -20,28 +20,25 @@ i18n:
     details: |-
       該專家專為專業科技領域翻譯而設計，你可以使用它將科技類文章準確翻譯為指定的目標語言。適合的網站包括：Techdirt, TechCrunch, Wired, The Verge, Ars Technica, CNET, Engadget, Gizmodo, Mashable, TechRadar, ZDNet, PCMag, Digital Trends, TechRepublic, Tom's Hardware, AnandTech, TechSpot, TechTarget, Techopedia, TechCrunch, TechRepublic, TechNet, etc.
 matches:
-  - https://techdirt.com/*
+  - https://www.techdirt.com/*
   - https://techcrunch.com/*
-  - https://wired.com/*
-  - https://theverge.com/*
+  - https://www.wired.com/*
+  - https://www.theverge.com/*
   - https://arstechnica.com/*
-  - https://cnet.com/*
-  - https://engadget.com/*
+  - https://www.cnet.com/*
+  - https://www.engadget.com/*
   - https://gizmodo.com/*
   - https://mashable.com/*
-  - https://techradar.com/*
-  - https://zdnet.com/*
-  - https://pcmag.com/*
-  - https://digitaltrends.com/*
-  - https://techrepublic.com/*
-  - https://tomshardware.com/*
-  - https://anandtech.com/*
-  - https://techspot.com/*
-  - https://techtarget.com/*
-  - https://techopedia.com/*
-  - https://techcrunch.com/*
-  - https://techrepublic.com/*
-  - https://technet.com/*
+  - https://www.techradar.com/*
+  - https://www.zdnet.com/*
+  - https://www.pcmag.com/*
+  - https://www.digitaltrends.com/*
+  - https://www.techrepublic.com/*
+  - https://www.tomshardware.com/*
+  - https://www.anandtech.com/*
+  - https://www.techspot.com/*
+  - https://www.techtarget.com/*
+  - https://www.techopedia.com/*
   - https://stackoverflow.com/*
   - https://news.ycombinator.com/*
   - https://hn.algolia.com/*
