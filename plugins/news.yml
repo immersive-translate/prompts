@@ -1,5 +1,5 @@
 id: news
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
 name: Media Expert
 description: Expertly crafted Prompts ensuring accurate and professional translations in the news media field.
@@ -20,25 +20,25 @@ i18n:
     details: |-
       該專家專為新聞媒體翻譯而設計，能夠將新聞文章準確翻譯成指定的目標語言，同時保留新聞寫作的細微差別和風格。適合翻譯的新聞網站包括：CNN, BBC, The New York Times, The Guardian, Reuters, CNBC, Al Jazeera, The Washington Post, The Wall Street Journal, Financial Times, NPR, Bloomberg, Forbes, Time, Newsweek, The Economist, AP News, Politico, Vox, etc.
 matches:
-  - https://cnn.com/*
-  - https://bbc.com/*
-  - https://nytimes.com/*
-  - https://theguardian.com/*
-  - https://reuters.com/*
-  - https://cnbc.com/*
-  - https://aljazeera.com/*
-  - https://washingtonpost.com/*
-  - https://wsj.com/*
-  - https://ft.com/*
-  - https://npr.org/*
-  - https://bloomberg.com/*
-  - https://forbes.com/*
-  - https://time.com/*
-  - https://newsweek.com/*
-  - https://economist.com/*
-  - https://apnews.com/*
-  - https://politico.com/*
-  - https://vox.com/*
+  - https://www.cnn.com/*
+  - https://www.bbc.com/*
+  - https://www.nytimes.com/*
+  - https://www.theguardian.com/*
+  - https://www.reuters.com/*
+  - https://www.cnbc.com/*
+  - https://www.aljazeera.com/*
+  - https://www.washingtonpost.com/*
+  - https://www.economist.com/*
+  - https://www.wsj.com/*
+  - https://www.ft.com/*
+  - https://www.npr.org/*
+  - https://www.bloomberg.com/*
+  - https://www.forbes.com/*
+  - https://www.time.com/*
+  - https://www.newsweek.com/*
+  - https://www.apnews.com/*
+  - https://www.politico.com/*
+  - https://www.vox.com/*
   - https://www.scmp.com/*
 env:
   imt_source_field: text
