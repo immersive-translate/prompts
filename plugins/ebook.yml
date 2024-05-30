@@ -1,5 +1,5 @@
 id: ebook
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.10
 name: eBook Translation Expert
 description: Specialized in eBook translations, ensuring accurate and contextually relevant digital book translations across genres.
@@ -19,6 +19,9 @@ i18n:
     description: 專門從事電子書翻譯，確保跨類型的電子書翻譯準確且符合語境。
     details: |-
       該專家專為翻譯電子書而設計，採用先進的語言技術，不僅確保翻譯的準確性，還保持電子書的原始語氣、風格和格式。無論是小說、非小說、教育材料還是技術指南，該工具都能確保您的電子書完美地翻譯給目標受眾，提升可讀性和參與度。
+matches:
+  - https://app.immersivetranslate.com/ebook*
+  - https://www.gutenberg.org/*
 env:
   imt_source_field: text
   imt_trans_field: text
@@ -52,9 +55,9 @@ env:
           source: ...
 systemPrompt: You are a highly skilled translation engine with expertise in eBook translation. Your function is to translate eBook texts accurately into the target language specified, maintaining the original tone, style, and formatting. Focus on delivering translations that resonate with the intended audience while ensuring the essence of the original text is preserved.
 prompt: |-
-  Please translate the following eBook content into {{to}}. Retain the original tone, style, and formatting. Ensure the translation resonates with the intended audience and maintains the essence of the original text:
-
-  {{text}}
+  Translate the following source text to {{to}}, Output translation directly without any additional text.
+  Source Text: {{text}}
+  Translated Text:
 multiplePrompt: |-
   <Task>
 

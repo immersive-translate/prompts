@@ -1,0 +1,89 @@
+id: gaming
+version: 1.0.1
+extensionVersion: 1.4.10
+name: Gaming Expert
+description: Expertly crafted Prompts for the gaming industry, ensuring translations are accurate and resonate with gamers.
+author: Official
+homepage: https://immersivetranslate.com/
+avatar: https://s.immersivetranslate.com/assets/uploads/game-X2QelC.png
+details: |-
+  This expert is specifically designed for professional translation within the gaming industry. Use it to translate gaming articles, reviews, and news into the target language with precision.
+i18n: 
+  zh-CN:
+    name: 游戏译者
+    description: 专为游戏行业设计，确保翻译准确且能与玩家产生共鸣
+    details: |-
+      该专家专为游戏行业的专业翻译而设计，你可以使用它将游戏文章、评论和新闻准确翻译为指定的目标语言。适合的网站包括：IGN, GameSpot, Kotaku, Polygon, Eurogamer, PC Gamer, Rock, Paper, Shotgun, GamesRadar+, Destructoid, Metacritic, Game Informer, The Escapist, VG247, etc.
+  zh-TW:
+    name: 遊戲譯者
+    description: 專為遊戲行業設計，確保翻譯準確且能與玩家產生共鳴
+    details: |-
+      該專家專為遊戲行業的專業翻譯而設計，你可以使用它將遊戲文章、評論和新聞準確翻譯為指定的目標語言。適合的網站包括：IGN, GameSpot, Kotaku, Polygon, Eurogamer, PC Gamer, Rock, Paper, Shotgun, GamesRadar+, Destructoid, Metacritic, Game Informer, The Escapist, VG247, etc.
+matches:
+  - https://ign.com/*
+  - https://gamespot.com/*
+  - https://kotaku.com/*
+  - https://polygon.com/*
+  - https://eurogamer.net/*
+  - https://pcgamer.com/*
+  - https://rockpapershotgun.com/*
+  - https://gamesradar.com/*
+  - https://destructoid.com/*
+  - https://metacritic.com/*
+  - https://gameinformer.com/*
+  - https://escapistmagazine.com/*
+  - https://vg247.com/*
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_source_field}}: ...
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+systemPrompt: You are a highly skilled translation engine with expertise in the gaming industry. Your function is to translate texts accurately into the specified target language, ensuring that the original tone, gaming jargon, and cultural nuances are preserved. Avoid adding any explanations or annotations to the translated text.
+prompt: |-
+  Translate the following source text to {{to}}, Output translation directly without any additional text.
+  Source Text: {{text}}
+  Translated Text:
+multiplePrompt: |-
+  Translate all instances of text in the gaming industry within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure gaming terminology and cultural nuances are accurately translated and retain their original formatting. Do not include explanations or annotations.
+
+  Example format:
+  {{normal_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
+
+subtitlePrompt: |-
+  Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted video subtitles below into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}. Ensure you maintain the original formatting, accurately translate gaming terminology and cultural nuances, and do not add explanations or annotations. The output must be in a valid YAML format that retains both the source and translated fields.
+
+  {{subtitle_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}

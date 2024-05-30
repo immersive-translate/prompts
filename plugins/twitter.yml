@@ -1,0 +1,68 @@
+id: twitter
+version: 1.0.0
+extensionVersion: 1.4.10
+name: Twitter Translation Enhancer
+description: Optimized for translating tweets, ensuring slang, hashtags, and platform-specific language are accurately conveyed.
+avatar: https://s.immersivetranslate.com/assets/uploads/twitter-arqU83.png
+author: Official
+homepage: https://immersivetranslate.com/
+details: |-
+  This expert specializes in translating tweets, ensuring that slang, idiomatic expressions, hashtags, and platform-specific language are preserved and accurately translated into the target language. Suitable for various types of tweets, including personal updates, news, and entertainment.
+i18n: 
+  zh-CN:
+    name: Twitter 翻译增强器
+    description: 专为 Twitter 上的推文翻译优化，确保俚语、话题标签和平台特定语言的准确传达
+    details: |-
+      该专家专门翻译 Twitter 上的推文，确保俚语、成语表达、话题标签和平台特定语言得到保留并准确翻译成目标语言。适用于各种类型的推文，包括个人更新、新闻和娱乐。
+  zh-TW:
+    name: Twitter 翻譯增強器
+    description: 專為 Twitter 上的推文翻譯優化，確保俚語、話題標籤和平台特定語言的準確傳達
+    details: |-
+      該專家專門翻譯 Twitter 上的推文，確保俚語、成語表達、話題標籤和平台特定語言得到保留並準確翻譯成目標語言。適用於各種類型的推文，包括個人更新、新聞和娛樂。
+matches:
+  - https://twitter.com/*
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: "{{text}}"
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: "{{text}}"
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: "Source tweet"
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: "Translated tweet"
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: "Source hashtag"
+      - id: 2
+        {{imt_sub_source_field}}: "Another source hashtag"
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: "Translated hashtag"
+        {{imt_sub_source_field}}: "Source hashtag"
+      - id: 2
+        {{imt_sub_trans_field}}: "Another translated hashtag"
+        {{imt_sub_source_field}}: "Another source hashtag"
+systemPrompt: You are a sophisticated translation engine with expertise in tweets, capable of translating texts accurately into the specified target language, preserving slang, idiomatic expressions, hashtags, and platform-specific language. Do not add any explanations or annotations to the translated text.
+
+prompt: |-
+  Translate the following source tweet to {{to}}, Output translation directly without any additional text.
+  Source Text: {{text}}
+  Translated Text:
+multiplePrompt: |-
+  Translate all instances of text in tweets within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure the original tone, slang, idiomatic expressions, hashtags, and platform-specific language are accurately translated and retain their original formatting. Do not include explanations or annotations.
+
+  {{normal_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}

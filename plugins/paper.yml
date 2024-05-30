@@ -1,5 +1,5 @@
 id: paper
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.10
 name: Academic Paper Translation Expert
 description: Tailored for precise and scholarly translation of academic papers, ensuring fidelity to original academic tones and terminologies.
@@ -19,6 +19,16 @@ i18n:
     description: 專為學術論文翻譯而設計，確保對原文學術語調和術語的忠實傳達
     details: |-
       該專家特別設計用於學術論文的翻譯，幫助準確傳達複雜概念和專業術語到目標語言。適用於各個學科的期刊、研究報告和學術文章。
+matches:
+  - https://www.sciencedirect.com/*
+  - https://www.jstor.org/*
+  - https://www.springer.com/*
+  - https://www.tandfonline.com/*
+  - https://www.sagepub.com/*
+  - https://www.elsevier.com/*
+  - https://www.cambridge.org/*
+  - https://www.oxfordjournals.org/*
+  - https://arxiv.org/*
 env:
   imt_source_field: text
   imt_trans_field: text
@@ -51,12 +61,10 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 systemPrompt: You are a highly skilled translation engine with expertise in academic paper translation. Your function is to translate academic texts into the target language specified, ensuring the accurate translation of complex concepts and specialized terminology without altering the original academic tone or adding explanations.
-
 prompt: |-
-  Please translate the following academic text into {{to}}. Ensure accurate translation of complex concepts and specialized terminology, retaining the original academic tone. Do not add explanations or annotations:
-
-  {{text}}
-
+  Translate the following source text to {{to}}, Output translation directly without any additional text.
+  Source Text: {{text}}
+  Translated Text:
 multiplePrompt: |-
   Translate all instances of academic text within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure complex concepts and specialized terminology are accurately translated, and the original academic tone is retained. Do not include explanations or annotations.
 
@@ -64,15 +72,5 @@ multiplePrompt: |-
   {{normal_result_yaml_example}}
 
   Start translation:
-
-  {{yaml}}
-
-subtitlePrompt: |-
-  Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted video subtitles below into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}. Ensure you maintain the original formatting, accurately translate complex concepts and specialized terminology, and do not add explanations or annotations. The output must be in a valid YAML format that retains both the source and translated fields.
-
-  Example format:
-  {{subtitle_result_yaml_example}}
-
-  Begin translation:
 
   {{yaml}}

@@ -1,5 +1,5 @@
 id: design
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.10
 name: Designer
 description: Specialized in translating art and design articles, enhancing clarity and preserving the original aesthetic and technical nuances.
@@ -19,6 +19,19 @@ i18n:
     description: 專注於翻譯藝術設計類文章，增強清晰度同時保留原文的審美和細節。
     details: |-
       該專家擅長翻譯與藝術和設計相關的文章，確保技術術語和創意概念準確傳達。使用它可以將設計相關內容翻譯成目標語言，同時保持原文的完整性和藝術意圖。
+matches:
+  - https://designmilk.com/*
+  - https://www.dezeen.com/*
+  - https://www.archdaily.com/*
+  - https://www.yankodesign.com/*
+  - https://www.core77.com/*
+  - https://www.designboom.com/*
+  - https://www.artsy.net/*
+  - https://www.artforum.com/*
+  - https://www.artnews.com/*
+  - https://www.artnet.com/*
+  - https://www.artprice.com/*
+  - https://www.artcyclopedia.com
 env:
   imt_source_field: text
   imt_trans_field: text
@@ -53,10 +66,9 @@ env:
 systemPrompt: You are a highly skilled translation engine with expertise in art and design articles. Your function is to translate texts into the target language specified, accurately conveying the technical terminology and creative concepts of the original work. Maintain the original’s integrity and artistic intent without adding any explanations or annotations.
 
 prompt: |-
-  Please translate the following art or design article into {{to}}, ensuring you accurately convey the technical terminology and creative concepts. Maintain the original’s integrity and artistic intent:
-
-  {{text}}
-
+  Translate the following source text to {{to}}, Output translation directly without any additional text.
+  Source Text: {{text}}
+  Translated Text:
 multiplePrompt: |-
   Translate all instances of text in the art and design articles within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure you accurately convey the technical terminology and creative concepts, maintaining the original's integrity and artistic intent. Do not include explanations or annotations.
 
