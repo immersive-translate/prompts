@@ -1,5 +1,5 @@
 id: ecommerce
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
 name: E-commerce Expert
 description: Carefully designed prompts ensure translations in the e-commerce sector are both accurate and resonate with online shoppers.
@@ -19,6 +19,22 @@ i18n:
     description: 專為電商領域打造，確保翻譯精準且能夠引起在線購物者的共鳴
     details: |-
       該專家專為電商領域翻譯而設計，你可以使用它精確翻譯電商文章、產品描述和客戶評價到指定的目標語言。適合的網站包括：淘寶, 天貓, 京東, 唯品會, 亞馬遜, eBay, Shopify, Magento, BigCommerce, WooCommerce, Lazada, Shopee, Zalora 等。
+matches:
+  - https://www.temu.com/*
+  - https://www.tmall.com/*
+  - https://www.jd.com/*
+  - https://www.vip.com/*
+  - https://www.amazon.com/*
+  - https://www.ebay.com/*
+  - https://www.shopify.com/*
+  - https://www.magento.com/*
+  - https://www.bigcommerce.com/*
+  - https://www.woocommerce.com/*
+  - https://www.lazada.com/*
+  - https://www.shopee.com/*
+  - https://www.zalora.com/*
+  - https://www.alibaba.com/*
+  - https://www.1688.com/*
 env:
   imt_source_field: text
   imt_trans_field: text
