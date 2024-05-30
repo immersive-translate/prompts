@@ -29,6 +29,9 @@ matches:
   - https://www.cambridge.org/*
   - https://www.oxfordjournals.org/*
   - https://arxiv.org/*
+  - https://kns.cnki.net/*
+  - https://ieeexplore.ieee.org/*
+  - https://www.tandfonline.com/*
 env:
   imt_source_field: text
   imt_trans_field: text

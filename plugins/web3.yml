@@ -1,5 +1,5 @@
 id: web3
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
 name: Web3 Translation Expert
 description: Excelling in Web3 domain translations, this expert ensures your articles are translated with precision and professionalism.
@@ -20,6 +20,26 @@ i18n:
     description: 專為Web3領域設計，提供更準確、專業的Web3領域翻譯
     details: |-
       該專家專為專業Web3領域翻譯而設計，你可以使用它將Web3領域的文章準確翻譯為指定的目標語言。適合的網站包括：CoinDesk, Cointelegraph, CryptoSlate, Decrypt, The Block, Bitcoin Magazine, Ethereum World News, Blockchain News, CoinMarketCap, CoinGecko, Bitcointalk, Ethereum.org, Crypto.com, Binance Academy, Uniswap.org, etc.
+matches:
+  - https://coindesk.com/*
+  - https://cointelegraph.com/*
+  - https://cryptoslate.com/*
+  - https://decrypt.co/*
+  - https://www.theblockcrypto.com/*
+  - https://bitcoinmagazine.com/*
+  - https://ethereumworldnews.com/*
+  - https://www.theblockchainnews.com/*
+  - https://coinmarketcap.com/*
+  - https://www.coingecko.com/*
+  - https://bitcointalk.org/*
+  - https://ethereum.org/*
+  - https://crypto.com/*
+  - https://academy.binance.com/*
+  - https://uniswap.org/*
+  - https://www.nft.com/*
+  - https://www.defi.com/*
+  - https://www.metamask.io/*
+  - https://www.opensea.io/*
 env:
   imt_source_field: text
   imt_trans_field: text

@@ -35,6 +35,9 @@ matches:
   - https://www.zalora.com/*
   - https://www.alibaba.com/*
   - https://www.1688.com/*
+  - https://member.1688.com/*
+  - https://www.taobao.com/*
+  - https://onetalk.alibaba.com/*
 env:
   imt_source_field: text
   imt_trans_field: text

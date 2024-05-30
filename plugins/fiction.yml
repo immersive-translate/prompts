@@ -1,5 +1,5 @@
 id: fiction
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
 name: Fiction Translation Expert
 description: Designed to enrich the narrative and emotional depth of fiction translations, ensuring each word captures the original's essence.
@@ -19,6 +19,18 @@ i18n:
     description: 專注於提升小說類翻譯的敘事和情感深度，確保每個詞都能捕捉到原文的精髓。
     details: |-
       該專家在翻譯小說文學方面表現卓越，提供小說、短篇故事等敘事形式的細膩且忠實的呈現。使用它可以將小說翻譯成目標語言，增強情感共鳴和文化相關性。
+matches:
+  - https://www.wattpad.com/*
+  - https://www.fanfiction.net/*
+  - https://www.royalroad.com/*
+  - https://www.webnovel.com/*
+  - https://babelnovel.com/*
+  - https://www.17k.com/*
+  - https://www.qidian.com/*
+  - https://www.wuxiaworld.com/*
+  - https://www.volarenovels.com/*
+  - https://www.novelupdates.com/*
+
 env:
   imt_source_field: text
   imt_trans_field: text

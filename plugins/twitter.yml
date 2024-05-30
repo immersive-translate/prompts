@@ -1,5 +1,5 @@
 id: twitter
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.10
 name: Twitter Translation Enhancer
 description: Optimized for translating tweets, ensuring slang, hashtags, and platform-specific language are accurately conveyed.
@@ -21,6 +21,9 @@ i18n:
       該專家專門翻譯 Twitter 上的推文，確保俚語、成語表達、話題標籤和平台特定語言得到保留並準確翻譯成目標語言。適用於各種類型的推文，包括個人更新、新聞和娛樂。
 matches:
   - https://twitter.com/*
+  - https://mobile.twitter.com/*
+  - https://x.com/*
+  - https://mobile.x.com/*
 env:
   imt_source_field: text
   imt_trans_field: text

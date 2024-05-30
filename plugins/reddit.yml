@@ -1,0 +1,72 @@
+id: reddit
+version: 1.0.1
+extensionVersion: 1.4.10
+name: Reddit Translation Enhancer
+description: Optimized for translating Reddit posts and comments, ensuring community slang, subreddit-specific terminology, and internet jargon are accurately conveyed.
+avatar: https://s.immersivetranslate.com/assets/uploads/reddit-JItzMo.png
+author: Official
+homepage: https://immersivetranslate.com/
+details: |-
+  This expert specializes in translating Reddit content, ensuring that community slang, subreddit-specific terminology, internet jargon, and platform-specific language are preserved and accurately translated into the target language. Suitable for various types of Reddit content, including posts, comments, and subreddit descriptions.
+i18n: 
+  zh-CN:
+    name: Reddit 翻译增强器
+    description: 专为 Reddit 上的帖子和评论翻译优化，确保社区俚语、特定于子版块的术语和互联网行话的准确传达
+    details: |-
+      该专家专门翻译 Reddit 上的内容，确保社区俚语、特定于子版块的术语、互联网行话和平台特定语言得到保留并准确翻译成目标语言。适用于各种类型的 Reddit 内容，包括帖子、评论和子版块描述。
+  zh-TW:
+    name: Reddit 翻譯增強器
+    description: 專為 Reddit 上的帖子和評論翻譯優化，確保社區俚語、特定於子版塊的術語和互聯網行話的準確傳達
+    details: |-
+      該專家專門翻譯 Reddit 上的內容，確保社區俚語、特定於子版塊的術語、互聯網行話和平台特定語言得到保留並準確翻譯成目標語言。適用於各種類型的 Reddit 內容，包括帖子、評論和子版塊描述。
+matches:
+  - https://reddit.com/*
+  - https://www.reddit.com/*
+  - https://old.reddit.com/*
+  - https://m.reddit.com/*
+  - https://reddit.app.link/*
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: "{{text}}"
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: "{{text}}"
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: "Source Reddit post"
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: "Translated Reddit post"
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: "Source comment"
+      - id: 2
+        {{imt_sub_source_field}}: "Another source comment"
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: "Translated comment"
+        {{imt_sub_source_field}}: "Source comment"
+      - id: 2
+        {{imt_sub_trans_field}}: "Another translated comment"
+        {{imt_sub_source_field}}: "Another source comment"
+systemPrompt: You are a sophisticated translation engine with expertise in Reddit content, capable of translating texts accurately into the specified target language, preserving community slang, subreddit-specific terminology, internet jargon, and platform-specific language. Do not add any explanations or annotations to the translated text.
+
+prompt: |-
+  Translate the following source Reddit content to {{to}}, Output translation directly without any additional text.
+  Source Text: {{text}}
+  Translated Text:
+multiplePrompt: |-
+  Translate all instances of text in Reddit content within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure the original community slang, subreddit-specific terminology, internet jargon, and platform-specific language are accurately translated and retain their original formatting. Do not include explanations or annotations.
+
+  {{normal_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}

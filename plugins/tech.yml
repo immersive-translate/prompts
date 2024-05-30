@@ -42,6 +42,7 @@ matches:
   - https://techcrunch.com/*
   - https://techrepublic.com/*
   - https://technet.com/*
+  - https://stackoverflow.com/*
 env:
   imt_source_field: text
   imt_trans_field: text

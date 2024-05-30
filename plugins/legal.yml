@@ -1,5 +1,5 @@
 id: legal
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
 name: Legal Expert
 description: With meticulously crafted Prompts, translations in the legal field become more accurate and professional.
@@ -17,6 +17,16 @@ i18n:
       該專家專為專業法律領域翻譯而設計，你可以使用它將法律類文章準確翻譯為指定的目標語言。
 author: Official
 homepage: https://immersivetranslate.com/
+matches:
+  - https://www.law.com/*
+  - https://www.abajournal.com/*
+  - https://www.law360.com/*
+  - https://www.jurist.org/*
+  - https://www.law.cornell.edu/*
+  - https://www.lawyers.com/*
+  - https://www.findlaw.com/*
+  - https://www.justia.com/*
+  - https://www.nolo.com/*
 env:
   imt_source_field: text
   imt_trans_field: text

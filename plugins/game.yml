@@ -33,6 +33,8 @@ matches:
   - https://gameinformer.com/*
   - https://escapistmagazine.com/*
   - https://vg247.com/*
+  - https://www.nexusmods.com/*
+  - https://steamcommunity.com/*
 env:
   imt_source_field: text
   imt_trans_field: text
