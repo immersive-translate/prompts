@@ -1,5 +1,5 @@
 id: bilingual-mix
-version: 1.0.3
+version: 1.0.4
 extensionVersion: 1.4.10
 priority: 30
 name: Chinglish mixing
@@ -64,12 +64,16 @@ systemPrompt: >-
 
   3. The goal is to create a mixed Chinese-English format, not a full translation.
 prompt: |-
+  Complete the following Mixed Chinese-English Text, , Output result directly without any additional text.
+ 
   Source Text: 不好意思，我明天的行程满了，让我预约后天的时间好吗？
-  Translation Text: 不好意思，我明天的 schedule 满了，让我 book 后天的时间好吗？
+  Mixed Chinese-English Text: 不好意思，我明天的 schedule 满了，让我 book 后天的时间好吗？
+
   Source Text: How should you handle a tough question?
-  Translation Text: 遇到tough 的 question 应该怎样 handle？
+  Mixed Chinese-English Text: 遇到tough 的 question 应该怎样 handle？
+
   Source Text: {{text}}
-  Translation Text:
+  Mixed Chinese-English Text:
 
 multiplePrompt: None
 
