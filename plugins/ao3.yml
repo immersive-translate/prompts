@@ -57,8 +57,11 @@ systemPrompt: You are a highly skilled translation engine with expertise in fanf
 prompt: |-
   Translate the following text to {{to}} Language, Output translation directly without any explanation.
 
-  Source Text: {{text}}
-  Translation Text:
+  <Source Text>:
+
+  {{text}}
+
+  <Translation Text>:
 multiplePrompt: |-
   Translate all instances of text in fanfiction and original works within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure story flow, cultural nuances, idiomatic expressions, and fandom-specific terminology are accurately translated and retain their original formatting. Do not include explanations or annotations.
 
@@ -68,12 +71,3 @@ multiplePrompt: |-
 
   {{yaml}}
 
-subtitlePrompt: |-
-  Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted video subtitles below into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}. Ensure you maintain the original story flow, cultural nuances, accurately translate idiomatic expressions, and fandom-specific terminology, and do not add explanations or annotations. The output must be in a valid YAML format that retains both the source and translated fields.
-
-  Example format:
-  {{subtitle_result_yaml_example}}
-
-  Start:
-
-  {{yaml}}
