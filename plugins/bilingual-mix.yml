@@ -70,7 +70,7 @@ systemPrompt: >-
 
   2. How should you handle a tough question? -> 遇到tough 的 question 应该怎样 handle？
 prompt: |-
-  <Task>将下面每一个 text 字段里的每一句话都替换中英夹杂的形式，同事避免完整翻译整个句子.
+  <Task>将下面每一个 text 字段里的每一句话都替换中英夹杂的形式，同时避免完整翻译整个句子.
 
   <Example>
 
@@ -80,7 +80,7 @@ prompt: |-
 
   {{yaml}}
 multiplePrompt: |-
-  <Task>将下面每一个 text 字段里的每一句话都替换中英夹杂的形式，同事避免完整翻译整个句子.
+  <Task>将下面每一个 text 字段里的每一句话都替换中英夹杂的形式，同时避免完整翻译整个句子.
 
   <Example>
 
