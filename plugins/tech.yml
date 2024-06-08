@@ -1,5 +1,5 @@
 id: tech
-version: 1.0.3
+version: 1.0.4
 extensionVersion: 1.4.10
 name: Technology Expert
 description: With meticulously crafted Prompts, translations in the technology field become more accurate and professional.
@@ -42,6 +42,7 @@ matches:
   - https://stackoverflow.com/*
   - https://news.ycombinator.com/*
   - https://hn.algolia.com/*
+  - https://www.theregister.com/*
 env:
   imt_source_field: text
   imt_trans_field: text
