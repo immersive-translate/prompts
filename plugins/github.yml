@@ -1,5 +1,5 @@
 id: github
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.10
 name: GitHub Translation Enhancer
 description: Optimized for translating GitHub repositories, issues, and comments, ensuring technical terms, code snippets, and platform-specific language are accurately conveyed.
@@ -55,7 +55,7 @@ env:
 systemPrompt: You are a sophisticated translation engine with expertise in GitHub content, capable of translating texts accurately into the specified target language, preserving technical terms, code snippets, markdown formatting, and platform-specific language. Do not add any explanations or annotations to the translated text.
 
 prompt: |-
-  Translate the following source GitHub content to {{to}}, Output translation directly without any additional text.
+  Translate the following GitHub content to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
   Translated Text:
 multiplePrompt: |-
