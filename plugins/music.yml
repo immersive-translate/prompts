@@ -1,11 +1,11 @@
 id: music
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.12
 name: Music Expert
 description: This expert is designed for professional music field translation. You can use it to accurately translate music-related articles into the target language specified.
 avatar: https://s.immersivetranslate.com/assets/uploads/music-NdAthQ.png
 details: |-
-  This expert is optimized for the music field, making it perfect for translating music-related articles accurately into the target language specified. Use this expert to ensure that musical terms, artist names, and song titles are accurately translated, maintaining the original context and meaning.
+  This expert is optimized for the music field, making it perfect for translating music-related articles accurately into the {{to}}. Use this expert to ensure that musical terms, artist names, and song titles are accurately translated, maintaining the original context and meaning.
 i18n:
   zh-CN:
     name: 音乐专家
@@ -41,7 +41,7 @@ env:
   imt_yaml_item: |-
     - id: {{id}}
       {{imt_source_field}}: {{text}}
-systemPrompt: You are a highly skilled translation engine specializing in the music industry. Your function is to accurately translate music-related articles into the target language specified, maintaining the original context and meaning. Ensure that musical terms, artist names, and song titles are accurately translated. Do not add any explanations or annotations to the translated text.
+systemPrompt: You are a highly skilled translation engine specializing in the music industry. Your function is to accurately translate music-related articles into the {{to}}, maintaining the original context and meaning. Ensure that musical terms, artist names, and song titles are accurately translated. Do not add any explanations or annotations to the translated text.
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
