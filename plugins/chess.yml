@@ -17,7 +17,7 @@ i18n:
     description: 專門針對國際象棋相關內容優化，適合翻譯chess.com的文章和術語。
     details: |-
       該專家專為國際象棋內容翻譯而設計，可以準確地將chess.com和其他國際象棋網站的文章、對局分析和專業術語翻譯成目標語言。
-author: Official
+author: akira0245
 homepage: https://immersivetranslate.com/
 matches:
   - https://www.chess.com/*
