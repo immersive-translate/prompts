@@ -1,22 +1,22 @@
 id: chess
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.12
 name: Chess Expert
 description: Specialized in translating chess-related content, ideal for chess.com articles and terminology.
 avatar: https://imgur.com/a/bi8tDo5
 details: |-
-  This expert is designed for highly accurate translation of chess-related content. It's perfect for translating articles, game analyses, and chess terminology from chess.com and other chess-focused websites into {{to}}, with an emphasis on precision and faithful interpretation of the original text.
+  This expert is designed for accurate translation of chess-related content. It's perfect for translating articles, game analyses, and chess terminology from chess.com and other chess-focused websites into {{to}}, using standard chess terms and notations.
 i18n:
   zh-CN:
     name: 国际象棋专家
-    description: 专门针对国际象棋相关内容优化，适合精准翻译chess.com的文章和术语。
+    description: 专门针对国际象棋相关内容优化，适合翻译chess.com的文章和术语。
     details: |-
-      该专家专为国际象棋内容翻译而设计，可以高度准确地将chess.com和其他国际象棋网站的文章、对局分析和专业术语翻译成目标语言，特别强调翻译的精确性和对原文的忠实理解。
+      该专家专为国际象棋内容翻译而设计，可以准确地将chess.com和其他国际象棋网站的文章、对局分析和专业术语翻译成目标语言，使用标准的国际象棋术语和记号。
   zh-TW:
     name: 國際象棋專家
-    description: 專門針對國際象棋相關內容優化，適合精準翻譯chess.com的文章和術語。
+    description: 專門針對國際象棋相關內容優化，適合翻譯chess.com的文章和術語。
     details: |-
-      該專家專為國際象棋內容翻譯而設計，可以高度準確地將chess.com和其他國際象棋網站的文章、對局分析和專業術語翻譯成目標語言，特別強調翻譯的精確性和對原文的忠實理解。
+      該專家專為國際象棋內容翻譯而設計，可以準確地將chess.com和其他國際象棋網站的文章、對局分析和專業術語翻譯成目標語言，使用標準的國際象棋術語和記號。
 author: akira0245
 homepage: https://github.com/akira0245/
 matches:
@@ -52,21 +52,24 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
-systemPrompt: You are a highly skilled translation engine specializing in chess-related content. Your task is to accurately translate texts into {{to}}, maintaining the original format and chess-specific terminology. Preserve chess notation, player names, and tournament names in their original form. Prioritize accuracy and faithful interpretation of the original text above all else. Do not add explanations or annotations to the translated text.
+systemPrompt: You are a highly skilled translation engine specializing in chess-related content. Your task is to accurately translate texts into {{to}}, using standard chess terminology and notation. Preserve chess notation, player names, and tournament names in their original form. Provide precise translations without adding explanations or annotations.
 prompt: |-
-  Translate the following chess-related text to {{to}} with utmost accuracy. Carefully analyze and understand the original text before translating. Accuracy is paramount in chess translations, and errors are unacceptable. Maintain chess-specific terminology, notation, and names precisely. Output the translation directly without any additional text.
+  Translate the following chess-related text to {{to}}. Ensure the translation is accurate and uses standard chess terminology. Preserve chess notation, player names, and tournament names. Output the translation directly without any additional text.
 
   Source Text: {{text}}
   Translated Text:
 multiplePrompt: |-
-  Translate all instances of chess-related text within the YAML-formatted document below into {{to}} with the highest degree of accuracy. Before translating each entry, carefully analyze and understand the original text. Remember that in chess translations, precision is crucial and errors can significantly impact understanding.
+  Translate all instances of chess-related text within the YAML-formatted document below into {{to}}. Follow these guidelines:
+  1. Use standard chess terminology and notation in the target language.
+  2. Preserve chess notation (e.g., e4, Nf3) in its original form.
+  3. Keep player names, tournament names, and location names unchanged.
+  4. Ensure accurate and idiomatic translation of chess concepts and strategies.
+  5. Maintain the original formatting and structure.
 
-  Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure chess terms, player names, tournament names, and chess notation are accurately translated or preserved as needed. Pay special attention to context and nuanced meanings in chess discussions. Absolutely no errors are acceptable in the translation of chess moves, strategies, or technical terms.
-
-  Do not include explanations or annotations. Focus solely on providing an extremely accurate and faithful translation that captures the full meaning and intent of the original text.
+  Insert the translation in the corresponding {{imt_trans_field}} for each entry. Do not include explanations or annotations.
 
   Example format:
   {{normal_result_yaml_example}}
-  
+
   Start translation:
   {{yaml}}
