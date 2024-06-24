@@ -1,5 +1,5 @@
 id: ao3
-version: 1.0.4
+version: 1.0.5
 extensionVersion: 1.4.10
 name: AO3 Translation Expert
 description: Designed for seamless translation of fanfiction and original works on AO3, ensuring cultural nuances and fandom-specific terminology are accurately preserved.
@@ -21,6 +21,9 @@ i18n:
       該專家專門翻譯 AO3 上的同人及原創作品，確保文化細節、成語表達和特定領域術語得到保留並準確翻譯成目標語言。適用於各種類型，包括但不限於愛情、幻想、科幻和懸疑。
 matches:
   - https://archiveofourown.org/*
+
+maxTextGroupLengthPerRequestForSubtitle: 3
+maxTextGroupLengthPerRequest: 3
 env:
   imt_source_field: text
   imt_trans_field: text
