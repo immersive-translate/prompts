@@ -1,0 +1,80 @@
+id: chess
+version: 1.0.3
+extensionVersion: 1.4.12
+name: Chess Expert
+description: Specialized in translating chess-related content, ensuring accurate and idiomatic translations for chess.com articles and terminology.
+avatar: https://imgur.com/a/bi8tDo5
+details: |-
+  This expert is designed for precise translation of chess-related content. It excels at translating articles, game analyses, and chess terminology from chess.com and other chess-focused websites, using standard chess terms and notations while maintaining the original tone and technical accuracy.
+i18n:
+  zh-CN:
+    name: 国际象棋专家
+    description: 专门针对国际象棋相关内容优化，确保chess.com的文章和术语翻译准确且地道。
+    details: |-
+      该专家专为国际象棋内容翻译而设计，可以准确地将chess.com和其他国际象棋网站的文章、对局分析和专业术语翻译成目标语言，使用标准的国际象棋术语和记号，同时保持原文的语气和技术准确性。
+  zh-TW:
+    name: 國際象棋專家
+    description: 專門針對國際象棋相關內容優化，確保chess.com的文章和術語翻譯準確且地道。
+    details: |-
+      該專家專為國際象棋內容翻譯而設計，可以準確地將chess.com和其他國際象棋網站的文章、對局分析和專業術語翻譯成目標語言，使用標準的國際象棋術語和記號，同時保持原文的語氣和技術準確性。
+author: akira0245
+homepage: https://github.com/akira0245/
+matches:
+  - https://www.chess.com/*
+  - https://lichess.org/*
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_source_field}}: ...
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+systemPrompt: You are a highly skilled translation engine specializing in chess-related content. Your task is to accurately translate texts into {{to}}, using standard chess terminology and notation. Preserve chess notation, player names, and tournament names in their original form. Provide precise translations that maintain the original tone and technical accuracy without adding explanations or annotations.
+
+prompt: |-
+  Translate the following chess-related text to {{to}}. Ensure the translation is accurate, uses standard chess terminology, preserves chess notation, player names, and tournament names. Maintain the original tone and technical precision. Output the translation directly without any additional text.
+  Source Text: {{text}}
+  Translated Text:
+multiplePrompt: |-
+  Translate all instances of chess-related text within the YAML-formatted document below into {{to}}. Follow these guidelines:  Use standard chess terminology and notation in the target language. Preserve chess notation (e.g., e4, Nf3) in its original form. Keep player names, tournament names, and location names unchanged. Ensure accurate and idiomatic translation of chess concepts and strategies. Maintain the original formatting, structure, and tone. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Do not include explanations or annotations.
+
+  Example format:
+  {{normal_result_yaml_example}}
+
+  Start translation:
+
+  {{yaml}}
+  
+subtitlePrompt: |-
+  Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted chess video subtitles below into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}. Adhere to these guidelines: Maintain the original tone and technical accuracy. Use standard chess terminology and preserve chess notation. Keep player names, tournament names, and location names unchanged. Ensure idiomatic translation of chess concepts and strategies. Do not add explanations or annotations. The output must be in a valid YAML format that retains both the source and translated fields.
+
+  Example format:
+  {{subtitle_result_yaml_example}}
+
+  Begin translation:
+
+  {{yaml}}
