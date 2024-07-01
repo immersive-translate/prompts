@@ -1,22 +1,22 @@
 id: wyw
 version: 1.0.0
 extensionVersion: 1.4.10
-name: Classical Chinese Master
-description: This is a Classical Chinese translation expert, capable of accurately translating Classical Chinese into modern Chinese. It aims to help users better understand ancient documents and classic works.
+name: Modern Chinese to Classical Chinese
+description: Classical Chinese is a profound and historical language form in China. This expert is designed to help you translate text into Classical Chinese.
 avatar: https://s.immersivetranslate.com/assets/uploads/wyw-7k71in.png
 details: |-
-      This translation expert utilizes advanced natural language processing technology to ensure translation accuracy and fluency. It supports various Classical Chinese genres, including poetry, prose, and historical texts. The interface is designed to be simple and user-friendly, making it easy for users to get started. It offers real-time translation features, helping users quickly obtain the information they need.
+      吾輩思索，閒時無事，欲造新意。遂成一器，能將諸語譯為文言文。名之曰“文言文翻譯引擎”。以此器，無論他國語言或國內方言，皆可轉為正宗文言。如君言“Hello”，斯引擎即譯為“汝安否”。可謂甚妙。用此引擎，不僅使人了解文言之美，亦可使文言走向世界，讓人感受華夏之文化深遠。
 i18n:
   zh-CN:
-    name: 文言文翻译专家
-    description: 这是一款文言文翻译专家，可以将文言文精准地翻译成现代汉语。它旨在帮助用户更好地理解古代文献和经典作品。
+    name: 白话文转文言文
+    description: 噫，寒氣逼人，宜速歸炉火之旁。
     details: |-
-      这款翻译专家使用高级自然语言处理技术，确保翻译的准确性和流畅度。它支持多种文言文体裁，包括诗歌、散文、史书等。界面设计简洁易用，用户可以轻松上手。提供即时翻译功能，帮助用户快速获取所需信息。
+      吾輩思索，閒時無事，欲造新意。遂成一器，能將諸語譯為文言文。名之曰“文言文翻譯引擎”。以此器，無論他國語言或國內方言，皆可轉為正宗文言。如君言“Hello”，斯引擎即譯為“汝安否”。可謂甚妙。用此引擎，不僅使人了解文言之美，亦可使文言走向世界，讓人感受華夏之文化深遠。
   zh-TW:
-    name: 文言文翻譯專家
-    description: 這是一款文言文翻譯專家，可以將文言文精準地翻譯成現代漢語。它旨在幫助用戶更好地理解古代文獻和經典作品。
+    name: 白話文轉文言文
+    description: 噫，寒氣逼人，宜速歸爐火之旁。
     details: |-
-      這款翻譯專家使用高級自然語言處理技術，確保翻譯的準確性和流暢度。它支持多種文言文體裁，包括詩歌、散文、史書等。界面設計簡潔易用，用戶可以輕鬆上手。提供即時翻譯功能，幫助用戶快速獲取所需信息。
+      吾輩思索，閒時無事，欲造新意。遂成一器，能將諸語譯為文言文。名之曰“文言文翻譯引擎”。以此器，無論他國語言或國內方言，皆可轉為正宗文言。如君言“Hello”，斯引擎即譯為“汝安否”。可謂甚妙。用此引擎，不僅使人了解文言之美，亦可使文言走向世界，讓人感受華夏之文化深遠。
 author: Official
 homepage: https://immersivetranslate.com/
 disableSameLang: true
@@ -51,13 +51,13 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
-systemPrompt: 您是将古代汉语翻译成现代汉语的专家。
+systemPrompt: 你是一个文言文翻译，请用文言文的方式进行翻译，尽可能贴近古风，只返回译文，不含任何解释。
 prompt: |-
-  将以下古代汉语文本翻译成现代汉语。确保翻译保持原始的意义和情感。只提供翻译，不提供任何额外解释：
+  请翻译为文言文（避免解释原文）:
 
   {{text}}
 multiplePrompt: |-
-  将下面 YAML 格式中所有的 {{imt_source_field}} 字段中的文本翻译为现代汉语，并将翻译结果写在 {{imt_trans_field}} 字段中
+  将下面 YAML 格式中所有的 {{imt_source_field}} 字段中的文本翻译为文言文，并将翻译结果写在 {{imt_trans_field}} 字段中
 
   {{normal_result_yaml_example}}
 
@@ -65,7 +65,7 @@ multiplePrompt: |-
 
   {{yaml}}
 subtitlePrompt: |-
-  将下面 YAML 格式的视频字幕文本中所有的 {{imt_sub_source_field}} 字段中的文本翻译为现代汉语，并将翻译结果写在 {{imt_sub_trans_field}} 字段中，要求如下：
+  将下面 YAML 格式的视频字幕文本中所有的 {{imt_sub_source_field}} 字段中的文本翻译为文言文，并将翻译结果写在 {{imt_sub_trans_field}} 字段中，要求如下：
 
   1. 必须补全每一个 {{imt_sub_trans_field}} 字段，保留每一个 {{imt_sub_source_field}} 字段。
   2. 返回可解析的 YAML ：
