@@ -3,7 +3,7 @@ version: 1.0.3
 extensionVersion: 1.4.12
 name: Chess Expert
 description: Specialized in translating chess-related content, ensuring accurate and idiomatic translations for chess.com articles and terminology.
-avatar: https://imgur.com/a/bi8tDo5
+avatar: https://s.immersivetranslate.com/assets/uploads/222-SgjhHm.jpeg
 details: |-
   This expert is designed for precise translation of chess-related content. It excels at translating articles, game analyses, and chess terminology from chess.com and other chess-focused websites, using standard chess terms and notations while maintaining the original tone and technical accuracy.
 i18n:
