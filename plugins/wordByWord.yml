@@ -3,6 +3,7 @@ version: 1.0.0
 extensionVersion: 1.4.10
 name: Word-by-Word Translation Assistant
 description: Intelligently segments sentences and translates each part separately, then combines the translation results.
+avatar: https://i.imgur.com/FgHBKVt.jpg
 author: Official
 homepage: https://immersivetranslate.com/
 details: |-
