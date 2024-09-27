@@ -8,7 +8,7 @@ author: Official
 homepage: https://immersivetranslate.com/
 details: |-
   This expert specializes in translating tweets, ensuring that slang, idiomatic expressions, hashtags, and platform-specific language are preserved and accurately translated into the target language. Suitable for various types of tweets, including personal updates, news, and entertainment.
-i18n: 
+i18n:
   zh-CN:
     name: Twitter 翻译增强器
     description: 专为 Twitter 上的推文翻译优化，确保俚语、话题标签和平台特定语言的准确传达
@@ -56,7 +56,6 @@ env:
         {{imt_sub_trans_field}}: "Another translated hashtag"
         {{imt_sub_source_field}}: "Another source hashtag"
 systemPrompt: You are a sophisticated translation engine with expertise in tweets, capable of translating texts accurately into the specified target language, preserving slang, idiomatic expressions, hashtags, and platform-specific language. Do not add any explanations or annotations to the translated text.
-
 prompt: |-
   Translate the following tweet to {{to}}, Output translation directly without any additional text.
   Source Tweet: {{text}}

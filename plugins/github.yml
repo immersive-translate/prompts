@@ -8,7 +8,7 @@ author: Official
 homepage: https://immersivetranslate.com/
 details: |-
   This expert specializes in translating GitHub content, ensuring that technical terms, code snippets, markdown formatting, and platform-specific language are preserved and accurately translated into the target language. Suitable for various types of GitHub content, including repositories, issues, pull requests, and comments.
-i18n: 
+i18n:
   zh-CN:
     name: GitHub 翻译增强器
     description: 专为 GitHub 上的仓库、问题和评论翻译优化，确保技术术语、代码片段和平台特定语言的准确传达
@@ -53,7 +53,6 @@ env:
         {{imt_sub_trans_field}}: "Another translated issue description"
         {{imt_sub_source_field}}: "Another source issue description"
 systemPrompt: You are a sophisticated translation engine with expertise in GitHub content, capable of translating texts accurately into the specified target language, preserving technical terms, code snippets, markdown formatting, and platform-specific language. Do not add any explanations or annotations to the translated text.
-
 prompt: |-
   Translate the following GitHub content to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}

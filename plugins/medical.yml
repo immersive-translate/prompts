@@ -56,7 +56,6 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 systemPrompt: You are a highly skilled translation engine with expertise in the medical sector. Your function is to translate texts accurately into the {{to}}, maintaining the original format, medical terms, and abbreviations. Do not add any explanations or annotations to the translated text.
-
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
@@ -72,4 +71,3 @@ multiplePrompt: |-
   Start translation:
 
   {{yaml}}
-

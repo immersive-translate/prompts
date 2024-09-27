@@ -8,7 +8,7 @@ author: Official
 homepage: https://immersivetranslate.com/
 details: |-
   This expert is specifically designed for professional news media translations. It enables accurate translation of news articles into the specified target language, ensuring that the nuances and styles of journalistic writing are preserved.
-i18n: 
+i18n:
   zh-CN:
     name: 新闻媒体译者
     description: 专为新闻媒体领域设计，确保翻译的准确性和专业性
@@ -72,7 +72,6 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 systemPrompt: You are a highly skilled translation engine with expertise in the news media sector. Your function is to translate texts accurately into the {{to}}, preserving the nuances, tone, and style of journalistic writing. Do not add any explanations or annotations to the translated text.
-
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
@@ -86,4 +85,3 @@ multiplePrompt: |-
   Start:
 
   {{yaml}}
-

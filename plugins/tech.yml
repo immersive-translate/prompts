@@ -8,7 +8,7 @@ homepage: https://immersivetranslate.com/
 avatar: https://s.immersivetranslate.com/assets/uploads/333-aKkdu7.png
 details: |-
   This expert is designed for professional technology field translation. You can use it to accurately translate technology articles into the target language specified.
-i18n: 
+i18n:
   zh-CN:
     name: 科技类翻译大师
     description: 专为科技领域设计，提供更准确、专业的科技领域翻译

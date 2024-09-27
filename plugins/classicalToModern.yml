@@ -5,7 +5,7 @@ name: Classical Chinese to Modern Chinese
 description: This is a Classical Chinese translation expert, capable of accurately translating Classical Chinese into modern Chinese. It aims to help users better understand ancient documents and classic works.
 avatar: https://s.immersivetranslate.com/assets/uploads/wyw2bhw-m5gJWy.png
 details: |-
-      This translation expert utilizes advanced natural language processing technology to ensure translation accuracy and fluency. It supports various Classical Chinese genres, including poetry, prose, and historical texts. The interface is designed to be simple and user-friendly, making it easy for users to get started. It offers real-time translation features, helping users quickly obtain the information they need.
+  This translation expert utilizes advanced natural language processing technology to ensure translation accuracy and fluency. It supports various Classical Chinese genres, including poetry, prose, and historical texts. The interface is designed to be simple and user-friendly, making it easy for users to get started. It offers real-time translation features, helping users quickly obtain the information they need.
 i18n:
   zh-CN:
     name: 文言文转白话文

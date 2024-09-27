@@ -9,7 +9,7 @@ author: Official
 homepage: https://immersivetranslate.com/
 details: |-
   This expert specializes in interpretive translations, aiming to capture not just the words but the meaning and tone behind them. It's perfect for literature, idiomatic expressions, and any text where context matters as much as content. Use this expert to convey the essence of the original text in the target language, ensuring that cultural nuances and implied meanings are not lost in translation.
-i18n: 
+i18n:
   zh-CN:
     name: 意译大师
     description: 专门设计用于富有细腻差异和意译的翻译，经过先直译，再意译的步骤，确保翻译超越字面，捕捉原文的精髓和语调。
@@ -59,4 +59,3 @@ prompt: |-
 
   Return the translated YAML directly without any <example_output> tags or additional information.
 multiplePrompt: None
-

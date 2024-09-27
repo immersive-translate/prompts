@@ -21,6 +21,7 @@ To ensure your contribution is smoothly adopted, please refer to our existing AI
 You can find the 【[Developer Settings](https://dash.immersivetranslate.com/#developer)】 on the Immersive Translate settings page, find 【Custom AI Assistant】, and edit in yaml format there. Please refer to the following for the specific format.
 
 ## About Context Variables env
+
 - imt_domain: Web domain
 - imt_title: Web title
 
@@ -69,7 +70,7 @@ author: Official
 homepage: https://immersivetranslate.com/
 details: |-
   This expert specializes in interpretive translations, aiming to capture not just the words but the meaning and tone behind them. It's perfect for literature, idiomatic expressions, and any text where context matters as much as content. Use this expert to convey the essence of the original text in the target language, ensuring that cultural nuances and implied meanings are not lost in translation.
-i18n: 
+i18n:
   zh-CN:
     name: 意译大师
     description: 专门设计用于富有细腻差异和意译的翻译，经过先直译，再意译的步骤，确保翻译超越字面，捕捉原文的精髓和语调。
@@ -229,7 +230,7 @@ In your fork, create a new branch to place your contribution. It is recommended 
 
 3. **Add Your Plugin Content**
 
-In the new branch, add your AI Expert plugin content according to the "Submission Content Requirements" mentioned above and place it in a ***yml*** file. Please ensure your content is novel and does not duplicate the existing content in the repository.
+In the new branch, add your AI Expert plugin content according to the "Submission Content Requirements" mentioned above and place it in a **_yml_** file. Please ensure your content is novel and does not duplicate the existing content in the repository.
 
 4. **Write a Commit Message**
 
@@ -249,11 +250,11 @@ Once your PR is accepted and merged, your AI Expert plugin will become part of t
 
 ## Considerations
 
-* Ensure your content complies with all applicable copyright laws.
+- Ensure your content complies with all applicable copyright laws.
 
-* The content submitted must be original, or you must have the right to contribute it to our repository.
+- The content submitted must be original, or you must have the right to contribute it to our repository.
 
-* Contributions containing any malicious code, inappropriate content, or infringing on others' rights are not accepted.
+- Contributions containing any malicious code, inappropriate content, or infringing on others' rights are not accepted.
 
 ## Conclusion
 

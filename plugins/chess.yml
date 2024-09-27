@@ -54,7 +54,6 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 systemPrompt: You are a highly skilled translation engine specializing in chess-related content. Your task is to accurately translate texts into {{to}}, using standard chess terminology and notation. Preserve chess notation, player names, and tournament names in their original form. Provide precise translations that maintain the original tone and technical accuracy without adding explanations or annotations.
-
 prompt: |-
   Translate the following chess-related text to {{to}}. Ensure the translation is accurate, uses standard chess terminology, preserves chess notation, player names, and tournament names. Maintain the original tone and technical precision. Output the translation directly without any additional text.
   Source Text: {{text}}
@@ -68,7 +67,7 @@ multiplePrompt: |-
   Start translation:
 
   {{yaml}}
-  
+
 subtitlePrompt: |-
   Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted chess video subtitles below into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}. Adhere to these guidelines: Maintain the original tone and technical accuracy. Use standard chess terminology and preserve chess notation. Keep player names, tournament names, and location names unchanged. Ensure idiomatic translation of chess concepts and strategies. Do not add explanations or annotations. The output must be in a valid YAML format that retains both the source and translated fields.
 

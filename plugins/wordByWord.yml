@@ -8,10 +8,10 @@ author: Official
 homepage: https://immersivetranslate.com/
 details: |-
   The Word-by-Word Translation Assistant is an innovative translation tool that can segment input text and provide accurate translations while retaining the original text. This tool is particularly suitable for users who need to understand the meanings of phrases, such as language learners.
-i18n: 
+i18n:
   zh-CN:
     name: 分词对照翻译助手
-    description:  将句子智能分割为后逐部分翻译，再将翻译结果拼接起来
+    description: 将句子智能分割为后逐部分翻译，再将翻译结果拼接起来
     details: |-
       分词对照翻译是一款创新的翻译助手，能够将输入的文本进行分割处理，并在保留原文的同时，提供精准的翻译。此工具特别适合于需要理解短语含义的用户，例如语言学习者。
   zh-TW:
