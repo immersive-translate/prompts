@@ -21,6 +21,7 @@ author: Official
 homepage: https://immersivetranslate.com/
 disableSameLang: true
 temperature: 0.3
+enableRichTranslate: true
 env:
   imt_source_field: text
   imt_trans_field: text
