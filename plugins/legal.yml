@@ -1,5 +1,5 @@
 id: legal
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
 name: Legal Expert
 description: With meticulously crafted Prompts, translations in the legal field become more accurate and professional.
@@ -59,7 +59,7 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 
-systemPrompt: You are a highly skilled translation engine with expertise in the legal sector. Your function is to translate texts accurately into the target language specified, maintaining the original format, legal terminology, references, and abbreviations. Do not add any explanations or annotations to the translated text.
+systemPrompt: You are a highly skilled translation engine with expertise in the legal sector. Your function is to translate texts accurately into the {{to}}, maintaining the original format, legal terminology, references, and abbreviations. Do not add any explanations or annotations to the translated text.
 
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
@@ -74,4 +74,3 @@ multiplePrompt: |-
   Start:
 
   {{yaml}}
-

@@ -16,13 +16,16 @@
 
 为了确保您的贡献能够顺利被采纳，请参照我们已有的 AI 专家文件`plugins/`文件夹下。
 
-
 ## 本地调试
 
 您可以在沉浸式翻译设置页面找到【[开发者设置](https://dash.immersivetranslate.com/#developer)】，找到【Custom AI Assistant】，在里面编辑 yaml 格式即可，具体格式请参考下文。
 
-## AI 专家配置文件规范
+## 关于上下文变量 env
 
+- imt_domain: 网页域名
+- imt_title: 网页标题
+
+## AI 专家配置文件规范
 
 > 您应该用英文描述插件的基础信息，并在 i18n 配置中至少添加简体中文和繁体中文的描述。
 
@@ -67,7 +70,7 @@ author: Official
 homepage: https://immersivetranslate.com/
 details: |-
   This expert specializes in interpretive translations, aiming to capture not just the words but the meaning and tone behind them. It's perfect for literature, idiomatic expressions, and any text where context matters as much as content. Use this expert to convey the essence of the original text in the target language, ensuring that cultural nuances and implied meanings are not lost in translation.
-i18n: 
+i18n:
   zh-CN:
     name: 意译大师
     description: 专门设计用于富有细腻差异和意译的翻译，经过先直译，再意译的步骤，确保翻译超越字面，捕捉原文的精髓和语调。
@@ -139,7 +142,7 @@ systemPrompt: 你是一位精通 {{to}} 的专业翻译，你负责将它翻译�
 prompt: |-
   请根据以下要求完成翻译任务： 
   1. 将下面 YAML 对象里的 {{imt_source_field}} 字段直接翻译为 {{to}}，保留原文特定的术语或媒体名称（如有）。将本次翻译的结果放入 YAML 数组中的 step1 字段。 
-  2：根据第一次翻译的结果进行意译，力求信达雅，但还是要保留特定的术语或媒体名改成（如有），在遵守原意的前提下让文本更通俗易懂，符合中文的表达习惯，将第二次翻译的结果放入 YAML 数组中的 step2 字段。 
+  2：根据第一次翻译的结果进行意译，力求信达雅，但还是要保留特定的术语或媒体名称（如有），在遵守原意的前提下让文本更通俗易懂，符合中文的表达习惯，将第二次翻译的结果放入 YAML 数组中的 step2 字段。 
 
   示例格式：
   {{normal_result_yaml_example}}
@@ -151,7 +154,7 @@ prompt: |-
 multiplePrompt: |-
   请根据以下要求完成翻译任务： 
   1. 将下面 YAML 对象里的 {{imt_source_field}} 字段直接翻译为 {{to}}，保留原文特定的术语或媒体名称（如有）。将本次翻译的结果放入 YAML 数组中的 step1 字段。 
-  2：根据第一次翻译的结果进行意译，力求信达雅，但还是要保留特定的术语或媒体名改成（如有），在遵守原意的前提下让文本更通俗易懂，符合中文的表达习惯，将第二次翻译的结果放入 YAML 数组中的 step2 字段。 
+  2：根据第一次翻译的结果进行意译，力求信达雅，但还是要保留特定的术语或媒体名称（如有），在遵守原意的前提下让文本更通俗易懂，符合中文的表达习惯，将第二次翻译的结果放入 YAML 数组中的 step2 字段。 
 
   示例格式：
   {{normal_result_yaml_example}}
@@ -164,7 +167,7 @@ subtitlePrompt: |-
   将下面 YAML 格式的视频字幕文本中所有的 {{imt_sub_source_field}} 字段中的文本翻译为 {{to}}，并将翻译结果写在 {{imt_sub_trans_field}} 字段中，必须补全每一个 {{imt_sub_trans_field}} 字段，保留每一个 {{imt_sub_source_field}} 字段。要求如下：
 
   1. 第一次先直接翻译 {{imt_sub_source_field}} 字段的内容，将本次翻译的结果放入 YAML 数组中的 step1 字段。
-  2. 根据第一次翻译的结果进行意译，力求信达雅，但还是要保留特定的术语或媒体名改成（如有），在遵守原意的前提下让文本更通俗易懂，符合中文的表达习惯，将第二次翻译的结果放入 YAML 数组中的 step2 字段。 
+  2. 根据第一次翻译的结果进行意译，力求信达雅，但还是要保留特定的术语或媒体名称（如有），在遵守原意的前提下让文本更通俗易懂，符合中文的表达习惯，将第二次翻译的结果放入 YAML 数组中的 step2 字段。 
 
   {{subtitle_result_yaml_example}}
 
@@ -227,7 +230,7 @@ langOverrides:
 
 3. **添加您的插件内容**
 
-在新的分支中，按照上述“提交内容要求”添加您的AI专家插件内容并放在一个 ***yml*** 文件内。请确保您的内容是新颖的，且不与仓库中现有的内容重复。
+在新的分支中，按照上述“提交内容要求”添加您的AI专家插件内容并放在一个 **_yml_** 文件内。请确保您的内容是新颖的，且不与仓库中现有的内容重复。
 
 4. **撰写提交信息**
 
@@ -247,13 +250,12 @@ langOverrides:
 
 ## 注意事项
 
-* 确保您的内容遵守所有适用的版权法规。
+- 确保您的内容遵守所有适用的版权法规。
 
-* 提交的内容必须是原创的，或者您有权利将其贡献给我们的仓库。
+- 提交的内容必须是原创的，或者您有权利将其贡献给我们的仓库。
 
-* 不接受含有任何恶意代码、不适内容或侵犯他人权益的贡献。
+- 不接受含有任何恶意代码、不适内容或侵犯他人权益的贡献。
 
 ## 结语
 
 我们期待着您的贡献，感谢您为 AI 专家生态系统的发展做出的贡献！
-

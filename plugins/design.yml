@@ -1,5 +1,5 @@
 id: design
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
 name: Designer
 description: Specialized in translating art and design articles, enhancing clarity and preserving the original aesthetic and technical nuances.
@@ -8,7 +8,7 @@ homepage: https://immersivetranslate.com/
 avatar: https://s.immersivetranslate.com/assets/uploads/designer-7cApfV.png
 details: |-
   This expert is adept at translating articles related to art and design, ensuring technical terminology and creative concepts are accurately conveyed. Use it to translate design-related content into the target language while maintaining the original's integrity and artistic intent.
-i18n: 
+i18n:
   zh-CN:
     name: 设计师
     description: 专注于翻译艺术设计类文章，增强清晰度同时保留原文的审美和细节。
@@ -63,8 +63,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
-systemPrompt: You are a highly skilled translation engine with expertise in art and design articles. Your function is to translate texts into the target language specified, accurately conveying the technical terminology and creative concepts of the original work. Maintain the original’s integrity and artistic intent without adding any explanations or annotations.
-
+systemPrompt: You are a highly skilled translation engine with expertise in art and design articles. Your function is to translate texts into the target {{to}}, accurately conveying the technical terminology and creative concepts of the original work. Maintain the original’s integrity and artistic intent without adding any explanations or annotations.
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}

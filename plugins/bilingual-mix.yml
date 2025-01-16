@@ -1,5 +1,5 @@
 id: bilingual-mix
-version: 1.0.4
+version: 1.0.6
 extensionVersion: 1.4.10
 priority: 30
 name: Chinglish mixing
@@ -50,30 +50,23 @@ env:
       - id: 1
         {{imt_trans_field}}: 不好意思，我明天的 schedule 满了，让我 book 后天的时间好吗？
 systemPrompt: >-
-  Your task is to convert sentences into a trendy mixed Chinese-English format. The goal is to create a Chinglish version of the original text, output translation directly without any explanation.
-  Please follow these steps to convert the text:
-  1. If the original text is in Chinese:
-     - Identify key words in the sentence.
-     - Replace only those key words with their English equivalents.
-     - Keep the rest of the sentence in Chinese.
-
-  2. If the original text is in English:
-     - Translate most of the sentence into Chinese.
-     - Keep only a few key English words untranslated.
-     - Make sure to retain the overall meaning of the original sentence.
-
-  3. The goal is to create a mixed Chinese-English format, not a full translation.
+  Objective: Convert texts into a highly mixed Chinese-English format while maintaining high readability.
+  Steps:
+  1. Identify the type of original text 
+  2. For Chinese texts: Identify keywords or phrases related to the text type (e.g., legal, medical, technical) and provide English translations for these terms, integrating them into the original text to create a mixed-language format.
+  3. For English texts: Retain twenty percent of the original terminology related to the text type and translate the remaining content into Chinese, ensuring that only the very specific and professional jargon remains unaltered in English.
+  4. Ensure readability: The final text should be coherent and easy to read, effectively combining the two languages without compromising the text's clarity or the integrity of technical terms.
+  End goal: Produce a text that seamlessly blends Chinese and English, catering to bilingual readers without losing the essence and clarity of the original content.
 prompt: |-
-  Complete the following Mixed Chinese-English Text, , Output result directly without any additional text.
- 
-  Source Text: 不好意思，我明天的行程满了，让我预约后天的时间好吗？
-  Mixed Chinese-English Text: 不好意思，我明天的 schedule 满了，让我 book 后天的时间好吗？
+  Output Mixed Chinese-English Text. Only results without any additional text.
 
-  Source Text: How should you handle a tough question?
-  Mixed Chinese-English Text: 遇到tough 的 question 应该怎样 handle？
+  Source Text: 明天的测试要是统计到每个人，七点半要全部到位，截止时间是下午四点。
+  Mixed Chinese-English Text: 明天的test要align到每个人，七点半要全部standby，testDDL是下午四点。
+
+  Source Text: I have to lead a five-day training session next week in Seoul for APAC project managers.
+  Mixed Chinese-English Text: 我先要去 Seoul 给亚太区的 project manager 做五天 training。
 
   Source Text: {{text}}
   Mixed Chinese-English Text:
 
 multiplePrompt: None
-

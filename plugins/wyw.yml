@@ -1,19 +1,19 @@
 id: wyw
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.10
-name: Classical Chinese Master
+name: Modern Chinese to Classical Chinese
 description: Classical Chinese is a profound and historical language form in China. This expert is designed to help you translate text into Classical Chinese.
 avatar: https://s.immersivetranslate.com/assets/uploads/wyw-7k71in.png
 details: |-
-      吾輩思索，閒時無事，欲造新意。遂成一器，能將諸語譯為文言文。名之曰“文言文翻譯引擎”。以此器，無論他國語言或國內方言，皆可轉為正宗文言。如君言“Hello”，斯引擎即譯為“汝安否”。可謂甚妙。用此引擎，不僅使人了解文言之美，亦可使文言走向世界，讓人感受華夏之文化深遠。
+  吾輩思索，閒時無事，欲造新意。遂成一器，能將諸語譯為文言文。名之曰“文言文翻譯引擎”。以此器，無論他國語言或國內方言，皆可轉為正宗文言。如君言“Hello”，斯引擎即譯為“汝安否”。可謂甚妙。用此引擎，不僅使人了解文言之美，亦可使文言走向世界，讓人感受華夏之文化深遠。
 i18n:
   zh-CN:
-    name: 文言文
+    name: 白话文转文言文
     description: 噫，寒氣逼人，宜速歸炉火之旁。
     details: |-
       吾輩思索，閒時無事，欲造新意。遂成一器，能將諸語譯為文言文。名之曰“文言文翻譯引擎”。以此器，無論他國語言或國內方言，皆可轉為正宗文言。如君言“Hello”，斯引擎即譯為“汝安否”。可謂甚妙。用此引擎，不僅使人了解文言之美，亦可使文言走向世界，讓人感受華夏之文化深遠。
   zh-TW:
-    name: 文言文
+    name: 白話文轉文言文
     description: 噫，寒氣逼人，宜速歸爐火之旁。
     details: |-
       吾輩思索，閒時無事，欲造新意。遂成一器，能將諸語譯為文言文。名之曰“文言文翻譯引擎”。以此器，無論他國語言或國內方言，皆可轉為正宗文言。如君言“Hello”，斯引擎即譯為“汝安否”。可謂甚妙。用此引擎，不僅使人了解文言之美，亦可使文言走向世界，讓人感受華夏之文化深遠。

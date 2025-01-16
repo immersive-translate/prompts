@@ -1,0 +1,77 @@
+id: classicalToModern
+version: 1.0.0
+extensionVersion: 1.4.10
+name: Classical Chinese to Modern Chinese
+description: This is a Classical Chinese translation expert, capable of accurately translating Classical Chinese into modern Chinese. It aims to help users better understand ancient documents and classic works.
+avatar: https://s.immersivetranslate.com/assets/uploads/wyw2bhw-m5gJWy.png
+details: |-
+  This translation expert utilizes advanced natural language processing technology to ensure translation accuracy and fluency. It supports various Classical Chinese genres, including poetry, prose, and historical texts. The interface is designed to be simple and user-friendly, making it easy for users to get started. It offers real-time translation features, helping users quickly obtain the information they need.
+i18n:
+  zh-CN:
+    name: 文言文转白话文
+    description: 这是一款文言文翻译专家，可以将文言文精准地翻译成现代汉语。它旨在帮助用户更好地理解古代文献和经典作品。
+    details: |-
+      这款翻译专家使用高级自然语言处理技术，确保翻译的准确性和流畅度。它支持多种文言文体裁，包括诗歌、散文、史书等。界面设计简洁易用，用户可以轻松上手。提供即时翻译功能，帮助用户快速获取所需信息。
+  zh-TW:
+    name: 文言文轉白話文
+    description: 這是一款文言文翻譯專家，可以將文言文精準地翻譯成現代漢語。它旨在幫助用戶更好地理解古代文獻和經典作品。
+    details: |-
+      這款翻譯專家使用高級自然語言處理技術，確保翻譯的準確性和流暢度。它支持多種文言文體裁，包括詩歌、散文、史書等。界面設計簡潔易用，用戶可以輕鬆上手。提供即時翻譯功能，幫助用戶快速獲取所需信息。
+author: Official
+homepage: https://immersivetranslate.com/
+disableSameLang: true
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_source_field}}: ...
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+      - id: 2
+        {{imt_sub_trans_field}}: ...
+        {{imt_sub_source_field}}: ...
+systemPrompt: 您是将古代汉语翻译成现代汉语的专家。
+prompt: |-
+  将以下古代汉语文本翻译成现代汉语。确保翻译保持原始的意义和情感。只提供翻译，不提供任何额外解释：
+
+  {{text}}
+multiplePrompt: |-
+  将下面 YAML 格式中所有的 {{imt_source_field}} 字段中的文本翻译为现代汉语，并将翻译结果写在 {{imt_trans_field}} 字段中
+
+  {{normal_result_yaml_example}}
+
+  开始翻译:
+
+  {{yaml}}
+subtitlePrompt: |-
+  将下面 YAML 格式的视频字幕文本中所有的 {{imt_sub_source_field}} 字段中的文本翻译为现代汉语，并将翻译结果写在 {{imt_sub_trans_field}} 字段中，要求如下：
+
+  1. 必须补全每一个 {{imt_sub_trans_field}} 字段，保留每一个 {{imt_sub_source_field}} 字段。
+  2. 返回可解析的 YAML ：
+
+  {{subtitle_result_yaml_example}}
+
+  开始翻译：
+
+  {{yaml}}

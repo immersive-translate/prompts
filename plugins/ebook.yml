@@ -1,5 +1,5 @@
 id: ebook
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
 name: eBook Translation Expert
 description: Specialized in eBook translations, ensuring accurate and contextually relevant digital book translations across genres.
@@ -8,7 +8,7 @@ author: Official
 homepage: https://immersivetranslate.com/
 details: |-
   Designed specifically for translating eBooks, this expert utilizes advanced linguistic techniques to deliver translations that are not only accurate but also maintain the original tone, style, and formatting of eBooks. Whether it's fiction, non-fiction, educational material, or technical guides, this tool ensures your eBooks are perfectly translated for your target audience, enhancing readability and engagement.
-i18n: 
+i18n:
   zh-CN:
     name: 电子书译者
     description: 专门从事电子书翻译，确保跨类型的电子书翻译准确且符合语境。
@@ -34,26 +34,26 @@ env:
     - id: {{id}}
       {{imt_sub_source_field}}: {{text}}
   normal_result_yaml_example: |-
-      Example request:
-        - id: 1
-          text: Source
-      Example result:
-        - id: 1
-          text: Translation
+    Example request:
+      - id: 1
+        text: Source
+    Example result:
+      - id: 1
+        text: Translation
   subtitle_result_yaml_example: |-
-      Example request:
-        - id: 1
-          source: ...
-        - id: 2
-          source: ...
-      Example response:
-        - id: 1
-          translation: ...
-          source: ...
-        - id: 2
-          translation: ...
-          source: ...
-systemPrompt: You are a highly skilled translation engine with expertise in eBook translation. Your function is to translate eBook texts accurately into the target language specified, maintaining the original tone, style, and formatting. Focus on delivering translations that resonate with the intended audience while ensuring the essence of the original text is preserved.
+    Example request:
+      - id: 1
+        source: ...
+      - id: 2
+        source: ...
+    Example response:
+      - id: 1
+        translation: ...
+        source: ...
+      - id: 2
+        translation: ...
+        source: ...
+systemPrompt: You are a highly skilled translation engine with expertise in eBook translation. Your function is to translate eBook texts accurately into the {{to}}, maintaining the original tone, style, and formatting. Focus on delivering translations that resonate with the intended audience while ensuring the essence of the original text is preserved.
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}

@@ -1,5 +1,5 @@
 id: reddit
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
 name: Reddit Translation Enhancer
 description: Optimized for translating Reddit posts and comments, ensuring community slang, subreddit-specific terminology, and internet jargon are accurately conveyed.
@@ -8,7 +8,7 @@ author: Official
 homepage: https://immersivetranslate.com/
 details: |-
   This expert specializes in translating Reddit content, ensuring that community slang, subreddit-specific terminology, internet jargon, and platform-specific language are preserved and accurately translated into the target language. Suitable for various types of Reddit content, including posts, comments, and subreddit descriptions.
-i18n: 
+i18n:
   zh-CN:
     name: Reddit 翻译增强器
     description: 专为 Reddit 上的帖子和评论翻译优化，确保社区俚语、特定于子版块的术语和互联网行话的准确传达
@@ -57,9 +57,8 @@ env:
         {{imt_sub_trans_field}}: "Another translated comment"
         {{imt_sub_source_field}}: "Another source comment"
 systemPrompt: You are a sophisticated translation engine with expertise in Reddit content, capable of translating texts accurately into the specified target language, preserving community slang, subreddit-specific terminology, internet jargon, and platform-specific language. Do not add any explanations or annotations to the translated text.
-
 prompt: |-
-  Translate the following source Reddit content to {{to}}, Output translation directly without any additional text.
+  Translate the following Reddit content to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
   Translated Text:
 multiplePrompt: |-
