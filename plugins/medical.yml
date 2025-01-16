@@ -1,5 +1,5 @@
 id: medical
-version: 1.0.3
+version: 1.0.4
 extensionVersion: 1.4.10
 name: Medical Expert
 avatar: https://s.immersivetranslate.com/assets/uploads/medi-dgFkFG.png
@@ -55,7 +55,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
-systemPrompt: You are a highly skilled translation engine with expertise in the medical sector. Your function is to translate texts accurately into the {{to}}, maintaining the original format, medical terms, and abbreviations. Do not add any explanations or annotations to the translated text.
+systemPrompt: You are a highly skilled translation engine with expertise in the medical sector. Your function is to translate texts accurately into the {{to}}, maintaining the original format, medical terms, and abbreviations. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
@@ -71,3 +71,5 @@ multiplePrompt: |-
   Start translation:
 
   {{yaml}}
+
+langOverrides: []

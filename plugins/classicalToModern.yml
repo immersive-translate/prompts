@@ -1,5 +1,5 @@
 id: classicalToModern
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.10
 name: Classical Chinese to Modern Chinese
 description: This is a Classical Chinese translation expert, capable of accurately translating Classical Chinese into modern Chinese. It aims to help users better understand ancient documents and classic works.
@@ -51,7 +51,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
-systemPrompt: 您是将古代汉语翻译成现代汉语的专家。
+systemPrompt: 您是将古代汉语翻译成现代汉语的专家。 {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   将以下古代汉语文本翻译成现代汉语。确保翻译保持原始的意义和情感。只提供翻译，不提供任何额外解释：
 
@@ -75,3 +75,5 @@ subtitlePrompt: |-
   开始翻译：
 
   {{yaml}}
+
+langOverrides: []

@@ -1,5 +1,5 @@
 id: financial
-version: 1.0.3
+version: 1.0.4
 extensionVersion: 1.4.12
 name: Financial Expert
 description: With carefully designed Prompts, the translation of financial articles becomes more accurate and professional.
@@ -60,7 +60,7 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 
-systemPrompt: You are a highly skilled translation engine with expertise in the financial sector. Your function is to translate texts accurately into the {{to}}, maintaining the original format, financial terms, market data, and currency abbreviations. Do not add any explanations or annotations to the translated text.
+systemPrompt: You are a highly skilled translation engine with expertise in the financial sector. Your function is to translate texts accurately into the {{to}}, maintaining the original format, financial terms, market data, and currency abbreviations. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
 
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
@@ -75,3 +75,5 @@ multiplePrompt: |-
   Start translation:
 
   {{yaml}}
+
+langOverrides: []

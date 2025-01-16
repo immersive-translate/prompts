@@ -1,5 +1,5 @@
 id: fiction
-version: 1.0.3
+version: 1.0.4
 extensionVersion: 1.4.10
 name: Fiction Translation Expert
 description: Designed to enrich the narrative and emotional depth of fiction translations, ensuring each word captures the original's essence.
@@ -62,7 +62,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
-systemPrompt: You are a highly skilled translation engine with expertise in fiction literature. Your function is to translate texts into the {{to}}, capturing the narrative depth and emotional nuances of the original work. Maintain the original storytelling elements and cultural references without adding any explanations or annotations.
+systemPrompt: You are a highly skilled translation engine with expertise in fiction literature. Your function is to translate texts into the {{to}}, capturing the narrative depth and emotional nuances of the original work. Maintain the original storytelling elements and cultural references without adding any explanations or annotations. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
@@ -86,3 +86,5 @@ subtitlePrompt: |-
   Begin translation:
 
   {{yaml}}
+
+langOverrides: []

@@ -1,5 +1,5 @@
 id: ecommerce
-version: 1.0.3
+version: 1.0.4
 extensionVersion: 1.4.10
 name: E-commerce Expert
 description: Carefully designed prompts ensure translations in the e-commerce sector are both accurate and resonate with online shoppers.
@@ -69,7 +69,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
-systemPrompt: You are a highly skilled translation engine with expertise in the e-commerce sector. Your function is to translate texts accurately into the {{to}}, ensuring that product descriptions, customer reviews, and e-commerce articles resonate with online shoppers without altering the original tone or information.
+systemPrompt: You are a highly skilled translation engine with expertise in the e-commerce sector. Your function is to translate texts accurately into the {{to}}, ensuring that product descriptions, customer reviews, and e-commerce articles resonate with online shoppers without altering the original tone or information. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
@@ -93,3 +93,5 @@ subtitlePrompt: |-
   Begin:
 
   {{yaml}}
+
+langOverrides: []

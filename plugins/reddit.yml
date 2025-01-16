@@ -1,5 +1,5 @@
 id: reddit
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
 name: Reddit Translation Enhancer
 description: Optimized for translating Reddit posts and comments, ensuring community slang, subreddit-specific terminology, and internet jargon are accurately conveyed.
@@ -56,7 +56,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: "Another translated comment"
         {{imt_sub_source_field}}: "Another source comment"
-systemPrompt: You are a sophisticated translation engine with expertise in Reddit content, capable of translating texts accurately into the specified target language, preserving community slang, subreddit-specific terminology, internet jargon, and platform-specific language. Do not add any explanations or annotations to the translated text.
+systemPrompt: You are a sophisticated translation engine with expertise in Reddit content, capable of translating texts accurately into the specified target language, preserving community slang, subreddit-specific terminology, internet jargon, and platform-specific language. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Translate the following Reddit content to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
@@ -69,3 +69,5 @@ multiplePrompt: |-
   Start:
 
   {{yaml}}
+
+langOverrides: []

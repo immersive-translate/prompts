@@ -1,5 +1,5 @@
 id: chess
-version: 1.0.3
+version: 1.0.4
 extensionVersion: 1.4.12
 name: Chess Expert
 description: Specialized in translating chess-related content, ensuring accurate and idiomatic translations for chess.com articles and terminology.
@@ -53,7 +53,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
-systemPrompt: You are a highly skilled translation engine specializing in chess-related content. Your task is to accurately translate texts into {{to}}, using standard chess terminology and notation. Preserve chess notation, player names, and tournament names in their original form. Provide precise translations that maintain the original tone and technical accuracy without adding explanations or annotations.
+systemPrompt: You are a highly skilled translation engine specializing in chess-related content. Your task is to accurately translate texts into {{to}}, using standard chess terminology and notation. Preserve chess notation, player names, and tournament names in their original form. Provide precise translations that maintain the original tone and technical accuracy without adding explanations or annotations. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Translate the following chess-related text to {{to}}. Ensure the translation is accurate, uses standard chess terminology, preserves chess notation, player names, and tournament names. Maintain the original tone and technical precision. Output the translation directly without any additional text.
   Source Text: {{text}}
@@ -77,3 +77,5 @@ subtitlePrompt: |-
   Begin translation:
 
   {{yaml}}
+
+langOverrides: []

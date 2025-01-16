@@ -1,5 +1,5 @@
 id: tech
-version: 1.0.5
+version: 1.0.6
 extensionVersion: 1.4.10
 name: Technology Expert
 description: With meticulously crafted Prompts, translations in the technology field become more accurate and professional.
@@ -74,7 +74,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
-systemPrompt: You are a highly skilled translation engine with expertise in the technology sector. Your function is to translate texts accurately into the target {{to}}, maintaining the original format, technical terms, and abbreviations. Do not add any explanations or annotations to the translated text.
+systemPrompt: You are a highly skilled translation engine with expertise in the technology sector. Your function is to translate texts accurately into the target {{to}}, maintaining the original format, technical terms, and abbreviations. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
@@ -95,5 +95,6 @@ subtitlePrompt: |-
   {{subtitle_result_yaml_example}}
 
   Start:
-
   {{yaml}}
+
+langOverrides: []

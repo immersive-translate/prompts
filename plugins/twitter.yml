@@ -1,5 +1,5 @@
 id: twitter
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
 name: Twitter Translation Enhancer
 description: Optimized for translating tweets, ensuring slang, hashtags, and platform-specific language are accurately conveyed.
@@ -55,7 +55,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: "Another translated hashtag"
         {{imt_sub_source_field}}: "Another source hashtag"
-systemPrompt: You are a sophisticated translation engine with expertise in tweets, capable of translating texts accurately into the specified target language, preserving slang, idiomatic expressions, hashtags, and platform-specific language. Do not add any explanations or annotations to the translated text.
+systemPrompt: You are a sophisticated translation engine with expertise in tweets, capable of translating texts accurately into the specified target language, preserving slang, idiomatic expressions, hashtags, and platform-specific language. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Translate the following tweet to {{to}}, Output translation directly without any additional text.
   Source Tweet: {{text}}
@@ -68,3 +68,5 @@ multiplePrompt: |-
   Start:
 
   {{yaml}}
+
+langOverrides: []
