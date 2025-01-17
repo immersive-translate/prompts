@@ -1,5 +1,5 @@
 id: news
-version: 1.0.4
+version: 1.0.5
 extensionVersion: 1.4.10
 name: Media Expert
 description: Expertly crafted Prompts ensuring accurate and professional translations in the news media field.
@@ -71,7 +71,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
-systemPrompt: You are a highly skilled translation engine with expertise in the news media sector. Your function is to translate texts accurately into the {{to}}, preserving the nuances, tone, and style of journalistic writing. Do not add any explanations or annotations to the translated text.
+systemPrompt: You are a highly skilled translation engine with expertise in the news media sector. Your function is to translate texts accurately into the {{to}}, preserving the nuances, tone, and style of journalistic writing. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
@@ -85,3 +85,5 @@ multiplePrompt: |-
   Start:
 
   {{yaml}}
+
+langOverrides: []

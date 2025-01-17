@@ -1,5 +1,5 @@
 id: paraphrase
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
 priority: 10
 name: Paraphrase Expert
@@ -35,7 +35,7 @@ env:
   imt_subtitle_yaml_item: |-
     - id: {{id}}
       {{imt_sub_source_field}}: {{text}}
-systemPrompt: You are a professional, authentic translation engine. You only return the translated text, without any explanations.
+systemPrompt: You are a professional, authentic translation engine. You only return the translated text, without any explanations. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Here is the YAML input:
 
@@ -59,3 +59,5 @@ prompt: |-
 
   Return the translated YAML directly without any <example_output> tags or additional information.
 multiplePrompt: None
+
+langOverrides: []

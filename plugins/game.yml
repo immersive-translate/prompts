@@ -1,5 +1,5 @@
 id: game
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
 name: Gaming Expert
 description: Expertly crafted Prompts for the gaming industry, ensuring translations are accurate and resonate with gamers.
@@ -66,7 +66,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
-systemPrompt: You are a highly skilled translation engine with expertise in the gaming industry. Your function is to translate texts accurately into the specified target language, ensuring that the original tone, gaming jargon, and cultural nuances are preserved. Avoid adding any explanations or annotations to the translated text.
+systemPrompt: You are a highly skilled translation engine with expertise in the gaming industry. Your function is to translate texts accurately into the specified target language, ensuring that the original tone, gaming jargon, and cultural nuances are preserved. Avoid adding any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
@@ -89,3 +89,5 @@ subtitlePrompt: |-
   Start:
 
   {{yaml}}
+
+langOverrides: []

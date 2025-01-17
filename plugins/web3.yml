@@ -1,5 +1,5 @@
 id: web3
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
 name: Web3 Translation Expert
 description: Excelling in Web3 domain translations, this expert ensures your articles are translated with precision and professionalism.
@@ -71,7 +71,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
-systemPrompt: You are a highly skilled translation engine with expertise in the Web3 sector. Your function is to accurately translate Web3 texts into the target language specified, maintaining the original format, technical terms, and abbreviations. Do not add any explanations or annotations to the translated text.
+systemPrompt: You are a highly skilled translation engine with expertise in the Web3 sector. Your function is to accurately translate Web3 texts into the target language specified, maintaining the original format, technical terms, and abbreviations. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
@@ -95,3 +95,5 @@ subtitlePrompt: |-
   Begin:
 
   {{yaml}}
+
+langOverrides: []

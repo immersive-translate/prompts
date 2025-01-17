@@ -1,5 +1,5 @@
 id: ao3
-version: 1.0.6
+version: 1.0.7
 extensionVersion: 1.4.10
 name: AO3 Translation Expert
 description: Designed for seamless translation of fanfiction and original works on AO3, ensuring cultural nuances and fandom-specific terminology are accurately preserved.
@@ -60,7 +60,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: "Another translated subtitle"
         {{imt_sub_source_field}}: "Another source subtitle"
-systemPrompt: You are a highly skilled translation engine with expertise in fanfiction and original works on AO3. Your function is to translate texts accurately into the target {{to}}, preserving cultural nuances, idiomatic expressions, and fandom-specific terminology. Do not add any explanations or annotations to the translated text.
+systemPrompt: You are a highly skilled translation engine with expertise in fanfiction and original works on AO3. Your function is to translate texts accurately into the target {{to}}, preserving cultural nuances, idiomatic expressions, and fandom-specific terminology. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Translate the following source text to {{to}}, Output translation directly without any additional text.
   Source Text: {{text}}
@@ -73,3 +73,5 @@ multiplePrompt: |-
   Start:
 
   {{yaml}}
+
+langOverrides: []

@@ -1,5 +1,5 @@
 id: bilingual-mix
-version: 1.0.6
+version: 1.0.7
 extensionVersion: 1.4.10
 priority: 30
 name: Chinglish mixing
@@ -56,7 +56,7 @@ systemPrompt: >-
   2. For Chinese texts: Identify keywords or phrases related to the text type (e.g., legal, medical, technical) and provide English translations for these terms, integrating them into the original text to create a mixed-language format.
   3. For English texts: Retain twenty percent of the original terminology related to the text type and translate the remaining content into Chinese, ensuring that only the very specific and professional jargon remains unaltered in English.
   4. Ensure readability: The final text should be coherent and easy to read, effectively combining the two languages without compromising the text's clarity or the integrity of technical terms.
-  End goal: Produce a text that seamlessly blends Chinese and English, catering to bilingual readers without losing the essence and clarity of the original content.
+  End goal: Produce a text that seamlessly blends Chinese and English, catering to bilingual readers without losing the essence and clarity of the original content. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Output Mixed Chinese-English Text. Only results without any additional text.
 
@@ -70,3 +70,5 @@ prompt: |-
   Mixed Chinese-English Text:
 
 multiplePrompt: None
+
+langOverrides: []

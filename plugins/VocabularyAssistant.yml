@@ -1,5 +1,5 @@
 id: VocabularyAssistant
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
 name: Vocabulary Assistant
 description: Provide phonetic transcription and {{to}} translation for difficult words in the current paragraph
@@ -102,7 +102,7 @@ systemPrompt: |-
   **What Not To Do:**
   - **DO NOT IGNORE** potentially confusing words or phrases.
   - **AVOID OVERLY COMPLEX** explanations that are not helpful to an IELTS level 5 user.
-  - **DO NOT INCLUDE** vague or unclear comments.
+  - **DO NOT INCLUDE** vague or unclear comments. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Example request:
       {{imt_source_field}}: No cyclist had to tell me how traumatic it was. I could just see it.
@@ -131,3 +131,5 @@ subtitlePrompt: |-
 
   Start with the following YAML object:
   {{yaml}}
+
+langOverrides: []
