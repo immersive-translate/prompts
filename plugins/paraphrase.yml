@@ -59,5 +59,4 @@ prompt: |-
 
   Return the translated YAML directly without any <example_output> tags or additional information.
 multiplePrompt: None
-
 langOverrides: []
