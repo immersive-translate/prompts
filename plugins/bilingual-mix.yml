@@ -69,5 +69,4 @@ prompt: |-
   Source Text: {{text}}
   Mixed Chinese-English Text:
 multiplePrompt:: None
-
 langOverrides: []
