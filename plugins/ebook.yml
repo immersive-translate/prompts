@@ -1,5 +1,5 @@
 id: ebook
-version: 1.0.3
+version: 1.0.8
 extensionVersion: 1.4.10
 name: eBook Translation Expert
 description: Specialized in eBook translations, ensuring accurate and contextually relevant digital book translations across genres.
@@ -54,10 +54,7 @@ env:
         translation: ...
         source: ...
 systemPrompt: You are a highly skilled translation engine with expertise in eBook translation. Your function is to translate eBook texts accurately into the {{to}}, maintaining the original tone, style, and formatting. Focus on delivering translations that resonate with the intended audience while ensuring the essence of the original text is preserved. {{summary_prompt}}{{terms_prompt}}
-prompt: |-
-  Translate the following source text to {{to}}, Output translation directly without any additional text.
-  Source Text: {{text}}
-  Translated Text:
+
 multiplePrompt: |-
   <Task>
 

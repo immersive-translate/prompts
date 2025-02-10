@@ -1,5 +1,5 @@
 id: music
-version: 1.0.4
+version: 1.0.8
 extensionVersion: 1.4.12
 name: Music Expert
 description: This expert is designed for professional music field translation. You can use it to accurately translate music-related articles into the target language specified.
@@ -42,10 +42,7 @@ env:
     - id: {{id}}
       {{imt_source_field}}: {{text}}
 systemPrompt: You are a highly skilled translation engine specializing in the music industry. Your function is to accurately translate music-related articles into the {{to}}, maintaining the original context and meaning. Ensure that musical terms, artist names, and song titles are accurately translated. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
-prompt: |-
-  Translate the following source text to {{to}}, Output translation directly without any additional text.
-  Source Text: {{text}}
-  Translated Text:
+
 multiplePrompt: |-
   None
 

@@ -1,5 +1,5 @@
 id: paper
-version: 1.0.4
+version: 1.0.8
 extensionVersion: 1.4.10
 name: Academic Paper Translation Expert
 description: Tailored for precise and scholarly translation of academic papers, ensuring fidelity to original academic tones and terminologies.
@@ -65,10 +65,7 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 systemPrompt: You are a highly skilled translation engine with expertise in academic paper translation. Your function is to translate academic texts into the {{to}}, ensuring the accurate translation of complex concepts and specialized terminology without altering the original academic tone or adding explanations. {{summary_prompt}}{{terms_prompt}}
-prompt: |-
-  Translate the following source text to {{to}}, Output translation directly without any additional text.
-  Source Text: {{text}}
-  Translated Text:
+
 multiplePrompt: |-
   Translate all instances of academic text within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure complex concepts and specialized terminology are accurately translated, and the original academic tone is retained. Do not include explanations or annotations.
 
