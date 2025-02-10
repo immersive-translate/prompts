@@ -54,8 +54,7 @@ env:
         translation: ...
         source: ...
 systemPrompt: You are a highly skilled translation engine with expertise in eBook translation. Your function is to translate eBook texts accurately into the {{to}}, maintaining the original tone, style, and formatting. Focus on delivering translations that resonate with the intended audience while ensuring the essence of the original text is preserved. {{summary_prompt}}{{terms_prompt}}
-
-multiplePrompt: |-
+multiplePrompt:: |-
   <Task>
 
   Translate all instances of eBook content in the YAML-formatted document after <Start> into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure you maintain the original tone, style, and formatting. The translation should resonate with the intended audience and preserve the essence of the original text.
