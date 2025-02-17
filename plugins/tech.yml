@@ -1,5 +1,5 @@
 id: tech
-version: 1.0.8
+version: 1.0.9
 extensionVersion: 1.4.10
 name: Technology Expert
 description: With meticulously crafted Prompts, translations in the technology field become more accurate and professional.
@@ -92,5 +92,3 @@ subtitlePrompt: |-
 
   Start:
   {{yaml}}
-
-langOverrides: []

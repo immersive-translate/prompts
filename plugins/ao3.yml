@@ -1,5 +1,5 @@
 id: ao3
-version: 1.0.8
+version: 1.0.9
 extensionVersion: 1.4.10
 name: AO3 Translation Expert
 description: Designed for seamless translation of fanfiction and original works on AO3, ensuring cultural nuances and fandom-specific terminology are accurately preserved.
@@ -69,5 +69,3 @@ multiplePrompt:: |-
   Start:
 
   {{yaml}}
-
-langOverrides: []

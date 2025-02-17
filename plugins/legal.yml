@@ -1,5 +1,5 @@
 id: legal
-version: 1.0.8
+version: 1.0.9
 extensionVersion: 1.4.10
 name: Legal Expert
 description: With meticulously crafted Prompts, translations in the legal field become more accurate and professional.
@@ -70,5 +70,3 @@ multiplePrompt:: |-
   Start:
 
   {{yaml}}
-
-langOverrides: []

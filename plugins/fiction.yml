@@ -1,5 +1,5 @@
 id: fiction
-version: 1.0.8
+version: 1.0.9
 extensionVersion: 1.4.10
 name: Fiction Translation Expert
 description: Designed to enrich the narrative and emotional depth of fiction translations, ensuring each word captures the original's essence.
@@ -82,5 +82,3 @@ subtitlePrompt: |-
   Begin translation:
 
   {{yaml}}
-
-langOverrides: []

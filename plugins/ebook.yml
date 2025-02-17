@@ -1,5 +1,5 @@
 id: ebook
-version: 1.0.8
+version: 1.0.9
 extensionVersion: 1.4.10
 name: eBook Translation Expert
 description: Specialized in eBook translations, ensuring accurate and contextually relevant digital book translations across genres.
@@ -78,5 +78,3 @@ subtitlePrompt: |-
   <Start>
 
   {{yaml}}
-
-langOverrides: []

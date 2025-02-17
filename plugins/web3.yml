@@ -1,5 +1,5 @@
 id: web3
-version: 1.0.8
+version: 1.0.9
 extensionVersion: 1.4.10
 name: Web3 Translation Expert
 description: Excelling in Web3 domain translations, this expert ensures your articles are translated with precision and professionalism.
@@ -91,5 +91,3 @@ subtitlePrompt: |-
   Begin:
 
   {{yaml}}
-
-langOverrides: []
