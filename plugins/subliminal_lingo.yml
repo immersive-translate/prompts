@@ -15,7 +15,7 @@ details: |-
   结果：该implementation（实现）使用advanced（高级）算法。
 
   原文：Please check the settings.
-  
+
   结果：请检查settings（设置）。
 
 i18n:
@@ -99,7 +99,7 @@ multiplePrompt: |-
 subtitlePrompt: |-
   Translate subtitle texts. Keep proper nouns as is. For important words use: word（翻译）.
   Maintain natural flow and readability. Keep original line breaks and timing.
-  
+
   Example format:
   {{subtitle_result_yaml_example}}
 
@@ -142,9 +142,9 @@ langOverrides:
     subtitlePrompt: |-
       Translate subtitle texts. Keep proper nouns as is. For important words use: word（翻譯）.
       Maintain natural flow and readability. Keep original line breaks and timing.
-      
+
       Example format:
       {{subtitle_result_yaml_example}}
 
       Start translation:
-      {{yaml}} 
+      {{yaml}}
