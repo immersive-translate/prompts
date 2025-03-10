@@ -1,5 +1,5 @@
 id: chess
-version: 1.0.9
+version: 1.0.10
 extensionVersion: 1.4.12
 name: Chess Expert
 description: Specialized in translating chess-related content, ensuring accurate and idiomatic translations for chess.com articles and terminology.
@@ -73,3 +73,5 @@ subtitlePrompt: |-
   Begin translation:
 
   {{yaml}}
+
+multipleSystemPrompt: ""

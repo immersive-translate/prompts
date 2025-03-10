@@ -1,5 +1,5 @@
 id: wordByWord
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
 name: Word-by-Word Translation Assistant
 description: Intelligently segments sentences and translates each part separately, then combines the translation results.
@@ -56,3 +56,4 @@ multiplePrompt: |-
   {{yaml}}
 
 langOverrides: []
+multipleSystemPrompt: ""

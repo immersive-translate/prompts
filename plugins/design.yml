@@ -1,5 +1,5 @@
 id: design
-version: 1.0.9
+version: 1.0.10
 extensionVersion: 1.4.10
 name: Designer
 description: Specialized in translating art and design articles, enhancing clarity and preserving the original aesthetic and technical nuances.
@@ -83,3 +83,5 @@ subtitlePrompt: |-
   Begin translation:
 
   {{yaml}}
+
+multipleSystemPrompt: ""

@@ -1,5 +1,5 @@
 id: game
-version: 1.0.9
+version: 1.0.10
 extensionVersion: 1.4.10
 name: Gaming Expert
 description: Expertly crafted Prompts for the gaming industry, ensuring translations are accurate and resonate with gamers.
@@ -85,3 +85,5 @@ subtitlePrompt: |-
   Start:
 
   {{yaml}}
+
+multipleSystemPrompt: ""

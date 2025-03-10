@@ -1,5 +1,5 @@
 id: paraphrase
-version: 1.0.3
+version: 1.0.4
 extensionVersion: 1.4.10
 priority: 10
 name: Paraphrase Expert
@@ -81,3 +81,4 @@ multiplePrompt: |-
 
   Return the translated YAML directly without any <example_output> tags or additional information.
 langOverrides: []
+multipleSystemPrompt: ""
