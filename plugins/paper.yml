@@ -1,5 +1,5 @@
 id: paper
-version: 1.0.10
+version: 1.0.11
 extensionVersion: 1.4.10
 name: Academic Paper Translation Expert
 description: Tailored for precise and scholarly translation of academic papers, ensuring fidelity to original academic tones and terminologies.
@@ -33,6 +33,8 @@ matches:
   - https://ieeexplore.ieee.org/*
   - https://www.tandfonline.com/*
   - https://access.clarivate.com/*
+  - https://arxiv.org/html/*
+  - https://ar5iv.labs.arxiv.org/html/*
 env:
   imt_source_field: text
   imt_trans_field: text
