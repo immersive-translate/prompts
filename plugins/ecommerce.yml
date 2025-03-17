@@ -1,5 +1,5 @@
 id: ecommerce
-version: 1.0.9
+version: 1.0.10
 extensionVersion: 1.4.10
 name: E-commerce Expert
 description: Carefully designed prompts ensure translations in the e-commerce sector are both accurate and resonate with online shoppers.
@@ -89,3 +89,5 @@ subtitlePrompt: |-
   Begin:
 
   {{yaml}}
+
+multipleSystemPrompt: ""

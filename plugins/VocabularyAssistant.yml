@@ -1,5 +1,5 @@
 id: VocabularyAssistant
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
 name: Vocabulary Assistant
 description: Provide phonetic transcription and {{to}} translation for difficult words in the current paragraph
@@ -132,3 +132,4 @@ subtitlePrompt: |-
   {{yaml}}
 
 langOverrides: []
+multipleSystemPrompt: ""

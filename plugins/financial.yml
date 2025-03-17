@@ -1,5 +1,5 @@
 id: financial
-version: 1.0.9
+version: 1.0.10
 extensionVersion: 1.4.12
 name: Financial Expert
 description: With carefully designed Prompts, the translation of financial articles becomes more accurate and professional.
@@ -71,3 +71,5 @@ multiplePrompt:: |-
   Start translation:
 
   {{yaml}}
+
+multipleSystemPrompt: ""

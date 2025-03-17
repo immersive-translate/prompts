@@ -1,5 +1,5 @@
 id: medical
-version: 1.0.9
+version: 1.0.10
 extensionVersion: 1.4.10
 name: Medical Expert
 avatar: https://s.immersivetranslate.com/assets/uploads/medi-dgFkFG.png
@@ -67,3 +67,5 @@ multiplePrompt:: |-
   Start translation:
 
   {{yaml}}
+
+multipleSystemPrompt: ""

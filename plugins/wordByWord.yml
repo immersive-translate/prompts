@@ -1,5 +1,5 @@
 id: wordByWord
-version: 1.0.1
+version: 1.0.3
 extensionVersion: 1.4.10
 name: Word-by-Word Translation Assistant
 description: Intelligently segments sentences and translates each part separately, then combines the translation results.
@@ -21,7 +21,7 @@ i18n:
       分詞對照翻譯是一款創新的翻譯助手，能夠將輸入的文本進行分割處理，並在保留原文的同時，提供精準的翻譯。此工具特別適合於需要理解短語含義的用戶，例如語言學習者。
 env:
   imt_source_field: text
-  imt_trans_field: text
+  imt_trans_field: translation
   imt_sub_source_field: source
   imt_sub_trans_field: translation
   imt_yaml_item: |-
@@ -56,3 +56,4 @@ multiplePrompt: |-
   {{yaml}}
 
 langOverrides: []
+multipleSystemPrompt: ""

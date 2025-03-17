@@ -1,5 +1,5 @@
 id: subliminal_lingo
-version: 1.0.5
+version: 1.0.6
 extensionVersion: 1.4.10
 priority: 30
 name: SubliminalLingo
@@ -148,3 +148,4 @@ langOverrides:
 
       Start translation:
       {{yaml}}
+multipleSystemPrompt: ""

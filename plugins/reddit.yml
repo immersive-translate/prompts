@@ -1,5 +1,5 @@
 id: reddit
-version: 1.0.9
+version: 1.0.10
 extensionVersion: 1.4.10
 name: Reddit Translation Enhancer
 description: Optimized for translating Reddit posts and comments, ensuring community slang, subreddit-specific terminology, and internet jargon are accurately conveyed.
@@ -65,3 +65,5 @@ multiplePrompt: |-
   Start:
 
   {{yaml}}
+
+multipleSystemPrompt: ""

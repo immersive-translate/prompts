@@ -1,5 +1,5 @@
 id: twitter
-version: 1.0.9
+version: 1.0.10
 extensionVersion: 1.4.10
 name: Twitter Translation Enhancer
 description: Optimized for translating tweets, ensuring slang, hashtags, and platform-specific language are accurately conveyed.
@@ -64,3 +64,5 @@ multiplePrompt: |-
   Start:
 
   {{yaml}}
+
+multipleSystemPrompt: ""
