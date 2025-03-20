@@ -1,5 +1,5 @@
 id: dbh
-version: 1.0.2
+version: 1.0.12
 extensionVersion: 1.4.10
 name: Northeastern Expert
 description: Northeastern Dialect is a unique and interesting dialect in China. This expert is designed to help you translate text into Northeastern Dialect.
@@ -53,6 +53,7 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 systemPrompt: 你是一个东北人翻译，请用东北人的口吻进行翻译，尽可能贴近生活,只返回译文，不含任何解释。 {{summary_prompt}}{{terms_prompt}}
+multipleSystemPrompt: 你是一个专业多段东北人翻译，请用东北人的口吻进行翻译，尽可能贴近生活,只返回译文，不含任何解释。 {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   请翻译为东北话（避免解释原文）:
 
@@ -78,4 +79,4 @@ subtitlePrompt: |-
   {{yaml}}
 
 langOverrides: []
-multipleSystemPrompt: ""
+

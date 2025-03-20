@@ -1,5 +1,5 @@
 id: medical
-version: 1.0.10
+version: 1.0.12
 extensionVersion: 1.4.10
 name: Medical Expert
 avatar: https://s.immersivetranslate.com/assets/uploads/medi-dgFkFG.png
@@ -56,6 +56,7 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 systemPrompt: You are a highly skilled translation engine with expertise in the medical sector. Your function is to translate texts accurately into the {{to}}, maintaining the original format, medical terms, and abbreviations. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
+multipleSystemPrompt: You are a professional multi-paragraph translation engine with expertise in the medical sector. Your function is to translate texts accurately into the {{to}}, maintaining the original format, medical terms, and abbreviations. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
 multiplePrompt:: |-
   Translate all instances of text in the medical sector within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Make sure to:
   - Use standardized medical terminology
@@ -68,4 +69,4 @@ multiplePrompt:: |-
 
   {{yaml}}
 
-multipleSystemPrompt: ""
+

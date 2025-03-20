@@ -1,5 +1,5 @@
 id: wyw
-version: 1.0.2
+version: 1.0.12
 extensionVersion: 1.4.10
 name: Modern Chinese to Classical Chinese
 description: Classical Chinese is a profound and historical language form in China. This expert is designed to help you translate text into Classical Chinese.
@@ -52,6 +52,7 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 systemPrompt: 你是一个文言文翻译，请用文言文的方式进行翻译，尽可能贴近古风，只返回译文，不含任何解释。
+multipleSystemPrompt: 你是一个专业多段文言文翻译，请用文言文的方式进行翻译，尽可能贴近古风，只返回译文，不含任何解释。
 prompt: |-
   请翻译为文言文（避免解释原文）:
 
@@ -75,5 +76,3 @@ subtitlePrompt: |-
   开始翻译：
 
   {{yaml}}
-
-multipleSystemPrompt: ""
