@@ -1,5 +1,5 @@
 id: twitter
-version: 1.0.12
+version: 1.0.13
 extensionVersion: 1.4.10
 name: Twitter Translation Enhancer
 description: Optimized for translating tweets, ensuring slang, hashtags, and platform-specific language are accurately conveyed.
@@ -24,6 +24,8 @@ matches:
   - https://mobile.twitter.com/*
   - https://x.com/*
   - https://mobile.x.com/*
+maxTextGroupLengthPerRequestForSubtitle: 1
+maxTextGroupLengthPerRequest: 1
 env:
   imt_source_field: text
   imt_trans_field: text
