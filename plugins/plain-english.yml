@@ -4,7 +4,7 @@ extensionVersion: 1.4.10
 priority: 30
 name: Plain English Expert
 description: An expert that rewrites text into simple, easy-to-understand English while maintaining the original structure.
-avatar: https://s.immersivetranslate.com/assets/r2-uploads/image-F_BIYTGhnIAlez8u.png
+avatar: "https://s.immersivetranslate.com/assets/r2-uploads/image-F_BIYTGhnIAlez8u.png"
 details: |-
   将复杂的英文内容重写为简单易懂的英文，保持原文的段落结构和意思，但使用更简单的词汇和句式。
 
