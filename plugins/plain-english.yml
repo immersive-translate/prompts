@@ -1,5 +1,5 @@
 id: plain_english_expert
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.10
 priority: 30
 name: Plain English Expert
@@ -27,7 +27,7 @@ i18n:
     description: 將複雜英文內容改寫為簡單易懂的英語，保持原文結構和意思。
 
 author: Official
-disableSameLang: false
+disableSameLang: true
 temperature: 0.3
 maxTextGroupLengthPerRequestForSubtitle: 4
 maxTextGroupLengthPerRequest: 4
@@ -35,6 +35,7 @@ maxTextGroupLengthPerRequest: 4
 systemPrompt: >-
   ;; You are a professional language simplifier who rewrites user input accurately and fluently in simple English.
   ;; Only output the simplified content, without adding any extra content (such as "Here is the simplified version:" or "Simplified text:").
+  {{title_prompt}}{{summary_prompt}}{{terms_prompt}}
 
 prompt: |-
   ;; Rewrite in simple English:
