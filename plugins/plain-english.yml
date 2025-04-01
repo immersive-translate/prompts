@@ -1,4 +1,4 @@
-id: plain_english_expert
+id: plain-english
 version: 1.0.1
 extensionVersion: 1.4.10
 priority: 30
@@ -49,6 +49,7 @@ multipleSystemPrompt: |-
   ;; You are a professional language simplifier who rewrites user input accurately and fluently in simple English.
   ;; Please strictly maintain the original paragraph structure, do not merge or split paragraphs.
   ;; Only output the simplified content, without adding any extra content (such as "Here is the simplified version:" or "Simplified text:").
+  {{title_prompt}}{{summary_prompt}}{{terms_prompt}}
 
 subtitlePrompt: |-
   ;; Rewrite in simple English (strictly maintain the original paragraph structure):
