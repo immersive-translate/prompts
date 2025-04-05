@@ -1,5 +1,5 @@
 id: plain-english
-version: 1.0.1
+version: 1.0.3
 extensionVersion: 1.4.10
 priority: 30
 name: Plain English Expert
@@ -29,6 +29,7 @@ i18n:
 author: Official
 disableSameLang: true
 temperature: 0.3
+langOverrides: []
 maxTextGroupLengthPerRequestForSubtitle: 4
 maxTextGroupLengthPerRequest: 4
 
