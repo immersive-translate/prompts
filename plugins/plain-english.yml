@@ -1,7 +1,7 @@
 id: plain-english
-version: 1.0.3
+version: 1.0.4
 extensionVersion: 1.4.10
-priority: 30
+priority: 12
 name: Plain English Expert
 description: An expert that rewrites text into simple, easy-to-understand English while maintaining the original structure.
 avatar: "https://s.immersivetranslate.com/assets/r2-uploads/image-F_BIYTGhnIAlez8u.png"

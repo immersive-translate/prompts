@@ -1,7 +1,7 @@
 id: paragraph-summarizer-expert
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.10
-priority: 30
+priority: 11
 name: Paragraph Summarizer Expert
 description: An expert that summarizes each paragraph and translates it to your target language.
 maxTextLengthPerRequest: 2000
