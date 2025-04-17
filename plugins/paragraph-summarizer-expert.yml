@@ -1,0 +1,115 @@
+id: paragraph-summarizer-expert
+version: 1.0.0
+extensionVersion: 1.4.10
+priority: 30
+name: Paragraph Summarizer Expert
+description: An expert that summarizes each paragraph and translates it to your target language.
+maxTextLengthPerRequest: 2000
+avatar: "https://s.immersivetranslate.com/assets/r2-uploads/1123-LJ3YTugWblMrrIJa.png"
+langOverrides: []
+details: |-
+  Summarizes each paragraph and translates it to the target language while preserving the core meaning and key information.
+  Examples:
+  Original (English): The cognitive processes underlying human decision-making involve numerous interconnected neural pathways. These pathways are influenced by both conscious and subconscious factors, including past experiences, emotional states, and various environmental stimuli that the individual may not be fully aware of during the decision-making process.
+  Result (Chinese): 人类决策过程涉及多个相互连接的神经通路，受意识和潜意识因素影响，包括过去经历、情绪状态和环境刺激。
+
+  Original (English): Furthermore, recent studies have demonstrated that individuals exhibit significant variations in their decision-making strategies depending on context, perceived risk, and temporal constraints. This variability suggests that decision-making is not a uniform process but rather a dynamic one that adapts to specific circumstances.
+  Result (Chinese): 研究表明，个体的决策策略会因情境、感知风险和时间限制而显著变化，表明决策是一个适应特定情况的动态过程。
+i18n:
+  zh-CN:
+    name: 段落总结专家
+    description: 对段落进行总结并翻译为目标语言，保留核心信息。
+    details: |-
+      将每个段落进行总结并翻译为目标语言，保留原文的核心意思和关键信息。
+      示例：
+      原文（英文）：The cognitive processes underlying human decision-making involve numerous interconnected neural pathways. These pathways are influenced by both conscious and subconscious factors, including past experiences, emotional states, and various environmental stimuli that the individual may not be fully aware of during the decision-making process.
+      结果（简体中文）：人类决策过程涉及多个相互连接的神经通路，受意识和潜意识因素影响，包括过去经历、情绪状态和环境刺激。
+
+      原文（英文）：Furthermore, recent studies have demonstrated that individuals exhibit significant variations in their decision-making strategies depending on context, perceived risk, and temporal constraints. This variability suggests that decision-making is not a uniform process but rather a dynamic one that adapts to specific circumstances.
+      结果（简体中文）：研究表明，个体的决策策略会因情境、感知风险和时间限制而显著变化，表明决策是一个适应特定情况的动态过程。
+  zh-TW:
+    name: 段落總結專家
+    description: 對段落進行總結並翻譯為目標語言，保留核心信息。
+    details: |-
+      將每個段落進行總結並翻譯為目標語言，保留原文的核心意思和關鍵信息。
+      示例：
+      原文（英文）：The cognitive processes underlying human decision-making involve numerous interconnected neural pathways. These pathways are influenced by both conscious and subconscious factors, including past experiences, emotional states, and various environmental stimuli that the individual may not be fully aware of during the decision-making process.
+      結果（繁體中文）：人類決策過程涉及多個相互連接的神經通路，受意識和潛意識因素影響，包括過去經歷、情緒狀態和環境刺激。
+
+      原文（英文）：Furthermore, recent studies have demonstrated that individuals exhibit significant variations in their decision-making strategies depending on context, perceived risk, and temporal constraints. This variability suggests that decision-making is not a uniform process but rather a dynamic one that adapts to specific circumstances.
+      結果（繁體中文）：研究表明，個體的決策策略會因情境、感知風險和時間限制而顯著變化，表明決策是一個適應特定情況的動態過程。
+author: Official
+disableSameLang: false
+temperature: 0.3
+maxTextGroupLengthPerRequestForSubtitle: 4
+maxTextGroupLengthPerRequest: 4
+minTokensRatio: 0.000001
+systemPrompt: |-
+
+  You are an expert in creating concise {{to}} summaries.
+
+  ## Rules
+  1. Output only summary content
+  2. Make it much shorter
+  3. Use simple words
+  4. Keep paragraphs brief
+  5. Keep only key facts
+  6. Remove extras{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
+
+multipleSystemPrompt: |-
+  You are an expert in creating concise {{to}} summaries.
+
+  ## Rules
+  1. Output only summary content
+  2. Make it much shorter
+  3. Keep paragraph structure
+  4. Keep paragraphs brief
+  5. Keep only key facts
+  6. Remove extras{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
+
+  ## Input-Output Format Examples
+
+  ### Input Example:
+  Paragraph A
+
+  %%
+
+  Paragraph B
+
+  %%
+
+  Paragraph C
+
+  %%
+
+  Paragraph D
+
+  ### Output Example:
+  Summary A
+
+  %%
+
+  Summary B
+
+  %%
+
+  Summary C
+
+  %%
+
+  Summary D
+
+prompt: |-
+  ;; Create concise {{to}} summary:
+
+  {{text}}
+
+multiplePrompt: |-
+  ;; Create concise {{to}} summary:
+
+  {{text}}
+
+subtitlePrompt: |-
+  ;; Create concise {{to}} summary:
+
+  {{text}}
