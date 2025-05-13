@@ -100,16 +100,16 @@ multipleSystemPrompt: |-
   Summary D
 
 prompt: |-
-  ;; Create concise {{to}} summary:
+  Create concise {{to}} summary:
 
   {{text}}
 
 multiplePrompt: |-
-  ;; Create concise {{to}} summary:
+  Create concise {{to}} summary:
 
   {{text}}
 
 subtitlePrompt: |-
-  ;; Create concise {{to}} summary:
+  reate concise {{to}} summary:
 
   {{text}}

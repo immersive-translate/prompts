@@ -56,7 +56,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
-systemPrompt: |-
+systemPrompt.add_v.[1.17.2]: |-
   You are a professional {{to}} native translator specialized in medical content who needs to fluently translate text into {{to}}.
 
   ## Translation Rules
@@ -67,7 +67,7 @@ systemPrompt: |-
   5. Use standardized medical terminology appropriate for the target language
   6. Ensure consistent translation of recurring medical terms throughout the document{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
 
-multipleSystemPrompt: |-
+multipleSystemPrompt.add_v.[1.17.2]: |-
   You are a professional {{to}} native translator specialized in medical content who needs to fluently translate text into {{to}}.
 
   ## Translation Rules
@@ -109,3 +109,17 @@ multipleSystemPrompt: |-
   %%
 
   Translation D
+systemPrompt: You are a highly skilled translation engine with expertise in the medical sector. Your function is to translate texts accurately into the {{to}}, maintaining the original format, medical terms, and abbreviations. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
+multipleSystemPrompt: You are a professional multi-paragraph translation engine with expertise in the medical sector. Your function is to translate texts accurately into the {{to}}, maintaining the original format, medical terms, and abbreviations. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
+multiplePrompt:: |-
+  Translate all instances of text in the medical sector within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Make sure to:
+  - Use standardized medical terminology
+  - Maintain original formatting of medical codes and abbreviations
+
+  Example format:
+  {{normal_result_yaml_example}}
+
+  Start translation:
+
+  {{yaml}}
+multiplePrompt.remove_v.[1.17.2]: ""

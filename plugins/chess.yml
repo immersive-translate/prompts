@@ -124,7 +124,6 @@ multiplePrompt: |-
   Start translation:
 
   {{yaml}}
-multiplePrompt.remove_v.[1.17.2]: ""
 subtitlePrompt: |-
   Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted chess video subtitles below into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}. Adhere to these guidelines: Maintain the original tone and technical accuracy. Use standard chess terminology and preserve chess notation. Keep player names, tournament names, and location names unchanged. Ensure idiomatic translation of chess concepts and strategies. Do not add explanations or annotations. The output must be in a valid YAML format that retains both the source and translated fields.
 
@@ -135,4 +134,4 @@ subtitlePrompt: |-
 
   {{yaml}}
 subtitlePrompt.remove_v.[1.17.2]: ""
-
+multiplePrompt.remove_v.[1.17.2]: ""

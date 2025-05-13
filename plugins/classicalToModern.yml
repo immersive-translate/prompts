@@ -52,11 +52,38 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 langOverrides: []
-multiplePrompt: |-
-  ;; 将古文翻译为现代白话文：
+systemPrompt: 您是将古代汉语翻译成现代汉语的专家。 {{summary_prompt}}{{terms_prompt}}
+prompt: |-
+  将以下古代汉语文本翻译成现代汉语。确保翻译保持原始的意义和情感。只提供翻译，不提供任何额外解释：
 
   {{text}}
-multipleSystemPrompt: |-
+multiplePrompt: |-
+  将下面 YAML 格式中所有的 {{imt_source_field}} 字段中的文本翻译为现代汉语，并将翻译结果写在 {{imt_trans_field}} 字段中
+
+  {{normal_result_yaml_example}}
+
+  开始翻译:
+
+  {{yaml}}
+subtitlePrompt: |-
+  将下面 YAML 格式的视频字幕文本中所有的 {{imt_sub_source_field}} 字段中的文本翻译为现代汉语，并将翻译结果写在 {{imt_sub_trans_field}} 字段中，要求如下：
+
+  1. 必须补全每一个 {{imt_sub_trans_field}} 字段，保留每一个 {{imt_sub_source_field}} 字段。
+  2. 返回可解析的 YAML ：
+
+  {{subtitle_result_yaml_example}}
+
+  开始翻译：
+
+  {{yaml}}
+
+multipleSystemPrompt: ""
+
+multiplePrompt.add_v.[1.17.2]: |-
+  将古文翻译为现代白话文：
+
+  {{text}}
+multipleSystemPrompt.add_v.[1.17.2]: |-
   你是一个精通古文的学者，将古文流畅地翻译为现代白话文。
 
   ## 翻译规则
@@ -98,15 +125,15 @@ multipleSystemPrompt: |-
   %%
 
   白话文翻译 D
-prompt: |-
-  ;; 将古文翻译为现代白话文（仅输出译文内容）：
+prompt.add_v.[1.17.2]: |-
+  将古文翻译为现代白话文（仅输出译文内容）：
 
   {{text}}
-subtitlePrompt: |-
-  ;; 将古文翻译为现代白话文：
+subtitlePrompt.add_v.[1.17.2]: |-
+  将古文翻译为现代白话文：
 
   {{text}}
-systemPrompt: |-
+systemPromp.add_v.[1.17.2]t: |-
   你是一个精通古文的学者，将古文流畅地翻译为现代白话文。遵循以下规则：
   1. 仅输出白话文译文内容，禁止解释或添加任何额外内容（如"以下是翻译："、"译文如下："等）
   2. 保持原文的意境和精神，但使用现代人易于理解的表达方式

@@ -72,7 +72,7 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 langOverrides: []
-systemPrompt: |-
+systemPrompt.add_v.[1.17.2]: |-
   You are a professional {{to}} native translator specialized in Web3 content who needs to fluently translate text into {{to}}.
 
   ## Translation Rules
@@ -83,7 +83,7 @@ systemPrompt: |-
   5. Translate Web3 concepts accurately while preserving their technical meaning and context
   6. Ensure consistency in the translation of recurring Web3 terms throughout the document{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
 
-multipleSystemPrompt: |-
+multipleSystemPrompt.add_v.[1.17.2]: |-
   You are a professional {{to}} native translator specialized in Web3 content who needs to fluently translate text into {{to}}.
 
   ## Translation Rules
@@ -125,3 +125,26 @@ multipleSystemPrompt: |-
   %%
 
   Translation D
+systemPrompt: You are a highly skilled translation engine with expertise in the Web3 sector. Your function is to accurately translate Web3 texts into the target language specified, maintaining the original format, technical terms, and abbreviations. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
+multipleSystemPrompt: You are a professional multi-paragraph translation engine with expertise in the Web3 sector. Your function is to accurately translate Web3 texts into the target language specified, maintaining the original format, technical terms, and abbreviations. Do not add any explanations or annotations to the translated text. {{summary_prompt}}{{terms_prompt}}
+multiplePrompt:: |-
+  Translate all instances of text in the Web3 sector within the YAML-formatted document below into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure technical terms and company abbreviations are accurately translated and retain their original formatting. Do not include explanations or annotations.
+
+  Example format:
+  {{normal_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
+
+subtitlePrompt: |-
+  Translate all subtitle text fields ({{imt_sub_source_field}}) in the YAML-formatted video subtitles below into {{to}}, and fill in the translated text in the corresponding {{imt_sub_trans_field}}. Ensure you maintain the original formatting, accurately translate technical terms and company abbreviations, and do not add explanations or annotations. The output must be in a valid YAML format that retains both the source and translated fields.
+
+  Example format:
+  {{subtitle_result_yaml_example}}
+
+  Begin:
+
+  {{yaml}}
+subtitlePrompt.remove_v.[1.17.2]: ""
+multiplePrompt.remove_v.[1.17.2]: ""
