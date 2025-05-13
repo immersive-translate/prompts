@@ -22,6 +22,7 @@ i18n:
 matches:
   - https://app.immersivetranslate.com/ebook*
   - https://www.gutenberg.org/*
+langOverrides: []
 env:
   imt_source_field: text
   imt_trans_field: text

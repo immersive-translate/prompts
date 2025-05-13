@@ -35,6 +35,7 @@ matches:
   - https://access.clarivate.com/*
   - https://arxiv.org/html/*
   - https://ar5iv.labs.arxiv.org/html/*
+langOverrides: []
 env:
   imt_source_field: text
   imt_trans_field: text

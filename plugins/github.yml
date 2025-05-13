@@ -52,6 +52,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: "Another translated issue description"
         {{imt_sub_source_field}}: "Another source issue description"
+langOverrides: []
 systemPrompt: |-
   You are a professional {{to}} native translator specialized in GitHub content who needs to fluently translate text into {{to}}.
 

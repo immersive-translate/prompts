@@ -24,6 +24,7 @@ matches:
   - https://www.webmd.com/*
   - https://www.medicinenet.com/*
   - https://www.ncbi.nlm.nih.gov/*
+langOverrides: []
 env:
   imt_source_field: text
   imt_trans_field: text

@@ -21,6 +21,7 @@ author: Official
 homepage: https://immersivetranslate.com/
 maxTextLengthPerRequest: 1200
 maxTextGroupLengthPerRequest: 4
+langOverrides: []
 matches:
   - https://www.billboard.com/*
   - https://www.rollingstone.com/*

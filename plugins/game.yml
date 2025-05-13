@@ -35,6 +35,7 @@ matches:
   - https://vg247.com/*
   - https://www.nexusmods.com/*
   - https://steamcommunity.com/*
+langOverrides: []
 env:
   imt_source_field: text
   imt_trans_field: text

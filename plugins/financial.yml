@@ -27,7 +27,7 @@ matches:
   - https://finance.yahoo.com/*
   - https://www.investopedia.com/*
   - https://www.marketwatch.com/*
-
+langOverrides: []
 env:
   imt_source_field: text
   imt_trans_field: text

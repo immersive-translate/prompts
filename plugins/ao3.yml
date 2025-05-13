@@ -60,6 +60,8 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: "Another translated subtitle"
         {{imt_sub_source_field}}: "Another source subtitle"
+
+langOverrides: []
 systemPrompt: |-
   You are a professional {{to}} native translator specialized in fanfiction and original works from AO3. Your task is to fluently translate text into {{to}}.
 

@@ -51,6 +51,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
+langOverrides: []
 multiplePrompt: |-
   ;; 将现代文翻译为文言文：
 

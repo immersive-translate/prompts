@@ -62,6 +62,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
+langOverrides: []
 systemPrompt: |-
   You are a professional {{to}} native translator specialized in fiction literature. Your task is to fluently translate text into {{to}}.
 

@@ -38,6 +38,7 @@ matches:
   - https://member.1688.com/*
   - https://www.taobao.com/*
   - https://onetalk.alibaba.com/*
+langOverrides: []
 env:
   imt_source_field: text
   imt_trans_field: text
