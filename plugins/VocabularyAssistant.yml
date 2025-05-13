@@ -1,5 +1,5 @@
 id: VocabularyAssistant
-version: 1.0.3
+version: 1.1.0
 extensionVersion: 1.4.10
 name: Vocabulary Assistant
 description: Provide phonetic transcription and {{to}} translation for difficult words in the current paragraph
