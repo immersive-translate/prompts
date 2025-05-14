@@ -1,5 +1,5 @@
 id: paragraph-summarizer-expert
-version: 1.0.1
+version: 1.1.0
 extensionVersion: 1.4.10
 priority: 11
 name: Paragraph Summarizer Expert
@@ -100,16 +100,16 @@ multipleSystemPrompt: |-
   Summary D
 
 prompt: |-
-  ;; Create concise {{to}} summary:
+  Create concise {{to}} summary:
 
   {{text}}
 
 multiplePrompt: |-
-  ;; Create concise {{to}} summary:
+  Create concise {{to}} summary:
 
   {{text}}
 
 subtitlePrompt: |-
-  ;; Create concise {{to}} summary:
+  reate concise {{to}} summary:
 
   {{text}}

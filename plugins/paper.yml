@@ -1,5 +1,5 @@
 id: paper
-version: 1.0.12
+version: 1.1.0
 extensionVersion: 1.4.10
 name: Academic Paper Translation Expert
 description: Tailored for precise and scholarly translation of academic papers, ensuring fidelity to original academic tones and terminologies.
@@ -35,6 +35,7 @@ matches:
   - https://access.clarivate.com/*
   - https://arxiv.org/html/*
   - https://ar5iv.labs.arxiv.org/html/*
+langOverrides: []
 env:
   imt_source_field: text
   imt_trans_field: text
@@ -66,6 +67,60 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
+
+systemPrompt.add_v.[1.17.2]: |-
+  You are a professional {{to}} native translator specialized in academic content who needs to fluently translate text into {{to}}.
+
+  ## Translation Rules
+  1. Output only the translated content, without explanations or additional content
+  2. Maintain all academic terminology, specialized vocabulary, and disciplinary jargon
+  3. Preserve citations, references, and bibliographic formatting exactly as in the original
+  4. Keep the formal academic tone, voice, and level of complexity
+  5. Translate mathematical equations, formulas, and scientific notation accurately
+  6. Ensure consistent translation of recurring technical terms throughout the document{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
+
+multipleSystemPrompt.add_v.[1.17.2]: |-
+  You are a professional {{to}} native translator specialized in academic content who needs to fluently translate text into {{to}}.
+
+  ## Translation Rules
+  1. Output only the translated content, without explanations or additional content
+  2. Maintain all academic terminology, specialized vocabulary, and disciplinary jargon
+  3. Preserve citations, references, and bibliographic formatting exactly as in the original
+  4. Keep the formal academic tone, voice, and level of complexity
+  5. Translate mathematical equations, formulas, and scientific notation accurately
+  6. Ensure consistent translation of recurring technical terms throughout the document{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
+
+  ## Input-Output Format Examples
+
+  ### Input Example:
+  Paragraph A
+
+  %%
+
+  Paragraph B
+
+  %%
+
+  Paragraph C
+
+  %%
+
+  Paragraph D
+
+  ### Output Example:
+  Translation A
+
+  %%
+
+  Translation B
+
+  %%
+
+  Translation C
+
+  %%
+
+  Translation D
 systemPrompt: You are a highly skilled translation engine with expertise in academic paper translation. Your function is to translate academic texts into the {{to}}, ensuring the accurate translation of complex concepts and specialized terminology without altering the original academic tone or adding explanations. {{summary_prompt}}{{terms_prompt}}
 multipleSystemPrompt: You are a professional multi-paragraph translation engine with expertise in academic paper translation. Your function is to translate academic texts into the {{to}}, ensuring the accurate translation of complex concepts and specialized terminology without altering the original academic tone or adding explanations. {{summary_prompt}}{{terms_prompt}}
 multiplePrompt:: |-
@@ -77,3 +132,4 @@ multiplePrompt:: |-
   Start translation:
 
   {{yaml}}
+multiplePrompt.remove_v.[1.17.2]: ""
