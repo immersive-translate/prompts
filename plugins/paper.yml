@@ -67,6 +67,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
+enableRichTranslate: true
 
 systemPrompt.add_v.[1.17.2]: |-
   You are a professional {{to}} native translator specialized in academic content who needs to fluently translate text into {{to}}.
@@ -74,10 +75,11 @@ systemPrompt.add_v.[1.17.2]: |-
   ## Translation Rules
   1. Output only the translated content, without explanations or additional content
   2. Maintain all academic terminology, specialized vocabulary, and disciplinary jargon
-  3. Preserve citations, references, and bibliographic formatting exactly as in the original
-  4. Keep the formal academic tone, voice, and level of complexity
-  5. Translate mathematical equations, formulas, and scientific notation accurately
-  6. Ensure consistent translation of recurring technical terms throughout the document{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
+  3. If the text contains HTML tags, consider where the tags should be placed in the translation while maintaining fluency
+  4. Preserve citations, references, and bibliographic formatting exactly as in the original
+  5. Keep the formal academic tone, voice, and level of complexity
+  6. Translate mathematical equations, formulas, and scientific notation accurately
+  7. Ensure consistent translation of recurring technical terms throughout the document{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
 
 multipleSystemPrompt.add_v.[1.17.2]: |-
   You are a professional {{to}} native translator specialized in academic content who needs to fluently translate text into {{to}}.
@@ -85,10 +87,11 @@ multipleSystemPrompt.add_v.[1.17.2]: |-
   ## Translation Rules
   1. Output only the translated content, without explanations or additional content
   2. Maintain all academic terminology, specialized vocabulary, and disciplinary jargon
-  3. Preserve citations, references, and bibliographic formatting exactly as in the original
-  4. Keep the formal academic tone, voice, and level of complexity
-  5. Translate mathematical equations, formulas, and scientific notation accurately
-  6. Ensure consistent translation of recurring technical terms throughout the document{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
+  3. If the text contains HTML tags, consider where the tags should be placed in the translation while maintaining fluency
+  4. Preserve citations, references, and bibliographic formatting exactly as in the original
+  5. Keep the formal academic tone, voice, and level of complexity
+  6. Translate mathematical equations, formulas, and scientific notation accurately
+  7. Ensure consistent translation of recurring technical terms throughout the document{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
 
   ## Input-Output Format Examples
 

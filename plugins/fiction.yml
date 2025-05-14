@@ -63,6 +63,7 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 langOverrides: []
+enableRichTranslate: true
 systemPrompt.add_v.[1.17.2]: |-
   You are a professional {{to}} native translator specialized in fiction literature. Your task is to fluently translate text into {{to}}.
 

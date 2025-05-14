@@ -54,6 +54,7 @@ env:
       - id: 2
         translation: ...
         source: ...
+enableRichTranslate: true
 systemPrompt.add_v.[1.17.2]: |-
   You are a professional {{to}} native translator specialized in eBook content. Your task is to fluently translate text into {{to}}.
 

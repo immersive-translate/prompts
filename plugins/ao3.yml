@@ -26,7 +26,7 @@ matches:
   - https://notfun.top/*
   - https://ao3.insky.jp/*
   - https://i.aois.top/*
-
+enableRichTranslate: true
 maxTextGroupLengthPerRequestForSubtitle: 4
 maxTextGroupLengthPerRequest: 4
 env:

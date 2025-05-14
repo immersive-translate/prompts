@@ -67,6 +67,7 @@ env:
       - id: 2
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
+enableRichTranslate: true
 systemPrompt.add_v.[1.17.2]: |-
   You are a professional {{to}} native translator specialized in gaming industry content. Your task is to fluently translate text into {{to}}.
 

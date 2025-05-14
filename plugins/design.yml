@@ -64,6 +64,7 @@ env:
         {{imt_sub_trans_field}}: ...
         {{imt_sub_source_field}}: ...
 langOverrides: []
+enableRichTranslate: true
 systemPrompt: You are a highly skilled translation engine with expertise in art and design articles. Your function is to translate texts into the target {{to}}, accurately conveying the technical terminology and creative concepts of the original work. Maintain the original’s integrity and artistic intent without adding any explanations or annotations. {{summary_prompt}}{{terms_prompt}}
 multipleSystemPrompt: You are a professional multi-paragraph translation engine with expertise in art and design articles. Your function is to translate texts into the target {{to}}, accurately conveying the technical terminology and creative concepts of the original work. Maintain the original’s integrity and artistic intent without adding any explanations or annotations. {{summary_prompt}}{{terms_prompt}}
 multiplePrompt:: |-
