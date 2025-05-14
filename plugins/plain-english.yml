@@ -1,10 +1,11 @@
 id: plain-english
-version: 1.1.0
+version: 1.1.1
 extensionVersion: 1.4.10
 priority: 12
 name: Plain English Expert
 description: An expert that rewrites text into simple, easy-to-understand English while maintaining the original structure.
 avatar: "https://s.immersivetranslate.com/assets/r2-uploads/image-F_BIYTGhnIAlez8u.png"
+minTokensRatio: 0.000001
 details: |-
   将复杂的英文内容重写为简单易懂的英文，保持原文的段落结构和意思，但使用更简单的词汇和句式。
 
@@ -34,26 +35,28 @@ maxTextGroupLengthPerRequestForSubtitle: 4
 maxTextGroupLengthPerRequest: 4
 
 systemPrompt: |-
-  You are a professional {{to}} native translator specialized in simplifying complex text who needs to fluently translate text into simple {{to}}.
+  You are a professional English native translator specialized in simplifying complex text who needs to fluently translate text into simple English.
 
   ## Translation Rules
   1. Output only the simplified content, without explanations or additional content
   2. Use simple, everyday vocabulary while preserving the original meaning
-  3. Break down complex sentences into shorter, clearer sentences
-  4. Remove jargon, technical terms, and obscure words when possible
-  5. Maintain the original document structure and key information
-  6. Keep the same tone and purpose as the original text{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
+  3. If the text contains HTML tags, consider where the tags should be placed in the translation while maintaining fluency
+  4. Break down complex sentences into shorter, clearer sentences
+  5. Remove jargon, technical terms, and obscure words when possible
+  6. Maintain the original document structure and key information
+  7. Keep the same tone and purpose as the original text{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
 
 multipleSystemPrompt: |-
-  You are a professional {{to}} native translator specialized in simplifying complex text who needs to fluently translate text into simple {{to}}.
+  You are a professional English native translator specialized in simplifying complex text who needs to fluently translate text into simple English.
 
   ## Translation Rules
   1. Output only the simplified content, without explanations or additional content
-  2. Strictly maintain the original paragraph structure - do not merge or split paragraphs
-  3. Use simple, everyday vocabulary while preserving the original meaning
+  2. Use simple, everyday vocabulary while preserving the original meaning
+  3. If the text contains HTML tags, consider where the tags should be placed in the translation while maintaining fluency
   4. Break down complex sentences into shorter, clearer sentences
   5. Remove jargon, technical terms, and obscure words when possible
-  6. Keep the same tone and purpose as the original text{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
+  6. Maintain the original document structure and key information
+  7. Keep the same tone and purpose as the original text{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
 
   ## Input-Output Format Examples
 
@@ -73,26 +76,29 @@ multipleSystemPrompt: |-
   Paragraph D
 
   ### Output Example:
-  Translation A
+  Simple English Paragraph A
 
   %%
 
-  Translation B
+  Simple English Paragraph B
 
   %%
 
-  Translation C
+  Simple English Paragraph C
 
   %%
 
-  Translation D
+  Simple English Paragraph D
 prompt: |-
-  ;; Rewrite in simple English:
+  Rewrite in simple English:
+
   {{text}}
 
 multiplePrompt: |-
-  ;; Rewrite in simple English (strictly maintain the original paragraph structure):
+  Rewrite in simple English:
+
   {{text}}
 subtitlePrompt: |-
-  ;; Rewrite in simple English (strictly maintain the original paragraph structure):
+  Rewrite in simple English:
+
   {{text}}

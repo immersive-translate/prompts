@@ -1,5 +1,5 @@
 id: github
-version: 1.1.0
+version: 1.1.1
 extensionVersion: 1.4.10
 name: GitHub Translation Enhancer
 description: Optimized for translating GitHub repositories, issues, and comments, ensuring technical terms, code snippets, and platform-specific language are accurately conveyed.
