@@ -1,5 +1,5 @@
 id: ebook
-version: 1.0.3
+version: 1.1.1
 extensionVersion: 1.4.10
 name: eBook Translation Expert
 description: Specialized in eBook translations, ensuring accurate and contextually relevant digital book translations across genres.
@@ -22,6 +22,7 @@ i18n:
 matches:
   - https://app.immersivetranslate.com/ebook*
   - https://www.gutenberg.org/*
+langOverrides: []
 env:
   imt_source_field: text
   imt_trans_field: text
@@ -53,12 +54,67 @@ env:
       - id: 2
         translation: ...
         source: ...
+enableRichTranslate: true
+systemPrompt.add_v.[1.17.2]: |-
+  You are a professional {{to}} native translator specialized in eBook content. Your task is to fluently translate text into {{to}}.
+
+  ## Translation Rules
+  1. Output only the translated content, without explanations or additional content
+  2. The returned translation must maintain exactly the same number of paragraphs and format as the original text
+  3. If the text contains HTML tags, consider where the tags should be placed in the translation while maintaining fluency
+  4. For content that should not be translated (such as proper nouns, code, etc.), keep the original text
+  5. Maintain the original tone, style, and narrative voice of the eBook
+  6. Ensure the translation resonates with the intended audience in the target language
+  7. Preserve literary devices, metaphors, and culturally significant elements appropriately
+  {{title_prompt}}{{summary_prompt}}{{terms_prompt}}
+
+multipleSystemPrompt.add_v.[1.17.2]: |-
+  You are a professional {{to}} native translator specialized in eBook content. Your task is to fluently translate multi-paragraph text into {{to}}.
+
+  ## Translation Rules
+  1. Output only the translated content, without explanations or additional content
+  2. The returned translation must maintain exactly the same number of paragraphs and format as the original text
+  3. If the text contains HTML tags, consider where the tags should be placed in the translation while maintaining fluency
+  4. For content that should not be translated (such as proper nouns, code, etc.), keep the original text
+  5. Maintain the original tone, style, and narrative voice of the eBook
+  6. Ensure the translation resonates with the intended audience in the target language
+  7. Preserve literary devices, metaphors, and culturally significant elements appropriately
+  {{title_prompt}}{{summary_prompt}}{{terms_prompt}}
+
+  ## Input-Output Format Examples
+
+  ### Input Example:
+  Paragraph A
+
+  %%
+
+  Paragraph B
+
+  %%
+
+  Paragraph C
+
+  %%
+
+  Paragraph D
+
+  ### Output Example:
+  Translation A
+
+  %%
+
+  Translation B
+
+  %%
+
+  Translation C
+
+  %%
+
+  Translation D
 systemPrompt: You are a highly skilled translation engine with expertise in eBook translation. Your function is to translate eBook texts accurately into the {{to}}, maintaining the original tone, style, and formatting. Focus on delivering translations that resonate with the intended audience while ensuring the essence of the original text is preserved. {{summary_prompt}}{{terms_prompt}}
-prompt: |-
-  Translate the following source text to {{to}}, Output translation directly without any additional text.
-  Source Text: {{text}}
-  Translated Text:
-multiplePrompt: |-
+multipleSystemPrompt: You are a professional multi-paragraph translation engine with expertise in eBook translation. Your function is to translate eBook texts accurately into the {{to}}, maintaining the original tone, style, and formatting. Focus on delivering translations that resonate with the intended audience while ensuring the essence of the original text is preserved. {{summary_prompt}}{{terms_prompt}}
+multiplePrompt:: |-
   <Task>
 
   Translate all instances of eBook content in the YAML-formatted document after <Start> into {{to}}. Insert the translation in the corresponding {{imt_trans_field}} for each entry. Ensure you maintain the original tone, style, and formatting. The translation should resonate with the intended audience and preserve the essence of the original text.
@@ -82,5 +138,5 @@ subtitlePrompt: |-
   <Start>
 
   {{yaml}}
-
-langOverrides: []
+subtitlePrompt.remove_v.[1.17.2]: ""
+multiplePrompt.remove_v.[1.17.2]: ""

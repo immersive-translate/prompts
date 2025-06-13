@@ -1,5 +1,5 @@
 id: VocabularyAssistant
-version: 1.0.2
+version: 1.1.1
 extensionVersion: 1.4.10
 name: Vocabulary Assistant
 description: Provide phonetic transcription and {{to}} translation for difficult words in the current paragraph
@@ -111,8 +111,7 @@ prompt: |-
 
   Analyze the following text and provide {{to}} notes for any difficult words or phrases, Only word explanations are output （No formatted text, but with a serial number）, and no other information is output: 
   {{text}}
-
-multiplePrompt: |-
+multiplePrompt:: |-
   Please complete the task according to the following requirements:
   1. Analyze the text in the {{imt_source_field}} field of the YAML object， and provide {{to}} notes for any difficult words or phrases in the {{imt_source_field}}.
 
@@ -133,3 +132,4 @@ subtitlePrompt: |-
   {{yaml}}
 
 langOverrides: []
+multipleSystemPrompt: ""

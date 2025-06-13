@@ -1,5 +1,5 @@
 id: paraphrase
-version: 1.0.3
+version: 1.1.1
 extensionVersion: 1.4.10
 priority: 10
 name: Paraphrase Expert
@@ -21,7 +21,7 @@ i18n:
     details: |-
       該專家專注於意譯翻譯，旨在捕捉不僅僅是文字，而是背後的意義和語調。它非常適合文學、成語表達以及任何上下文和內容同等重要的文本。使用此專家可以確保在目標語言中傳達原文的精髓，確保文化細膩差別和隱含意義不會在翻譯中丟失。
 
-maxTextLengthPerRequest: 800
+maxTextLengthPerRequest: 1500
 maxTextGroupLengthPerRequestForSubtitle: 1
 maxTextGroupLengthPerRequest: 1
 env:
@@ -35,7 +35,6 @@ env:
   imt_subtitle_yaml_item: |-
     - id: {{id}}
       {{imt_sub_source_field}}: {{text}}
-systemPrompt: You are a professional, authentic translation engine. You only return the translated text, without any explanations. {{summary_prompt}}{{terms_prompt}}
 prompt: |-
   Here is the YAML input:
 
@@ -58,5 +57,26 @@ prompt: |-
     step2: Refined translation
 
   Return the translated YAML directly without any <example_output> tags or additional information.
-multiplePrompt: None
+multiplePrompt: |-
+  Here is the YAML input:
+
+  <yaml>
+  {{yaml}}
+  </yaml>
+
+  Please follow these steps:
+
+  1. Extract the content from the "source" field in the provided YAML object.
+
+  2. Translate the extracted content into {{to}}. Place this initial translation into the step1 field.
+
+  3. Refine the initial translation from step1 to make it more natural and understandable in {{to}}. Place this refined translation into the step2 field.
+
+  4. Format the result as a YAML array with id, step1, and step2 fields as shown in this example:
+
+  - id: 1 
+    step1: Initial translation
+    step2: Refined translation
+
+  Return the translated YAML directly without any <example_output> tags or additional information.
 langOverrides: []

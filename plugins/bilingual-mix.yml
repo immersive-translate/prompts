@@ -1,5 +1,5 @@
 id: bilingual-mix
-version: 1.0.7
+version: 1.1.1
 extensionVersion: 1.4.10
 priority: 30
 name: Chinglish mixing
@@ -68,7 +68,6 @@ prompt: |-
 
   Source Text: {{text}}
   Mixed Chinese-English Text:
-
-multiplePrompt: None
-
+multiplePrompt:: None
 langOverrides: []
+multipleSystemPrompt: ""

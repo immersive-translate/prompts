@@ -1,0 +1,151 @@
+id: subliminal_lingo
+version: 1.1.1
+extensionVersion: 1.4.10
+priority: 30
+name: SubliminalLingo
+description: A translation expert that helps users learn vocabulary by preserving English words with Chinese translations in parentheses.
+avatar: https://sfile.chatglm.cn/testpath/call_beabb68f-ef8e-11ef-8b8f-ea91c0c3bdd0_0.png
+details: |-
+  将英文关键词保留并在括号中显示中文翻译，帮助用户加深对词汇的记忆。支持中英互译，保持句子流畅自然。
+
+  效果如下：
+
+  原文：The implementation uses advanced algorithms.
+
+  结果：该implementation（实现）使用advanced（高级）算法。
+
+  原文：Please check the settings.
+
+  结果：请检查settings（设置）。
+
+i18n:
+  zh-CN:
+    name: 潜意识学习
+    description: 通过保留部分英文单词及其中文翻译，帮助读者在阅读过程中自然习得词汇。
+  zh-TW:
+    name: 潜意识学习
+    description: 通過保留部分英文單詞及其中文翻譯，幫助讀者在閱讀過程中自然習得詞彙。
+
+author: zk
+disableSameLang: true
+temperature: 0.3
+maxTextGroupLengthPerRequestForSubtitle: 1
+maxTextGroupLengthPerRequest: 1
+
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: result
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example Request:
+      - id: 1
+        {{imt_source_field}}: The implementation uses advanced algorithms.
+    Example Result:
+      - id: 1
+        {{imt_trans_field}}: 该implementation（实现）使用advanced（高级）算法。
+  subtitle_result_yaml_example: |-
+    Example Request:
+      - id: 1
+        {{imt_sub_source_field}}: The implementation uses advanced algorithms.
+      - id: 2
+        {{imt_sub_source_field}}: Please check the settings.
+    Example Result:
+      - id: 1
+        {{imt_sub_trans_field}}: 该implementation（实现）使用advanced（高级）算法。
+        {{imt_sub_source_field}}: The implementation uses advanced algorithms.
+      - id: 2
+        {{imt_sub_trans_field}}: 请检查settings（设置）。
+        {{imt_sub_source_field}}: Please check the settings.
+
+systemPrompt: >-
+  Objective: Translate text while preserving key English words with Chinese translations in parentheses.
+  Rules:
+  1. Keep proper nouns (like Chrome, Tauri) in original form without translation
+  2. For technical or important words, use format: word（翻译）
+  3. Maintain natural sentence flow and readability
+  4. Never translate entire phrases or sentences in parentheses
+
+prompt: |-
+  Translate the text. Keep proper nouns as is. For important words use: word（翻译）. Only show results.
+
+  Source Text: The implementation uses advanced algorithms.
+  Result: 该implementation（实现）使用advanced（高级）算法。
+
+  Source Text: Please check the settings.
+  Result: 请检查settings（设置）。
+
+  Source Text: {{text}}
+  Result:
+
+multiplePrompt: |-
+  Translate multiple texts. Keep proper nouns as is. For important words use: word（翻译）. Only show results.
+  Maintain context and consistency across translations.
+
+  Source Text 1: The implementation uses advanced algorithms.
+  Result 1: 该implementation（实现）使用advanced（高级）算法。
+
+  Source Text 2: Please check the settings.
+  Result 2: 请检查settings（设置）。
+
+  {{yaml}}
+
+subtitlePrompt: |-
+  Translate subtitle texts. Keep proper nouns as is. For important words use: word（翻译）.
+  Maintain natural flow and readability. Keep original line breaks and timing.
+
+  Example format:
+  {{subtitle_result_yaml_example}}
+
+  Start translation:
+  {{yaml}}
+
+langOverrides:
+  - id: auto2zh-TW
+    systemPrompt: >-
+      Objective: Translate text while preserving key English words with Traditional Chinese translations in parentheses.
+      Rules:
+      1. Keep proper nouns (like Chrome, Tauri) in original form without translation
+      2. For technical or important words, use format: word（繁體中文翻譯）
+      3. Maintain natural sentence flow and readability
+      4. Never translate entire phrases or sentences in parentheses
+    prompt: |-
+      Translate the text. Keep proper nouns as is. For important words use: word（翻譯）. Only show results.
+
+      Source Text: The implementation uses advanced algorithms.
+      Result: 該implementation（實現）使用advanced（高級）算法。
+
+      Source Text: Please check the settings.
+      Result: 請檢查settings（設置）。
+
+      Source Text: {{text}}
+      Result:
+
+    multiplePrompt: |-
+      Translate multiple texts. Keep proper nouns as is. For important words use: word（翻譯）. Only show results.
+      Maintain context and consistency across translations.
+
+      Source Text 1: The implementation uses advanced algorithms.
+      Result 1: 該implementation（實現）使用advanced（高級）算法。
+
+      Source Text 2: Please check the settings.
+      Result 2: 請檢查settings（設置）。
+
+      {{yaml}}
+
+    subtitlePrompt: |-
+      Translate subtitle texts. Keep proper nouns as is. For important words use: word（翻譯）.
+      Maintain natural flow and readability. Keep original line breaks and timing.
+
+      Example format:
+      {{subtitle_result_yaml_example}}
+
+      Start translation:
+      {{yaml}}
+multipleSystemPrompt: ""
