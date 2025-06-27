@@ -1,5 +1,5 @@
 id: paraphrase
-version: 1.1.1
+version: 1.1.2
 extensionVersion: 1.4.10
 priority: 10
 name: Paraphrase Expert
@@ -35,6 +35,9 @@ env:
   imt_subtitle_yaml_item: |-
     - id: {{id}}
       {{imt_sub_source_field}}: {{text}}
+
+systemPrompt: "You are a professional, authentic machine translation engine.{{title_prompt}}{{summary_prompt}}{{terms_prompt}}"
+multipleSystemPrompt: "You are a professional multi-paragraph translation engine.{{title_prompt}}{{summary_prompt}}{{terms_prompt}}"
 prompt: |-
   Here is the YAML input:
 
