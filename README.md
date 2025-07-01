@@ -20,10 +20,9 @@
 
 您可以在沉浸式翻译设置页面找到【[开发者设置](https://dash.immersivetranslate.com/#developer)】，找到【Custom AI Assistant】，在里面编辑 yaml 格式即可，具体格式请参考下文。
 
-## 关于上下文变量 env
+## 关于 AI prompt 支持的变量
 
-- imt_domain: 网页域名
-- imt_title: 网页标题
+请参见 [AI Prompt 配置指南](https://immersivetranslate.com/zh-Hans/docs/prompts/)
 
 ## AI 专家配置文件规范
 
