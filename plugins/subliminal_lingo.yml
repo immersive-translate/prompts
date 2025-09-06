@@ -1,10 +1,10 @@
 id: subliminal_lingo
-version: 1.1.1
+version: 1.1.2
 extensionVersion: 1.4.10
 priority: 30
 name: SubliminalLingo
 description: A translation expert that helps users learn vocabulary by preserving English words with Chinese translations in parentheses.
-avatar: https://sfile.chatglm.cn/testpath/call_beabb68f-ef8e-11ef-8b8f-ea91c0c3bdd0_0.png
+avatar: https://s.immersivetranslate.com/assets/r2-uploads/call_beabb68f-ef8e-11ef-8b8f-ea91c0c3bdd0_0-e1_rqF3mOriduVVf.png
 details: |-
   将英文关键词保留并在括号中显示中文翻译，帮助用户加深对词汇的记忆。支持中英互译，保持句子流畅自然。
 
