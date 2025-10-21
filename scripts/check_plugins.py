@@ -20,6 +20,14 @@ REQUIRED_TOP = {"id", "version", "name"}
 REQUIRED_I18N = {"zh-CN", "zh-TW"}
 REQUIRED_ENV_KEYS = {"imt_source_field", "imt_trans_field", "imt_yaml_item"}
 REQUIRED_ENV_ADDITIONAL = {"imt_yaml_item", "imt_subtitle_yaml_item"}
+import re
+
+# simple semver-like pattern for extensionVersion (e.g. 1.4.10)
+EXT_VER_RE = re.compile(r"^\d+\.\d+(?:\.\d+)?$")
+# simple URL-ish check for matches entries
+URL_LIKE_RE = re.compile(r"^https?://")
+# placeholder tokens we expect in prompts (warnings if absent)
+COMMON_PLACEHOLDERS = ['{{to}}', '{{imt_source_field}}', '{{imt_trans_field}}', '{{yaml}}']
 
 
 def fail(msg: str):
@@ -95,6 +103,32 @@ def check_file(p: Path) -> bool:
     if not prompt_fields:
         fail(f"[ERROR] {p}: missing any prompt fields (systemPrompt/multiplePrompt/prompt/subtitlePrompt)")
         ok = False
+
+    # extensionVersion format (if present) should look like X.Y or X.Y.Z
+    extver = data.get('extensionVersion')
+    if extver and not EXT_VER_RE.match(str(extver)):
+        fail(f"[ERROR] {p}: extensionVersion '{extver}' does not match expected pattern X.Y[.Z]")
+        ok = False
+
+    # matches entries: if present, should look like http(s) URL patterns
+    matches = data.get('matches')
+    if matches:
+        if not isinstance(matches, list):
+            fail(f"[ERROR] {p}: matches must be a list of URL patterns")
+            ok = False
+        else:
+            for m in matches:
+                if not isinstance(m, str) or not URL_LIKE_RE.match(m):
+                    fail(f"[ERROR] {p}: matches contains non-URL pattern: {m}")
+                    ok = False
+
+    # check prompts for common placeholders — warn if missing (does not fail)
+    for field in ('systemPrompt', 'multiplePrompt', 'prompt', 'subtitlePrompt'):
+        val = data.get(field)
+        if isinstance(val, str):
+            missing = [ph for ph in COMMON_PLACEHOLDERS if ph not in val]
+            if missing:
+                print(f"[WARN] {p}: {field} missing placeholders: {', '.join(missing)}")
 
     return ok
 
