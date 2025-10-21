@@ -42,6 +42,9 @@ env:
   imt_yaml_item: |-
     - id: {{id}}
       {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
 enableRichTranslate: true
 systemPrompt.add_v.[1.17.2]: |-
   You are a professional {{to}} native translator specialized in music industry content who needs to fluently translate text into {{to}}.
