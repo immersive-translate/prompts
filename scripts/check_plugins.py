@@ -28,6 +28,12 @@ EXT_VER_RE = re.compile(r"^\d+\.\d+(?:\.\d+)?$")
 URL_LIKE_RE = re.compile(r"^https?://")
 # placeholder tokens we expect in prompts (warnings if absent)
 COMMON_PLACEHOLDERS = ['{{to}}', '{{imt_source_field}}', '{{imt_trans_field}}', '{{yaml}}']
+# additional allowed runtime markers
+RUNTIME_MARKERS = {'title_prompt', 'summary_prompt', 'terms_prompt', 'normal_result_yaml_example', 'yaml'}
+
+
+def extract_placeholders(s: str):
+    return re.findall(r"\{\{\s*([^}\s]+)\s*\}\}", s)
 
 
 def fail(msg: str):
@@ -129,6 +135,70 @@ def check_file(p: Path) -> bool:
             missing = [ph for ph in COMMON_PLACEHOLDERS if ph not in val]
             if missing:
                 print(f"[WARN] {p}: {field} missing placeholders: {', '.join(missing)}")
+
+            # placeholder consistency: warn if prompt contains placeholders not known in env or runtime markers
+            phs = extract_placeholders(val)
+            for ph in phs:
+                # literal placeholders like 'imt_source_field' or runtime markers
+                if ph in RUNTIME_MARKERS:
+                    continue
+                if ph in data.get('env', {}):
+                    continue
+                # allow common tokens 'to', 'id' etc.
+                if ph in ('to', 'id'):
+                    continue
+                print(f"[WARN] {p}: {field} contains unknown placeholder '{{{{{ph}}}}}' — ensure it's supported or present in env")
+
+    # STRICTER: ensure main prompts include at least one input placeholder (imt_source_field or yaml or to)
+    main_prompt = None
+    for key in ('systemPrompt', 'multiplePrompt'):
+        if key in data and isinstance(data.get(key), str):
+            main_prompt = data.get(key)
+            break
+    if main_prompt:
+        if ('{{imt_source_field}}' not in main_prompt) and ('{{yaml}}' not in main_prompt) and ('{{to}}' not in main_prompt):
+            print(f"[WARN] {p}: main prompt ({'systemPrompt' if 'systemPrompt' in data else 'multiplePrompt'}) should include at least one input placeholder ({{imt_source_field}} or {{yaml}} or {{to}})")
+
+    # Ensure env templates contain expected tokens
+    if isinstance(env, dict):
+        yaml_item = env.get('imt_yaml_item')
+        sub_yaml_item = env.get('imt_subtitle_yaml_item')
+        # require {{id}} and {{imt_source_field}} in imt_yaml_item
+        if isinstance(yaml_item, str):
+            if '{{id}}' not in yaml_item or '{{imt_source_field}}' not in yaml_item:
+                fail(f"[ERROR] {p}: env.imt_yaml_item must contain '{{id}}' and '{{imt_source_field}}'")
+                ok = False
+        else:
+            fail(f"[ERROR] {p}: env.imt_yaml_item missing or not a string")
+            ok = False
+
+        # require {{id}} and {{imt_sub_source_field}} in imt_subtitle_yaml_item
+        if isinstance(sub_yaml_item, str):
+            if '{{id}}' not in sub_yaml_item or '{{imt_sub_source_field}}' not in sub_yaml_item:
+                fail(f"[ERROR] {p}: env.imt_subtitle_yaml_item must contain '{{id}}' and '{{imt_sub_source_field}}'")
+                ok = False
+        else:
+            fail(f"[ERROR] {p}: env.imt_subtitle_yaml_item missing or not a string")
+            ok = False
+
+    # i18n name/description non-empty
+    if isinstance(i18n, dict):
+        for loc, mapping in i18n.items():
+            if isinstance(mapping, dict):
+                if not mapping.get('name'):
+                    print(f"[WARN] {p}: i18n.{loc}.name is empty")
+                if not mapping.get('description'):
+                    print(f"[WARN] {p}: i18n.{loc}.description is empty")
+
+    # enableRichTranslate should be boolean if present
+    ert = data.get('enableRichTranslate')
+    if ert is not None and not isinstance(ert, bool):
+        print(f"[WARN] {p}: enableRichTranslate is not boolean: {ert}")
+
+    # priority if present should be integer
+    prio = data.get('priority')
+    if prio is not None and not isinstance(prio, int):
+        print(f"[WARN] {p}: priority should be integer, got: {prio}")
 
     return ok
 
