@@ -1,0 +1,141 @@
+id: programming-docs
+version: 1.0.0
+extensionVersion: 1.4.10
+name: Programming Docs Expert
+description: Tailored for official documentation (Android, Flutter, Web), ensuring technical terms are translated accurately according to industry standards.
+avatar: https://s.immersivetranslate.com/assets/uploads/dev-doc-expert.png
+author: bqliang
+homepage: https://immersivetranslate.com/
+details: |-
+  This expert is designed to solve the problem of stiff or inaccurate translations in technical documentation. It specifically optimizes for:
+  - **Android/Kotlin/Compose**: Correctly handles terms like 'Activity', 'Intent', 'Composable', 'Modifier', etc.
+  - **Flutter/Dart**: Handles 'Widget', 'State', 'Stream', etc.
+  - **General Programming**: Ensures 'Application' becomes '应用' (not 申请), 'Build' becomes '构建' (not 建立), etc.
+i18n:
+  zh-CN:
+    name: 编程文档翻译专家
+    description: 专为编程官方文档（Android/Flutter/Web）优化，拒绝机翻味，确保术语准确、代码保留。
+    details: |-
+      该专家针对程序员日常阅读的官方文档进行了深度优化。它能够识别编程语境，避免将 "Application" 翻译成 "申请"，将 "Activity" 翻译成 "活动"。
+      特别针对 **Android (Jetpack Compose)**、**Flutter**、**Web 前端** 等领域进行了术语校准。
+      它会严格保留代码片段、变量名和函数名，确保你阅读的文档既流畅又专业。
+  zh-TW:
+    name: 編程文檔翻譯專家
+    description: 專為編程官方文檔（Android/Flutter/Web）優化，拒絕機翻味，確保術語準確、代碼保留。
+    details: |-
+      該專家針對程序員日常閱讀的官方文檔進行了深度優化。它能夠識別編程語境，避免將 "Application" 翻譯成 "申請"，將 "Activity" 翻譯成 "活動"。
+      特別針對 **Android (Jetpack Compose)**、**Flutter**、**Web 前端** 等領域進行了術語校準。
+      它會嚴格保留代碼片段、變量名和函數名，確保你閱讀的文檔既流暢又專業。
+matches:
+  - https://developer.android.com/*
+  - https://kotlinlang.org/*
+  - https://flutter.dev/*
+  - https://pub.dev/*
+  - https://react.dev/*
+  - https://vuejs.org/*
+  - https://docs.oracle.com/*
+  - https://stackoverflow.com/*
+  - https://github.com/*
+  - https://docs.github.com/*
+  - https://google.github.io/*
+  - https://square.github.io/*
+  - https://developer.android.google.cn/*
+  - https://medium.com/*
+  - https://dev.to/*
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: "{{text}}"
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: "{{text}}"
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: "The Activity class is a crucial component of an Android application."
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: "Activity 类是 Android 应用中的一个关键组件。"
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: "StatelessWidgets are immutable."
+      - id: 2
+        {{imt_sub_source_field}}: "Let's build the app."
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: "StatelessWidget 是不可变的。"
+        {{imt_sub_source_field}}: "StatelessWidgets are immutable."
+      - id: 2
+        {{imt_sub_trans_field}}: "让我们构建这个应用。"
+        {{imt_sub_source_field}}: "Let's build the app."
+langOverrides: []
+enableRichTranslate: true
+
+# 系统提示词：定义 AI 的角色和核心规则
+systemPrompt: |-
+  You are a senior technical translator and software engineer expert in Android, Flutter, and Web development. Your goal is to translate technical documentation into {{to}} with professional precision.
+
+  ## Translation Rules
+  1. **Output ONLY the translated content**. No explanations, no "Here is the translation".
+  2. **Code & Syntax Preservation**: 
+     - NEVER translate content inside `code blocks`, `inline code`, variable names, function names, or class names (e.g., camelCase or snake_case terms). 
+     - Keep them exactly as they are in the original text.
+  3. **Terminology Accuracy (Crucial)**:
+     - Translate terms based on **Computer Science/Software Engineering context**, not general English.
+     - **Android Context**: 'Activity' -> 'Activity' (do not translate to 活动), 'Intent' -> 'Intent', 'View' -> 'View' (or 视图 depending on context), 'Application' -> '应用' (NOT 申请).
+     - **Flutter Context**: 'Widget' -> '组件' or 'Widget', 'State' -> '状态'.
+     - **General**: 'Build' -> '构建', 'Run' -> '运行', 'Performance' -> '性能', 'Documentation' -> '文档'.
+  4. **Formatting**:
+     - Maintain all HTML tags, Markdown links, and styling exactly where they fit in the translated sentence.
+     - Ensure the translation flows naturally for a Chinese developer to read.
+  5. **Style**: 
+     - Use a professional, objective, and concise tone suitable for technical documentation.
+     - Avoid "translationese" (翻译腔).
+
+# 多段翻译提示词：处理长文档，保持上下文连贯
+multipleSystemPrompt: |-
+  You are a senior technical translator and software engineer expert in Android, Flutter, and Web development. Your goal is to translate multi-paragraph technical documentation into {{to}} with professional precision.
+
+  ## Translation Rules
+  1. **Output ONLY the translated content**. No explanations.
+  2. **Structure**: Keep the exact same number of paragraphs and line breaks as the original input.
+  3. **Code & Syntax Preservation**: 
+     - NEVER translate content inside `code blocks`, `inline code`, variable names, function names, or class names.
+  4. **Terminology Accuracy**:
+     - **Android**: Activity, Fragment, Intent, Modifier, Composable (Keep these or use standard CN tech terms).
+     - **General**: 'Application' -> '应用', 'Instance' -> '实例', 'Argument' -> '参数'.
+  5. **Formatting**: Maintain all HTML/Markdown structure perfectly.
+
+  ## Input-Output Examples
+
+  ### Input:
+  The `Modifier` class allows you to decorate a composable.
+
+  %%
+
+  To build the project, run `./gradlew build`.
+
+  ### Output:
+  `Modifier` 类允许你修饰一个可组合项（composable）。
+
+  %%
+
+  要构建该项目，请运行 `./gradlew build`。
+
+# 实际执行的 Prompt 模板
+multiplePrompt: |-
+  Translate the following technical documentation content into {{to}}. 
+  Focus on **Android/Kotlin/Flutter** terminology accuracy. 
+  Do not translate code or variable names.
+  
+  Format:
+  {{normal_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
