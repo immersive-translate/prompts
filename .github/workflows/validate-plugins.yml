@@ -1,0 +1,31 @@
+name: Validate plugins
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install yamllint
+        run: |
+          python -m pip install --upgrade pip
+          pip install yamllint pyyaml
+
+      - name: Run yamllint
+        run: |
+          yamllint -c .yamllint.yml plugins || true
+
+      - name: Run plugin checks
+        run: |
+          python scripts/check_plugins.py

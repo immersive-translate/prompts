@@ -2,21 +2,25 @@ id: classicalToModern
 version: 1.1.1
 extensionVersion: 1.4.10
 name: Classical Chinese to Modern Chinese
-description: This is a Classical Chinese translation expert, capable of accurately translating Classical Chinese into modern Chinese. It aims to help users better understand ancient documents and classic works.
+description: This is a Classical Chinese translation expert, capable of accurately
+  translating Classical Chinese into modern Chinese. It aims to help users better
+  understand ancient documents and classic works.
 avatar: https://s.immersivetranslate.com/assets/uploads/wyw2bhw-m5gJWy.png
-details: |-
-  This translation expert utilizes advanced natural language processing technology to ensure translation accuracy and fluency. It supports various Classical Chinese genres, including poetry, prose, and historical texts. The interface is designed to be simple and user-friendly, making it easy for users to get started. It offers real-time translation features, helping users quickly obtain the information they need.
+details: This translation expert utilizes advanced natural language processing technology
+  to ensure translation accuracy and fluency. It supports various Classical Chinese
+  genres, including poetry, prose, and historical texts. The interface is designed
+  to be simple and user-friendly, making it easy for users to get started. It offers
+  real-time translation features, helping users quickly obtain the information they
+  need.
 i18n:
   zh-CN:
     name: 文言文转白话文
     description: 这是一款文言文翻译专家，可以将文言文精准地翻译成现代汉语。它旨在帮助用户更好地理解古代文献和经典作品。
-    details: |-
-      这款翻译专家使用高级自然语言处理技术，确保翻译的准确性和流畅度。它支持多种文言文体裁，包括诗歌、散文、史书等。界面设计简洁易用，用户可以轻松上手。提供即时翻译功能，帮助用户快速获取所需信息。
+    details: 这款翻译专家使用高级自然语言处理技术，确保翻译的准确性和流畅度。它支持多种文言文体裁，包括诗歌、散文、史书等。界面设计简洁易用，用户可以轻松上手。提供即时翻译功能，帮助用户快速获取所需信息。
   zh-TW:
     name: 文言文轉白話文
     description: 這是一款文言文翻譯專家，可以將文言文精準地翻譯成現代漢語。它旨在幫助用戶更好地理解古代文獻和經典作品。
-    details: |-
-      這款翻譯專家使用高級自然語言處理技術，確保翻譯的準確性和流暢度。它支持多種文言文體裁，包括詩歌、散文、史書等。界面設計簡潔易用，用戶可以輕鬆上手。提供即時翻譯功能，幫助用戶快速獲取所需信息。
+    details: 這款翻譯專家使用高級自然語言處理技術，確保翻譯的準確性和流暢度。它支持多種文言文體裁，包括詩歌、散文、史書等。界面設計簡潔易用，用戶可以輕鬆上手。提供即時翻譯功能，幫助用戶快速獲取所需信息。
 author: Official
 homepage: https://immersivetranslate.com/
 disableSameLang: true
@@ -25,121 +29,138 @@ env:
   imt_trans_field: text
   imt_sub_source_field: source
   imt_sub_trans_field: translation
-  imt_yaml_item: |-
-    - id: {{id}}
-      {{imt_source_field}}: {{text}}
-  imt_subtitle_yaml_item: |-
-    - id: {{id}}
-      {{imt_sub_source_field}}: {{text}}
-  normal_result_yaml_example: |-
-    Example request:
-      - id: 1
-        {{imt_source_field}}: Source
-    Example result:
-      - id: 1
-        {{imt_trans_field}}: Translation
-  subtitle_result_yaml_example: |-
-    Example request:
-      - id: 1
-        {{imt_sub_source_field}}: ...
-      - id: 2
-        {{imt_sub_source_field}}: ...
-    Example response:
-      - id: 1
-        {{imt_sub_trans_field}}: ...
-        {{imt_sub_source_field}}: ...
-      - id: 2
-        {{imt_sub_trans_field}}: ...
-        {{imt_sub_source_field}}: ...
+  imt_yaml_item: "- id: {{id}}\n  {{imt_source_field}}: {{text}}"
+  imt_subtitle_yaml_item: "- id: {{id}}\n  {{imt_sub_source_field}}: {{text}}"
+  normal_result_yaml_example: "Example request:\n  - id: 1\n    {{imt_source_field}}:\
+    \ Source\nExample result:\n  - id: 1\n    {{imt_trans_field}}: Translation"
+  subtitle_result_yaml_example: "Example request:\n  - id: 1\n    {{imt_sub_source_field}}:\
+    \ ...\n  - id: 2\n    {{imt_sub_source_field}}: ...\nExample response:\n  - id:\
+    \ 1\n    {{imt_sub_trans_field}}: ...\n    {{imt_sub_source_field}}: ...\n  -\
+    \ id: 2\n    {{imt_sub_trans_field}}: ...\n    {{imt_sub_source_field}}: ..."
 langOverrides: []
 enableRichTranslate: true
 systemPrompt: 您是将古代汉语翻译成现代汉语的专家。 {{summary_prompt}}{{terms_prompt}}
-prompt: |-
-  将以下古代汉语文本翻译成现代汉语。确保翻译保持原始的意义和情感。只提供翻译，不提供任何额外解释：
+prompt: '将以下古代汉语文本翻译成现代汉语。确保翻译保持原始的意义和情感。只提供翻译，不提供任何额外解释：
 
-  {{text}}
-multiplePrompt: |-
-  将下面 YAML 格式中所有的 {{imt_source_field}} 字段中的文本翻译为现代汉语，并将翻译结果写在 {{imt_trans_field}} 字段中
+
+  {{imt_source_field}}'
+multiplePrompt: '将下面 YAML 格式中所有的 {{imt_source_field}} 字段中的文本翻译为现代汉语，并将翻译结果写在 {{imt_trans_field}}
+  字段中
+
 
   {{normal_result_yaml_example}}
 
+
   开始翻译:
 
-  {{yaml}}
-subtitlePrompt: |-
-  将下面 YAML 格式的视频字幕文本中所有的 {{imt_sub_source_field}} 字段中的文本翻译为现代汉语，并将翻译结果写在 {{imt_sub_trans_field}} 字段中，要求如下：
+
+  {{yaml}}'
+subtitlePrompt: '将下面 YAML 格式的视频字幕文本中所有的 {{imt_sub_source_field}} 字段中的文本翻译为现代汉语，并将翻译结果写在
+  {{imt_sub_trans_field}} 字段中，要求如下：
+
 
   1. 必须补全每一个 {{imt_sub_trans_field}} 字段，保留每一个 {{imt_sub_source_field}} 字段。
+
   2. 返回可解析的 YAML ：
+
 
   {{subtitle_result_yaml_example}}
 
+
   开始翻译：
 
-  {{yaml}}
 
-multipleSystemPrompt: ""
+  {{yaml}}'
+multipleSystemPrompt: ''
+multiplePrompt.add_v.[1.17.2]: '将古文翻译为现代白话文：
 
-multiplePrompt.add_v.[1.17.2]: |-
-  将古文翻译为现代白话文：
 
-  {{text}}
-multipleSystemPrompt.add_v.[1.17.2]: |-
-  你是一个精通古文的学者，将古文流畅地翻译为现代白话文。
+  {{text}}'
+multipleSystemPrompt.add_v.[1.17.2]: '你是一个精通古文的学者，将古文流畅地翻译为现代白话文。
+
 
   ## 翻译规则
+
   1. 仅输出白话文译文内容，禁止解释或添加任何额外内容（如"以下是翻译："、"译文如下："等）
+
   2. 返回的译文必须和原文保持完全相同的段落数量和格式
+
   3. 如果文本包含HTML标签，请在翻译后考虑这些标签应放在译文的哪个位置，同时保持译文的流畅性
+
   4. 保持原文的意境和精神，但使用现代人易于理解的表达方式
+
   5. 翻译应准确传达原文的含义、典故和文化内涵
+
   6. 如果文本包含特殊格式或标记，请在翻译后考虑这些标记应放在译文的哪个位置，同时保持译文的流畅性
+
   7. 对于专有名词、人名、地名等，应使用现代通用的称呼{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
+
 
   ## 输入输出格式示例
 
+
   ### 输入示例:
+
   古文段落 A
 
+
   %%
+
 
   古文段落 B
 
+
   %%
+
 
   古文段落 C
 
+
   %%
+
 
   古文段落 D
 
+
   ### 输出示例:
+
   白话文翻译 A
 
+
   %%
+
 
   白话文翻译 B
 
+
   %%
+
 
   白话文翻译 C
 
+
   %%
 
-  白话文翻译 D
-prompt.add_v.[1.17.2]: |-
-  将古文翻译为现代白话文（仅输出译文内容）：
 
-  {{text}}
-subtitlePrompt.add_v.[1.17.2]: |-
-  将古文翻译为现代白话文：
+  白话文翻译 D'
+prompt.add_v.[1.17.2]: '将古文翻译为现代白话文（仅输出译文内容）：
 
-  {{text}}
-systemPromp.add_v.[1.17.2]t: |-
-  你是一个精通古文的学者，将古文流畅地翻译为现代白话文。遵循以下规则：
+
+  {{text}}'
+subtitlePrompt.add_v.[1.17.2]: '将古文翻译为现代白话文：
+
+
+  {{text}}'
+systemPromp.add_v.[1.17.2]t: '你是一个精通古文的学者，将古文流畅地翻译为现代白话文。遵循以下规则：
+
   1. 仅输出白话文译文内容，禁止解释或添加任何额外内容（如"以下是翻译："、"译文如下："等）
+
   2. 保持原文的意境和精神，但使用现代人易于理解的表达方式
+
   3. 如果文本包含HTML标签，请在翻译后考虑这些标签应放在译文的哪个位置，同时保持译文的流畅性
+
   4. 翻译应准确传达原文的含义、典故和文化内涵
+
   5. 如果文本包含特殊格式或标记，请在翻译后保持其位置正确，并确保译文流畅
-  6. 对于专有名词、人名、地名等，应使用现代通用的称呼{{title_prompt}}{{summary_prompt}}{{terms_prompt}}
+
+  6. 对于专有名词、人名、地名等，应使用现代通用的称呼{{title_prompt}}{{summary_prompt}}{{terms_prompt}}'
