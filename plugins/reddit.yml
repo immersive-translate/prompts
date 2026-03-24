@@ -20,6 +20,7 @@ i18n:
     details: |-
       該專家專門翻譯 Reddit 上的內容，確保社區俚語、特定於子版塊的術語、互聯網行話和平台特定語言得到保留並準確翻譯成目標語言。適用於各種類型的 Reddit 內容，包括帖子、評論和子版塊描述。
   ja:
+    name: Reddit Translation Enhancer
     description: Reddit の投稿やコメントの翻訳向けに最適化されており、コミュニティ特有のスラング、サブレディット用語、ネット用語を的確に伝えます。
 matches:
   - https://reddit.com/*

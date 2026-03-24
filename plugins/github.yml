@@ -20,6 +20,7 @@ i18n:
     details: |-
       該專家專門翻譯 GitHub 上的內容，確保技術術語、代碼片段、Markdown 格式和平台特定語言得到保留並準確翻譯成目標語言。適用於各種類型的 GitHub 內容，包括倉庫、問題、拉取請求和評論。
   ja:
+    name: GitHub Translation Enhancer
     description: GitHub のリポジトリ、Issue、コメントの翻訳に最適化されており、技術用語、コードスニペット、プラットフォーム特有の表現を正確に伝えます。
 matches:
   - https://github.com/*

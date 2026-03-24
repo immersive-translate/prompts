@@ -20,6 +20,7 @@ i18n:
     details: |-
       該專家在翻譯小說文學方面表現卓越，提供小說、短篇故事等敘事形式的細膩且忠實的呈現。使用它可以將小說翻譯成目標語言，增強情感共鳴和文化相關性。
   ja:
+    name: Fiction Translation Expert
     description: 物語性や感情表現を豊かに保ちながら、小説・フィクションを翻訳するためのエキスパートです。
 matches:
   - https://www.wattpad.com/*

@@ -20,6 +20,7 @@ i18n:
     details: |-
       為疑难詞彙提供音標翻譯和目标语言翻譯，幫助讀者更好地理解和理解疑难的詞彙。詞彙助手非常適合讀者，包括學生、教師和其他需要翻譯的人。
   ja:
+    name: Vocabulary Assistant
     description: 現在の段落内にある難しい単語に、発音表記と {{to}} への翻訳を付けるエキスパートです。
 env:
   imt_source_field: source

@@ -20,6 +20,7 @@ i18n:
     details: |-
       該專家特別設計用於學術論文的翻譯，幫助準確傳達複雜概念和專業術語到目標語言。適用於各個學科的期刊、研究報告和學術文章。
   ja:
+    name: Academic Paper Translation Expert
     description: 学術論文向けに調整されたエキスパートで、学術的な語調や専門用語を保ちながら、正確で信頼性の高い翻訳を行います。
 matches:
   - https://www.sciencedirect.com/*

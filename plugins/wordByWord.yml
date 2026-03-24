@@ -20,6 +20,7 @@ i18n:
     details: |-
       分詞對照翻譯是一款創新的翻譯助手，能夠將輸入的文本進行分割處理，並在保留原文的同時，提供精準的翻譯。此工具特別適合於需要理解短語含義的用戶，例如語言學習者。
   ja:
+    name: Word-by-Word Translation Assistant
     description: 文を適切に分割し、それぞれを個別に翻訳したうえで、全体として自然につなぎ直すエキスパートです。
 env:
   imt_source_field: text

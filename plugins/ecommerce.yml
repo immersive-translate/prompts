@@ -20,6 +20,7 @@ i18n:
     details: |-
       該專家專為電商領域翻譯而設計，你可以使用它精確翻譯電商文章、產品描述和客戶評價到指定的目標語言。適合的網站包括：淘寶, 天貓, 京東, 唯品會, 亞馬遜, eBay, Shopify, Magento, BigCommerce, WooCommerce, Lazada, Shopee, Zalora 等。
   ja:
+    name: E-commerce Expert
     description: EC 分野向けに設計されたエキスパートで、正確さを保ちながら、オンラインショッパーに自然に伝わる翻訳を行います。
 matches:
   - https://www.temu.com/*

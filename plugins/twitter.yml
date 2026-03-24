@@ -20,6 +20,7 @@ i18n:
     details: |-
       該專家專門翻譯 Twitter 上的推文，確保俚語、成語表達、話題標籤和平台特定語言得到保留並準確翻譯成目標語言。適用於各種類型的推文，包括個人更新、新聞和娛樂。
   ja:
+    name: Twitter Translation Enhancer
     description: ツイートの翻訳向けに最適化されており、スラング、ハッシュタグ、プラットフォーム特有の表現を正確に伝えます。
 matches:
   - https://twitter.com/*

@@ -18,6 +18,7 @@ i18n:
     details: |-
       透過精心設計的 Prompt，使得醫學領域的翻譯更加準確和專業，你可以在醫學類網站中使用該專家。
   ja:
+    name: Medical Expert
     description: 綿密に設計されたプロンプトにより、医療分野の翻訳をより正確かつ専門的に行うエキスパートです。
 author: Official
 homepage: https://immersivetranslate.com/

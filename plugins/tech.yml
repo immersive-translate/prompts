@@ -20,6 +20,7 @@ i18n:
     details: |-
       該專家專為專業科技領域翻譯而設計，你可以使用它將科技類文章準確翻譯為指定的目標語言。適合的網站包括：Techdirt, TechCrunch, Wired, The Verge, Ars Technica, CNET, Engadget, Gizmodo, Mashable, TechRadar, ZDNet, PCMag, Digital Trends, TechRepublic, Tom's Hardware, AnandTech, TechSpot, TechTarget, Techopedia, TechCrunch, TechRepublic, TechNet, etc.
   ja:
+    name: Technology Expert
     description: 綿密に設計されたプロンプトにより、テクノロジー分野の翻訳をより正確かつ専門的に行うエキスパートです。
 matches:
   - https://www.techdirt.com/*
