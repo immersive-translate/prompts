@@ -19,6 +19,8 @@ i18n:
     description: 面向 Steam 站點內容的專業翻譯，術語準確、格式完整
     details: |-
       該專家專為 Steam 商店頁面、更新公告、補丁說明、社群內容翻譯而設計。強調保留術語、富文本與頁面結構，並優先採用 Steam 官方中文介面既有譯名，確保譯文符合 Steam 語境與玩家習慣。
+  ja:
+    description: Steam のストアページやコミュニティコンテンツの翻訳に最適化されたエキスパートです。
 matches:
   - https://store.steampowered.com/*
   - https://steamcommunity.com/*

@@ -17,6 +17,8 @@ i18n:
     description: 專門針對國際象棋相關內容優化，確保chess.com的文章和術語翻譯準確且地道。
     details: |-
       該專家專為國際象棋內容翻譯而設計，可以準確地將chess.com和其他國際象棋網站的文章、對局分析和專業術語翻譯成目標語言，使用標準的國際象棋術語和記號，同時保持原文的語氣和技術準確性。
+  ja:
+    description: チェス関連コンテンツの翻訳に特化したエキスパートです。chess.com の記事や専門用語を、自然で正確に翻訳します。
 author: akira0245
 homepage: https://github.com/akira0245/
 matches:

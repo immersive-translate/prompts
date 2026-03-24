@@ -17,6 +17,8 @@ i18n:
     description: 適合用來翻譯醫學相關的網站、論文、報告等內容
     details: |-
       透過精心設計的 Prompt，使得醫學領域的翻譯更加準確和專業，你可以在醫學類網站中使用該專家。
+  ja:
+    description: 綿密に設計されたプロンプトにより、医療分野の翻訳をより正確かつ専門的に行うエキスパートです。
 author: Official
 homepage: https://immersivetranslate.com/
 matches:

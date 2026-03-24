@@ -19,6 +19,8 @@ i18n:
     description: 專為新聞媒體領域設計，確保翻譯的準確性和專業性
     details: |-
       該專家專為新聞媒體翻譯而設計，能夠將新聞文章準確翻譯成指定的目標語言，同時保留新聞寫作的細微差別和風格。適合翻譯的新聞網站包括：CNN, BBC, The New York Times, The Guardian, Reuters, CNBC, Al Jazeera, The Washington Post, The Wall Street Journal, Financial Times, NPR, Bloomberg, Forbes, Time, Newsweek, The Economist, AP News, Politico, Vox, etc.
+  ja:
+    description: ニュース・メディア分野の翻訳を、より正確かつ専門的に行うために設計されたエキスパートです。
 matches:
   - https://www.cnn.com/*
   - https://www.bbc.com/*

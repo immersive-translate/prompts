@@ -25,6 +25,8 @@ i18n:
   zh-TW:
     name: 潜意识学习
     description: 通過保留部分英文單詞及其中文翻譯，幫助讀者在閱讀過程中自然習得詞彙。
+  ja:
+    description: 英語の単語を残しつつ、中国語訳を括弧内に添えることで、語彙学習を助ける翻訳エキスパートです。
 
 author: zk
 disableSameLang: true

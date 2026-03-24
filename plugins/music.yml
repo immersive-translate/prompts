@@ -17,6 +17,8 @@ i18n:
     description: 該專家專為專業音樂領域翻譯而設計。您可以使用它將音樂相關文章準確翻譯為指定的目標語言。
     details: |-
       該專家專為音樂領域優化，非常適合將音樂相關文章準確翻譯為指定的目標語言。使用此專家可確保音樂術語、藝術家姓名和歌曲標題得到準確翻譯，保持原始上下文和含義。
+  ja:
+    description: 音楽分野の翻訳に特化したエキスパートです。音楽関連の記事や内容を、指定したターゲット言語へ正確に翻訳できます。
 author: Official
 homepage: https://immersivetranslate.com/
 maxTextLengthPerRequest: 1200

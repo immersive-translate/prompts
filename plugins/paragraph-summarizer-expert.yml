@@ -38,6 +38,8 @@ i18n:
 
       原文（英文）：Furthermore, recent studies have demonstrated that individuals exhibit significant variations in their decision-making strategies depending on context, perceived risk, and temporal constraints. This variability suggests that decision-making is not a uniform process but rather a dynamic one that adapts to specific circumstances.
       結果（繁體中文）：研究表明，個體的決策策略會因情境、感知風險和時間限制而顯著變化，表明決策是一個適應特定情況的動態過程。
+  ja:
+    description: 各段落を要約し、その内容を指定したターゲット言語に翻訳するエキスパートです。
 author: Official
 disableSameLang: false
 temperature: 0.3

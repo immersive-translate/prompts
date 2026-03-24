@@ -20,6 +20,8 @@ i18n:
     description: 專為Web3領域設計，提供更準確、專業的Web3領域翻譯
     details: |-
       該專家專為專業Web3領域翻譯而設計，你可以使用它將Web3領域的文章準確翻譯為指定的目標語言。適合的網站包括：CoinDesk, Cointelegraph, CryptoSlate, Decrypt, The Block, Bitcoin Magazine, Ethereum World News, Blockchain News, CoinMarketCap, CoinGecko, Bitcointalk, Ethereum.org, Crypto.com, Binance Academy, Uniswap.org, etc.
+  ja:
+    description: Web3 分野の翻訳に特化したエキスパートです。記事を正確かつ専門的に翻訳します。
 matches:
   - https://coindesk.com/*
   - https://cointelegraph.com/*

@@ -19,6 +19,8 @@ i18n:
     description: 專為遊戲行業設計，確保翻譯準確且能與玩家產生共鳴
     details: |-
       該專家專為遊戲行業的專業翻譯而設計，你可以使用它將遊戲文章、評論和新聞準確翻譯為指定的目標語言。適合的網站包括：IGN, GameSpot, Kotaku, Polygon, Eurogamer, PC Gamer, Rock, Paper, Shotgun, GamesRadar+, Destructoid, Metacritic, Game Informer, The Escapist, VG247, etc.
+  ja:
+    description: ゲーム業界向けに設計されたエキスパートで、翻訳の正確さとゲーマーに自然に伝わる表現の両立を目指します。
 matches:
   - https://ign.com/*
   - https://gamespot.com/*

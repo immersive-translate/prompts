@@ -17,6 +17,8 @@ i18n:
     description: 這是一款文言文翻譯專家，可以將文言文精準地翻譯成現代漢語。它旨在幫助用戶更好地理解古代文獻和經典作品。
     details: |-
       這款翻譯專家使用高級自然語言處理技術，確保翻譯的準確性和流暢度。它支持多種文言文體裁，包括詩歌、散文、史書等。界面設計簡潔易用，用戶可以輕鬆上手。提供即時翻譯功能，幫助用戶快速獲取所需信息。
+  ja:
+    description: 古典中国語（文言文）を現代中国語へ正確に翻訳するエキスパートです。古典文献や古文の理解を助けます。
 author: Official
 homepage: https://immersivetranslate.com/
 disableSameLang: true

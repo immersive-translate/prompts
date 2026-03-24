@@ -17,6 +17,8 @@ i18n:
     description: 特別為金融領域優化，適合用來翻譯財經，金融類文章。
     details: |-
       該專家專為專業金融領域翻譯而設計，你可以使用它將金融類文章準確翻譯為指定的目標語言。
+  ja:
+    description: 丁寧に設計されたプロンプトにより、金融分野の記事をより正確かつ専門的に翻訳するエキスパートです。
 author: Official
 homepage: https://immersivetranslate.com/
 matches:

@@ -26,6 +26,8 @@ i18n:
   zh-TW:
     name: 英文簡化大師
     description: 將複雜英文內容改寫為簡單易懂的英語，保持原文結構和意思。
+  ja:
+    description: 原文の構成を保ちながら、よりシンプルで分かりやすい英語に書き換えるエキスパートです。
 
 author: Official
 disableSameLang: true

@@ -25,6 +25,8 @@ i18n:
   zh-TW:
     name: 中英夾雜
     description: 不好意思，我明天的 schedule 滿了，讓我 book 後天的時間好嗎？
+  ja:
+    description: 中国語から英語へ翻訳する際に、重要な語句だけを英語にし、それ以外は中国語のまま残します。重要語彙の定着を助けるためのエキスパートです。
 author: Official
 homepage: https://www.immersivetranslate.com
 disableSameLang: true
