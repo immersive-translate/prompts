@@ -1,0 +1,18 @@
+expertId: ecommerce
+cases:
+  - id: product-facts-and-promotion
+    name: 商品规格、价格与促销条件
+    from: en
+    to: zh-CN
+    items:
+      - source: 'The Nimbus X1 vacuum has a 2.5 L dustbin, 120 AW suction power, and a 24-month warranty.'
+        mustPreserve: [Nimbus X1, '120 AW']
+        mustContainAny: [['2.5 L', '2.5 升'], ['24-month', '24 个月', '24个月']]
+        maxLengthRatio: 2
+      - source: 'Save 15% with code SPRING15 through March 31; the offer excludes refurbished items and cannot be combined with other coupons.'
+        mustPreserve: [15%, SPRING15]
+        mustContainAny: [['March 31', '3 月 31 日', '3月31日'], [refurbished, 翻新], [other coupons, 其他优惠券, 其他优惠码]]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 产品型号、规格、单位、保修期限、价格或折扣条件是否准确无遗漏
+      - 营销语气是否自然可信，且没有强化、削弱或编造原文中的商品 claims

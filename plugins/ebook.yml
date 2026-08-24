@@ -1,6 +1,10 @@
 id: ebook
 version: 1.1.1
 extensionVersion: 1.4.10
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: >-
+    Translate eBook content into {{to}} as polished prose appropriate to its genre and intended audience. Preserve narrative voice, characterization, dialogue register, literary devices, metaphors, emotional nuance, and culturally significant elements. Within each source item, preserve the meaning and relationships of headings, captions, footnotes, and cross-references, and use established translations for recurring names and concepts when available.
 name: eBook Translation Expert
 description: Specialized in eBook translations, ensuring accurate and contextually relevant digital book translations across genres.
 avatar: https://s.immersivetranslate.com/assets/uploads/ebook-CXptDe.png

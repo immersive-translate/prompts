@@ -1,24 +1,39 @@
 # Immersive Translate AI Expert Plugin Submission Guide
 
-Customized AI translation strategies can greatly improve translation quality. Immersive Translate refers to these strategies as "AI Experts" — essentially, a series of carefully designed prompts.
+Customized AI translation strategies can greatly improve translation quality.
+Immersive Translate refers to these strategies as "AI Experts" — essentially, a
+series of carefully designed prompts.
 
 ## How to Use "AI Experts" in Immersive Translate?
 
-Open the Immersive Translate settings page, find the "AI Experts" Tab, and install the required "AI Expert." Then, you can easily select different AI Experts in the Immersive Translate plugin panel to meet diverse translation needs. The default translation strategy is "General," suitable for most scenarios.
+Open the Immersive Translate settings page, find the "AI Experts" Tab, and
+install the required "AI Expert." Then, you can easily select different AI
+Experts in the Immersive Translate plugin panel to meet diverse translation
+needs. The default translation strategy is "General," suitable for most
+scenarios.
 
 ## How to Contribute "AI Experts"?
 
-We welcome more contributions to [Immersive Translate](https://immersivetranslate.com/) [AI Translation Experts](https://ai.immersivetranslate.com/).
+We welcome more contributions to
+[Immersive Translate](https://immersivetranslate.com/)
+[AI Translation Experts](https://ai.immersivetranslate.com/).
 
-If you do not yet have the ability to write Prompts files, you can initiate an Issue discussion [here](https://github.com/immersive-translate/prompts/issues), describing the AI Expert you want.
+If you do not yet have the ability to write Prompts files, you can initiate an
+Issue discussion [here](https://github.com/immersive-translate/prompts/issues),
+describing the AI Expert you want.
 
-If you can write Prompts, you can directly initiate a Pull Request to submit or improve an AI Expert.
+If you can write Prompts, you can directly initiate a Pull Request to submit or
+improve an AI Expert.
 
-To ensure your contribution is smoothly adopted, please refer to our existing AI Expert files under the `plugins/` folder.
+To ensure your contribution is smoothly adopted, please refer to our existing AI
+Expert files under the `plugins/` folder.
 
 ## Local Debugging
 
-You can find the 【[Developer Settings](https://dash.immersivetranslate.com/#developer)】 on the Immersive Translate settings page, find 【Custom AI Assistant】, and edit in yaml format there. Please refer to the following for the specific format.
+You can find the
+【[Developer Settings](https://dash.immersivetranslate.com/#developer)】 on the
+Immersive Translate settings page, find 【Custom AI Assistant】, and edit in
+yaml format there. Please refer to the following for the specific format.
 
 ## About Context Variables env
 
@@ -27,7 +42,9 @@ You can find the 【[Developer Settings](https://dash.immersivetranslate.com/#de
 
 ## AI Expert Configuration File Standards
 
-> You should describe the plugin's basic information in English and include at least Simplified Chinese and Traditional Chinese descriptions in the i18n configuration.
+> You should describe the plugin's basic information in English and include at
+> least Simplified Chinese and Traditional Chinese descriptions in the i18n
+> configuration.
 
 ```yaml
 // Basic information of the plugin
@@ -55,9 +72,12 @@ systemPrompt: System-level prompt, describes the role and function of the AI Exp
 prompt: Prompt for single sentence translation
 multiplePrompt: Prompt for multiple segment translation, to preserve more context, Immersive Translate by default includes 3 segments of text per request, the request will be provided in this format.
 subtitlePrompt: Prompt for subtitle translation (subtitles often have multiple sentence segmentation issues, so we set a separate prompt for subtitles)
+aiBatch: Reliable batch processing configuration for current extensions. Experts should define task semantics in `taskSystemPrompt` and use `mode: recommended`; do not set the service-managed `protocolSystemPrompt` in an expert. Keep legacy batch fields when migrating an existing expert so older extensions remain compatible
+Test cases: Development-only sidecar cases may be stored at `plugins/__tests__/<expert-id>.test.yml`; these files are not expert configuration and are not part of the published expert version
 ```
 
-For reference, here is a prompt about two-step paraphrasing (first literal translation, then paraphrasing):
+For reference, here is a prompt about two-step paraphrasing (first literal
+translation, then paraphrasing):
 
 ```yaml
 id: custom
@@ -226,36 +246,49 @@ Before contributing, you need to fork our repository to your own GitHub account.
 
 2. **Create a New Branch**
 
-In your fork, create a new branch to place your contribution. It is recommended to name the branch after the plugin name.
+In your fork, create a new branch to place your contribution. It is recommended
+to name the branch after the plugin name.
 
 3. **Add Your Plugin Content**
 
-In the new branch, add your AI Expert plugin content according to the "Submission Content Requirements" mentioned above and place it in a **_yml_** file. Please ensure your content is novel and does not duplicate the existing content in the repository.
+In the new branch, add your AI Expert plugin content according to the
+"Submission Content Requirements" mentioned above and place it in a **_yml_**
+file. Please ensure your content is novel and does not duplicate the existing
+content in the repository.
 
 4. **Write a Commit Message**
 
-When submitting your changes, provide a clear and accurate commit message explaining the changes and new features you have made.
+When submitting your changes, provide a clear and accurate commit message
+explaining the changes and new features you have made.
 
 5. **Initiate a Pull Request (PR)**
 
-After ensuring all changes have been submitted, initiate a PR to the original repository. Please describe the functionality and purpose of your plugin in detail in the PR description, and mention any special dependencies or considerations.
+After ensuring all changes have been submitted, initiate a PR to the original
+repository. Please describe the functionality and purpose of your plugin in
+detail in the PR description, and mention any special dependencies or
+considerations.
 
 6. **Wait for Feedback**
 
-The repository administrators will review your PR. If further information or changes are needed, the administrators will comment in the PR.
+The repository administrators will review your PR. If further information or
+changes are needed, the administrators will comment in the PR.
 
 7. **Completion of Merging**
 
-Once your PR is accepted and merged, your AI Expert plugin will become part of the repository!
+Once your PR is accepted and merged, your AI Expert plugin will become part of
+the repository!
 
 ## Considerations
 
 - Ensure your content complies with all applicable copyright laws.
 
-- The content submitted must be original, or you must have the right to contribute it to our repository.
+- The content submitted must be original, or you must have the right to
+  contribute it to our repository.
 
-- Contributions containing any malicious code, inappropriate content, or infringing on others' rights are not accepted.
+- Contributions containing any malicious code, inappropriate content, or
+  infringing on others' rights are not accepted.
 
 ## Conclusion
 
-We look forward to your contributions and thank you for contributing to the development of the AI Expert ecosystem!
+We look forward to your contributions and thank you for contributing to the
+development of the AI Expert ecosystem!

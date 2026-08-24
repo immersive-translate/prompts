@@ -1,0 +1,18 @@
+expertId: financial
+cases:
+  - id: metrics-and-claims
+    name: 财务指标与数值关系
+    from: en
+    to: zh-CN
+    items:
+      - source: Adjusted EBITDA increased 12.5% year over year, while free cash flow declined to USD 3.2 million.
+        mustPreserve: [EBITDA, 12.5%]
+        mustContainAny: [['3.2', '320 万美元', '320万美元'], [increased, 增长, 上升], ['free cash flow', 自由现金流], [declined, 下降, 降至], [USD, 美元]]
+        maxLengthRatio: 2
+      - source: The fund's duration rose from 4.1 years to 5.3 years after it added long-dated government bonds.
+        mustPreserve: ['4.1', '5.3']
+        mustContainAny: [[rose, 上升, 增至, 升至], ['long-dated government bonds', 长期政府债券, 长久期国债]]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 指标、同比关系、现金流方向与因果关系是否准确
+      - 金融术语是否采用目标语言中的常见专业表达

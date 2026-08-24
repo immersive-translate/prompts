@@ -1,0 +1,19 @@
+expertId: ebook
+cases:
+  - id: narrative-voice
+    name: 叙事语气与专名一致性
+    from: en
+    to: zh-CN
+    items:
+      - source: Agent Q-17 tightened her grip on the lantern. “The courier will return,” she whispered, though the empty road said otherwise.
+        mustPreserve: [Q-17]
+        maxLengthRatio: 2
+      - source: By dawn, Q-17 had stopped waiting for the courier, but she left the lantern burning beside the gate.
+        mustPreserve: [Q-17]
+        maxLengthRatio: 2
+    consistentTerms:
+      - source: Q-17
+        target: Q-17
+    reviewCriteria:
+      - 对话、叙事声线和含蓄情绪是否自然连贯
+      - 两段中的人物名与 recurring concept 是否保持一致

@@ -1,0 +1,21 @@
+expertId: wordByWord
+cases:
+  - id: segmented-learning-aid
+    name: 分段对照与标点保留
+    from: en
+    to: zh-CN
+    items:
+      - source: "The power of gratitude can change your life."
+        mustPreserve: [gratitude, change, life]
+        mustContainAny: [[gratitude, 感恩], [life, 生活]]
+        mustMatch: ['(?:[A-Za-z][^（）()]{0,40}[（(][^（）()]+[）)]\s*){2,}']
+        mustNotContain: ["以下是翻译", "词汇表："]
+        maxLengthRatio: 3
+      - source: "When the API fails, retry the request after five seconds."
+        mustPreserve: [API, retry, five, seconds]
+        mustContainAny: [[retry the request, 重试请求, 重试该请求, 'retry (重试)', 'retry（重试）'], [retry the request, 重试请求, 重试该请求, 'request (请求)', 'request（请求）'], [fails, 失败, 出错]]
+        mustMatch: ['(?:[A-Za-z][^（）()]{0,40}[（(][^（）()]+[）)]\s*){2,}']
+        maxLengthRatio: 3
+    reviewCriteria:
+      - 每个句子是否被切分为有意义的原文片段，并在各片段后紧跟准确的中文括号译文
+      - 片段拼接后的语义、顺序、标点和技术术语是否完整自然，没有额外解释

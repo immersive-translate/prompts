@@ -1,0 +1,19 @@
+expertId: classicalToModern
+cases:
+  - id: classical-prose-and-format
+    name: 古文因果、语气与标记保留
+    from: zh-CN
+    to: zh-CN
+    items:
+      - source: '陈涉世家曰：“王侯将相宁有种乎！”众皆惊惧，而从之。'
+        mustContainAny: [[陈涉, 陈胜], [从之, 跟随他, 跟随]]
+        mustNotContain: ['王侯将相宁有种乎！']
+        maxLengthRatio: 2.5
+      - source: '<p>学而时习之，不亦说乎？</p>'
+        mustPreserve: ['<p>', '</p>']
+        mustContainAny: [[学而时习之, 学习并且经常复习, 学了知识然后按时温习], [不亦说乎, 不也很愉快吗, 不也快乐吗]]
+        mustNotContain: ['学而时习之，不亦说乎？']
+        maxLengthRatio: 2.5
+    reviewCriteria:
+      - 是否准确转达古文的语义、反问语气和因果关系，而不是逐字替换
+      - 现代白话是否自然易懂，且 HTML 标签和段落格式保持正确

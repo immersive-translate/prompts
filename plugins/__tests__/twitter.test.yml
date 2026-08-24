@@ -1,0 +1,19 @@
+expertId: twitter
+cases:
+  - id: tweet-tone-and-markers
+    name: 推文语气、标签与平台标记
+    from: en
+    to: zh-CN
+    items:
+      - source: "Big launch day 🚀 We're shipping v2.4 today—what feature should we build next? #BuildInPublic @AcmeDev"
+        mustPreserve: [v2.4, '#BuildInPublic', '@AcmeDev', 🚀]
+        mustContainAny: [[launch day, 发布日, 上线日], [feature, 功能]]
+        mustNotContain: ["以下是翻译", "推文："]
+        maxLengthRatio: 2
+      - source: "Honestly, this update is a game changer. Bookmark the thread for the benchmark numbers! 🔥"
+        mustPreserve: [🔥]
+        mustContainAny: [[game changer, 游戏规则改变者, 改变游戏规则, 巨大改变, 颠覆性, 颠覆性的], [benchmark, 基准, 测试数据]]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 是否保留推文的简短、口语化、情绪化语气以及 emoji、用户名、话题标签和版本号
+      - 习语、号召互动和技术语境是否自然传达，没有添加解释或改写成正式文章

@@ -1,6 +1,11 @@
 id: classicalToModern
 version: 1.1.1
 extensionVersion: 1.4.10
+strictPrompt: true
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: |-
+    将每个古代汉语文本准确、流畅地翻译为现代白话汉语。完整传达原文含义、语气、意境、典故与文化内涵，使用现代读者易于理解的表达；人名、地名和专有称谓采用现代通行说法。保留原文中的必要格式、标记和 HTML 标签，并使其在译文中的位置自然、正确。不要添加解释、评注或原文没有的信息。
 name: Classical Chinese to Modern Chinese
 description: This is a Classical Chinese translation expert, capable of accurately translating Classical Chinese into modern Chinese. It aims to help users better understand ancient documents and classic works.
 avatar: https://s.immersivetranslate.com/assets/uploads/wyw2bhw-m5gJWy.png

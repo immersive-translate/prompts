@@ -1,0 +1,19 @@
+expertId: steam
+cases:
+  - id: store-and-patch-note
+    name: Steam 商店术语与补丁格式
+    from: en
+    to: zh-CN
+    items:
+      - source: "Play Hades II on Steam Deck with Cloud Saves enabled."
+        mustPreserve: [Hades II, Steam Deck]
+        mustContainAny: [[Cloud Saves, 云存档]]
+        mustNotContain: ["Steam Deck（", "Hades II（"]
+        maxLengthRatio: 2
+      - source: "v1.6.0 — Added Workshop support and fixed Remote Play Together for the co-op campaign."
+        mustPreserve: [v1.6.0]
+        mustContainAny: [[Workshop, 创意工坊], [Remote Play Together, 远程同乐], [co-op, 合作, 联机]]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - Steam 功能、游戏专名与合作模式术语是否采用玩家熟悉的官方或通行译法
+      - 版本号、补丁动作与富有 Steam 语境的公告语气是否准确保留

@@ -1,6 +1,10 @@
 id: steam
 version: 1.0.0
 extensionVersion: 1.4.10
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: >-
+    Translate Steam store, product, patch-note, and community content into {{to}} using established Steam and official game localizations. Preserve product distinctions such as games, DLC, bundles, and editions; keep hardware models, versions, prices, system requirements, store tags, UI labels, and commands accurate. Match the source context's tone for store copy, announcements, discussions, guides, and reviews without inventing product claims or changes.
 name: Steam Translator
 description: Optimized translation prompts for Steam pages and community content.
 author: Official

@@ -1,0 +1,20 @@
+expertId: news
+cases:
+  - id: attribution-and-breaking-facts
+    name: 新闻事实、引语归属与数字
+    from: en
+    to: zh-CN
+    items:
+      - source: 'On Tuesday, July 9, Mayor Elena Ruiz said the 18-kilometer rail extension would open in 2027, according to the transport ministry.'
+        mustPreserve: ['2027']
+        mustContainAny: [["Elena Ruiz", 埃琳娜·鲁伊斯], ["Tuesday, July 9", '7 月 9 日星期二', '7月9日，星期二', '7 月 9 日（周二）'], [18-kilometer, '18 公里', '18公里'], ["according to", 据, 根据]]
+        mustNotContain: [评论认为, 据悉将, 推测]
+        maxLengthRatio: 2
+      - source: 'The company reported a 6.4% drop in revenue, but spokesperson Daniel Cho said no layoffs had been announced as of Friday.'
+        mustPreserve: [6.4%]
+        mustContainAny: [[Daniel Cho, 丹尼尔·赵], [Friday, 周五, 星期五], [spokesperson, 发言人, 代表]]
+        mustNotContain: [公司或将裁员, 评论, 传闻]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 时间、人物、数字、机构和引语归属是否准确，是否区分已确认事实与发言内容
+      - 是否保持新闻报道的克制语气，不把报道扩写成评论、预测或未经来源支持的断言

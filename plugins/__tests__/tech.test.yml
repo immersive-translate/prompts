@@ -1,0 +1,19 @@
+expertId: tech
+cases:
+  - id: code-and-api-terms
+    name: 技术术语、代码与标识符
+    from: en
+    to: zh-CN
+    items:
+      - source: "Run `npm run build` with Node.js 22, then update the API endpoint in /etc/app/config.yaml."
+        mustPreserve: ['`npm run build`', Node.js 22, /etc/app/config.yaml]
+        mustContainAny: [[API endpoint, API 端点, 接口地址]]
+        mustNotContain: ["`npm 运行构建`", "Node.js 22（"]
+        maxLengthRatio: 2
+      - source: "The OAuth callback returns HTTP 401 when FEATURE_FLAG_X is disabled in staging."
+        mustPreserve: [OAuth, HTTP 401, FEATURE_FLAG_X]
+        mustContainAny: [[staging, 预发布, 测试环境, 暂存, 暂存环境]]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 编程语言、命令、路径、API 与认证术语是否准确且符合中文技术文档习惯
+      - 标识符和代码格式是否完整保留，条件关系与环境范围是否没有被改写

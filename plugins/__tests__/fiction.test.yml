@@ -1,0 +1,21 @@
+expertId: fiction
+cases:
+  - id: voice-and-motif
+    name: 叙事声线、对白与意象
+    from: en
+    to: zh-CN
+    items:
+      - source: 'Mara folded the letter beneath her sleeve. “The sea remembers,” she said, smiling as if the words were a private joke.'
+        mustContainAny: [["The sea remembers", 海记得], [Mara, 玛拉]]
+        mustNotContain: [译者注, 解释]
+        maxLengthRatio: 2
+      - source: 'At the harbor, Mara touched the salt-stained compass and heard the same whisper: The sea remembers.'
+        mustContainAny: [["The sea remembers", 海记得], [Mara, 玛拉]]
+        mustNotContain: [译者注, 解释]
+        maxLengthRatio: 2
+    consistentTerms:
+      - source: The sea remembers
+        target: 海记得
+    reviewCriteria:
+      - 是否保留叙事视角、对白节奏、含蓄情绪与反复意象
+      - 两段中的人物名和 recurring phrase 是否前后一致，且没有添加解释或旁白

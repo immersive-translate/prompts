@@ -1,0 +1,20 @@
+expertId: legal
+cases:
+  - id: defined-terms-and-modality
+    name: 定义术语、条款引用与法律义务
+    from: en
+    to: zh-CN
+    items:
+      - source: 'Under Section 4.2 of the Agreement, the Licensee shall notify Acme Corp. within 30 days of any breach; this clause does not create a waiver.'
+        mustPreserve: [Acme Corp.]
+        mustContainAny: [[Section 4.2, 第 4.2 条, 第4.2条], [30 days, 30 日, 30天], [Licensee, 被许可方], [notify, 通知], [breach, 违约, 违反], ['does not create a waiver', 不构成弃权, 不产生弃权]]
+        mustNotContain: [法律意见, 法律建议, 解释]
+        maxLengthRatio: 2
+      - source: 'Doe v. State, 410 U.S. 113 (1973), held that the statute may apply only where the statutory exception is satisfied.'
+        mustPreserve: ["Doe v. State", "410 U.S. 113", "(1973)"]
+        mustContainAny: [["may apply", 可能适用, 可适用], [only, 仅, 只有], ['statutory exception', 法定例外, 法律例外]]
+        mustNotContain: [应当适用, 法律意见]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 定义术语、案名、法条和引文格式是否准确且前后一致
+      - shall、may、only 等义务、许可和限制的法律效力是否保留，且未添加法律解释或建议

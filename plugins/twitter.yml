@@ -1,6 +1,10 @@
 id: twitter
 version: 1.1.1
 extensionVersion: 1.4.10
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: >-
+    Translate tweets into {{to}} concisely while preserving each author's tone, intent, slang, abbreviations, and the emotional meaning of emoji. Keep @mentions, cashtags, and URLs unchanged, preserve quoted-text boundaries, and retain hashtag markers and identity; translate a hashtag's readable wording only when doing so remains natural and does not break its referential function. Use familiar target-language platform terminology without adding explanation.
 name: Twitter Translation Enhancer
 description: Optimized for translating tweets, ensuring slang, hashtags, and platform-specific language are accurately conveyed.
 avatar: https://s.immersivetranslate.com/assets/uploads/twitter-arqU83.png

@@ -1,0 +1,20 @@
+expertId: web3
+cases:
+  - id: protocol-and-identifiers
+    name: 区块链术语、地址与风险边界
+    from: en
+    to: zh-CN
+    items:
+      - source: "The DAO proposal moves 2500 USDC from the treasury to 0xAbC1234567890def for the audit."
+        mustPreserve: [DAO, 2500 USDC, '0xAbC1234567890def']
+        mustContainAny: [[treasury, 财库, 国库, 金库], [audit, 审计]]
+        mustNotContain: ["保证收益", "稳赚"]
+        maxLengthRatio: 2
+      - source: "Uniswap's smart contract reverted the swap; transaction hash 0xdeadbeef42 remains pending."
+        mustPreserve: [Uniswap, '0xdeadbeef42']
+        mustContainAny: [[smart contract, 智能合约], [reverted, 回滚, 失败], [pending, 待处理, 待确认]]
+        mustNotContain: ["建议买入", "投资建议"]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 协议、智能合约、治理和交易状态术语是否准确并符合 Web3 通行表达
+      - 代币符号、地址、交易哈希是否原样保留，且没有凭空增加收益保证或投资建议

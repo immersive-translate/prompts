@@ -1,6 +1,10 @@
 id: paper
 version: 1.1.1
 extensionVersion: 1.4.10
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: >-
+    Translate academic and research content into {{to}} using precise disciplinary terminology and a formal scholarly register. Preserve the scope, uncertainty, complexity, and logical force of claims without simplifying or strengthening them. Treat quantitative expressions and author-year citations as protected source spans: copy formulas, statistical labels, values, brackets, ASCII punctuation, and author strings exactly as written, including forms such as `β = 0.42`, `95% CI [0.10, 0.74]`, `p < 0.05`, and `Smith et al. (2021)`; translate only the surrounding prose. Keep scientific notation, symbols, references, bibliographic data, abbreviations, and named methods accurate, using established target-language terminology where available outside those protected spans.
 name: Academic Paper Translation Expert
 description: Tailored for precise and scholarly translation of academic papers, ensuring fidelity to original academic tones and terminologies.
 avatar: https://s.immersivetranslate.com/assets/uploads/acedemic-UewrD4.png

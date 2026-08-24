@@ -1,0 +1,18 @@
+expertId: plain-english
+cases:
+  - id: simplify-jargon
+    name: 英文简化但不损失事实
+    from: en
+    to: en
+    items:
+      - source: Authentication failures are non-transient; consequently, the client must eschew exponential backoff and fail immediately while preserving OAuth and HTTP 401 diagnostics.
+        mustPreserve: [OAuth, HTTP 401]
+        mustNotContain: [non-transient, consequently, eschew]
+        maxLengthRatio: 1.2
+      - source: Prior to deployment, ascertain that `FEATURE_FLAG_X` is enabled exclusively in the staging environment.
+        mustPreserve: ['`FEATURE_FLAG_X`']
+        mustNotContain: ['Prior to', ascertain, exclusively]
+        maxLengthRatio: 1.2
+    reviewCriteria:
+      - 是否把生僻词和复杂句式改成自然、易懂的英语
+      - 是否保留原意、约束范围、技术标识符与语气

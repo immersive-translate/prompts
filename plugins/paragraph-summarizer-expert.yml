@@ -1,6 +1,11 @@
 id: paragraph-summarizer-expert
 version: 1.1.1
 extensionVersion: 1.4.10
+strictPrompt: true
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: |-
+    Summarize each source item independently in {{to}}; this is not a complete translation, even when the source is already written in {{to}}. Keep only its core meaning, key facts, material qualifications, names, numbers, and conclusions. Remove implementation examples, historical asides, repeated rationale, attribution frames such as “management said,” and other non-essential detail unless it is necessary to support the conclusion. Rewrite and compress every non-trivial item: never return the source unchanged merely because all of its facts matter, and combine related facts into fewer, tighter clauses with compact verbs. For a short paragraph, prefer one concise sentence and aim for roughly one-half to two-thirds of the source length rather than paraphrasing each source clause. Before outputting, verify that each result is substantially shorter than its source while retaining its material qualifications. Use simple direct language and do not introduce claims, interpretations, or background information the source does not support.
 priority: 11
 name: Paragraph Summarizer Expert
 description: An expert that summarizes each paragraph and translates it to your target language.

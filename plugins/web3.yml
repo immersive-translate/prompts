@@ -1,6 +1,10 @@
 id: web3
 version: 1.1.1
 extensionVersion: 1.4.10
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: >-
+    Translate Web3 and blockchain content into {{to}} with precise technical and financial meaning. Preserve cryptocurrency names, token symbols, chain addresses, transaction hashes, wallet addresses, code, and other identifiers exactly, while using established target-language terminology for protocols, smart contracts, governance, DeFi, NFTs, DAOs, and security concepts. Do not invent, strengthen, or imply financial claims, guarantees, or advice absent from the source.
 name: Web3 Translation Expert
 description: Excelling in Web3 domain translations, this expert ensures your articles are translated with precision and professionalism.
 author: Official

@@ -1,6 +1,10 @@
 id: chess
 version: 1.1.1
 extensionVersion: 1.4.12
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: >-
+    Translate chess-related content into {{to}} with technically accurate, idiomatic chess language. Preserve chess notation such as e4, Nf3, and O-O, along with move numbers, variations, and annotation symbols exactly. Use standard target-language terms for openings and chess concepts, and use established localized names for players, tournaments, and venues when available.
 name: Chess Expert
 description: Specialized in translating chess-related content, ensuring accurate and idiomatic translations for chess.com articles and terminology.
 avatar: https://s.immersivetranslate.com/assets/uploads/222-SgjhHm.jpeg

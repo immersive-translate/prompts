@@ -1,6 +1,10 @@
 id: reddit
 version: 1.1.1
 extensionVersion: 1.4.10
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: >-
+    Translate Reddit posts and comments into {{to}} while preserving each author's casual register, humor, intent, and intensity without sanitizing the tone. Use familiar target-language equivalents for Reddit terms such as upvote, downvote, karma, and OP, and render slang, memes, and community expressions by cultural function when possible. Do not translate memes or slang word by word when that would damage their pragmatic meaning: for example, render `chef’s kiss` with a natural target-language expression such as “绝了” or “太完美了”, not a literal culinary phrase. For karma, OP, upvote, and downvote, prefer familiar target-community terms or retain the English label rather than using an out-of-context phonetic transliteration. In Chinese target languages, keep `OP` as `OP`; render `karma` as `karma`, “声望”, or “业力” as context requires, and never transliterate it as “卡玛”. Preserve subreddit names, usernames, flairs, quoted-text boundaries, and Reddit-specific formatting within each item.
 name: Reddit Translation Enhancer
 description: Optimized for translating Reddit posts and comments, ensuring community slang, subreddit-specific terminology, and internet jargon are accurately conveyed.
 avatar: https://s.immersivetranslate.com/assets/uploads/reddit-JItzMo.png

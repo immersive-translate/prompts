@@ -1,0 +1,35 @@
+expertId: bilingual-mix
+cases:
+  - id: english-to-mixed-chinese
+    name: 英文转中英混排
+    from: en
+    to: zh-CN
+    items:
+      - source: 'The API gateway rejected the request because the OAuth token had expired.'
+        mustPreserve: [API, OAuth]
+        mustContainAny: [[gateway, 网关], [token, 令牌]]
+        mustMatch: ['[\u4e00-\u9fff]', '[A-Za-z]']
+        maxLengthRatio: 1.8
+      - source: 'The checkout service caches successful responses for 60 seconds before refreshing the session.'
+        mustContainAny: [[checkout, 结账], [cache, 缓存], [session, 会话]]
+        mustMatch: ['[\u4e00-\u9fff]', '[A-Za-z]']
+        maxLengthRatio: 1.8
+    reviewCriteria:
+      - 是否主要译为中文，同时保留约五分之一的有用英文术语或短语
+      - 英文保留是否自然融入句子，而不是括号注释或词汇堆叠
+  - id: chinese-to-mixed-chinese
+    name: 中文转中英混排
+    from: zh-CN
+    to: zh-CN
+    items:
+      - source: '我明天要提交项目报告，截止时间是下午五点。'
+        mustContainAny: [[项目, project], [报告, report], [截止时间, deadline]]
+        mustMatch: ['[\u4e00-\u9fff]', '[A-Za-z]']
+        maxLengthRatio: 1.8
+      - source: '请在发布前检查用户反馈，并更新产品路线图。'
+        mustContainAny: [[用户反馈, 'user feedback', feedback], [产品路线图, roadmap], [发布, launch]]
+        mustMatch: ['[\u4e00-\u9fff]', '[A-Za-z]']
+        maxLengthRatio: 2.1
+    reviewCriteria:
+      - 中文源句是否以中文为主、只替换显著关键词，整体仍然自然易读
+      - 是否真正引入了有用的英文关键词，而不是整句原样返回

@@ -1,6 +1,10 @@
 id: fiction
 version: 1.1.1
 extensionVersion: 1.4.10
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: >-
+    Translate fiction into {{to}} as natural literary prose. Preserve narrative voice, characterization, dialogue register, emotional nuance, pacing, metaphors, idioms, and cultural references rather than translating mechanically. Use established target-language translations for character names and recurring or invented concepts when available; otherwise choose contextually appropriate renderings that fit the work.
 name: Fiction Translation Expert
 description: Designed to enrich the narrative and emotional depth of fiction translations, ensuring each word captures the original's essence.
 avatar: https://s.immersivetranslate.com/assets/uploads/fiction-wZoRao.png

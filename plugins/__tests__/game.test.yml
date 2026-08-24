@@ -1,0 +1,19 @@
+expertId: game
+cases:
+  - id: localization-and-ui
+    name: 游戏专名、术语与界面指令
+    from: en
+    to: zh-CN
+    items:
+      - source: 'In Elden Ring, equip the Moonveil katana, then press “L2” to trigger Transient Moonlight before the boss enters phase two.'
+        mustPreserve: [L2]
+        mustContainAny: [[Elden Ring, 艾尔登法环], [Moonveil, 名刀月隐], ["phase two", 第二阶段, 二阶段]]
+        mustNotContain: [游戏攻略, 翻译说明]
+        maxLengthRatio: 2
+      - source: 'The quest objective says: “Fast travel to Limgrave and unlock the Site of Grace.” Keep “Site of Grace” consistent with the game UI.'
+        mustContainAny: [[Limgrave, 宁姆格福], ["Site of Grace", 赐福, 赐福点], ["Fast travel", 快速旅行, 快速传送]]
+        mustNotContain: [建议玩家, 额外解释]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 游戏标题、角色或道具名、技能名、按键和 UI 指令是否保留或采用稳定的官方译法
+      - 是否保持玩家熟悉的语气与术语，不把翻译变成攻略或评论

@@ -1,0 +1,19 @@
+expertId: paragraph-summarizer-expert
+cases:
+  - id: concise-facts
+    name: 保留关键事实的短摘要
+    from: en
+    to: en
+    items:
+      - source: The platform retries transient failures with exponential backoff for up to five minutes. Authentication failures such as HTTP 401 are not retried because repeated attempts cannot repair invalid OAuth credentials. The documentation also includes three implementation examples and a historical note about the first client library.
+        mustPreserve: [HTTP 401, OAuth]
+        mustContainAny: [['transient failures', 'transient errors'], ['not retried', 'not retry', 'does not retry', "doesn't retry", 'fail fast']]
+        mustNotContain: ['implementation examples', 'historical note']
+        maxLengthRatio: 0.65
+      - source: In Q4, the company reduced operating expenses by 8% after consolidating two offices. Management said the savings would be reinvested in security and customer support, but it did not change its annual revenue guidance.
+        mustPreserve: [8%]
+        mustContainAny: [[Q4, fourth quarter], ['operating expenses', 'operating costs'], [reinvested, reinvest, 'would go to', 'will go to', 'will fund'], ['did not change', unchanged], ['revenue guidance', guidance]]
+        mustNotContain: ['Management said']
+    reviewCriteria:
+      - 是否保留结论、限定条件、数字和关键因果关系
+      - 是否删除实现示例、历史旁注、重复理由与其他次要信息，且未引入新判断

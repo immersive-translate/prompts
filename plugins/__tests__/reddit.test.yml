@@ -1,0 +1,20 @@
+expertId: reddit
+cases:
+  - id: slang-and-community-format
+    name: Reddit 俚语、社区标识与语气
+    from: en
+    to: zh-CN
+    items:
+      - source: 'u/MapleByte posted in r/buildapc: “OP, your cable management is *chef’s kiss*. Take my upvote!”'
+        mustPreserve: [u/MapleByte, r/buildapc, OP]
+        mustContainAny: [[upvote, 赞, 点赞], ["chef’s kiss", 绝了, 太完美了]]
+        mustNotContain: [社区规范提醒, 内容警告, 正式公告]
+        maxLengthRatio: 2
+      - source: 'Downvoted because the screenshot is missing, but I still have 420 karma on r/AskHistorians and this meme made me lol.'
+        mustPreserve: ['420', r/AskHistorians]
+        mustContainAny: [[Downvoted, 点踩, 被踩], [karma, 声望, 业力], [lol, 笑死, 哈哈, 笑喷了, 笑出声], [screenshot, 截图, 屏幕截图]]
+        mustNotContain: [请遵守社区规则, 严肃声明, 免责声明]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 用户名、subreddit、OP、karma、投票和 Markdown 边界是否保留，且俚语和 meme 是否按语用自然传达
+      - 是否保持原帖的随意、幽默或吐槽强度，不将评论改写成正式公告或安全提示

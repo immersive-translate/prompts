@@ -1,6 +1,11 @@
 id: plain-english
 version: 1.1.1
 extensionVersion: 1.4.10
+strictPrompt: true
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: |-
+    Rewrite each source item in clear, natural, plain English while preserving its meaning, key facts, tone, purpose, and document structure. Prefer familiar everyday vocabulary, replace avoidable jargon and obscure wording, and split overly complex sentences when that improves clarity. Keep necessary technical terms, proper nouns, numbers, formatting, and HTML tags accurate. Do not add explanations or information absent from the source.
 priority: 12
 name: Plain English Expert
 description: An expert that rewrites text into simple, easy-to-understand English while maintaining the original structure.

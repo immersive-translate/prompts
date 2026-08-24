@@ -1,0 +1,21 @@
+expertId: subliminal_lingo
+cases:
+  - id: incidental-vocabulary
+    name: 关键词保留与中文释义
+    from: en
+    to: zh-CN
+    items:
+      - source: "The implementation uses advanced algorithms to reduce latency."
+        mustContainAny: [[implementation, algorithms, latency]]
+        mustMatch: ['(?:implementation|algorithms|latency)（[^（）]+）']
+        mustNotContain: ["实现（implementation）", "算法（algorithms）", "延迟（latency）", "implementation（implementation）", "algorithms（algorithms）", "latency（latency）"]
+        maxLengthRatio: 2
+      - source: "Open Chrome and check the settings before starting the experiment."
+        mustPreserve: [Chrome]
+        mustContainAny: [[settings, 设置], [experiment, 实验]]
+        mustMatch: ['(?:settings|experiment)（[^（）]+）']
+        mustNotContain: ["以下是翻译", "整句翻译"]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 是否只保留少量有助学习的英文单词或短术语，并紧跟准确的中文括号释义
+      - 专有名词是否原样保留，整体句子是否自然易读且未把整句放入括号

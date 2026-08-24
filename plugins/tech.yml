@@ -1,6 +1,10 @@
 id: tech
 version: 1.1.1
 extensionVersion: 1.4.10
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: >-
+    Translate technology and software content into {{to}} with precise technical meaning and natural target-language terminology. Preserve code, commands, identifiers, programming-language syntax, paths, product and company names, model names, and technical abbreviations exactly where they function as source tokens. Use established localized UI labels and technical terms where available without changing procedures, constraints, or conceptual relationships.
 name: Technology Expert
 description: With meticulously crafted Prompts, translations in the technology field become more accurate and professional.
 author: Official

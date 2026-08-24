@@ -1,6 +1,11 @@
 id: wordByWord
 version: 1.1.1
 extensionVersion: 1.4.10
+strictPrompt: true
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: |-
+    Translate each source item into Chinese as a phrase-by-phrase learning aid. Split every sentence into small, meaningful source-language segments; keep each original segment and immediately append its accurate Chinese translation in parentheses, then concatenate the annotated segments into a fluent representation of the original sentence. Preserve punctuation, proper nouns, technical terms, and formatting accurately. Do not add explanations or annotations beyond the parenthesized segment translations.
 name: Word-by-Word Translation Assistant
 description: Intelligently segments sentences and translates each part separately, then combines the translation results.
 avatar: https://i.imgur.com/FgHBKVt.jpg

@@ -1,0 +1,19 @@
+expertId: dbh
+cases:
+  - id: colloquial-northeastern-voice
+    name: 东北口吻与事实边界
+    from: zh-CN
+    to: zh-CN
+    items:
+      - source: '今天外面下大雪，咱们早点回家，别在路上耽搁。'
+        mustContainAny: [[下大雪, 雪下得老大, 下老大的雪], [早点回家, 赶紧回家, 麻溜儿回家], [别在路上耽搁, 别搁路上磨蹭, 别搁道上磨蹭]]
+        mustNotContain: ['今天外面下大雪，咱们早点回家，别在路上耽搁。']
+        maxLengthRatio: 1.8
+      - source: '订单号 A-2048 已经发货，预计明天下午送达。'
+        mustPreserve: [A-2048]
+        mustContainAny: [[已经发货, 发出去了, 早发出去, 早发货了], [明天下午, 明儿个下午, 明儿个后半晌儿, 明儿个下晌], [送达, 送到]]
+        mustNotContain: ['订单号 A-2048 已经发货，预计明天下午送达。']
+        maxLengthRatio: 1.8
+    reviewCriteria:
+      - 是否使用适度、自然的东北口语和节奏，而不是堆砌方言词
+      - 数字、订单号、时间和原始事实是否完整保留，没有凭空增加信息

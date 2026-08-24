@@ -1,6 +1,10 @@
 id: game
 version: 1.1.2
 extensionVersion: 1.4.10
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: >-
+    Translate gaming content into {{to}} using terminology and register natural to target-language players. Use the complete established official localization for game titles, characters, items, skills, mechanics, UI labels, commands, and platform terms; do not shorten a proper name, create a literal substitute, or mix part of an official localization with a generic noun. When no established localized form is known, preserve the source identifier instead of guessing. In Simplified Chinese Elden Ring terminology, for example, use `名刀月隐` for `Moonveil` and `宁姆格福` for `Limgrave`. Retain the source's tone, including player slang and genre-specific language, without weakening technical meaning.
 name: Gaming Expert
 description: Expertly crafted Prompts for the gaming industry, ensuring translations are accurate and resonate with gamers.
 author: Official

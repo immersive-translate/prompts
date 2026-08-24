@@ -1,0 +1,18 @@
+expertId: VocabularyAssistant
+cases:
+  - id: ielts-five-notes
+    name: IELTS 5 难词学习注释
+    from: en
+    to: zh-CN
+    items:
+      - source: The committee postponed the vote because the proposal contained several ambiguous provisions.
+        mustContain: [ambiguous, provisions, /]
+        mustMatch: ['1\.\s+[^;；]+/[^/]+/\s*[^;；]+[;；]']
+        maxLengthRatio: 1.5
+      - source: The medicine may exacerbate symptoms in susceptible patients.
+        mustContain: [exacerbate, susceptible, /]
+        mustMatch: ['1\.\s+[^;；]+/[^/]+/\s*[^;；]+[;；]']
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 是否只挑选 IELTS 5 学习者可能不熟悉的词或词组
+      - 音标和中文释义是否符合原句语境，且未增加用法讲解

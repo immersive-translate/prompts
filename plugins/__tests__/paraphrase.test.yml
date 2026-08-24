@@ -1,0 +1,15 @@
+expertId: paraphrase
+cases:
+  - id: idiom-and-implication
+    name: 习语与隐含语义
+    from: en
+    to: zh-CN
+    items:
+      - source: The launch looked like a slam dunk, but the last-minute compliance review threw a wrench in the works.
+        maxLengthRatio: 2
+      - source: The board gave the proposal a cautious green light for Q4, capped at $2 million.
+        mustContainAny: [[Q4, 第四季度], ['$2 million', '200 万美元', '200万美元']]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 是否传达习语和 implied sense，而非逐词硬译
+      - 是否保持谨慎批准、时间与预算上限等事实边界

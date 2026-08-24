@@ -1,0 +1,19 @@
+expertId: medical
+cases:
+  - id: dosage-and-code
+    name: 剂量、单位与医学编码
+    from: en
+    to: zh-CN
+    items:
+      - source: Administer 5 mg of apixaban twice daily; reduce the dose only when the stated clinical criteria are met.
+        mustPreserve: [5 mg]
+        mustContainAny: [[apixaban, 阿哌沙班], ['twice daily', 每日两次, 一日两次], [only, 仅, 只有], ['clinical criteria', 临床标准, 临床条件]]
+        maxLengthRatio: 2
+      - source: The discharge summary lists ICD-10 code I48.0 and a resting heart rate of 72 bpm.
+        mustPreserve: [ICD-10, I48.0]
+        mustContainAny: [[72 bpm, '72 次/分', '72次/分']]
+        mustContain: ['72']
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 药物、给药频率、条件关系与医学术语是否准确
+      - 是否避免增加原文没有的诊断、建议或警告

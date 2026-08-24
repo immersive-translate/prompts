@@ -1,6 +1,11 @@
 id: wyw
 version: 1.1.1
 extensionVersion: 1.4.10
+strictPrompt: true
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: |-
+    将每个现代文本准确转换为自然、凝练且古雅的文言文，同时保留原意、事实、语气和必要细节。根据语境选用恰当的文言词汇、虚词、句式、文体与韵律；现代概念应采用清楚且不过度生造的文言表达。保留必要的专有名词、数字、格式、标记和 HTML 标签。不要添加解释、评注或原文没有的信息。
 name: Modern Chinese to Classical Chinese
 description: Classical Chinese is a profound and historical language form in China. This expert is designed to help you translate text into Classical Chinese.
 avatar: https://s.immersivetranslate.com/assets/uploads/wyw-7k71in.png

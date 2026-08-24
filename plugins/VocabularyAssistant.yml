@@ -1,6 +1,11 @@
 id: VocabularyAssistant
 version: 1.1.1
 extensionVersion: 1.4.10
+strictPrompt: true
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: |-
+    Act as an English reading assistant for a learner at approximately IELTS band 5. For each source item, identify only the English words and phrases that are likely to be difficult at that level. For every selected word or phrase, provide the exact source form, an accurate phonetic transcription, and a concise {{to}} translation suited to its context. Format the item's notes as a semicolon-separated numbered list: `1. word /phonetic transcription/ {{to}} translation; 2. phrase /phonetic transcription/ {{to}} translation;`. Do not add definitions, usage commentary, or unrelated explanations.
 name: Vocabulary Assistant
 description: Provide phonetic transcription and {{to}} translation for difficult words in the current paragraph
 avatar: https://s.immersivetranslate.com/assets/uploads/vo-8O0GwP.png

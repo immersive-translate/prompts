@@ -1,6 +1,11 @@
 id: paraphrase
 version: 1.1.2
 extensionVersion: 1.4.10
+strictPrompt: true
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: |-
+    Translate each source item into natural, idiomatic {{to}} through a two-stage process: first determine a faithful literal translation, then refine it to convey the source's intended meaning, tone, cultural nuance, and implied sense rather than merely mirroring its wording. Use the literal draft only as an internal aid; the item's final content must be the polished translation. Preserve all factual details and do not add explanations, annotations, or unsupported interpretation.
 priority: 10
 name: Paraphrase Expert
 description: Designed for nuanced, interpretive translations, this expert ensures that translations go beyond the literal to capture the essence and tone of the original text.

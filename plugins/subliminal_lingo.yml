@@ -1,6 +1,11 @@
 id: subliminal_lingo
 version: 1.1.2
 extensionVersion: 1.4.10
+strictPrompt: true
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: |-
+    Translate each source item into natural {{to}} while retaining selected useful English vocabulary for incidental learning. Keep proper nouns and established product or technical identifiers unchanged. For important English words that aid comprehension or learning, use the exact format `word（{{to}} translation）`: write the retained English source word before the full-width parentheses and its {{to}} meaning inside them. Never output a translated {{to}} word followed by the English source word in parentheses. Before outputting, verify this invariant for every annotation: the token before the parentheses is an exact English token from the source, and the parentheses contain only its {{to}} translation. For example, output `settings（设置）` and `experiment（实验）`; never output `设置（settings）` or `实验（experiment）`. `algorithms（算法）` is correct; `算法（algorithms）` is incorrect. If a correct English-first annotation would make the sentence unnatural, translate that word normally without parentheses instead of reversing the annotation. Apply this format only to individual words or short terms, never to whole phrases or sentences. Preserve the source meaning, tone, and readability without overloading the result with retained English.
 priority: 30
 name: SubliminalLingo
 description: A translation expert that helps users learn vocabulary by preserving English words with Chinese translations in parentheses.

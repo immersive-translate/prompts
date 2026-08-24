@@ -1,0 +1,17 @@
+expertId: chess
+cases:
+  - id: notation-and-opening-terms
+    name: 棋谱记号、变例与棋手信息
+    from: en
+    to: zh-CN
+    items:
+      - source: 'In the Italian Game, White played 1. e4 e5 2. Nf3 Nc6 3. Bc4, preparing O-O and pressure on f7.'
+        mustPreserve: ['1.', e4, e5, '2.', Nf3, Nc6, '3.', Bc4, O-O, f7]
+        maxLengthRatio: 2
+      - source: 'After 24...Rxd4, the engine gives 25. Qxd4; Magnus Carlsen called the resulting endgame technically winning.'
+        mustPreserve: ['24...Rxd4', '25. Qxd4']
+        mustContainAny: [['Magnus Carlsen', '马格努斯·卡尔森', 卡尔森]]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 棋谱记号、回合编号、变例和攻防关系是否完整准确
+      - 开局、残局和将棋概念是否采用目标语言中的标准国际象棋术语

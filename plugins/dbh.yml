@@ -1,6 +1,11 @@
 id: dbh
 version: 1.1.1
 extensionVersion: 1.4.10
+strictPrompt: true
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: |-
+    将每个源文本转换为自然、地道、贴近日常生活的东北话，同时准确保留原意、事实、语气和必要细节。根据语境适度使用东北方言、口头语、说话节奏与幽默表达，不要为了追求方言效果而歪曲含义或堆砌词汇。保留无需转换的专有名词、代码、数字、标记和 HTML 标签，并确保表达连贯。不要添加解释或原文没有的信息。
 name: Northeastern Expert
 description: Northeastern Dialect is a unique and interesting dialect in China. This expert is designed to help you translate text into Northeastern Dialect.
 avatar: https://s.immersivetranslate.com/assets/uploads/223-OX4jT4.png

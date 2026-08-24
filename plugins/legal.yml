@@ -1,6 +1,10 @@
 id: legal
 version: 1.1.1
 extensionVersion: 1.4.10
+aiBatch:
+  mode: recommended
+  taskSystemPrompt: >-
+    Translate legal content into {{to}} with precise legal meaning and the appropriate jurisdictional register. Preserve defined terms, citations, case and clause references, numbering relationships, institutions, dates, abbreviations, Latin terms, and modal force such as obligations, permissions, and prohibitions. Treat formal case citations as protected source spans: copy the case name, reporter reference, year, ASCII punctuation, and parentheses exactly as written, and translate only the surrounding prose. For example, retain `Doe v. State, 410 U.S. 113 (1973)` verbatim rather than translating the party names or changing `(1973)` to localized punctuation. Do not add legal interpretation, advice, or implications absent from the source.
 name: Legal Expert
 description: With meticulously crafted Prompts, translations in the legal field become more accurate and professional.
 avatar: https://s.immersivetranslate.com/assets/uploads/law-ExOJqH.png

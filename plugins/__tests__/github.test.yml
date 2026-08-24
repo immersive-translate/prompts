@@ -1,0 +1,18 @@
+expertId: github
+cases:
+  - id: markdown-and-code
+    name: Markdown、命令与标识符保留
+    from: en
+    to: zh-CN
+    items:
+      - source: |-
+          ## Reproduction
+          Run `npm test -- --runInBand`, then open `src/cache.ts`.
+        mustPreserve: ['##', '`npm test -- --runInBand`', '`src/cache.ts`']
+        maxLengthRatio: 2
+      - source: 'The OAuth callback returns HTTP 401 after upgrading to v2.4.1. See #1842.'
+        mustPreserve: [OAuth, HTTP 401, v2.4.1, '#1842']
+        maxLengthRatio: 2
+    reviewCriteria:
+      - GitHub 与软件工程术语是否准确且符合中文开发者习惯
+      - Markdown 结构、命令、路径、版本号和 issue 编号是否未被改写

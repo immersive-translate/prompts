@@ -1,0 +1,22 @@
+expertId: music
+cases:
+  - id: lyrics-and-musical-terms
+    name: 歌词意象、曲风与音乐记号
+    from: en
+    to: zh-CN
+    items:
+      - source: 'On “Neon Skyline,” the chorus turns a 4/4 pulse into a late-night confession: “I walk home where the city glows.”'
+        mustPreserve: ["Neon Skyline", 4/4]
+        mustContainAny: [["late-night confession", 深夜告白, 深夜的告白], ["I walk home", 我走回家, 我步行回家]]
+        mustNotContain: [歌词解析, 音乐评论, 译者注]
+        maxLengthRatio: 2
+      - source: 'The bridge shifts to B♭ minor, leaving the final “I walk home” unresolved before the drums return.'
+        mustContainAny: [["B♭ minor", 降 B 小调, 降B小调], ["I walk home", 我走回家, 我步行回家], [bridge, 间奏, 桥段]]
+        mustNotContain: [和弦分析, 建议]
+        maxLengthRatio: 2
+    consistentTerms:
+      - source: I walk home
+        targets: [我走回家, 我步行回家]
+    reviewCriteria:
+      - 歌词的画面、节奏感、重复句和情绪是否自然传达，而非逐字僵译
+      - 歌名、拍号、调性和段落术语是否准确保留，且未添加歌曲解析

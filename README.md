@@ -1,32 +1,41 @@
 # 沉浸式翻译 AI 专家插件提交指南
 
-通过定制化 AI 翻译策略可以极大地提高翻译质量。沉浸式翻译将这些策略称为 “AI专家” ——本质上是一系列精心设计的提示词。
+通过定制化 AI 翻译策略可以极大地提高翻译质量。沉浸式翻译将这些策略称为 “AI专家”
+——本质上是一系列精心设计的提示词。
 
 ## 如何在沉浸式翻译中使用【AI专家】？
 
-打开沉浸式翻译设置页面，找到【AI专家】Tab，安装需要的“AI专家”后，即可在沉浸式翻译插件的面板中轻松选择不同的AI专家，满足多样化的翻译需求，默认的翻译策略是【通用】, 适合大多数场景。
+打开沉浸式翻译设置页面，找到【AI专家】Tab，安装需要的“AI专家”后，即可在沉浸式翻译插件的面板中轻松选择不同的AI专家，满足多样化的翻译需求，默认的翻译策略是【通用】,
+适合大多数场景。
 
 ## 如何贡献【AI专家】？
 
-欢迎为 [沉浸式翻译](https://immersivetranslate.com/) 贡献更多 [AI 翻译专家](https://ai.immersivetranslate.com/)。
+欢迎为 [沉浸式翻译](https://immersivetranslate.com/) 贡献更多
+[AI 翻译专家](https://ai.immersivetranslate.com/)。
 
-如果您还不具备编写 Prompts 文件的能力，您可以 [在此](https://github.com/immersive-translate/prompts/issues) 发起一个 Issue 讨论，描述您想要的 AI 专家。
+如果您还不具备编写 Prompts 文件的能力，您可以
+[在此](https://github.com/immersive-translate/prompts/issues) 发起一个 Issue
+讨论，描述您想要的 AI 专家。
 
-如果您可以编写 Prompts，您可以直接发起一个 Pull Request 来提交或者改进其中某个 AI 专家。
+如果您可以编写 Prompts，您可以直接发起一个 Pull Request 来提交或者改进其中某个
+AI 专家。
 
 为了确保您的贡献能够顺利被采纳，请参照我们已有的 AI 专家文件`plugins/`文件夹下。
 
 ## 本地调试
 
-您可以在沉浸式翻译设置页面找到【[开发者设置](https://dash.immersivetranslate.com/#developer)】，找到【Custom AI Assistant】，在里面编辑 yaml 格式即可，具体格式请参考下文。
+您可以在沉浸式翻译设置页面找到【[开发者设置](https://dash.immersivetranslate.com/#developer)】，找到【Custom
+AI Assistant】，在里面编辑 yaml 格式即可，具体格式请参考下文。
 
 ## 关于 AI prompt 支持的变量
 
-请参见 [AI Prompt 配置指南](https://immersivetranslate.com/zh-Hans/docs/prompts/)
+请参见
+[AI Prompt 配置指南](https://immersivetranslate.com/zh-Hans/docs/prompts/)
 
 ## AI 专家配置文件规范
 
-> 您应该用英文描述插件的基础信息，并在 i18n 配置中至少添加简体中文和繁体中文的描述。
+> 您应该用英文描述插件的基础信息，并在 i18n
+> 配置中至少添加简体中文和繁体中文的描述。
 
 ```yaml
 // 插件的基础信息
@@ -55,6 +64,8 @@ multipleSystemPrompt: 系统级别的提示，描述了 AI 专家的角色和功
 prompt: 单句翻译的提示词
 multiplePrompt: 多段翻译的提示词，为了保存更多的上下文，沉浸式翻译默认每次请求会包含 3 段文本，请求会按照这个格式提供。
 subtitlePrompt: 字幕翻译的提示词(字幕经常会有多句断句的问题，所以我们单独为字幕设置了提示词)
+aiBatch: 新版可靠批量处理配置。专家使用 `taskSystemPrompt` 描述任务语义并设置 `mode: recommended`；不要在专家中配置服务管理的 `protocolSystemPrompt`。迁移既有专家时请保留旧批量字段，以兼容老版本扩展
+测试用例: 可在 `plugins/__tests__/<专家 id>.test.yml` 中维护仅供开发内测页使用的 sidecar 用例；测试文件不会成为专家配置或发布版本的一部分
 ```
 
 下面是一个简单的适用于 Github AI 专家的示例：
@@ -148,10 +159,10 @@ multiplePrompt: |-
   Start:
 
   {{yaml}}
-
 ```
 
-如果您需要实现复杂的 AI 提示词，如要求 AI 先直译，再翻译，您可以选择使用 yaml 来实现，这是一个关于两步意译(先直译，再意译)的提示词：
+如果您需要实现复杂的 AI 提示词，如要求 AI 先直译，再翻译，您可以选择使用 yaml
+来实现，这是一个关于两步意译(先直译，再意译)的提示词：
 
 ```yaml
 id: custom
@@ -324,7 +335,8 @@ langOverrides:
 
 3. **添加您的插件内容**
 
-在新的分支中，按照上述“提交内容要求”添加您的AI专家插件内容并放在一个 **_yml_** 文件内。请确保您的内容是新颖的，且不与仓库中现有的内容重复。
+在新的分支中，按照上述“提交内容要求”添加您的AI专家插件内容并放在一个 **_yml_**
+文件内。请确保您的内容是新颖的，且不与仓库中现有的内容重复。
 
 4. **撰写提交信息**
 
@@ -332,7 +344,8 @@ langOverrides:
 
 5. **发起Pull Request (PR)**
 
-在确保所有的更改都已提交之后，向原仓库发起 PR。请在 PR 的描述中详细说明您的插件的功能和用途，并提及任何特殊的依赖或注意事项。
+在确保所有的更改都已提交之后，向原仓库发起 PR。请在 PR
+的描述中详细说明您的插件的功能和用途，并提及任何特殊的依赖或注意事项。
 
 6. **等待反馈**
 

@@ -1,0 +1,19 @@
+expertId: wyw
+cases:
+  - id: modern-to-classical
+    name: 现代概念与文言语体
+    from: zh-CN
+    to: zh-CN
+    items:
+      - source: "项目将在明天上线，请保留 API 文档和版本号 v2.1."
+        mustPreserve: [API, v2.1]
+        mustContainAny: [[明天, 明日], [上线, 发布, 上线于]]
+        mustNotContain: ["以下是翻译", "译文如下", "项目将在明天上线，请保留 API 文档和版本号 v2.1."]
+        maxLengthRatio: 2
+      - source: "若系统出现故障，请先备份数据，再联系管理员。"
+        mustContainAny: [[故障, 失效, 有故, 有恙], [备份, 备其, 录存], [管理员, 管理之人, 管理者]]
+        mustNotContain: ["我来解释", "现代汉语", "若系统出现故障，请先备份数据，再联系管理员。"]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 是否确实转换为凝练、古雅而自然的文言文，同时保留事实、条件和请求语气
+      - 现代技术概念、版本号和格式是否清楚保留，没有生造典故或添加原文没有的信息

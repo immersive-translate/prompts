@@ -1,0 +1,18 @@
+expertId: ao3
+cases:
+  - id: fandom-voice-and-markers
+    name: 同人叙事、关系标记与内容警告
+    from: en
+    to: zh-CN
+    items:
+      - source: 'After the battle, Hermione whispered, “Draco, you came back.” Their slow-burn tension finally broke beneath the library’s warded windows.'
+        mustContainAny: [[Hermione, 赫敏], [Draco, 德拉科], [slow-burn, '慢热'], [library, 图书馆]]
+        maxLengthRatio: 2
+      - source: 'Rating: Teen And Up Audiences. Archive Warning: Major Character Death. The chapter ends on a bittersweet note.'
+        mustContainAny:
+          - ['Teen And Up Audiences', '青少年及以上']
+          - ['Major Character Death', '主要角色死亡']
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 是否保留 AO3 的 rating、archive warning、关系发展和同人语境
+      - 叙事声线、对话语气与情绪转折是否自然，且没有添加原文没有的剧情

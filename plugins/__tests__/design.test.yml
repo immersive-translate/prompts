@@ -1,0 +1,16 @@
+expertId: design
+cases:
+  - id: materials-and-aesthetic-intent
+    name: 设计术语、材料与审美意图
+    from: en
+    to: zh-CN
+    items:
+      - source: 'The Bauhaus chair pairs a tubular steel frame with black leather, balancing industrial precision and visual lightness.'
+        mustContainAny: [[Bauhaus, 包豪斯], [tubular steel, 管状钢], ['black leather', 黑色皮革], [visual lightness, 视觉轻盈]]
+        maxLengthRatio: 2
+      - source: 'The exhibition uses terrazzo, walnut veneer, and a restrained monochrome palette to make the gallery feel warm rather than austere.'
+        mustContainAny: [[terrazzo, 水磨石], [walnut veneer, 胡桃木饰面], [monochrome, 单色], [warm, 温暖, 温馨]]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 材料、工艺、风格和设计概念是否使用准确且常见的中文术语
+      - 是否保留原文的审美意图与冷暖、轻重等视觉对比，而非只做字面翻译

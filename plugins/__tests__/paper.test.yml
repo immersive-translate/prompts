@@ -1,0 +1,20 @@
+expertId: paper
+cases:
+  - id: claims-and-citations
+    name: 学术论断、公式与引文
+    from: en
+    to: zh-CN
+    items:
+      - source: 'We estimate the treatment effect as β = 0.42 (95% CI [0.10, 0.74], p < 0.05), following the identification strategy of Smith et al. (2021).'
+        mustPreserve: ["β = 0.42", "95% CI [0.10, 0.74]", "p < 0.05", "Smith et al. (2021)"]
+        mustContainAny: [[estimate, 估计, 估算], ["treatment effect", 治疗效应, 处理效应]]
+        mustNotContain: [证明, 确定证明, 临床建议]
+        maxLengthRatio: 2
+      - source: 'The dataset is available at doi:10.1234/example. We cannot rule out residual confounding, so these results should be interpreted cautiously.'
+        mustPreserve: [doi:10.1234/example]
+        mustContainAny: [["residual confounding", 残余混杂, 残余混淆]]
+        mustNotContain: [已经证实, 因此应当采用, 研究结论是]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 统计量、公式、置信区间、p 值、作者引文和 DOI 是否原样准确保留
+      - 是否保留不能排除和谨慎解释等不确定性，避免夸大因果结论或加入应用建议
