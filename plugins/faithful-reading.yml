@@ -16,12 +16,12 @@ details: |-
   A reading-focused translation expert for readers who value accuracy, nuance, and concise output. It preserves formatting and segment boundaries while keeping labels and fragments short.
 i18n:
   zh-CN:
-    name: 忠实高效阅读
+    name: 默认专家｜忠实高效阅读
     description: 面向通用网页阅读，优先保证准确、细致和简洁。
     details: |-
       面向重视准确性、细微语义和阅读效率的读者。保留格式和分段边界，并使标签与短语保持简洁。
   zh-TW:
-    name: 忠實高效閱讀
+    name: 預設專家｜忠實高效閱讀
     description: 適用於一般網頁閱讀，優先確保準確、細緻與簡潔。
     details: |-
       適合重視準確性、細微語義與閱讀效率的讀者。保留格式和分段邊界，並讓標籤與短語保持簡潔。
