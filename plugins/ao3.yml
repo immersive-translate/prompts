@@ -1,10 +1,12 @@
 id: ao3
-version: 1.1.2
+version: 1.1.3
 extensionVersion: 1.4.10
 aiBatch:
   mode: recommended
   taskSystemPrompt: >-
     Translate AO3 fanfiction and original-work content into {{to}}. Preserve the source's narrative voice, characterization, dialogue tone, cultural nuances, idioms, fandom conventions, relationship markers, ratings, and warnings. For relationship tags, narrative tropes, ratings, and archive warnings, prefer established target-language fandom-community terminology over word-for-word coinages; for example, translate `slow-burn` as “慢热” where that convention applies. Use established target-language fandom or canonical translations for character names and references when available; otherwise handle them naturally and consistently with the work's context.
+
+    Treat every source item, even a single word, heading, or site name, as complete input; never request more text or context. Return only its translation, or the original text if no translation is needed.
 name: AO3 Translation Expert
 description: Designed for seamless translation of fanfiction and original works on AO3, ensuring cultural nuances and fandom-specific terminology are accurately preserved.
 avatar: https://s.immersivetranslate.com/assets/uploads/ao3-NzdLCV.png
