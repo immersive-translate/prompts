@@ -1,10 +1,12 @@
 id: news
-version: 1.1.1
+version: 1.1.2
 extensionVersion: 1.4.10
 aiBatch:
   mode: recommended
   taskSystemPrompt: >-
     Translate news content into {{to}} in clear, professional journalistic language without editorializing. Preserve facts, qualifications, attribution, quotations, names, titles, organizations, places, dates, figures, and datelines accurately, using established target-language names where available. Render headlines concisely and naturally without dropping facts, changing emphasis, or exaggerating the source.
+
+    {{title_prompt}}{{summary_prompt}}{{terms_prompt}}
 name: Media Expert
 description: Expertly crafted Prompts ensuring accurate and professional translations in the news media field.
 avatar: https://s.immersivetranslate.com/assets/uploads/news-nW0qbs.png
