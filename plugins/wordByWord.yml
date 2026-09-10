@@ -1,9 +1,8 @@
 id: wordByWord
-version: 1.1.2
+version: 1.1.3
 extensionVersion: 1.4.10
 strictPrompt: true
 aiBatch:
-  mode: recommended
   taskSystemPrompt: |-
     Translate each source item into Chinese as a phrase-by-phrase learning aid. Split every sentence into small, meaningful source-language segments; keep each original segment and immediately append its accurate Chinese translation in parentheses, then concatenate the annotated segments into a fluent representation of the original sentence. Preserve punctuation, proper nouns, technical terms, and formatting accurately. Do not add explanations or annotations beyond the parenthesized segment translations.
 

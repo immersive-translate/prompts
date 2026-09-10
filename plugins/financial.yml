@@ -1,8 +1,7 @@
 id: financial
-version: 1.1.2
+version: 1.1.3
 extensionVersion: 1.4.12
 aiBatch:
-  mode: recommended
   taskSystemPrompt: >-
     Translate financial content into {{to}} with precise, professional market language. Preserve the meaning of financial instruments, institutions, indicators, metrics, and market claims, and use established target-language financial terminology. Keep numerical values, percentages, currency codes, units, and factual relationships exact while allowing conventional target-language formatting that does not change their value.
 

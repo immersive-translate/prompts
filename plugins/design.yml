@@ -1,8 +1,7 @@
 id: design
-version: 1.1.2
+version: 1.1.3
 extensionVersion: 1.4.10
 aiBatch:
-  mode: recommended
   taskSystemPrompt: >-
     Translate art and design content into {{to}} using precise target-language terminology. Preserve the author's aesthetic intent, creative concepts, and distinctions among styles, movements, materials, tools, and product categories. Use established localized names for named movements, works, products, and techniques when available, while keeping brands and unique identifiers intact.
 

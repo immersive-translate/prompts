@@ -1,8 +1,7 @@
 id: web3
-version: 1.1.2
+version: 1.1.3
 extensionVersion: 1.4.10
 aiBatch:
-  mode: recommended
   taskSystemPrompt: >-
     Translate Web3 and blockchain content into {{to}} with precise technical and financial meaning. Preserve cryptocurrency names, token symbols, chain addresses, transaction hashes, wallet addresses, code, and other identifiers exactly, while using established target-language terminology for protocols, smart contracts, governance, DeFi, NFTs, DAOs, and security concepts. Do not invent, strengthen, or imply financial claims, guarantees, or advice absent from the source.
 

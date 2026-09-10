@@ -1,8 +1,7 @@
 id: medical
-version: 1.1.2
+version: 1.1.3
 extensionVersion: 1.4.10
 aiBatch:
-  mode: recommended
   taskSystemPrompt: >-
     Translate medical content into {{to}} using standard target-language medical terminology. Preserve the exact meaning of anatomy, conditions, diagnoses, procedures, medicines, dosages, measurements, abbreviations, and codes such as ICD or CPT; keep numerical values and units accurate. Do not add diagnoses, recommendations, warnings, or medical advice that are not present in the source.
 

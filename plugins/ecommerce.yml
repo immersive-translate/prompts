@@ -1,8 +1,7 @@
 id: ecommerce
-version: 1.1.2
+version: 1.1.3
 extensionVersion: 1.4.10
 aiBatch:
-  mode: recommended
   taskSystemPrompt: >-
     Translate e-commerce content into {{to}} using clear, persuasive language appropriate for shoppers without inventing, strengthening, or omitting product claims. Preserve brands, product codes, model identifiers, variant distinctions, numerical specifications, prices, and promotion conditions accurately. Localize specification labels, units, and commerce terminology naturally where appropriate while retaining the original facts.
 

@@ -1,8 +1,7 @@
 id: news
-version: 1.1.2
+version: 1.1.3
 extensionVersion: 1.4.10
 aiBatch:
-  mode: recommended
   taskSystemPrompt: >-
     Translate news content into {{to}} in clear, professional journalistic language without editorializing. Preserve facts, qualifications, attribution, quotations, names, titles, organizations, places, dates, figures, and datelines accurately, using established target-language names where available. Render headlines concisely and naturally without dropping facts, changing emphasis, or exaggerating the source.
 

@@ -72,7 +72,7 @@ systemPrompt: System-level prompt, describes the role and function of the AI Exp
 prompt: Prompt for single sentence translation
 multiplePrompt: Prompt for multiple segment translation, to preserve more context, Immersive Translate by default includes 3 segments of text per request, the request will be provided in this format.
 subtitlePrompt: Prompt for subtitle translation (subtitles often have multiple sentence segmentation issues, so we set a separate prompt for subtitles)
-aiBatch: Reliable batch processing configuration for current extensions. Experts should define task semantics in `taskSystemPrompt` and use `mode: recommended`; do not set the service-managed `protocolSystemPrompt` in an expert. Keep legacy batch fields when migrating an existing expert so older extensions remain compatible
+aiBatch: Reliable batch processing configuration for current extensions. Experts should define task semantics in `taskSystemPrompt`; inherit the batch mode from the translation service, and do not set `mode` or the service-managed `protocolSystemPrompt` in an expert. Keep legacy batch fields when migrating an existing expert so older extensions remain compatible
 Test cases: Development-only sidecar cases may be stored at `plugins/__tests__/<expert-id>.test.yml`; these files are not expert configuration and are not part of the published expert version
 ```
 

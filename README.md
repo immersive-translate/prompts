@@ -64,7 +64,7 @@ multipleSystemPrompt: 系统级别的提示，描述了 AI 专家的角色和功
 prompt: 单句翻译的提示词
 multiplePrompt: 多段翻译的提示词，为了保存更多的上下文，沉浸式翻译默认每次请求会包含 3 段文本，请求会按照这个格式提供。
 subtitlePrompt: 字幕翻译的提示词(字幕经常会有多句断句的问题，所以我们单独为字幕设置了提示词)
-aiBatch: 新版可靠批量处理配置。专家使用 `taskSystemPrompt` 描述任务语义并设置 `mode: recommended`；不要在专家中配置服务管理的 `protocolSystemPrompt`。迁移既有专家时请保留旧批量字段，以兼容老版本扩展
+aiBatch: 新版可靠批量处理配置。专家使用 `taskSystemPrompt` 描述任务语义；批量模式继承翻译服务配置，不要在专家中配置 `mode` 或服务管理的 `protocolSystemPrompt`。迁移既有专家时请保留旧批量字段，以兼容老版本扩展
 测试用例: 可在 `plugins/__tests__/<专家 id>.test.yml` 中维护仅供开发内测页使用的 sidecar 用例；测试文件不会成为专家配置或发布版本的一部分
 ```
 
