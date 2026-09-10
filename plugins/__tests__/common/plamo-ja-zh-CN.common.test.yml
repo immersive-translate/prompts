@@ -1,0 +1,24 @@
+id: plamo-d1
+track: plamo-d1
+serviceIds:
+  - plamo-pro
+from: ja
+to: zh-CN
+cases:
+  - id: japanese-translation-basics
+    name: 日语事实、条件与标识符
+    items:
+      - source: API v2.1 は2026年9月1日に公開予定で、料金は JP¥2,500 です。
+        mustPreserve:
+          - API
+          - v2.1
+          - JP¥2,500
+        mustContainAny:
+          - [2026年9月1日, 2026 年 9 月 1 日, 2026-09-01]
+          - [发布, 上线, 公开]
+      - source: 障害が発生しても、取引 0xdeadbeef42 を再送しないでください。
+        mustPreserve:
+          - 0xdeadbeef42
+        mustContainAny:
+          - [即使, 即便, 哪怕]
+          - [不要重试, 请勿重试, 不要重新发送, 请勿重新发送]
