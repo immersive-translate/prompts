@@ -1,0 +1,26 @@
+expertId: valorant-esports
+cases:
+  - id: live-round-tactics
+    name: 赛事战术与直播修正
+    from: en
+    to: zh-CN
+    items:
+      - source: "AUR’s Duelist Rook takes entry—"
+        mustPreserve: [AUR, Rook]
+      - source: "No, Vale goes first; Rook gets the trade. 7-6."
+        mustPreserve: [Vale, Rook, "7-6"]
+      - source: "Omen saves the Operator as BLU rotate off B—"
+        mustPreserve: [BLU, B]
+      - source: "Scratch that, only Omen backs out; the other four hold B. 10-9."
+        mustPreserve: [B, "10-9"]
+      - source: "BLU on a half buy at 11-11."
+        mustPreserve: [BLU, "11-11"]
+      - source: "Vale gets the half defuse, then peels off."
+        mustPreserve: [Vale]
+      - source: "Flawless for AUR; Rook’s down to 20 HP. 13-11."
+        mustPreserve: [AUR, Rook, "20", "13-11"]
+    reviewCriteria:
+      - 前两条是否利用相邻片段把实际 entry 从 Rook 修正为 Vale，同时不把 Duelist 角色等同于 entry，并保留 Rook 补枪的先后关系
+      - 第三、四条是否识别 Omen 为特工、Operator 为武器，正确理解 save 与 rotate，并把转点人数从全队修正为仅 Omen
+      - 是否区分 half buy 的经济决策与 half defuse 的拆包进度；flawless 是否指本方无人阵亡，而非无人受伤
+      - 两处跨 item 口语纠正是否保留原有条目边界、事实归属与直播节奏；相较同文本的 game 专家及 common 基线是否有可辨收益
