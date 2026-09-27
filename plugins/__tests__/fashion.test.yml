@@ -1,0 +1,26 @@
+expertId: fashion
+cases:
+  - id: garment-construction-product-copy
+    name: 服装结构术语、商品规格与文案事实
+    from: en
+    to: zh-CN
+    items:
+      - source: 'The gown is cut on the bias to follow the body, with a concealed side zipper.'
+        maxLengthRatio: 2
+      - source: 'Style {{style_code}} is available in sizes XS–XL; shell: 68% cotton, 32% linen; lining: 100% viscose.'
+        mustPreserve: ['{{style_code}}', XS–XL, '68%', '32%', '100%']
+        mustContainAny:
+          - [cotton, 棉]
+          - [linen, 亚麻]
+          - [viscose, 粘胶, 黏胶]
+        maxLengthRatio: 2
+      - source: 'Meet the cloud-soft edit: an effortlessly elevated essential for every moment.'
+        maxLengthRatio: 2
+      - source: 'Designer Mira Solis presented the "Northern Light" collection for Maison Luma.'
+        mustPreserve: [Mira Solis, Maison Luma]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 第一条的 cut on the bias 是否按服装结构语境准确处理，译文是否自然
+      - 第二条是否保留尺码、款号占位符与面料成分的正确归属，不得调换 shell 和 lining 或更改百分比
+      - 第三条是否保持克制的文案语气，不得凭空增加丝、羊绒、有机、可持续或认证等材质与品质宣称
+      - 第四条是否保留设计师和品牌名称；没有官方译名依据时，系列名称也应保留原文
