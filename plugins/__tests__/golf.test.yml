@@ -1,0 +1,44 @@
+expertId: golf
+cases:
+  - id: golf-terminology
+    name: 高尔夫场景中的多义词
+    from: en
+    to: zh-CN
+    items:
+      - source: "Her approach shot landed on the green, eight feet from the pin."
+        mustContainAny:
+          - [果岭, 推杆果岭]
+        mustNotContain: [绿色, 拍摄, 射击]
+      - source: "He chose a 7-iron club for the 160-yard shot."
+        mustPreserve: ["160"]
+        mustMatch: ['(?:球杆|[7七]\s*号\s*铁(?:球)?杆?)']
+        mustNotContain: [俱乐部, 拍摄, 射击]
+      - source: "The course has fast greens and narrow fairways."
+        mustContainAny:
+          - [球场]
+          - [果岭, 推杆果岭]
+          - [球道]
+        mustNotContain: [课堂, 课程]
+    reviewCriteria:
+      - approach shot、pin、7-iron、fast greens 与 fairways 的译法是否符合高尔夫语境，且不凭空增减事实
+      - 是否自然保留 160 码的距离关系；与同文本的 common 翻译相比，专业术语是否有清晰收益
+  - id: everyday-meanings
+    name: 普通含义不能硬套术语
+    from: en
+    to: zh-CN
+    items:
+      - source: "The golf club announced new membership fees."
+        mustContainAny:
+          - [俱乐部, 球会]
+        mustNotContain: [球杆]
+      - source: "The player wore a green shirt for the final round."
+        mustContainAny:
+          - [绿色, 绿]
+        mustNotContain: [果岭]
+      - source: "The course of treatment changed after the scan."
+        mustContainAny:
+          - [疗程, 治疗方案, 治疗过程]
+        mustNotContain: [球场]
+    reviewCriteria:
+      - club 是否按组织而非球具处理，green 是否按颜色而非果岭处理，course 是否按治疗过程而非球场处理
+      - 是否保留原文限定和事件关系；与 common 基线相比，不能因专家身份而出现误译
