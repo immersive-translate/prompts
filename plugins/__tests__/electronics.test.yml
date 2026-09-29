@@ -1,0 +1,47 @@
+expertId: electronics
+cases:
+  - id: electrical-ratings
+    name: 电气额定值与测试条件
+    from: en
+    to: zh-CN
+    items:
+      - source: "At VDD = 3.3 V and TA = 25 °C, the quiescent current is 2.4 mA typ and 4.0 mA max."
+        mustPreserve: [VDD, TA, "3.3", "25", "2.4", "4.0"]
+        mustContainAny:
+          - [典型, 标称]
+          - [最大, 上限]
+      - source: "The absolute maximum rating for VIN is 6 V; the recommended operating range is 2.7 V to 5.5 V."
+        mustPreserve: [VIN, "6", "2.7", "5.5"]
+        mustContainAny:
+          - [绝对最大, 絕對最大]
+          - [推荐工作, 建议工作, 建議操作, 推荐运行]
+      - source: "SDA and SCL are open-drain lines and require pull-up resistors to VDD."
+        mustPreserve: [SDA, SCL, VDD]
+        mustContainAny:
+          - [开漏, 漏极开路, 開汲, 开路漏极]
+          - [上拉电阻, 上拉]
+    reviewCriteria:
+      - 2.4 mA 是否仍对应典型值、4.0 mA 是否仍对应最大值，且测试条件与静态电流的关系没有改变
+      - 是否明确区分 6 V 绝对最大额定值与 2.7 V 至 5.5 V 的推荐工作范围，不能把 6 V 当作正常工作电压
+      - 是否保留 SDA、SCL 都需要上拉到 VDD 的关系
+      - 与同文本的 common 翻译相比，额定值、条件和值的对应关系是否更准确
+  - id: pins-and-registers
+    name: 引脚极性与寄存器操作
+    from: en
+    to: zh-CN
+    items:
+      - source: "RESET_N is active low: drive it low to reset the device, then release it high for normal operation."
+        mustPreserve: [RESET_N]
+        mustContainAny:
+          - [低电平有效, 低电平触发, 低有效]
+      - source: "Set bit 3 of CTRL_REG1 to 1 before reading DATA; do not clear the READY flag until the transfer completes."
+        mustPreserve: [CTRL_REG1, DATA, READY, "3", "1"]
+      - source: "The 5 V connector supplies power only; the <code>GPIO</code> pins use 3.3 V logic and are not 5 V tolerant."
+        mustPreserve: ["5", "3.3", "<code>GPIO</code>"]
+    reviewCriteria:
+      - 是否保留先拉低复位、再释放为高电平正常工作的顺序与极性
+      - 是否保留读取 DATA 前将 CTRL_REG1 的 bit 3 置 1 的顺序
+      - 是否保留传输完成前不要清除 READY 标志的否定约束
+      - 是否保留连接器仅供电、GPIO 是 3.3 V 逻辑且不耐受 5 V 的三个事实
+      - HTML 标签是否完整保留并包裹 GPIO
+      - 与同文本的 common 翻译相比，是否改善极性、否定条件和执行顺序，且没有编造具体器件行为
