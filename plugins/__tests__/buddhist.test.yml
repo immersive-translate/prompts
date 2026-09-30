@@ -1,0 +1,44 @@
+expertId: buddhist
+cases:
+  - id: doctrine-and-preservation
+    name: 佛教术语、否定关系与原文保留
+    from: en
+    to: zh-CN
+    items:
+      - source: "Dependent origination does not mean that nothing exists; it means that phenomena arise in dependence on causes and conditions."
+        # 字符长度比只拦截异常短输出；语义完整性见人工评审。
+        minLengthRatio: 0.1
+        mustContainAny:
+          - [缘起, 緣起, 因缘生起, 因緣生起]
+      - source: "The <em>Four Noble Truths</em> concern suffering, its origin, its cessation, and the path leading to its cessation."
+        mustPreserve: ["<em>", "</em>"]
+        mustContainAny:
+          - [四圣谛, 四聖諦]
+      - source: "The note quotes the mantra Om mani padme hum and the Pali term dukkha; its reference is SN 12.2."
+        mustPreserve: ["Om mani padme hum", dukkha, "SN 12.2"]
+    reviewCriteria:
+      - 是否保留缘起不是虚无论的否定关系，以及现象依赖因缘生起的含义
+      - 四圣谛的苦、集、灭、道关系是否准确，且 HTML 标签仍包裹对应概念
+      - 咒语原音、巴利语转写和经文编号是否未被翻译、改写或错置
+      - 与同文本 common 翻译相比，术语与教义关系是否更准确且没有增添原文没有的解释
+  - id: classical-to-modern
+    name: 古汉语佛教文献转现代汉语
+    from: zh-CN
+    to: zh-CN
+    items:
+      - source: "比丘闻法，知诸受缘起，故不执为常。"
+        mustContainAny:
+          - [比丘, 僧人, 出家人]
+          - [缘起, 因缘, 依缘, 依緣, 条件, 條件]
+        mustNotContain: ["比丘闻法，知诸受缘起，故不执为常。"]
+      # 合成古汉语用例，并非经文引句。
+      - source: "<p>若计诸法为我，苦恼随生；了其无常，则舍所执。</p>"
+        mustPreserve: ["<p>", "</p>"]
+        mustContainAny:
+          - [无常, 無常, 并非恒常, 並非恆常]
+        mustNotContain: ["若计诸法为我，苦恼随生；了其无常，则舍所执。"]
+    reviewCriteria:
+      - 是否用自然现代汉语表达听闻教法、缘起与不执著恒常之间的关系
+      - 是否把“计”表达为认定或执著，把“了”表达为了解或明白，并保留执我导致苦恼、明白无常后舍弃执著的关系
+      - HTML 标签与两条输入各自的内容是否保持对应
+      - 与同文本 common 翻译相比，是否更易读且更忠于原文
