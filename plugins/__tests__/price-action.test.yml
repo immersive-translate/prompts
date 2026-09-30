@@ -1,0 +1,57 @@
+expertId: price-action
+cases:
+  - id: submitted-examples
+    name: 投稿样例的价格行为术语
+    from: en
+    to: zh-CN
+    items:
+      - source: After a strong breakout bar, the price continued to rise with a follow-through bar.
+        minLengthRatio: 0.1
+        mustMatch:
+          - '(?:突破\s*K\s*线|突破蜡烛图|突破棒)'
+          - '(?:(?:跟进|后续|跟随|延续)\s*K\s*线|(?:跟进|后续|跟随|延续)(?:棒线|棒|柱))'
+      - source: The pullback after the trend was a good opportunity for a second entry.
+        minLengthRatio: 0.1
+        mustContainAny:
+          - [回调, 回撤]
+          - [二次入场, 第二次入场, 二次进场, 第二次进场]
+      - source: Traders noticed a swing high forming at the resistance level.
+        minLengthRatio: 0.1
+        mustContainAny:
+          - [波段高点, 摆动高点, 波段高位]
+          - [阻力位, 阻力水平, 压力位]
+    reviewCriteria:
+      - 逐项核对突破K线之后的跟进与价格继续上涨的时序，不能把突破收窄为微型趋势线突破。
+      - 回调、趋势和二次入场机会的关系是否准确；“机会”不应被强化为实际入场或建议。
+      - 波段高点正在阻力位形成的观察是否保留，不能硬加原文没有的 K 线或交易结论。
+      - 将专家与同文本 common 翻译配对比较，判断术语准确性、自然度和是否忠于原文；原投稿参考译法不是整句标准答案。
+  - id: precision-and-context
+    name: 数值标签、条件否定与非交易 bar 语境
+    from: en
+    to: zh-CN
+    items:
+      - source: If <strong>ES</strong> closes above 5,250, a follow-through bar may confirm the breakout; otherwise, no long entry is signaled.
+        minLengthRatio: 0.1
+        mustPreserve: ["<strong>", "</strong>", ES, "5,250"]
+        mustMatch:
+          - '(?:(?:跟进|后续|跟随|延续)\s*K\s*线|(?:跟进|后续|跟随|延续)(?:棒线|棒|柱))'
+        mustContainAny:
+          - [突破, 突破走势]
+      - source: An H2 signal bar near $42.50 is not an entry bar until the next bar trades above it.
+        minLengthRatio: 0.1
+        mustPreserve: [H2]
+        mustMatch:
+          - '信号\s*(?:K\s*线|棒线|棒|柱)'
+          - '(?:入场|进场)\s*(?:K\s*线|棒线|棒|柱)'
+          - '(?:\$\s*42\.50|42\.50\s*(?:美元|美金|USD))'
+      - source: The sidebar's progress bar is at 70%; AAPL formed a swing low below the H1 signal bar.
+        minLengthRatio: 0.1
+        mustPreserve: ["70%", AAPL, H1]
+        mustContainAny:
+          - [进度条, 进度栏]
+          - [波段低点, 摆动低点, 波段低位]
+    reviewCriteria:
+      - 第一项的 if、may、otherwise、no 是否共同保留条件、概率和无多头入场信号的关系；HTML 标签须仍包裹 ES。
+      - 第二项是否保留“下一根 K 线高于信号 K 线交易之前，尚非入场 K 线”的否定与时序，不把 H2 解释成价格或时间。
+      - 第三项的 UI progress bar 应译为进度条而非 K 线，后半句的 H1 signal bar 则是交易语境；波段低点与 H1 的上下关系应准确。
+      - 将专家与同文本 common 翻译配对比较，人工判断关系语义、行情表达和是否增添建议；确定性断言仅拦截原样保留或明显术语偏差。
