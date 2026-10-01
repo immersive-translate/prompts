@@ -9,7 +9,7 @@ aiBatch:
     {{title_prompt}}{{summary_prompt}}{{terms_prompt}}
 name: Japanese History Translation Expert
 description: Faithfully translates Japanese historical writing while preserving people’s names, titles, aliases, and the source’s claims.
-avatar: ""
+avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/japanese-history-avatar-240-optimized.png
 author: Official
 homepage: https://immersivetranslate.com/
 details: |-
