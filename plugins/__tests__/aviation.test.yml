@@ -1,0 +1,84 @@
+expertId: aviation
+cases:
+  - id: speeds-and-flight-level
+    name: 空速、地速与飞行高度层
+    from: en
+    to: zh-CN
+    items:
+      - source: The indicated airspeed (IAS) was 250 knots, while the ground speed was 310 knots.
+        minLengthRatio: 0.1
+        mustPreserve: [IAS, "250", "310"]
+        mustContainAny:
+          - [指示空速, 指示空气速度, 表速]
+          - [地速, 地面速度]
+          - [节, 海里每小时]
+      - source: Maintain FL180; this flight level is referenced to standard pressure, not QNH.
+        minLengthRatio: 0.1
+        mustPreserve: [FL180, QNH]
+        mustContainAny:
+          - [飞行高度层, 飞行高度层级, 飞行层, 高度层]
+    reviewCriteria:
+      - 两种速度是否区分，250 与 310 是否仍关联各自的速度；单位不得自动换算。
+      - FL180 是否保留为飞行高度层，不改成确定的离地高度；标准气压与 QNH 的否定关系是否保留。
+      - 对照同文本 common 输出，判断领域准确性和自然度，不以关键词命中替代语义判断。
+  - id: taxi-clearance-and-format
+    name: 滑行、跑道等待与许可边界
+    from: en
+    to: zh-CN
+    items:
+      - source: <strong>N123AB</strong>, taxi via A and hold short of runway 27L; do not cross runway 27L.
+        minLengthRatio: 0.1
+        mustPreserve: ["<strong>", "</strong>", N123AB, A, 27L]
+        mustContainAny:
+          - [滑行]
+          - [等待, 停住, 停止]
+      - source: N123AB is cleared to land on runway 27L, but this is not a takeoff clearance.
+        minLengthRatio: 0.1
+        mustPreserve: [N123AB, 27L]
+        mustContainAny:
+          - [着陆, 降落]
+          - [起飞]
+    reviewCriteria:
+      - hold short 是否译为跑道外或等待位置前等待，不能误成在跑道上等待或获准穿越。
+      - 呼号、滑行道 A 与跑道 27L 的关联是否正确，HTML 是否仍包裹呼号。
+      - 着陆许可是否未被扩成起飞许可，否定必须保留；不得主动补充管制指令。
+  - id: systems-and-nonaviation-context
+    name: 发动机推力、气动失速与普通语境
+    from: en
+    to: zh-CN
+    items:
+      - source: On the Boeing 737-800, the CFM56-7B produces thrust; an aerodynamic stall does not mean the engine has stopped.
+        minLengthRatio: 0.1
+        mustPreserve: [737-800, CFM56-7B]
+        mustContainAny:
+          - [推力]
+          - [失速]
+      - source: She took a taxi to the airport and bought a book at a market stall.
+        minLengthRatio: 0.1
+        mustContainAny:
+          - [出租车, 计程车, 的士]
+          - [摊位, 书摊, 小摊, 摊档, 摊点]
+        mustNotContain: [失速, 滑行]
+    reviewCriteria:
+      - 气动失速是否与发动机停止区分，推力不得译成升力；不能擅自加入排故步骤。
+      - 普通语境中的 taxi 和 stall 是否按出租车、摊位翻译，而非套用航空术语。
+      - 专家相较 common 是否在专业和普通语境都准确，没有为术语一致牺牲原意。
+  - id: traditional-units-and-identifiers
+    name: 繁体中文、单位与航空标识符
+    from: en
+    to: zh-TW
+    items:
+      - source: The Airbus A320 reported true airspeed (TAS) of 420 knots at FL350.
+        minLengthRatio: 0.1
+        mustPreserve: [A320, TAS, "420", FL350]
+        mustContainAny:
+          - [真空速, 真實空速, 真實空氣速度]
+          - [節, 浬每小時, 海里每小時]
+      - source: Contact tower on 118.700 MHz; QNH is 1013 hPa. Keep the waypoint name DREWE unchanged.
+        minLengthRatio: 0.1
+        mustPreserve: ["118.700", MHz, QNH, "1013", hPa, DREWE]
+        mustContainAny:
+          - [塔臺, 塔台, 控制塔]
+    reviewCriteria:
+      - 是否使用繁體中文并保留数值及原有单位，没有单位换算或把 TAS 与地速混淆。
+      - 小数精度、频率、气压与航路点名是否保留，不擅自补充原文未给出的缩写展开。
