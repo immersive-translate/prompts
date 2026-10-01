@@ -1,0 +1,60 @@
+expertId: japanese-history
+cases:
+  - id: names-and-chinese-forms
+    name: 日本历史人物姓名与中文规范字形
+    from: ja
+    to: zh-CN
+    items:
+      - source: 柴田勝家は北陸方面で戦った。
+        mustContain: [柴田胜家]
+      - source: 滝川一益は関東へ向かった。
+        mustContain: [泷川一益]
+    reviewCriteria:
+      - 姓名是否指向原文人物并采用约定俗成的简体中文写法；不以近音或相似字形替换为另一人。
+      - 译文是否只保留原文陈述，没有扩写历史结论。
+  - id: repeated-name-format-and-traditional
+    name: 重复姓名、HTML 与年份保留
+    from: ja
+    to: zh-TW
+    items:
+      - source: 1582年、<strong>柴田勝家</strong>について記録した。
+        mustPreserve: ["1582", "<strong>", "</strong>"]
+        mustContain: [柴田勝家]
+      - source: 同じ記録には柴田勝家の名もある。
+        mustContain: [柴田勝家]
+    consistentTerms:
+      - source: 柴田勝家
+        targets: [柴田勝家]
+    reviewCriteria:
+      - 繁體中文方向是否保留人物身份、年份与 HTML 包裹关系。
+      - 重复姓名是否一致；确定性断言不判断句间历史关系。
+  - id: namesake-and-claim-boundary
+    name: 现代同姓与原文主张边界
+    from: ja
+    to: zh-CN
+    items:
+      - source: 現代の研究者、柴田さんは資料を紹介した。
+        mustContain: [柴田]
+        mustNotContain: [柴田胜家]
+      - source: この記録は、織田信長が月面基地を建設したと主張している。
+        mustContain: [织田信长]
+    reviewCriteria:
+      - 现代同姓人物是否没有被擅自改成历史名人；词面断言只作提示，需人工核对身份边界。
+      - 即使原文主张明显不可信，译文是否忠实保留其主张而未擅自纠正、证实或补充史实结论。
+  - id: quoted-errors-and-ambiguous-kana
+    name: 错误姓名引用与无上下文假名
+    from: ja
+    to: zh-CN
+    items:
+      - source: 誤訳例「新発田勝家」「滝川数正」を、正しい名前「柴田勝家」「滝川一益」と比較する。
+        mustContainAny:
+          - [柴田胜家, 柴田勝家]
+          - [泷川一益, 滝川一益, 瀧川一益]
+          - [新发田胜家, 新発田勝家]
+          - [泷川数正, 滝川数正]
+      - source: このメモには「しばた」としか書かれておらず、人物の身元は不明だ。
+        mustPreserve: [しばた]
+        mustNotContain: [柴田胜家, 柴田勝家, Shibata, shibata]
+    reviewCriteria:
+      - 被引用的错误名字应作为错误样例保留，不能悄悄改成正确姓名导致比较消失；用于字形比较的正确名字允许保留日文字形，但必须指向同一人物。
+      - 缺少识别上下文的假名应保留，不推断成某位历史人物，不添加原文没有的罗马字或读音注释；不确定性应保留。
