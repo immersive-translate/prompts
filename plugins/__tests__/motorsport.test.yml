@@ -1,0 +1,94 @@
+expertId: motorsport
+cases:
+  - id: handling-and-tyre-wear
+    name: 操控特性与轮胎状态
+    from: en
+    to: zh-CN
+    items:
+      - source: The car had understeer in Turn 4, then oversteer on corner exit.
+        minLengthRatio: 0.1
+        mustContainAny:
+          - [转向不足, 不足转向]
+          - [转向过度, 过度转向]
+      - source: Graining appeared on the front-left tyre, but the rear tyres showed blistering.
+        minLengthRatio: 0.1
+        mustContainAny:
+          - [颗粒化, 粒化, 颗粒磨损]
+          - [起泡, 轮胎起泡]
+    reviewCriteria:
+      - understeer 与 oversteer 是否表达相反的转向特性，并分别对应弯中与出弯语境。
+      - graining 与 blistering 是否被区分为不同轮胎表面现象，而非都泛化成磨损。
+      - Turn 4、front-left 与前后轮胎归属是否保留；不要额外诊断原因。
+  - id: sessions-and-team-radio
+    name: 排位赛、正赛与车队无线电
+    from: en
+    to: zh-CN
+    items:
+      - source: After qualifying, the team proposed a two-stop strategy for the race; it was only a proposal.
+        minLengthRatio: 0.1
+        mustContainAny:
+          - [排位赛, 排位]
+          - [正赛, 比赛]
+          - [兩停, 两停, 两次进站, 兩次進站]
+      - source: The engineer said, “Box this lap,” while the mechanic placed a box beside the garage door.
+        minLengthRatio: 0.1
+        mustContainAny:
+          - [进站]
+          - [箱子, 盒子]
+    reviewCriteria:
+      - qualifying 与 race 是否分清；策略仍是提议，不能翻成已经执行或成功。
+      - 无线电中的 Box 是否结合语境译为本圈进站，普通 box 是否保留为箱子一类物件。
+      - two-stop 的数量信息和引号内指令语气是否保留。
+  - id: rally-stages-and-roadbook
+    name: 拉力赛赛段、连接路段与路书
+    from: en
+    to: zh-CN
+    items:
+      - source: The crew lost 2.4 seconds on Special Stage 3, then used the road section to reach the next service area.
+        minLengthRatio: 0.1
+        mustPreserve: ["2.4", "3"]
+        mustContainAny:
+          - [特殊赛段, 特别赛段, 计时赛段]
+          - [
+              连接路段,
+              联络路段,
+              联络赛段,
+              公路路段,
+              行驶路段,
+            ]
+      - source: The pace note says “6 right” at 1.2 km; keep both figures as written.
+        minLengthRatio: 0.1
+        mustPreserve: ["6 right", "1.2"]
+        mustNotContain: [6 号右弯, 第 6 个右弯, 6 挡]
+        mustContainAny:
+          - [路书, 路况提示, 领航提示]
+    reviewCriteria:
+      - Special Stage 是否表达为计时竞赛赛段，road section 是否为连接路段；两者不能合并。
+      - 2.4 秒、SS 3 编号及 1.2 km 是否原样保留，不改单位或精度。
+      - 路书记法未说明时保留“6 right”，不得擅自扩成弯道编号、挡位、速度或角度；未给出的解释不要补写。
+  - id: traditional-timing-and-identities
+    name: 繁体术语、杆位与计时信息
+    from: en
+    to: zh-TW
+    items:
+      - source: Lando Norris took pole position with a 1:28.407 lap; the result was provisional.
+        minLengthRatio: 0.1
+        mustPreserve: ["1:28.407"]
+        mustContainAny:
+          - [杆位, 桿位, 頭位]
+          - [暫定, 尚待確認, 暫時性]
+      - source: <strong>SS 12</strong> starts at 09:05, and the road section is 34.6 km.
+        minLengthRatio: 0.1
+        mustPreserve: ["<strong>", "</strong>", "SS 12", "09:05", "34.6", km]
+        mustContainAny:
+          - [
+              連接路段,
+              聯絡路段,
+              聯絡賽段,
+              公路路段,
+              行駛路段,
+            ]
+    reviewCriteria:
+      - 是否使用繁體中文；pole position 是否為起跑杆位意义，不能译成电线杆。
+      - 车手姓名、圈速小数、暂定状态、SS 编号、时间、小数精度、单位及 HTML 标签是否保留。
+      - 译文是否自然简洁，没有擅自补入赛季规则或缩写展开。
