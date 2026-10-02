@@ -1,0 +1,74 @@
+expertId: continental-philosophy
+cases:
+  - id: conceptual-distinction
+    name: 保留原文明确作出的概念区分
+    from: en
+    to: zh-CN
+    items:
+      - source: In this passage, Heidegger distinguishes Dasein from Vorhandenheit; the two terms are not interchangeable.
+        mustNotContain: ["（", "）", "(", ")"]
+        mustContainAny:
+          - [此在]
+          - [现成存在, 现成性, 现成在手, 现成状态]
+      - source: The author labels being-with as Mitsein and the shared world as Mitwelt, and uses the two labels distinctly.
+        mustNotContain: ["（", "）", "(", ")"]
+        mustContainAny:
+          - [共在, 与他人共在]
+          - [共同世界, 共在世界, 共享世界]
+    reviewCriteria:
+      - 是否结合句内对比保留了此在、现成存在、共在与共同世界的区分，而非机械套用单一术语表？
+      - 是否忠实传达两个术语在论证中的不同作用，且未把现成性与上手性混淆？
+      - 是否译出常规概念用法，保留原文显式标签，并避免新增双语括注或术语拼写错误？
+  - id: names-and-qualification
+    name: 人名与限定关系
+    from: en
+    to: zh-TW
+    items:
+      - source: Simone de Beauvoir argues that freedom is situated, not that it is simply unrestricted choice.
+        mustNotContain: ["（", "）", "(", ")"]
+        mustContainAny:
+          - [波伏娃, 波娃]
+      - source: For Hannah Arendt, the public realm is not reducible to private life, although the two can affect one another.
+        mustNotContain: ["（", "）", "(", ")"]
+        mustContainAny:
+          - [鄂蘭, 阿倫特, 阿蘭特]
+    reviewCriteria:
+      - 人名是否使用目標語言常見譯名且沒有杜撰？
+      - 是否保留 not、although 所表達的否定與讓步關係？
+  - id: argument-and-quotation
+    name: 论证关系与术语拼写
+    from: en
+    to: zh-CN
+    items:
+      - source: The claim is not that the Lebenswelt is merely subjective; rather, it names the pre-theoretical world of experience.
+        mustNotContain: ["（", "）", "(", ")"]
+        mustContainAny:
+          - [生活世界]
+      - source: Husserl's “epoché” suspends the natural attitude for analysis; it does not assert that the external world does not exist.
+        mustNotContain: ["（", "）", "(", ")"]
+        mustContainAny:
+          - [胡塞尔]
+          - [悬搁, 悬置]
+    reviewCriteria:
+      - 是否保留 not that...rather 的纠正结构和“不主张外部世界不存在”的限定？
+      - 原文引号中的专门术语是否仍可辨认，且没有增加定义或解释？
+  - id: html-and-tradition-sensitive-terms
+    name: HTML 結構與原文術語拼寫
+    from: en
+    to: zh-TW
+    items:
+      - source: <p>Derrida's <em>différance</em> is deliberately distinguished here from <em>différence</em>.</p>
+        mustNotContain: ["（", "）", "(", ")"]
+        mustPreserve: [<p>, </p>, <em>, </em>]
+        mustContainAny:
+          - [延異, différance]
+          - [差異, différence]
+      - source: In this author's account, the French term “être-au-monde” is not a synonym for “être-là”.
+        mustNotContain: ["（", "）", "(", ")"]
+        mustContainAny:
+          - [在世, 在世界之中, 在世界中, être-au-monde]
+          - [此在, 此有, 親在, être-là]
+    reviewCriteria:
+      - HTML 標籤及其包裹關係是否保留？
+      - 是否避免把法語概念強行合併為一個通用哲學譯名？
+      - 繁體中文是否自然、簡潔且沒有增補術語注釋？
