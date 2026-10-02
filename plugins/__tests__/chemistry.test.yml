@@ -1,0 +1,81 @@
+expertId: chemistry
+cases:
+  - id: names-formulas-identifiers
+    name: Chemical names, formulas, and identifiers
+    from: en
+    to: zh-CN
+    items:
+      - source: "Sodium chloride (NaCl) was detected; the label also lists CAS 7647-14-5."
+        mustPreserve: [NaCl, "CAS 7647-14-5"]
+        mustContainAny:
+          - [氯化钠]
+        mustNotContain: [安全, 注意事项]
+      - source: "The sample contains (R)-2-butanol, while C4H10O is recorded as the molecular formula."
+        mustPreserve: ["(R)-", C4H10O]
+        mustContainAny:
+          - [分子式]
+          - [2-丁醇, 丁-2-醇, 仲丁醇]
+        mustNotContain: [安全, 注意事项]
+    reviewCriteria:
+      - 化学名称、分子式与登记号是否分别准确处理，没有互相替代或补充原文没有的信息。
+      - 中文术语是否自然，且没有添加安全建议或解释。
+  - id: reaction-conditions
+    name: Reaction conditions and qualifications
+    from: en
+    to: zh-TW
+    items:
+      - source: "At 25 °C and 1.0 bar, the catalyst increased the yield to 82% after 3 h."
+        mustPreserve: ["25 °C", "1.0 bar", "82%", "3 h"]
+        mustContainAny:
+          - [催化劑]
+          - [產率]
+      - source: "Without stirring, the conversion remained below 10%; the measurement was taken under nitrogen."
+        mustPreserve: ["10%"]
+        mustContainAny:
+          - [攪拌]
+          - [氮氣, 氮]
+    reviewCriteria:
+      - 温度、压力、时间、气氛和限定条件是否保留，尤其是否保留“未搅拌”和低于 10% 的关系。
+      - 是否没有把产率、转化率或条件改写成原文没有的结论。
+  - id: chemical-engineering-terms
+    name: Chemical engineering terminology in context
+    from: en
+    to: zh-CN
+    items:
+      - source: "The bed adsorbs benzene from the gas stream, whereas the downstream column absorbs ammonia into water."
+        mustContainAny:
+          - [吸附]
+          - [吸收]
+        mustContain: [苯]
+        minLengthRatio: 0.15
+      - source: "The distillation column separates the feed, and heat and mass transfer limit the overall rate."
+        mustContainAny:
+          - [精馏塔, 蒸馏塔]
+          - [传热, 热量传递, 热质传递]
+          - [传质, 质量传递, 热质传递]
+    reviewCriteria:
+      - 是否依据上下文区分气相组分在床层上的吸附与下游塔内氨被水吸收。
+      - 精馏、传热和传质等术语是否符合目标地区的常见专业表达。
+  - id: html-subscripts-links
+    name: HTML notation and links
+    from: en
+    to: zh-TW
+    items:
+      - source: "The <a href=\"https://example.org/process\">H<sub>2</sub>O</a> stream entered at 40 °C."
+        mustPreserve: [
+          '<a href="https://example.org/process">',
+          "H<sub>2</sub>O",
+          "</a>",
+          "40 °C",
+          "https://example.org/process",
+        ]
+        mustMatch: [
+          '<a href="https://example\.org/process">H<sub>2</sub>O</a>',
+        ]
+        mustNotContain: ["O</sub>", "</sub></sub>"]
+      - source: "At pH 7.0, Fe<sup>3+</sup> was detected at 2.5 mg/L."
+        mustPreserve: ["Fe<sup>3+</sup>", "7.0", "2.5 mg/L"]
+        mustMatch: ['Fe<sup>3\+</sup>']
+    reviewCriteria:
+      - HTML 標籤、屬性、連結與上下標是否完整且結構未變。
+      - pH、濃度、單位及化學符號是否保持原值，正文翻譯是否自然。
