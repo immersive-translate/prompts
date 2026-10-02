@@ -1,0 +1,105 @@
+expertId: programming-docs
+cases:
+  - id: identifiers-and-prose-zh-cn
+    name: API 标识符与普通词义
+    from: en
+    to: zh-CN
+    items:
+      - source: "The Activity receives an Intent. During this outdoor activity, the application asks you to grant permission to continue."
+        mustPreserve: [Activity, Intent]
+        mustContainAny:
+          - [应用]
+          - [活动, 此期间, 这段时间]
+        minLengthRatio: 0.1
+      - source: "The `Widget` class is immutable; the shop sells a small widget for opening jars."
+        mustPreserve: ["`Widget`"]
+        mustContainAny:
+          - [不可变, 不可修改]
+          - [工具, 装置, 器具, 小部件]
+        minLengthRatio: 0.1
+    reviewCriteria:
+      - Keep API identifiers distinct from ordinary uses of the same English words; check that application means an app rather than an application/request and activity means an ordinary period or event in the second sentence.
+      - Check that the jar-opening widget is an ordinary tool, while `Widget` remains an immutable API class.
+  - id: code-and-doc-structure-zh-cn
+    name: 代码与文档结构
+    from: en
+    to: zh-CN
+    items:
+      - source: "Use `Modifier.padding(8.dp)` to add space. See [the guide](https://developer.android.com/guide)."
+        mustPreserve: [
+          "`Modifier.padding(8.dp)`",
+          "https://developer.android.com/guide",
+        ]
+        minLengthRatio: 0.1
+      - source: |-
+          ```kotlin
+          val label = "Build"
+          // Keep this comment unchanged.
+          ```
+
+          Build the application with `./gradlew build`.
+        mustPreserve: [
+          "```kotlin",
+          'val label = "Build"',
+          "// Keep this comment unchanged.",
+          "`./gradlew build`",
+        ]
+        mustMatch: ['(?:^|\n)```\r?\n']
+        mustContainAny:
+          - [构建, 编译]
+          - [应用, 程序]
+        minLengthRatio: 0.1
+    reviewCriteria:
+      - Preserve inline code, the Markdown link and URL, the complete fenced code block including its string literal and comment, and the paragraph break.
+      - Translate the explanatory sentence outside the code block naturally; do not translate Build inside the string literal or comment.
+  - id: state-and-modality-zh-tw
+    name: 狀態關係與模態
+    from: en
+    to: zh-TW
+    items:
+      - source: "A StatelessWidget is immutable; changing its input creates a new widget."
+        mustPreserve: [StatelessWidget]
+        mustContainAny:
+          - [不可變, 不可修改]
+          - [新的, 新]
+        mustMatch: [
+          "(?:元件|組件|部件|(?:^|[^A-Za-z0-9_])[Ww]idget(?:$|[^A-Za-z0-9_]))",
+        ]
+        minLengthRatio: 0.1
+      - source: "The caller must retain the stream subscription and may cancel it when the screen is disposed."
+        mustContainAny:
+          - [必須, 須]
+          - [串流, 流]
+          - [訂閱]
+          - [畫面, 螢幕, 屏幕]
+        minLengthRatio: 0.1
+    reviewCriteria:
+      - Preserve immutable as an unchangeable property and retain the causal distinction that changed input creates a new widget.
+      - Preserve caller ownership of the subscription, the requirement to retain it, the permission rather than obligation to cancel, and the lifecycle condition that cancellation may happen when the screen is disposed.
+  - id: ordinary-terms-and-constraints-zh-tw
+    name: 一般詞義與條件
+    from: en
+    to: zh-TW
+    items:
+      - source: "The application stores the setting, but this outdoor activity does not launch an Android Activity."
+        mustPreserve: [Android, Activity]
+        mustContainAny:
+          - [應用程式, 應用]
+          - [活動, 作業, 操作]
+        minLengthRatio: 0.1
+      - source: "You may rebuild the project after changing the theme, but you must not remove the generated file."
+        mustContainAny:
+          - [
+              不得,
+              不能,
+              不可,
+              禁止,
+              必須不,
+              切勿,
+              勿移除,
+              勿刪除,
+            ]
+        minLengthRatio: 0.1
+    reviewCriteria:
+      - Distinguish ordinary application and activity from the Android Activity API identifier in the same sentence.
+      - Preserve permission to rebuild, the condition after changing the theme, and the prohibition on removing the generated file; do not turn may into must or must not into advice.
