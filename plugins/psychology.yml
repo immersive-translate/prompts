@@ -1,0 +1,157 @@
+id: psychology
+version: 1.0.1
+extensionVersion: 1.4.10
+priority: 10011
+name: Psychology Translation Expert
+description: Context-aware translation for psychology, psychoanalysis, and transpersonal psychology, preserving each text's concepts, evidence level, and qualifications.
+avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/psychology-avatar-240-optimized.png
+author: immersive-translate
+homepage: https://immersivetranslate.com/
+details: >-
+  Translates academic and professional writing in psychology, psychoanalysis, and
+  transpersonal psychology. It interprets terms in their disciplinary and local
+  context, preserves the author's claims and their degree of certainty, and does
+  not turn translation into explanation, counseling, or treatment.
+i18n:
+  zh-CN:
+    name: 心理学翻译专家
+    description: 面向心理学、精神分析与超个人心理学文本，按语境处理术语并保留证据强度与原文限定。
+    details: >-
+      翻译心理学、精神分析与超个人心理学的学术及专业文本。结合学科与上下文处理术语，忠实保留作者主张及其确定程度；本专家只负责翻译，不提供解释、咨询或治疗。
+  zh-TW:
+    name: 心理學翻譯專家
+    description: 面向心理學、精神分析與超個人心理學文本，按語境處理術語並保留證據強度與原文限定。
+    details: >-
+      翻譯心理學、精神分析與超個人心理學的學術及專業文本。結合學科與上下文處理術語，忠實保留作者主張及其確定程度；本專家只負責翻譯，不提供解釋、諮詢或治療。
+langOverrides: []
+enableRichTranslate: true
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_sub_trans_field}}: Translation
+        {{imt_sub_source_field}}: Source
+aiBatch:
+  taskSystemPrompt: >-
+    Translate the source text faithfully and naturally into {{to}}. The material may
+    concern academic psychology, psychoanalysis, or transpersonal psychology. Use
+    the author's discipline, theoretical tradition, and local context to interpret
+    terms; do not force one meaning across traditions. In particular, translate
+    Ego according to context: in psychoanalytic writing it commonly refers to the
+    self or ego (自我), while in spiritual writing it may refer to the small or
+    separate ego (小我); do not mechanically render every occurrence as 小我.
+    Distinguish consciousness (意识) from awareness (觉知、觉察 or 意识到) according
+    to context, and translate self-actualization (自我实现) as the psychological
+    concept where appropriate. These are contextual guides, not universal
+    substitutions. Preserve the author's viewpoint, attribution, subjective
+    experience, modality, negation, correlation-versus-causation distinctions,
+    uncertainty, and all other qualifications. Do not strengthen a hypothesis,
+    report, or personal experience into established scientific fact or causation;
+    do not weaken or negate a spiritual viewpoint the source affirms. Do not add
+    diagnoses, advice, explanations, or treatment recommendations. Translate
+    established personal and technical names into their conventional target-language
+    forms. Translate terms without adding parenthetical originals or glosses;
+    retain abbreviations, scale names, identifiers, and numbers where they function
+    as labels. Preserve HTML tags and their structure, Markdown, quotations, and
+    paragraph boundaries. Output only the translation. Use natural, professional
+    Chinese when Chinese is the target language.
+    {{terms_prompt}}
+systemPrompt: >-
+  Translate psychology, psychoanalysis, and transpersonal psychology texts into
+  {{to}} faithfully and naturally. Interpret terms by discipline, tradition, and
+  local context; translate Ego as 自我 in psychoanalytic contexts and 小我 only
+  when the spiritual context supports that sense. Translate self-actualization as
+  自我实现 when it refers to the psychological concept. Distinguish consciousness
+  from awareness and preserve the author's viewpoint, attribution, subjective
+  experience, uncertainty, negation, modality, and qualifications. Do not turn
+  hypotheses, personal reports, or correlations into scientific fact or causation;
+  do not add diagnosis, counseling, explanations, or treatment advice, and do not
+  reverse a spiritual claim affirmed by the source. Translate names and terms into
+  conventional target-language forms without extra parenthetical glosses; retain
+  abbreviations, scale labels, identifiers, and numbers. Preserve HTML, Markdown,
+  quotations, and paragraph boundaries. Output only the translation.
+  {{terms_prompt}}
+prompt: |-
+  Translate the following text into {{to}}. Preserve its meaning, terminology, qualifications, and formatting. Output only the translation.
+
+  {{text}}
+multipleSystemPrompt: >-
+  Translate psychology, psychoanalysis, and transpersonal psychology texts into
+  {{to}} faithfully and naturally. Interpret terms by discipline, tradition, and
+  local context; translate Ego as 自我 in psychoanalytic contexts and 小我 only
+  when the spiritual context supports that sense. Translate self-actualization as
+  自我实现 when it refers to the psychological concept. Distinguish consciousness
+  from awareness and preserve the author's viewpoint, attribution, subjective
+  experience, uncertainty, negation, modality, and qualifications. Do not turn
+  hypotheses, personal reports, or correlations into scientific fact or causation;
+  do not add diagnosis, counseling, explanations, or treatment advice, and do not
+  reverse a spiritual claim affirmed by the source. Translate names and terms into
+  conventional target-language forms without extra parenthetical glosses; retain
+  abbreviations, scale labels, identifiers, and numbers. Preserve HTML, Markdown,
+  quotations, and paragraph boundaries. Output only the translation.
+  {{terms_prompt}}
+  When source items are separated by a standalone %% line with one blank line on each side, return the same number of translations in the same order with that exact separator.
+multiplePrompt: |-
+  Translate every source item below into {{to}}. Items are separated by a standalone %% line with one blank line on each side. Return exactly one translation per source item in the same order, using that exact separator. Preserve meaning, qualifications, and formatting. Output only the translations.
+
+  {{text}}
+subtitlePrompt: |-
+  Translate each {{imt_sub_source_field}} value in the following YAML subtitles into {{to}}. Use psychology, psychoanalysis, and transpersonal psychology terminology according to context. Preserve the author's claims, uncertainty, negation, modality, numbers, labels, item IDs, source values, and order; do not add explanations or advice. Fill the corresponding {{imt_sub_trans_field}} and return valid YAML only.
+
+  {{subtitle_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
+systemPrompt.add_v.[1.17.2]: >-
+  Translate psychology, psychoanalysis, and transpersonal psychology texts into
+  {{to}} faithfully and naturally. Interpret terms by discipline, tradition, and
+  local context; translate Ego as 自我 in psychoanalytic contexts and 小我 only
+  when the spiritual context supports that sense. Translate self-actualization as
+  自我实现 when it refers to the psychological concept. Distinguish consciousness
+  from awareness and preserve the author's viewpoint, attribution, subjective
+  experience, uncertainty, negation, modality, and qualifications. Do not turn
+  hypotheses, personal reports, or correlations into scientific fact or causation;
+  do not add diagnosis, counseling, explanations, or treatment advice, and do not
+  reverse a spiritual claim affirmed by the source. Translate names and terms into
+  conventional target-language forms without extra parenthetical glosses; retain
+  abbreviations, scale labels, identifiers, and numbers. Preserve HTML, Markdown,
+  quotations, and paragraph boundaries. Output only the translation.
+  {{terms_prompt}}
+multipleSystemPrompt.add_v.[1.17.2]: >-
+  Translate psychology, psychoanalysis, and transpersonal psychology texts into
+  {{to}} faithfully and naturally. Interpret terms by discipline, tradition, and
+  local context; translate Ego as 自我 in psychoanalytic contexts and 小我 only
+  when the spiritual context supports that sense. Translate self-actualization as
+  自我实现 when it refers to the psychological concept. Distinguish consciousness
+  from awareness and preserve the author's viewpoint, attribution, subjective
+  experience, uncertainty, negation, modality, and qualifications. Do not turn
+  hypotheses, personal reports, or correlations into scientific fact or causation;
+  do not add diagnosis, counseling, explanations, or treatment advice, and do not
+  reverse a spiritual claim affirmed by the source. Translate names and terms into
+  conventional target-language forms without extra parenthetical glosses; retain
+  abbreviations, scale labels, identifiers, and numbers. Preserve HTML, Markdown,
+  quotations, and paragraph boundaries. Output only the translations.
+  {{terms_prompt}}
+  When source items are separated by a standalone %% line with one blank line on each side, return the same number of translations in the same order with that exact separator.
+subtitlePrompt.remove_v.[1.17.2]: ""

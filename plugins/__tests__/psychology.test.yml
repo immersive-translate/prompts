@@ -1,0 +1,93 @@
+expertId: psychology
+cases:
+  - id: ego-by-context
+    name: 同一术语按流派语境区分
+    from: en
+    to: zh-CN
+    items:
+      - source: In Freud's account, the ego mediates between the id, the superego, and external reality.
+        mustContainAny:
+          - [自我]
+        mustNotContain: [小我]
+      - source: In this meditation passage, the teacher describes loosening identification with the ego while retaining ordinary responsibilities.
+        mustContainAny:
+          - [小我, 自我]
+    reviewCriteria:
+      - 精神分析语境中的 ego 是否译为“自我”等恰当术语，并与 id、superego 的关系保持清楚？
+      - 灵性语境中的 ego 是否结合上下文处理，而非将所有出现都机械译为“小我”或“自我”？
+      - 是否保留“仍承担日常责任”的让步关系，未添加修行建议？
+  - id: consciousness-awareness
+    name: 意识、觉知与自我实现
+    from: en
+    to: zh-TW
+    items:
+      - source: The study measured conscious awareness of the cue; it did not measure self-actualization.
+        mustContainAny:
+          - [覺察, 覺知, 意識到]
+        mustContain: [自我實現]
+      - source: In this humanistic account, self-actualization is described as a developmental tendency, not a guaranteed outcome.
+        mustContainAny:
+          - [自我實現]
+          - [不, 並非, 未, 非]
+    reviewCriteria:
+      - 是否區分 awareness 與 consciousness，並保留研究實際測量的對象？
+      - 是否將 self-actualization 按心理學語境譯為「自我實現」等常用術語？
+      - 是否保留“並非保證結果”的限定，沒有把理論描述改成確定預測？
+  - id: spiritual-report-and-evidence
+    name: 靈性自述與證據限定
+    from: en
+    to: zh-CN
+    items:
+      - source: One participant described a spiritual awakening after the retreat, although the interview alone cannot establish what caused the experience.
+        mustContainAny:
+          - [灵性觉醒, 精神觉醒, 灵性上的觉醒]
+          - [无法, 不能, 不足以, 未能]
+      - source: The authors found an association between reported spiritual awakening and well-being, but the observational design does not show that one caused the other.
+        mustContainAny:
+          - [相关, 关联]
+          - [不, 未, 无法]
+    reviewCriteria:
+      - 是否将参与者的灵性觉醒表述保留为个人报告，而不是确立为普遍或客观事实？
+      - 是否保留访谈或观察性研究不能证明因果的边界？
+      - 是否避免将相关性强化为因果，也没有反向否定原文承认的灵性体验？
+  - id: formatting-scales-and-negation
+    name: HTML、量表标识与否定格式
+    from: en
+    to: zh-TW
+    items:
+      - source: <p>The <a href="https://example.org/study">study</a> used a modified 12-item MAAS; it did not diagnose a disorder.</p>
+        mustPreserve: [
+          "<p>",
+          "</p>",
+          '<a href="https://example.org/study">',
+          "</a>",
+          MAAS,
+          "12",
+        ]
+        mustContainAny:
+          - [
+              沒有診斷,
+              並未診斷,
+              未診斷,
+              未作出診斷,
+              未進行診斷,
+            ]
+      - source: The 95% confidence interval included zero, so the result was not statistically significant.
+        mustPreserve: ["95%"]
+        mustContainAny:
+          - [
+              未達統計顯著,
+              不具統計顯著性,
+              並非統計顯著,
+              不顯著,
+              無統計顯著,
+              沒有統計顯著,
+              不具有統計顯著,
+              未達到統計顯著,
+              不具統計學意義,
+              不具有統計學意義,
+            ]
+    reviewCriteria:
+      - HTML 標籤、連結、量表縮寫及數字是否按原樣保留，且標籤包裹關係正確？
+      - 否定及統計限定是否完整傳達，沒有添加原文未作出的診斷或臨床判斷？
+      - 繁體中文是否自然、專業，且沒有額外括註或解釋？
