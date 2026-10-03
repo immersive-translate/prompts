@@ -1,0 +1,42 @@
+expertId: japanese-conversation
+cases:
+  - id: omitted-subject-and-softening-zh-cn
+    name: 省略主语与委婉表达（简体）
+    from: ja
+    to: zh-CN
+    items:
+      - source: 今日はちょっと難しいかも。また今度でもいい？
+      - source: 行けたら行くね。
+    reviewCriteria:
+      - 是否结合语境自然表达省略的主语，同时避免擅自补出具体人物或原因。
+      - 是否保留“可能不行”的委婉程度，以及第二句并非确定承诺的语气。
+  - id: polite-request-and-honorific-zh-cn
+    name: 敬语请求与上下级关系（简体）
+    from: ja
+    to: zh-CN
+    items:
+      - source: こちら、先にご確認いただけますでしょうか。
+      - source: 部長はもうお帰りになりました。
+    reviewCriteria:
+      - 是否准确表达礼貌请求而没有改成命令或过度卑微的表达。
+      - 是否保留对部长的敬语关系，不添加原文没有的身份关系或态度。
+  - id: online-expressions-zh-tw
+    name: 常见网络表达（繁体）
+    from: ja
+    to: zh-TW
+    items:
+      - source: それな、マジで草。
+      - source: 返信遅れてごめん、今気づいた！
+    reviewCriteria:
+      - 是否按语境自然传达常见网络表达的认同、发笑及口语强度，而非逐字硬译或添加情绪。
+      - 是否忠实保留道歉和刚刚才看到消息的事实，不补充借口。
+  - id: nuance-and-certainty-zh-tw
+    name: 语气与确定程度（繁体）
+    from: ja
+    to: zh-TW
+    items:
+      - source: ちょっと考えさせてください。
+      - source: たぶん大丈夫だと思う。
+    reviewCriteria:
+      - 是否保留第一句委婉争取考虑时间的语气，不擅自改成拒绝。
+      - 是否保留第二句的不确定性，不翻成确定保证。

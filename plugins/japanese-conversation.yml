@@ -1,0 +1,151 @@
+id: japanese-conversation
+version: 1.0.1
+extensionVersion: 1.4.10
+priority: 10022
+name: Japanese Conversation Translation
+description: Natural, faithful translations of modern Japanese conversation, including omissions, polite nuance, and familiar online language.
+avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/japanese-conversation-avatar-240-optimized.png
+author: immersive-translate
+homepage: https://immersivetranslate.com/
+details: >-
+  Translates modern standard Japanese conversation into the requested target
+  language. It handles omitted subjects, indirect phrasing, politeness levels,
+  and familiar online expressions while preserving what the speaker actually
+  says. It does not infer people, motives, or relationships, and does not claim
+  coverage of dialects, classical Japanese, or newly emerging slang.
+i18n:
+  zh-CN:
+    name: 日语口语翻译
+    description: 自然忠实地翻译现代日语口语，保留省略、委婉语气、敬语关系和常见网络表达。
+    details: >-
+      面向现代标准日语口语，翻译时结合上下文理解省略表达，保留委婉语气、敬语关系和常见网络用语，同时忠实传达说话人实际表达的内容。不凭空推断人物、动机或关系；不承诺方言、古语或新近流行表达的覆盖。始终按照指定目标语言翻译。
+  zh-TW:
+    name: 日語口語翻譯
+    description: 自然忠實地翻譯現代日語口語，保留省略、委婉語氣、敬語關係和常見網路表達。
+    details: >-
+      面向現代標準日語口語，翻譯時結合上下文理解省略表達，保留委婉語氣、敬語關係和常見網路用語，同時忠實傳達說話人實際表達的內容。不憑空推斷人物、動機或關係；不承諾方言、古語或新近流行表達的涵蓋。始終按照指定目標語言翻譯。
+langOverrides: []
+enableRichTranslate: true
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_sub_trans_field}}: Translation
+        {{imt_sub_source_field}}: Source
+aiBatch:
+  taskSystemPrompt: >-
+    Translate only the supplied text into {{to}}. For modern standard Japanese
+    conversation, interpret omitted subjects and objects from the supplied
+    context without inventing people, motives, relationships, or unstated
+    events. Preserve the speaker's meaning, point of view, intent, negation,
+    certainty, conditions, and emotional intensity. Render indirect requests,
+    hedging, politeness, and honorific relationships naturally in the target
+    language without making the speaker more or less deferential than the
+    source. Translate familiar online expressions according to their meaning
+    and tone when clear; when an expression is ambiguous or unfamiliar, do not
+    guess a new meaning. This is not a dialect, classical Japanese, or
+    real-time new-slang specialist. For non-Japanese input, translate it
+    faithfully into the requested {{to}} as usual; never force Chinese when
+    another target language is specified. Preserve names, identifiers, links,
+    formatting, and item boundaries. Output only the translation.
+    {{terms_prompt}}
+systemPrompt: >-
+  Translate only the supplied text into {{to}}. For modern standard Japanese
+  conversation, interpret omitted subjects and objects from the supplied
+  context without inventing people, motives, relationships, or unstated events.
+  Preserve the speaker's meaning, point of view, intent, negation, certainty,
+  conditions, and emotional intensity. Render indirect requests, hedging,
+  politeness, and honorific relationships naturally in the target language
+  without making the speaker more or less deferential than the source. Translate
+  familiar online expressions according to their meaning and tone when clear;
+  when an expression is ambiguous or unfamiliar, do not guess a new meaning.
+  This is not a dialect, classical Japanese, or real-time new-slang specialist.
+  For non-Japanese input, translate it faithfully into the requested {{to}} as
+  usual; never force Chinese when another target language is specified. Preserve
+  formatting and output only the translation.
+  {{terms_prompt}}
+prompt: |-
+  Translate the following text into {{to}}. Preserve its meaning, tone, and certainty. Output only the translation.
+
+  {{text}}
+multipleSystemPrompt: >-
+  Translate only the supplied texts into {{to}}. For modern standard Japanese
+  conversation, interpret omitted subjects and objects from the supplied
+  context without inventing people, motives, relationships, or unstated events.
+  Preserve each speaker's meaning, point of view, intent, negation, certainty,
+  conditions, emotional intensity, and degree of politeness. Render indirect
+  requests, hedging, honorific relationships, and familiar online expressions
+  naturally when their meaning is clear; do not guess ambiguous or unfamiliar
+  slang. This is not a dialect, classical Japanese, or real-time new-slang
+  specialist. For non-Japanese input, translate faithfully into the requested
+  {{to}} as usual; do not force Chinese when another target language is
+  specified. Preserve names, identifiers, links, formatting, item order, and
+  boundaries. Output only the translations.
+  {{terms_prompt}}
+  For multiple source items separated by a standalone %% line with one blank
+  line on each side, return the same number of translations in the same order,
+  using that exact separator.
+multiplePrompt: |-
+  Translate every supplied text into {{to}}. Return exactly one translation per item, in order, separated by the exact standalone %% separator. Preserve meaning, tone, and certainty. Output only the translations.
+
+  {{text}}
+subtitlePrompt: |-
+  Translate each {{imt_sub_source_field}} value in the following YAML into {{to}}. Preserve meaning, tone, item IDs, source fields, order, and identifying details. Fill the corresponding {{imt_sub_trans_field}} and return valid YAML only.
+
+  {{subtitle_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
+systemPrompt.add_v.[1.17.2]: >-
+  Translate only the supplied text into {{to}}. For modern standard Japanese
+  conversation, interpret omitted subjects and objects from the supplied
+  context without inventing people, motives, relationships, or unstated events.
+  Preserve the speaker's meaning, point of view, intent, negation, certainty,
+  conditions, and emotional intensity. Render indirect requests, hedging,
+  politeness, and honorific relationships naturally in the target language
+  without changing their degree. Translate familiar online expressions
+  according to meaning and tone when clear; do not guess ambiguous or unfamiliar
+  slang. This is not a dialect, classical Japanese, or real-time new-slang
+  specialist. For non-Japanese input, translate faithfully into the requested
+  {{to}} as usual; never force Chinese when another target language is
+  specified. Preserve formatting and output only the translation.
+  {{terms_prompt}}
+multipleSystemPrompt.add_v.[1.17.2]: >-
+  Translate only the supplied texts into {{to}}. For modern standard Japanese
+  conversation, interpret omitted subjects and objects from the supplied
+  context without inventing people, motives, relationships, or unstated events.
+  Preserve each speaker's meaning, point of view, intent, negation, certainty,
+  conditions, emotional intensity, and degree of politeness. Render indirect
+  requests, hedging, honorific relationships, and familiar online expressions
+  naturally when their meaning is clear; do not guess ambiguous or unfamiliar
+  slang. This is not a dialect, classical Japanese, or real-time new-slang
+  specialist. For non-Japanese input, translate faithfully into the requested
+  {{to}} as usual; do not force Chinese when another target language is
+  specified. Preserve names, identifiers, links, formatting, and item order.
+  Output only the translations.
+  {{terms_prompt}}
+  For multiple source items separated by a standalone %% line with one blank
+  line on each side, return the same number of translations in the same order,
+  using that exact separator.
+subtitlePrompt.remove_v.[1.17.2]: ""
