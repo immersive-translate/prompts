@@ -1,0 +1,45 @@
+expertId: vietnamese-english-mix
+cases:
+  - id: en-vi-collocations
+    name: 英译越：自然保留搭配
+    from: en
+    to: vi
+    items:
+      - source: "Please follow up with the supplier tomorrow, but don't promise that the shipment will arrive by Friday."
+      - source: "We need to make a decision before the meeting, even if the final numbers are not certain yet."
+    reviewCriteria:
+      - 是否以自然越南语为主体，并有选择地保留有学习价值的英文关键词或完整搭配，而非整句保留英文或机械替换词语。
+      - 是否保留明天跟进供应商、不得承诺周五到货的否定约束，以及会议前决策和数字尚不确定的关系。
+      - 保留的英语表达是否自然融入越南语；没有附加括号解释或词汇清单。
+  - id: en-vi-phrasal-verbs
+    name: 英译越：短语动词完整性
+    from: en
+    to: vi
+    items:
+      - source: "The team put off the launch because the security review had not been completed."
+      - source: "Could you look into why the backup failed before we roll out the update?"
+    reviewCriteria:
+      - 越南语是否自然通顺，并以原意完整表达 put off 与 look into 的短语含义；若保留英文，是否保持短语整体而不拆散致义变。
+      - 是否准确保留发布延期的原因、备份失败原因待查、以及更新尚未推出的时间关系。
+      - 英文保留是否服务于词汇记忆，没有变成定量配额、括号注释或词汇清单。
+  - id: en-vi-idioms-and-conditions
+    name: 英译越：习语与条件
+    from: en
+    to: vi
+    items:
+      - source: "She tried to break the ice, but nobody joined the conversation."
+      - source: "If the figures hold up, we can move forward; otherwise, wait for the audit."
+    reviewCriteria:
+      - 是否把 break the ice 按语境作为完整习语处理，保留其含义而非逐词硬译或拆分致义变。
+      - 是否保留无人加入对话，以及数据成立时才继续、不成立时等待审计的条件分支。
+      - 译文是否以自然越南语为主，英文保留选择合理且不添加解释或词汇教学内容。
+  - id: en-fr-no-forced-mixing
+    name: 非越南语目标：忠实翻译
+    from: en
+    to: fr
+    items:
+      - source: "Please put off the meeting unless the client confirms the revised date."
+      - source: "The idiom is difficult to translate, but do not add an explanation."
+    reviewCriteria:
+      - 是否将英文忠实、自然地译为法语，没有套用越英夹杂风格或强行保留普通英文词语。
+      - 是否保留“除非客户确认修改后的日期，否则推迟会议”的条件，以及习语难译但不得添加解释的要求。

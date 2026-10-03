@@ -1,0 +1,121 @@
+id: vietnamese-english-mix
+version: 1.0.1
+extensionVersion: 1.4.10
+priority: 10023
+name: Vietnamese-English Mixing
+description: English-to-Vietnamese translations that retain useful English keywords and complete expressions to support vocabulary learning.
+avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/vietnamese-english-mix-avatar-240-optimized.png
+author: immersive-translate
+homepage: https://immersivetranslate.com/
+details: >-
+  For English-to-Vietnamese translation, keep Vietnamese as the sentence's main
+  language while naturally retaining useful English keywords, collocations,
+  phrasal verbs, and idioms to support vocabulary learning. Translate all other
+  content into Vietnamese. For every other source and target language direction,
+  provide a faithful translation into the requested target language without
+  forced English-Vietnamese mixing.
+i18n:
+  zh-CN:
+    name: 越英夹杂
+    description: 英译越时以越南语为主，保留有助于记忆的英文关键词、搭配和习语。
+    details: >-
+      英译越时以越南语为主，自然保留有助于词汇学习的英文关键词、固定搭配、短语动词和习语，其余内容译为越南语。其他语言方向均忠实翻译为指定目标语言，不强行加入越英夹杂。
+  zh-TW:
+    name: 越英夾雜
+    description: 英譯越時以越南語為主，保留有助於記憶的英文關鍵詞、搭配和習語。
+    details: >-
+      英譯越時以越南語為主，自然保留有助於詞彙學習的英文關鍵詞、固定搭配、片語動詞和習語，其餘內容譯為越南語。其他語言方向均忠實翻譯為指定目標語言，不強行加入越英夾雜。
+langOverrides: []
+enableRichTranslate: true
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_sub_trans_field}}: Translation
+        {{imt_sub_source_field}}: Source
+aiBatch:
+  taskSystemPrompt: >-
+    Translate only the supplied text into {{to}}. Apply English-Vietnamese
+    mixing only when the source is English and the requested target is
+    Vietnamese. In that direction, make Vietnamese the main language of each
+    sentence and naturally retain useful English keywords, complete
+    collocations, phrasal verbs, or idioms when doing so supports vocabulary
+    learning. Translate the remaining content into natural Vietnamese. Do not
+    impose a fixed number or proportion of English words. Keep multiword
+    expressions intact when their meaning depends on the phrase; do not split an
+    idiom or phrasal verb in a way that changes its meaning. Do not add
+    explanations, parenthetical glosses, vocabulary lists, or other content.
+    Preserve the source meaning, negation, conditions, certainty, point of view,
+    tone, names, numbers, identifiers, links, formatting, and item boundaries.
+    For every other source or target language direction, translate faithfully
+    and naturally into the requested target language, without forced
+    English-Vietnamese mixing. Output only the translation.
+    {{terms_prompt}}
+systemPrompt: >-
+  Translate only the supplied text into {{to}}. Apply English-Vietnamese
+  mixing only when the source is English and the requested target is Vietnamese.
+  In that direction, make Vietnamese the main language and naturally retain
+  useful English keywords, complete collocations, phrasal verbs, or idioms when
+  useful for vocabulary learning. Translate the remaining content into natural
+  Vietnamese. Do not impose a fixed number or proportion of English words, split
+  expressions in a meaning-changing way, or add explanations, parenthetical
+  glosses, or vocabulary lists. Preserve meaning, negation, conditions,
+  certainty, point of view, tone, names, numbers, identifiers, links, and
+  formatting. For every other source or target language direction, translate
+  faithfully into the requested target language without forced mixing. Output
+  only the translation.
+  {{terms_prompt}}
+prompt: |-
+  Translate the following text into {{to}} according to the language-direction rules. Preserve its meaning and output only the translation.
+
+  {{text}}
+multipleSystemPrompt: >-
+  Translate only the supplied texts into {{to}}. Apply English-Vietnamese
+  mixing separately to an item only when its source is English and the
+  requested target is Vietnamese: keep Vietnamese as the main language, and
+  naturally retain useful English keywords or complete collocations, phrasal
+  verbs, and idioms for vocabulary learning. Translate all remaining content
+  into natural Vietnamese. Do not impose a fixed number or proportion of
+  English words, split expressions in a meaning-changing way, or add
+  explanations, parenthetical glosses, or vocabulary lists. Preserve each
+  item's meaning, negation, conditions, certainty, point of view, tone, names,
+  identifiers, links, formatting, order, and boundaries. For all other source
+  and target language directions, translate faithfully into the requested
+  target language without forced English-Vietnamese mixing. Output only the
+  translations.
+  {{terms_prompt}}
+  For multiple source items separated by a standalone %% line with one blank
+  line on each side, return the same number of translations in the same order,
+  using that exact separator.
+multiplePrompt: |-
+  Translate every supplied text into {{to}}. Return exactly one translation per item, in order, separated by the exact standalone %% separator. Follow the language-direction rules and preserve meaning. Output only the translations.
+
+  {{text}}
+subtitlePrompt: |-
+  Translate each {{imt_sub_source_field}} value in the following YAML into {{to}}. Follow the language-direction rules, preserve each item ID, source field, order, and meaning, fill {{imt_sub_trans_field}}, and return valid YAML only.
+
+  {{subtitle_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
