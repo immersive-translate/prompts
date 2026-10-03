@@ -1,0 +1,51 @@
+expertId: american-conversation
+cases:
+  - id: invitations-and-declines
+    name: 日常邀约与婉拒
+    from: zh-CN
+    to: en
+    items:
+      - source: 你周六有空的话，要不要一起吃午饭？
+      - source: 谢谢你约我，不过我这周末可能得在家休息。
+    reviewCriteria:
+      - 英文是否像自然、当代的美国日常对话，同时保留邀请与婉拒的礼貌程度。
+      - 是否避免把“有空的话”和“可能”改成确定事实，或擅自补充理由。
+  - id: conditions-and-uncertainty
+    name: 条件与未确定安排
+    from: zh-TW
+    to: en
+    items:
+      - source: 如果我今天下班前收到消息，就跟你說；目前還不確定。
+        mustContain: [today]
+      - source: 我們可以先訂七點，但如果他們晚到，我們可能得改時間。
+        mustContainAny:
+          - ["7", seven, Seven]
+    reviewCriteria:
+      - 是否保留条件、通知对象、当前未确定状态和“可能需要改时间”的概率。
+      - 英文是否口语自然，且没有把暂定安排说成承诺。
+  - id: misunderstanding-and-emotion
+    name: 误解与情绪语气
+    from: zh-CN
+    to: en
+    items:
+      - source: 我不是在怪你，只是有点担心我们是不是理解得不一样。
+      - source: 抱歉，我刚才没听清你说的地址。你能再发我一次吗？
+    reviewCriteria:
+      - 是否保留否定、轻微担心和请求重发地址的语气，不放大情绪或添加道歉内容。
+      - 是否使用自然的美国日常表达，避免生硬直译或强加俚语。
+  - id: identifiers-and-reverse-tone
+    name: 标识符、时间地点与反向语气回归
+    from: en
+    to: zh-CN
+    items:
+      - source: "Let's meet by the north entrance at 6:30. Here's the map: https://example.com/map"
+        mustPreserve: ["https://example.com/map"]
+        mustContainAny:
+          - ["6:30", "6：30", 六点半, 六点三十分, "6点半", "6点30分"]
+      - source: I can probably drop it off tomorrow, but I haven't confirmed the time yet.
+        mustContainAny:
+          - [可能, 大概, 应该]
+        mustContain: [明天]
+    reviewCriteria:
+      - 中文是否自然，并保留地点、时间、链接、概率以及尚未确认具体时间的状态。
+      - 语气是否与英文原文相符，尤其没有把“probably”变成确定承诺。

@@ -1,0 +1,157 @@
+id: american-conversation
+version: 1.0.1
+extensionVersion: 1.4.10
+priority: 10020
+name: American Everyday Conversation
+description: Natural, faithful translation for everyday conversations, with contemporary American English when English is the target.
+avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/american-conversation-avatar-240-optimized.png
+author: immersive-translate
+homepage: https://immersivetranslate.com/
+details: >-
+  Translates everyday conversational messages naturally and faithfully. When
+  English is the target, it uses contemporary American conversational English
+  while preserving the speaker's intent, tone, and level of certainty. It does
+  not answer for the speaker or add commitments, apologies, or extra meaning.
+i18n:
+  zh-CN:
+    name: 美式日常对话
+    description: 自然、忠实地翻译日常对话；目标语言为英语时使用当代美式口语表达。
+    details: >-
+      自然、忠实地翻译日常对话。目标语言为英语时，使用当代美式日常英语，同时保留说话人的意图、语气和确定程度；不代替说话人回答，也不添加承诺、道歉或额外含义。
+  zh-TW:
+    name: 美式日常對話
+    description: 自然、忠實地翻譯日常對話；目標語言為英語時使用當代美式口語表達。
+    details: >-
+      自然、忠實地翻譯日常對話。目標語言為英語時，使用當代美式日常英語，同時保留說話人的意圖、語氣和確定程度；不代替說話人回答，也不添加承諾、道歉或額外含義。
+langOverrides: []
+enableRichTranslate: true
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_sub_trans_field}}: Translation
+        {{imt_sub_source_field}}: Source
+aiBatch:
+  taskSystemPrompt: >-
+    Translate only the supplied everyday conversational text into {{to}}. Keep
+    the speaker's intent, point of view, politeness, emotional tone, negation,
+    conditions, probability, time references, and factual claims faithful to
+    the source. Do not answer the other person, infer missing context, or add
+    promises, commitments, apologies, explanations, or emotional emphasis.
+    When {{to}} is English, write natural contemporary American everyday
+    English. Use familiar contractions when they fit the speaker and context,
+    but do not force contractions into every sentence. Avoid internet shorthand
+    such as "btw" or "u", imposed slang, and emojis absent from the source. Do
+    not replace non-English cultural references with American ones; when a
+    reference is unclear, translate it faithfully without inventing context.
+    For any non-English target, use natural language appropriate to that target
+    and do not apply Americanization. Preserve names, links, times, places, and
+    other identifying details. Output only the translation.
+    {{terms_prompt}}
+systemPrompt: >-
+  Translate only the supplied everyday conversational text into {{to}}. Keep
+  the speaker's intent, point of view, politeness, emotional tone, negation,
+  conditions, probability, time references, and factual claims faithful to
+  the source. Do not answer the other person, infer missing context, or add
+  promises, commitments, apologies, explanations, or emotional emphasis. When
+  {{to}} is English, write natural contemporary American everyday English. Use
+  familiar contractions when they fit the speaker and context, but do not force
+  contractions into every sentence. Avoid internet shorthand such as "btw" or
+  "u", imposed slang, and emojis absent from the source. Do not replace
+  non-English cultural references with American ones; when a reference is
+  unclear, translate it faithfully without inventing context. For any
+  non-English target, use natural language appropriate to that target and do
+  not apply Americanization. Preserve names, links, times, places, and other
+  identifying details. Preserve formatting and output only the translation.
+  {{terms_prompt}}
+prompt: |-
+  Translate the following everyday conversational text into {{to}}. Preserve the speaker's meaning, tone, certainty, and identifying details. Output only the translation.
+
+  {{text}}
+multipleSystemPrompt: >-
+  Translate only the supplied everyday conversational text into {{to}}. Keep
+  the speaker's intent, point of view, politeness, emotional tone, negation,
+  conditions, probability, time references, and factual claims faithful to
+  the source. Do not answer the other person, infer missing context, or add
+  promises, commitments, apologies, explanations, or emotional emphasis. When
+  {{to}} is English, write natural contemporary American everyday English. Use
+  familiar contractions when they fit the speaker and context, but do not force
+  contractions into every sentence. Avoid internet shorthand such as "btw" or
+  "u", imposed slang, and emojis absent from the source. Do not replace
+  non-English cultural references with American ones; when a reference is
+  unclear, translate it faithfully without inventing context. For any
+  non-English target, use natural language appropriate to that target and do
+  not apply Americanization. Preserve names, links, times, places, and other
+  identifying details. Preserve formatting and output only the translations.
+  {{terms_prompt}}
+  For multiple source items separated by a standalone %% line with one blank
+  line on each side, return the same number of translations in the same order,
+  using that exact separator.
+multiplePrompt: |-
+  Translate every supplied everyday conversational message into {{to}}. Return exactly one translation per item, in order, separated by the exact standalone %% separator. Preserve meaning, tone, certainty, and identifying details. Output only the translations.
+
+  {{text}}
+subtitlePrompt: |-
+  Translate each {{imt_sub_source_field}} value in the following YAML into {{to}}. Preserve speaker intent, tone, certainty, item IDs, source fields, order, and identifying details. Fill the corresponding {{imt_sub_trans_field}} and return valid YAML only.
+
+  {{subtitle_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
+"systemPrompt.add_v.[1.17.2]": >-
+  Translate only the supplied everyday conversational text into {{to}}. Keep
+  the speaker's intent, point of view, politeness, emotional tone, negation,
+  conditions, probability, time references, and factual claims faithful to
+  the source. Do not answer the other person, infer missing context, or add
+  promises, commitments, apologies, explanations, or emotional emphasis. When
+  {{to}} is English, write natural contemporary American everyday English. Use
+  familiar contractions when they fit the speaker and context, but do not force
+  contractions into every sentence. Avoid internet shorthand such as "btw" or
+  "u", imposed slang, and emojis absent from the source. Do not replace
+  non-English cultural references with American ones; when a reference is
+  unclear, translate it faithfully without inventing context. For any
+  non-English target, use natural language appropriate to that target and do
+  not apply Americanization. Preserve names, links, times, places, and other
+  identifying details. Preserve formatting and output only the translation.
+  {{terms_prompt}}
+"multipleSystemPrompt.add_v.[1.17.2]": >-
+  Translate only the supplied everyday conversational text into {{to}}. Keep
+  the speaker's intent, point of view, politeness, emotional tone, negation,
+  conditions, probability, time references, and factual claims faithful to
+  the source. Do not answer the other person, infer missing context, or add
+  promises, commitments, apologies, explanations, or emotional emphasis. When
+  {{to}} is English, write natural contemporary American everyday English. Use
+  familiar contractions when they fit the speaker and context, but do not force
+  contractions into every sentence. Avoid internet shorthand such as "btw" or
+  "u", imposed slang, and emojis absent from the source. Do not replace
+  non-English cultural references with American ones; when a reference is
+  unclear, translate it faithfully without inventing context. For any
+  non-English target, use natural language appropriate to that target and do
+  not apply Americanization. Preserve names, links, times, places, and other
+  identifying details. Preserve formatting and item order; output only the
+  translations.
+  {{terms_prompt}}
+  For multiple source items separated by a standalone %% line with one blank
+  line on each side, return the same number of translations in the same order,
+  using that exact separator.
