@@ -1,5 +1,5 @@
 id: valorant-esports
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.10
 priority: 10000
 aiBatch:
@@ -16,12 +16,12 @@ details: |-
   This expert translates VALORANT professional esports coverage with attention to tactical meaning, live commentary, and established terminology in the target language. It preserves match facts and player identifiers while handling fragmented speech without inventing missing information.
 i18n:
   zh-CN:
-    name: VALORANT 电竞翻译专家
+    name: VALORANT 电竞翻译
     description: 面向《无畏契约》职业赛事解说、采访和字幕的翻译专家。
     details: |-
       适合翻译《无畏契约》职业赛事的解说、赛后采访、分析和直播字幕。专家会结合回合语境处理战术术语、选手称呼和口语断句，并保留比分及事件先后关系。
   zh-TW:
-    name: VALORANT 電競翻譯專家
+    name: VALORANT 電競翻譯
     description: 面向 VALORANT 職業賽事解說、訪談與字幕的翻譯專家。
     details: |-
       適合翻譯 VALORANT 職業賽事的解說、賽後訪談、分析與直播字幕。專家會結合回合語境處理戰術術語、選手稱呼與口語斷句，並保留比分及事件先後關係。

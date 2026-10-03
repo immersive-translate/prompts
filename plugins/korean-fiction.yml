@@ -1,5 +1,5 @@
 id: korean-fiction
-version: 1.0.3
+version: 1.0.4
 extensionVersion: 1.4.10
 priority: 10013
 name: Korean Fiction Translation Expert
@@ -14,12 +14,12 @@ details: >-
   events.
 i18n:
   zh-CN:
-    name: 韩国小说翻译专家
+    name: 韩国小说翻译
     description: 忠实自然地翻译韩国小说，保留叙事语气、人物关系与文学细节，不臆造原文未说明的事实。
     details: >-
       将韩国小说及其他虚构作品自然地译为目标语言，保留叙事视角、人物关系、情感细节与格式；不擅自推断姓名、性别或事件。
   zh-TW:
-    name: 韓國小說翻譯專家
+    name: 韓國小說翻譯
     description: 忠實自然地翻譯韓國小說，保留敘事語氣、人物關係與文學細節，不臆造原文未說明的事實。
     details: >-
       將韓國小說及其他虛構作品自然地譯為目標語言，保留敘事視角、人物關係、情感細節與格式；不擅自推斷姓名、性別或事件。

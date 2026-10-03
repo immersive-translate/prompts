@@ -1,5 +1,5 @@
 id: psychology
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
 priority: 10011
 name: Psychology Translation Expert
@@ -14,12 +14,12 @@ details: >-
   not turn translation into explanation, counseling, or treatment.
 i18n:
   zh-CN:
-    name: 心理学翻译专家
+    name: 心理学翻译
     description: 面向心理学、精神分析与超个人心理学文本，按语境处理术语并保留证据强度与原文限定。
     details: >-
       翻译心理学、精神分析与超个人心理学的学术及专业文本。结合学科与上下文处理术语，忠实保留作者主张及其确定程度；本专家只负责翻译，不提供解释、咨询或治疗。
   zh-TW:
-    name: 心理學翻譯專家
+    name: 心理學翻譯
     description: 面向心理學、精神分析與超個人心理學文本，按語境處理術語並保留證據強度與原文限定。
     details: >-
       翻譯心理學、精神分析與超個人心理學的學術及專業文本。結合學科與上下文處理術語，忠實保留作者主張及其確定程度；本專家只負責翻譯，不提供解釋、諮詢或治療。

@@ -1,5 +1,5 @@
 id: price-action
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
 priority: 10004
 aiBatch:
@@ -16,12 +16,12 @@ details: |-
   This expert translates price action trading education, market commentary, and subtitles. It keeps candlestick terminology, market direction, conditional claims, and chart labels accurate without turning source observations into trading advice.
 i18n:
   zh-CN:
-    name: 价格行为交易翻译专家
+    name: 价格行为交易翻译
     description: 翻译价格行为教材、行情评论与字幕，准确处理 K 线术语和交易条件。
     details: |-
       适合价格行为教材、行情评论及字幕。保留多空方向、概率、否定、先后顺序与图表标记，不把原文的观察或条件扩写成交易建议。
   zh-TW:
-    name: 價格行為交易翻譯專家
+    name: 價格行為交易翻譯
     description: 翻譯價格行為教材、行情評論與字幕，準確處理 K 線術語和交易條件。
     details: |-
       適合價格行為教材、行情評論及字幕。保留多空方向、機率、否定、先後順序與圖表標記，不把原文的觀察或條件擴寫成交易建議。

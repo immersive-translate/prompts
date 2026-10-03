@@ -1,5 +1,5 @@
 id: chemistry
-version: 1.0.4
+version: 1.0.5
 extensionVersion: 1.4.10
 priority: 10010
 name: Chemistry and Chemical Engineering Translation Expert
@@ -14,12 +14,12 @@ details: >-
   the source data or adding explanations.
 i18n:
   zh-CN:
-    name: 化学与化工翻译专家
+    name: 化学与化工翻译
     description: 忠实翻译化学与化工文本，准确保留科学符号、工艺条件和专业含义。
     details: >-
       面向化学与化工文本翻译，结合上下文采用通行术语，保留科学符号、工艺限定、数值、单位与格式；不改动原始数据，也不添加解释。
   zh-TW:
-    name: 化學與化工翻譯專家
+    name: 化學與化工翻譯
     description: 忠實翻譯化學與化工文本，準確保留科學符號、製程條件和專業含義。
     details: >-
       面向化學與化工文本翻譯，結合上下文採用通行術語，保留科學符號、製程限定、數值、單位與格式；不改動原始資料，也不添加解釋。

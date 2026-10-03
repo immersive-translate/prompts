@@ -1,5 +1,5 @@
 id: electronics
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.10
 priority: 10002
 aiBatch:
@@ -16,12 +16,12 @@ details: |-
   This expert translates electronic component specifications and embedded-system documentation. It keeps ratings, operating ranges, test conditions, signal polarity, register names, and electrical units aligned with the source.
 i18n:
   zh-CN:
-    name: 电子硬件翻译专家
+    name: 电子硬件翻译
     description: 翻译电子元器件规格书、应用说明与嵌入式手册，准确保留电气参数和条件。
     details: |-
       适合电子元器件规格书、硬件应用说明和嵌入式手册。重点区分绝对最大额定值与推荐工作条件、典型值与最大值，保留测试条件、引脚极性、寄存器名称和单位。
   zh-TW:
-    name: 電子硬體翻譯專家
+    name: 電子硬體翻譯
     description: 翻譯電子元件規格書、應用說明與嵌入式手冊，準確保留電氣參數和條件。
     details: |-
       適合電子元件規格書、硬體應用說明和嵌入式手冊。重點區分絕對最大額定值與建議操作條件、典型值與最大值，保留測試條件、腳位極性、暫存器名稱和單位。

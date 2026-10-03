@@ -1,5 +1,5 @@
 id: football
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
 priority: 10012
 name: Football Translation Expert
@@ -14,12 +14,12 @@ details: >-
   facts absent from the source.
 i18n:
   zh-CN:
-    name: 足球翻译专家
+    name: 足球翻译
     description: 面向足球赛事报道、解说与战术分析，按语境处理术语并准确保留比赛事实与格式。
     details: >-
       翻译足球赛事报道、解说与战术分析。结合上下文处理足球术语，准确保留比赛状态、比分方向与原文格式；不补充原文没有的规则、解释或事实。
   zh-TW:
-    name: 足球翻譯專家
+    name: 足球翻譯
     description: 面向足球賽事報導、解說與戰術分析，按語境處理術語並準確保留比賽事實與格式。
     details: >-
       翻譯足球賽事報導、解說與戰術分析。結合上下文處理足球術語，準確保留比賽狀態、比分方向與原文格式；不補充原文沒有的規則、解釋或事實。

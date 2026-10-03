@@ -1,5 +1,5 @@
 id: programming-docs
-version: 1.0.3
+version: 1.0.4
 extensionVersion: 1.4.10
 priority: 10008
 name: Programming Docs Expert
@@ -14,13 +14,13 @@ details: >-
   lifecycle, and state relationships faithful to the source.
 i18n:
   zh-CN:
-    name: 编程文档翻译专家
+    name: 编程文档翻译
     description: 翻译 Android、Kotlin、Compose、Flutter 与 Web 官方文档，准确处理语境术语、代码和文档结构。
     details: >-
       适用于 Android、Kotlin、Jetpack Compose、Flutter 和 Web 开发官方文档的翻译。
       区分 API 标识符与普通词语，保留可执行示例和文档结构，并忠实传达要求、生命周期与状态关系。
   zh-TW:
-    name: 編程文件翻譯專家
+    name: 編程文件翻譯
     description: 翻譯 Android、Kotlin、Compose、Flutter 與 Web 官方文件，準確處理語境術語、程式碼和文件結構。
     details: >-
       適用於 Android、Kotlin、Jetpack Compose、Flutter 和 Web 開發官方文件的翻譯。

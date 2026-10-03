@@ -1,0 +1,106 @@
+expertId: western-rap
+cases:
+  - id: context-controls-slang
+    name: 俚语依语境辨义
+    from: en
+    to: zh-CN
+    items:
+      - minLengthRatio: 0.15
+        source: "I stack these bars in the recording booth; every verse lands heavy."
+        mustNotContain: [横杆, 铁栏, 栏杆, 筹码, 金属条, 音轨]
+        mustMatch: ['^(?![\s\S]*\b(?:bars|verse)\b)[\s\S]+']
+      - minLengthRatio: 0.15
+        source: "The gate is shut; the rusty bars still rattle when the wind hits."
+        mustContainAny:
+          - [铁条, 铁栏, 栅栏, 栏杆, 金属条, 横杆]
+    reviewCriteria:
+      - 两项是否依据局部语境区分同形词义，而非把俚语映射成固定译法？
+      - 中文表达是否自然，并保留各自的具体场景？bars 是否保留歌词内容的含义，而非仅缩为押韵技巧；rattle 的声响是否仍在？
+      - “bars”应结合 booth 和 verse 理解为说唱诗句/歌词内容；不要译成金属条或酒吧。
+      - “bars”在此是门上的金属栏条，不是说唱歌词；保留风吹时仍会 rattling 的事实。
+
+  - id: cap-and-contextual-meaning
+    name: cap 的语境义与字面义
+    from: en
+    to: zh-TW
+    items:
+      - minLengthRatio: 0.15
+        source: "He said he ran the whole block, but that's cap; nobody saw him there."
+        mustContainAny:
+          - [
+              唬爛,
+              說謊,
+              騙人,
+              胡扯,
+              吹牛,
+              瞎掰,
+              扯謊,
+              假話,
+              謊話,
+              扯淡,
+              瞎扯,
+              鬼扯,
+              幹話,
+              屁話,
+            ]
+        mustNotContain: [帽子]
+      - minLengthRatio: 0.15
+        source: "She pulled her cap low and waited by the bus stop."
+        mustContainAny:
+          - [帽子, 棒球帽, 帽沿, 鴨舌帽, 帽簷, 帽緣]
+    reviewCriteria:
+      - 是否按句内语义分别处理俚语与普通名词？
+      - 是否避免增添源文未包含的动机或事件？“cap”译为幹話或屁話时，是否不必要地加重原文粗俗程度？
+      - “that's cap”是说话者判定前一句在说谎/吹牛；保留无人见到他的依据，不可改成帽子。
+      - “cap”是穿戴的帽子；保留压低帽子与在公交站等待的动作，不套用说谎俚语。
+
+  - id: figurative-language-without-invented-allusion
+    name: 隐喻歧义与典故边界
+    from: en
+    to: zh-CN
+    items:
+      - minLengthRatio: 0.15
+        source: "I keep a storm in my chest, but I let the room hear rain."
+      - minLengthRatio: 0.15
+        source: "They call me the new king of the moon, though I never asked who crowned me."
+        mustNotContain: [阿波罗, 月球登陆, NASA, 新月之王, 新月王]
+    reviewCriteria:
+      - 是否保留原有意象和可有意保留的歧义，没有擅自具体化比喻？
+      - 是否避免编造典故来源或在译文外补充解释？new 修饰 king，是否没有误成月相“新月”？
+      - 自然保留胸中风暴与让房间听见雨声的比喻及其张力；不要将其解释成具体天气、疾病或暴力事件。
+      - 保留“月亮之王”及未询问是谁加冕的荒诞/隐喻语气；不得据此猜测某个神话、历史人物或真实典故来源，也不要添加注释。
+
+  - id: intensity-negation-and-lyric-format
+    name: 强度、否定、分行与艺名链接
+    from: en
+    to: zh-TW
+    items:
+      - minLengthRatio: 0.15
+        source: |-
+          I ain't hit the switch, I only said I might
+          Same damn hook, we keep it light
+          Same damn hook, we keep it light
+        mustContainAny:
+          - [沒, 未, 不曾, 沒有]
+          - [可能, 也許, 或許]
+        mustNotContain: [扳機, 扳机, 鉤子, 钩子]
+        mustMatch:
+          - '^[^\n]+\n([^\n]+)\n\1\s*$'
+          - '^(?![\s\S]*\bhook\b)[\s\S]+'
+      - minLengthRatio: 0.15
+        source: '<p><a href="https://example.org/artist">Nova Rook</a> talks tough, but she has not thrown a punch tonight.</p>'
+        mustPreserve:
+          - <p>
+          - </p>
+          - '<a href="https://example.org/artist">'
+          - </a>
+          - https://example.org/artist
+          - Nova Rook
+        mustMatch: ['<a href="https://example.org/artist">Nova Rook</a>']
+        mustContainAny:
+          - [沒有, 沒, 尚未, 還未, 不曾, 未曾]
+    reviewCriteria:
+      - 是否保留否定、可能性、尚未发生动作及说话者强度，而没有把意图写成既成事实？
+      - 是否保留行数/副歌重复、HTML 标签、链接和艺名拼写？标点可随中文自然调整。
+      - 保留尚未按下開关、只是说可能会按的否定与未发生状态；不得翻译成已经动手。保持原来的三行与副歌重复关系，以及 damn 的轻度粗口强度；“keep it light”语气应轻松，不擅自加重为威胁。重复行可译出，不要求保留英文。
+      - 将艺名 Nova Rook 视为未提供可靠译名的专名，链接锚文本与 href 应保持一致且原样；保留她嘴上强硬但今晚尚未挥拳的反差，不把比喻性说唱姿态推成犯罪事实。

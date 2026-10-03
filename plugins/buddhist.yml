@@ -1,5 +1,5 @@
 id: buddhist
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.10
 priority: 10003
 aiBatch:
@@ -16,12 +16,12 @@ details: |-
   This expert translates Buddhist scriptures, commentaries, and related texts. It preserves doctrinal distinctions, mantras, romanized Sanskrit and Pali terms, and scripture references while using clear target-language prose. Classical Chinese passages can be rendered in readable modern Chinese without adding interpretation.
 i18n:
   zh-CN:
-    name: 佛教文献翻译专家
+    name: 佛教文献翻译
     description: 翻译佛教经论与相关文献，重视佛教术语、教义关系和原文标记的准确保留。
     details: |-
       适合翻译佛教经文、论释及相关文献。专家会尽量准确表达术语、否定与因缘关系，保留咒语、梵文和巴利语转写及经文编号；古汉语原文可译为忠实、易读的现代汉语，不额外添加教义解释。
   zh-TW:
-    name: 佛教文獻翻譯專家
+    name: 佛教文獻翻譯
     description: 翻譯佛教經論與相關文獻，重視佛教術語、教義關係和原文標記的準確保留。
     details: |-
       適合翻譯佛教經文、論釋及相關文獻。專家會盡量準確表達術語、否定與因緣關係，保留咒語、梵文和巴利語轉寫及經文編號；古漢語原文可譯為忠實、易讀的現代漢語，不額外添加教義解釋。

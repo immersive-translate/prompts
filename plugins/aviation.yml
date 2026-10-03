@@ -1,5 +1,5 @@
 id: aviation
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
 priority: 10006
 aiBatch:
@@ -16,12 +16,12 @@ details: |-
   Translates aviation documents, training material, manuals, and subtitles. Preserves technical distinctions, aircraft identifiers, measurements, and the conditions stated by the source without adding operating instructions.
 i18n:
   zh-CN:
-    name: 航空翻译专家
+    name: 航空翻译
     description: 翻译航空资料、手册与字幕，准确处理专业术语、单位和许可条件。
     details: |-
       适合航空资料、培训内容、手册与字幕。区分空速、地速、高度和飞行高度层，保留机型、呼号、跑道编号、数值及原文条件，不擅自增加操作指令。
   zh-TW:
-    name: 航空翻譯專家
+    name: 航空翻譯
     description: 翻譯航空資料、手冊與字幕，準確處理專業術語、單位和許可條件。
     details: |-
       適合航空資料、培訓內容、手冊與字幕。區分空速、地速、高度和飛行高度層，保留機型、呼號、跑道編號、數值及原文條件，不擅自增加操作指令。

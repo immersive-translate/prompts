@@ -1,5 +1,5 @@
 id: golf
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.10
 priority: 10001
 aiBatch:
@@ -16,12 +16,12 @@ details: |-
   This expert translates golf articles, rules, instruction, equipment information, and event coverage. It distinguishes golf terminology from everyday meanings of words such as green, club, course, and shot while preserving scores and measurements.
 i18n:
   zh-CN:
-    name: 高尔夫翻译专家
+    name: 高尔夫翻译
     description: 面向高尔夫规则、教学、球具与赛事内容，结合语境准确翻译专业术语。
     details: |-
       适合翻译高尔夫规则、教学、球具介绍和赛事报道。专家会结合语境区分 green、club、course、shot 等词在高尔夫及日常表达中的不同含义，并保留杆数、洞号和距离等事实。
   zh-TW:
-    name: 高爾夫翻譯專家
+    name: 高爾夫翻譯
     description: 面向高爾夫規則、教學、球具與賽事內容，依語境準確翻譯專業術語。
     details: |-
       適合翻譯高爾夫規則、教學、球具介紹與賽事報導。專家會依語境區分 green、club、course、shot 等詞在高爾夫及日常表達中的不同含義，並保留桿數、洞號與距離等事實。

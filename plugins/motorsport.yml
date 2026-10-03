@@ -1,5 +1,5 @@
 id: motorsport
-version: 1.0.4
+version: 1.0.5
 extensionVersion: 1.4.10
 priority: 10007
 aiBatch:
@@ -16,12 +16,12 @@ details: |-
   Translates Formula 1, rally, and other motorsport documents, news, commentary, and subtitles. Preserves motorsport distinctions, driver identity, stage and lap data, numbers, units, and the source's level of certainty.
 i18n:
   zh-CN:
-    name: 赛车运动翻译专家
+    name: 赛车运动翻译
     description: 忠实翻译赛车运动内容，准确处理赛道、拉力赛、策略、计时与车队无线电术语。
     details: |-
       适合翻译 F1、拉力赛及其他赛车运动的资料、新闻、解说和字幕。区分操控特性、轮胎状态、排位赛与正赛、进站与维修区，以及拉力赛计时赛段与连接路段；保留车手身份、编号、数值和原文表达的确定程度。
   zh-TW:
-    name: 賽車運動翻譯專家
+    name: 賽車運動翻譯
     description: 忠實翻譯賽車運動內容，準確處理賽道、拉力賽、策略、計時與車隊無線電術語。
     details: |-
       適合翻譯 F1、拉力賽及其他賽車運動的資料、新聞、解說和字幕。區分操控特性、輪胎狀態、排位賽與正賽、進站與維修區，以及拉力賽計時賽段與連接路段；保留車手身分、編號、數值和原文表達的確定程度。
