@@ -1,0 +1,102 @@
+expertId: korean-fiction
+cases:
+  - id: names-voice-and-motif
+    name: 姓名映射、叙事声线与意象
+    from: ko
+    to: zh-CN
+    items:
+      - source: "작가 주: 박지은의 한자는 朴知恩이다. 박지은은 젖은 편지를 접으며 속으로 말했다. “바다는 기억해.”"
+        mustContainAny:
+          - [朴知恩]
+        mustNotContain: [译者注, 原文意思是, 朴智恩]
+        minLengthRatio: 0.15
+      - source: "작가 주: 박지은의 한자는 朴知恩이다. 박지은은 새벽 항구에서 같은 문장을 떠올렸다. 바다는 기억해."
+        mustContainAny:
+          - [朴知恩]
+        mustNotContain: [译者注, 原文意思是, 朴智恩]
+        minLengthRatio: 0.15
+    consistentTerms:
+      - source: 朴知恩
+        target: 朴知恩
+    reviewCriteria:
+      - 是否按源文明确给出的汉字映射姓名，并在两项中保持一致，没有根据韩文读音另造汉字？
+      - 是否保留第三人称叙述、内心话语和反复意象，同时让中文自然，不附加解释？
+
+  - id: pronoun-evidence-and-unrealized-event
+    name: 代词证据与未发生事件
+    from: ko
+    to: zh-TW
+    items:
+      - source: "여성 주인공 수진은 문 앞에서 멈췄다. 그 여자는 아직 편지를 열지 않았고, 그 안에 무엇이 있을지 몰랐다."
+        mustContainAny:
+          - [還沒有, 還沒, 尚未, 沒有, 未曾]
+        mustNotContain: [已經打開]
+        minLengthRatio: 0.15
+      - source: "문 앞에 선 사람은 아직 편지를 열지 않았다. 그 사람은 안에 무엇이 있을지 몰랐고, 열어 보겠다고 약속하지도 않았다."
+        mustContainAny:
+          - [還沒有, 還沒, 尚未, 沒有, 未曾]
+        minLengthRatio: 0.15
+    reviewCriteria:
+      - 第一項是否依据“女性主人公”的明确语境自然使用女性指代，并保留尚未拆信的状态？
+      - 第二项是否避免仅凭 그 사람 推断性别，可用人物称谓或自然省略；是否保留“没有答应去看”的否定？
+      - 是否没有把尚未发生或未承诺的动作改写成已经发生？
+
+  - id: kinship-and-honorific-context
+    name: 亲属称谓与敬称语境
+    from: ko
+    to: zh-CN
+    items:
+      - source: "나는 이웃집 민호를 어릴 때부터 오빠라고 불렀다. 우리는 남매가 아니지만, 그는 늘 내가 넘어지기 전에 손을 내밀었다."
+        mustContainAny:
+          - [哥哥, 欧巴]
+          - [
+              不是兄妹,
+              并非兄妹,
+              不是亲兄妹,
+              并非亲兄妹,
+              非亲兄妹,
+              没有血缘关系,
+            ]
+        mustNotContain: [扶住]
+        minLengthRatio: 0.15
+      - source: "회의실 문이 열리자 모두가 김 선생님에게 자리를 내주었다. 그는 대답 대신 조용히 고개를 숙였다."
+        mustContainAny:
+          - [金先生, 金老师]
+        mustNotContain: [点头, 點頭]
+        minLengthRatio: 0.15
+    reviewCriteria:
+      - 第一项是否根据邻里与“并非兄妹”的明示关系处理 오빠，没有把称呼当成血缘事实？
+      - 第二项是否保留 선생님 的敬称语气，而未凭称谓添加原文没有说明的职业、职级或身份？
+      - 是否保留两项的叙事视角、动作顺序与含蓄语气？
+
+  - id: html-name-mapping-and-condition
+    name: HTML、姓名映射与条件语气
+    from: ko
+    to: zh-TW
+    items:
+      - source: '<p>작가 주: 한서윤의 한자는 韓瑞允이다. <a href="https://example.org/letter">한서윤</a>은 그날 편지를 보내지 않았다.</p>'
+        mustPreserve:
+          - <p>
+          - </p>
+          - '<a href="https://example.org/letter">'
+          - </a>
+          - 韓瑞允
+          - https://example.org/letter
+        mustMatch: ['<a[^>]*>\s*韓瑞允\s*</a>']
+        mustContainAny:
+          - [沒有寄, 並未寄, 沒寄出]
+        minLengthRatio: 0.15
+      - source: "한서윤의 한자는 韓瑞允이다. 비가 그쳤더라면 한서윤은 편지를 보냈을지도 모른다. 하지만 비는 그치지 않았다."
+        mustPreserve: [韓瑞允]
+        mustNotContain: [韓書允]
+        mustContainAny:
+          - [如果, 假如, 倘若, 要是, 若是, 若, 假使]
+          - [沒有停, 並未停, 沒停, 未停, 未止]
+        minLengthRatio: 0.15
+    consistentTerms:
+      - source: 韓瑞允
+        target: 韓瑞允
+    reviewCriteria:
+      - HTML 段落及連結標籤、href 和明示漢字姓名是否完整保留，標籤包裹的譯文是否自然？
+      - 是否保留“如果雨停了，或许会寄信”的反事实条件，以及实际未停雨、未寄出的结果？
+      - 标点是否保留原有语用和结构，同时可采用自然的繁体中文标点？
