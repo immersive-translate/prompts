@@ -1,0 +1,66 @@
+expertId: mining
+cases:
+  - id: mining-terms-in-context
+    name: Mining terminology and everyday ambiguity
+    from: en
+    to: zh-CN
+    items:
+      - source: "The ore grade averages 0.8% Cu, while the students' grade was recorded separately."
+        mustPreserve: ["0.8%", Cu]
+        minLengthRatio: 0.15
+      - source: "The mill reported 91% plant recovery; the underground mine reported 76% mining recovery."
+        mustPreserve: ["91%", "76%"]
+        minLengthRatio: 0.15
+    reviewCriteria:
+      - 是否依据语境区分矿石品位与学校成绩，以及选矿厂回收率与采矿回收率。
+      - 专业术语是否自然，且百分数和元素符号含义未变。
+  - id: resource-reserve-classification
+    name: Resources, reserves, classification, and conditions
+    from: en
+    to: zh-TW
+    items:
+      - source: "The 2022 estimate reports 18 Mt of indicated mineral resources and 7 Mt of probable mineral reserves under the stated cut-off grade."
+        mustPreserve: ["2022", "18 Mt", "7 Mt"]
+        mustContainAny:
+          - [標示, 指示, 推定, indicated, Indicated]
+        minLengthRatio: 0.15
+      - source: "The reserve classification follows the 2012 JORC Code; no economic feasibility assessment was completed for the inferred resource."
+        mustPreserve: ["2012", JORC]
+        minLengthRatio: 0.15
+    reviewCriteria:
+      - 是否清楚区分 mineral resources 与 mineral reserves，并保留 indicated、probable、inferred 等源文分类层级。
+      - 标准名称与年份是否按源文保留；是否保留 cut-off grade 和“未完成经济可行性评估”的否定条件，未擅自转换标准或推断可行性。
+  - id: quantities-units-and-qualifications
+    name: Grade, tonnage, recovery, and units
+    from: en
+    to: zh-CN
+    items:
+      - source: "At 1.25% Ni, the deposit contains an estimated 4.2 Mt of ore; the estimate excludes material below the cut-off grade."
+        mustPreserve: ["1.25%", Ni, "4.2 Mt"]
+        minLengthRatio: 0.15
+      - source: "Processing recovery was 88.5% at 2.0 t/h, but the result does not include losses during mining."
+        mustPreserve: ["88.5%", "2.0 t/h"]
+        minLengthRatio: 0.15
+    reviewCriteria:
+      - 品位、吨位和选矿回收率是否按上下文准确表达，所有数值、单位和元素符号是否原样保留。
+      - 是否保留 excludes、below 与 does not include 所表达的限制和否定，未把选矿回收率改成采矿回收率。
+  - id: html-links-and-drillhole-ids
+    name: HTML links and drillhole identifiers
+    from: en
+    to: zh-TW
+    items:
+      - source: "<a href=\"https://example.org/report\">Drillhole DDH-042</a> intersected 6.3 m of mineralization."
+        mustPreserve: [
+          '<a href="https://example.org/report">',
+          DDH-042,
+          "6.3 m",
+          "https://example.org/report",
+          "</a>",
+        ]
+        minLengthRatio: 0.15
+      - source: "At drillhole RC_17A, no copper was detected above 0.02% Cu."
+        mustPreserve: [RC_17A, "0.02%", Cu]
+        minLengthRatio: 0.15
+    reviewCriteria:
+      - HTML 标签、属性、链接和结构是否完整，钻孔编号是否逐字保留。
+      - 是否保留矿化厚度的数值和单位，以及“未检出高于 0.02%”的否定与阈值关系。

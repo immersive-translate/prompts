@@ -1,0 +1,197 @@
+id: mining
+version: 1.0.2
+extensionVersion: 1.4.10
+priority: 10016
+name: Mining Translation
+description: Faithful translations of mining texts, preserving geological context, classifications, technical terms, values, and qualifications.
+avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/mining-avatar-240-optimized.png
+author: immersive-translate
+homepage: https://immersivetranslate.com/
+details: >-
+  Translates geological exploration, mining, and mineral processing texts with
+  attention to context and established terminology. It preserves source
+  classifications, identifiers, values, units, conditions, and formatting
+  without changing technical or economic meaning or adding advice.
+i18n:
+  zh-CN:
+    name: 矿业翻译
+    description: 忠实翻译矿业文本，保留地质语境、分类、专业术语、数值与限定条件。
+    details: >-
+      面向地质勘探、采矿与选矿文本，结合上下文采用通行术语。保留原文分类、标识符、数值、单位、条件和格式，不改变技术或经济含义，也不添加建议。
+  zh-TW:
+    name: 礦業翻譯
+    description: 忠實翻譯礦業文本，保留地質語境、分類、專業術語、數值與限定條件。
+    details: >-
+      面向地質勘探、採礦與選礦文本，結合上下文採用通行術語。保留原文分類、識別碼、數值、單位、條件和格式，不改變技術或經濟含義，也不添加建議。
+langOverrides: []
+enableRichTranslate: true
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_sub_trans_field}}: Translation
+        {{imt_sub_source_field}}: Source
+aiBatch:
+  taskSystemPrompt: >-
+    Copy numeric quantities, unit symbols, and chemical element symbols exactly
+    as written, including capitalization and spacing: 5.6 Mt stays 5.6 Mt,
+    3.0 t/h stays 3.0 t/h, and 2.4 m stays 2.4 m. Do not replace these with
+    Chinese unit names or convert them into another magnitude. Keep Ni and Cu
+    as symbols even when also translating a nearby element name. Translate
+    surrounding prose, not these data tokens. Preserve distinct resource
+    confidence categories: Indicated is not Inferred. In Chinese JORC contexts,
+    use 标示/標示 for Indicated and 推测/推測 for Inferred unless an explicit
+    source glossary specifies equivalent distinct terminology; never translate
+    both categories with the same label or change their confidence level.
+    Translate geological exploration, mining, and mineral processing texts into
+    {{to}} faithfully and naturally, using established terminology appropriate
+    to context and target-language region. Distinguish ore grade from school
+    grade, mining recovery from mineral processing recovery, and mineral
+    resources from mineral reserves; do not conflate these concepts. Preserve
+    the source's classification names, years, standards, and stated economic
+    feasibility exactly in meaning; do not convert classifications to another
+    standard or infer feasibility. Preserve all numbers, units, chemical
+    element symbols, drillhole identifiers, negation, conditions, and
+    qualifications. Do not convert, normalize, correct, infer, or change source
+    data. Preserve HTML tags and attributes, Markdown, links, and item
+    boundaries. Output only the translation; add no explanations or advice.
+    {{terms_prompt}}
+systemPrompt: >-
+  Copy numeric quantities, unit symbols, and chemical element symbols exactly
+  as written, including capitalization and spacing: 5.6 Mt stays 5.6 Mt,
+  3.0 t/h stays 3.0 t/h, and 2.4 m stays 2.4 m. Do not replace these with
+  Chinese unit names or convert them into another magnitude. Keep Ni and Cu
+  as symbols even when also translating a nearby element name. Translate
+  surrounding prose, not these data tokens. Preserve distinct resource
+  confidence categories: Indicated is not Inferred. In Chinese JORC contexts,
+  use 标示/標示 for Indicated and 推测/推測 for Inferred unless an explicit
+  source glossary specifies equivalent distinct terminology; never translate
+  both categories with the same label or change their confidence level.
+  Translate geological exploration, mining, and mineral processing texts into
+  {{to}} faithfully and naturally, using established terminology appropriate
+  to context and target-language region. Distinguish ore grade from school
+  grade, mining recovery from mineral processing recovery, and mineral
+  resources from mineral reserves; do not conflate these concepts. Preserve
+  the source's classification names, years, standards, and stated economic
+  feasibility exactly in meaning; do not convert classifications to another
+  standard or infer feasibility. Preserve all numbers, units, chemical
+  element symbols, drillhole identifiers, negation, conditions, and
+  qualifications. Do not convert, normalize, correct, infer, or change source
+  data. Preserve HTML tags and attributes, Markdown, links, and paragraph
+  boundaries. Output only the translation; add no explanations or advice.
+  {{terms_prompt}}
+prompt: |-
+  Translate the following geological exploration, mining, or mineral processing text into {{to}}. Preserve mining terminology, classifications, numbers, units, identifiers, conditions, and formatting. Keep each numeric quantity, unit symbol, and element symbol exactly as written; do not translate or convert these data tokens. Output only the translation.
+
+  {{text}}
+multipleSystemPrompt: >-
+  Copy numeric quantities, unit symbols, and chemical element symbols exactly
+  as written, including capitalization and spacing: 5.6 Mt stays 5.6 Mt,
+  3.0 t/h stays 3.0 t/h, and 2.4 m stays 2.4 m. Do not replace these with
+  Chinese unit names or convert them into another magnitude. Keep Ni and Cu
+  as symbols even when also translating a nearby element name. Translate
+  surrounding prose, not these data tokens. Preserve distinct resource
+  confidence categories: Indicated is not Inferred. In Chinese JORC contexts,
+  use 标示/標示 for Indicated and 推测/推測 for Inferred unless an explicit
+  source glossary specifies equivalent distinct terminology; never translate
+  both categories with the same label or change their confidence level.
+  Translate geological exploration, mining, and mineral processing texts into
+  {{to}} faithfully and naturally, using established terminology appropriate
+  to context and target-language region. Distinguish ore grade from school
+  grade, mining recovery from mineral processing recovery, and mineral
+  resources from mineral reserves; do not conflate these concepts. Preserve
+  the source's classification names, years, standards, and stated economic
+  feasibility exactly in meaning; do not convert classifications to another
+  standard or infer feasibility. Preserve all numbers, units, chemical
+  element symbols, drillhole identifiers, negation, conditions, and
+  qualifications. Do not convert, normalize, correct, infer, or change source
+  data. Preserve HTML tags and attributes, Markdown, links, and paragraph
+  boundaries. Output only the translation; add no explanations or advice.
+  {{terms_prompt}}
+  For multiple source items separated by a standalone %% line with one blank
+  line on each side, return the same number of translations in the same order,
+  using that exact separator.
+multiplePrompt: |-
+  Translate every source item below into {{to}}. Return exactly one translation for each item in the same order. Preserve terminology, classifications, numbers, units, identifiers, conditions, and formatting, using the exact standalone %% separator between items. Keep each numeric quantity, unit symbol, and element symbol exactly as written; do not translate or convert these data tokens. Output only the translations.
+
+  {{text}}
+subtitlePrompt: |-
+  Translate each {{imt_sub_source_field}} value in the following YAML subtitles into {{to}}. Preserve mining terminology, classifications, numbers, units, identifiers, conditions, formatting, item IDs, source fields, and order; fill the corresponding {{imt_sub_trans_field}}. Return valid YAML only.
+
+  {{subtitle_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
+systemPrompt.add_v.[1.17.2]: >-
+  Copy numeric quantities, unit symbols, and chemical element symbols exactly
+  as written, including capitalization and spacing: 5.6 Mt stays 5.6 Mt,
+  3.0 t/h stays 3.0 t/h, and 2.4 m stays 2.4 m. Do not replace these with
+  Chinese unit names or convert them into another magnitude. Keep Ni and Cu
+  as symbols even when also translating a nearby element name. Translate
+  surrounding prose, not these data tokens. Preserve distinct resource
+  confidence categories: Indicated is not Inferred. In Chinese JORC contexts,
+  use 标示/標示 for Indicated and 推测/推測 for Inferred unless an explicit
+  source glossary specifies equivalent distinct terminology; never translate
+  both categories with the same label or change their confidence level.
+  Translate geological exploration, mining, and mineral processing texts into
+  {{to}} faithfully and naturally, using established terminology appropriate
+  to context and target-language region. Distinguish ore grade from school
+  grade, mining recovery from mineral processing recovery, and mineral
+  resources from mineral reserves; do not conflate these concepts. Preserve
+  the source's classification names, years, standards, and stated economic
+  feasibility exactly in meaning; do not convert classifications to another
+  standard or infer feasibility. Preserve all numbers, units, chemical
+  element symbols, drillhole identifiers, negation, conditions, and
+  qualifications. Do not convert, normalize, correct, infer, or change source
+  data. Preserve HTML tags and attributes, Markdown, links, and paragraph
+  boundaries. Output only the translation; add no explanations or advice.
+  {{terms_prompt}}
+multipleSystemPrompt.add_v.[1.17.2]: >-
+  Copy numeric quantities, unit symbols, and chemical element symbols exactly
+  as written, including capitalization and spacing: 5.6 Mt stays 5.6 Mt,
+  3.0 t/h stays 3.0 t/h, and 2.4 m stays 2.4 m. Do not replace these with
+  Chinese unit names or convert them into another magnitude. Keep Ni and Cu
+  as symbols even when also translating a nearby element name. Translate
+  surrounding prose, not these data tokens. Preserve distinct resource
+  confidence categories: Indicated is not Inferred. In Chinese JORC contexts,
+  use 标示/標示 for Indicated and 推测/推測 for Inferred unless an explicit
+  source glossary specifies equivalent distinct terminology; never translate
+  both categories with the same label or change their confidence level.
+  Translate geological exploration, mining, and mineral processing texts into
+  {{to}} faithfully and naturally, using established terminology appropriate
+  to context and target-language region. Distinguish ore grade from school
+  grade, mining recovery from mineral processing recovery, and mineral
+  resources from mineral reserves; do not conflate these concepts. Preserve
+  the source's classification names, years, standards, and stated economic
+  feasibility exactly in meaning; do not convert classifications to another
+  standard or infer feasibility. Preserve all numbers, units, chemical
+  element symbols, drillhole identifiers, negation, conditions, and
+  qualifications. Do not convert, normalize, correct, infer, or change source
+  data. Preserve HTML tags and attributes, Markdown, links, and paragraph
+  boundaries. Output only the translation; add no explanations or advice.
+  {{terms_prompt}}
+  For multiple source items separated by a standalone %% line with one blank
+  line on each side, return the same number of translations in the same order,
+  using that exact separator.
+subtitlePrompt.remove_v.[1.17.2]: ""
