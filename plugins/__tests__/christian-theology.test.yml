@@ -1,0 +1,87 @@
+expertId: christian-theology
+cases:
+  - id: theological-and-everyday-sense
+    name: 神学术语与日常词义
+    from: en
+    to: zh-CN
+    items:
+      - source: In this chapter, justification names God's act of setting sinners right with God; the author uses the term in its theological sense.
+        mustContainAny:
+          - [称义, 成义]
+        mustNotContain: [正当化]
+        minLengthRatio: 0.15
+      - source: Her justification for leaving was that the meeting had ended, not a claim about the doctrine of justification.
+        mustContainAny:
+          - [理由, 辩解, 解释]
+        minLengthRatio: 0.15
+    reviewCriteria:
+      - 第一项是否将 justification 按明确的神学语境处理，第二项是否按日常语义处理，而未机械统一译法？
+      - 是否保留“作者在本章中的用词说明”这一归属与限定，没有把该定义扩展为所有传统共同接受的表述？
+
+  - id: tradition-and-attribution
+    name: 宗派语境与观点归属
+    from: en
+    to: zh-TW
+    items:
+      - source: Some Reformed theologians describe this account of election as unconditional, while the Wesleyan writer quoted here rejects that account; neither sentence states that all Christians agree.
+        mustContainAny:
+          - [改革宗, 歸正宗]
+        minLengthRatio: 0.15
+      - source: The historian reports that several medieval theologians held this view, but she does not endorse it as the position of the present-day church.
+        mustContainAny:
+          - [中世紀, 中古時期]
+        mustContain: [教會]
+        minLengthRatio: 0.15
+    reviewCriteria:
+      - 是否清楚保留部分改革宗神學家與此處衛斯理宗作者各自的立場，並保留作者指出“並非所有基督徒同意”的範圍？
+      - 第二項是否將主張置於中世紀神學家的歷史脈絡，並保留史家報告而不認同、且非當代教會立場的限定？
+      - 是否避免替任何傳統判定正統或異端，或把個別立場概括為整個宗派的共識？
+
+  - id: scripture-locator-and-quotation-scope
+    name: 经文定位与引述范围
+    from: en
+    to: zh-CN
+    items:
+      - source: The study quotes “faith working through love” (Galatians 5:6, NRSV) and compares how two commentators read the phrase.
+        mustPreserve: [NRSV]
+        mustMatch: ["5[:：]6"]
+        mustContainAny:
+          - [Galatians, 加拉太书, 迦拉达书, 加 5, 加5]
+        minLengthRatio: 0.15
+      - source: For the discussion of creation, the author refers readers to Genesis 1:1–3 (NRSVue) but does not quote the passage.
+        mustContainAny:
+          - [Genesis, 创世记, 创 1, 创1]
+        mustMatch: ["1\\s*[:：]\\s*1\\s*[–—-]\\s*3"]
+        mustContain: [NRSVue]
+        mustNotContain: [起初，神创造天地, 起初神创造天地]
+        minLengthRatio: 0.15
+    reviewCriteria:
+      - 第一项是否忠实翻译短引述，保留加拉太书定位及 NRSV 版本标记，没有换成其他熟悉译本的经文措辞？
+      - 第二项是否只保留创世记定位与 NRSVue 标记，没有因为熟悉该段而补出原文未引述的经文内容？
+      - 引号、范围符号与书卷章节关系是否清楚，未把评论者的解读改成经文本身的陈述？
+
+  - id: markup-and-source-term-map
+    name: 格式与源内术语映射
+    from: en
+    to: zh-TW
+    items:
+      - source: "**Term map: covenant theology = 聖約神學.** The lecturer calls this approach “covenant theology,” while noting that the label is used differently by some authors."
+        mustPreserve: ["**", "covenant theology", "聖約神學"]
+        mustMatch: ['\*\*[^*]+\*\*']
+        mustContainAny:
+          - [聖約神學]
+        minLengthRatio: 0.15
+      - source: "<p>In this essay, <em>covenant theology</em> is the term used in the source's map; the author does not claim that every church uses the label in the same way.</p>"
+        mustPreserve: ["<p>", "</p>", "<em>", "</em>"]
+        mustMatch: ["<em>[^<]+</em>"]
+        mustContainAny:
+          - [聖約神學]
+        mustContain: [教會]
+        minLengthRatio: 0.15
+    consistentTerms:
+      - source: covenant theology
+        target: 聖約神學
+    reviewCriteria:
+      - 是否依源文內明示映射，將 covenant theology 在兩項中一致譯為聖約神學？
+      - 第一項是否保留 Markdown 強調與作者指出的標籤用法差異？第二項是否保留 HTML 段落及強調標籤，並保留“非每間教會都以同一方式使用此標籤”的限定？
+      - 是否自然區分術語映射和對所有教會作出的普遍主張？
