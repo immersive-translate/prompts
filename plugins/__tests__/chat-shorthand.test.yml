@@ -1,0 +1,48 @@
+expertId: chat-shorthand
+cases:
+  - id: zhcn-chat-concision
+    name: 简体中文聊天与自然简写
+    from: zh-CN
+    to: en
+    items:
+      - source: 我今天有点忙，不过晚点可以回你。
+      - source: 顺便问一下，你知道他什么时候到吗？
+    reviewCriteria:
+      - 英文是否像自然、易读的日常聊天，并在适合的地方体现轻度简写（如 I'm、btw），不为展示简写而生硬改写。
+      - 是否保留“有点忙”“晚点可以回”和询问到达时间的原意，没有增加承诺或额外语气。
+  - id: zhtw-chat-casual
+    name: 繁体中文聊天表达
+    from: zh-TW
+    to: en
+    items:
+      - source: 我不太確定，晚點再跟你說。
+      - source: 我不知道他有沒有看到你的訊息。
+    reviewCriteria:
+      - 英文是否自然简洁，适当使用常见简写，同时保持清晰易读。
+      - 是否保留不确定、稍后告知和不知道对方是否看到消息的语义，没有将未知改成否定事实。
+  - id: negation-and-probability
+    name: 否定、条件与可能性
+    from: zh-CN
+    to: en
+    items:
+      - source: 如果我没赶上六点的车，我可能会晚一点到，但我还不确定。
+        mustContainAny:
+          - [six, "6"]
+      - source: 我不是不想去，只是今晚可能没时间。
+        mustContainAny:
+          - [tonight, Tonight, this evening, This evening]
+    reviewCriteria:
+      - 是否完整保留条件、否定关系、可能性和尚未确定的语气，没有把可能晚到说成确定事实。
+      - 英文是否自然，简写没有削弱或改变这些语义关系。
+  - id: identifiers-and-reverse-translation
+    name: 标识符保留与英译中回归
+    from: en
+    to: zh-CN
+    items:
+      - source: "I sent the code CHAT-42 btw; let me know if the link doesn't work: https://example.com/a"
+        mustPreserve: [CHAT-42, "https://example.com/a"]
+      - source: idk if I'll have time tomorrow, but I'll check.
+        mustContain: [明天]
+    reviewCriteria:
+      - 中文是否忠实自然地翻译聊天简写的意思，并保留编号、链接、时间和原文不确定语气。
+      - 是否没有套用英语聊天简写规则来影响中文表达，也没有添加承诺或情绪。

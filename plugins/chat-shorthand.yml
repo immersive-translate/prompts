@@ -1,0 +1,142 @@
+id: chat-shorthand
+version: 1.0.1
+extensionVersion: 1.4.10
+priority: 10021
+name: English Chat Shorthand
+description: Faithful Chinese-to-English chat translation with light, readable everyday shorthand when it fits.
+avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/chat-shorthand-avatar-240-optimized.png
+author: immersive-translate
+homepage: https://immersivetranslate.com/
+details: >-
+  Translates chat messages faithfully. For Chinese-to-English messages, it can
+  use familiar, readable chat shorthand such as I'm, btw, or idk when natural
+  and appropriate. It does not force you to become u, add slang, or change the
+  speaker's meaning, tone, certainty, or intent. Other target languages receive
+  ordinary faithful translation.
+i18n:
+  zh-CN:
+    name: 英语聊天简写
+    description: 忠实翻译聊天内容；中译英时自然使用适度、易读的日常简写。
+    details: >-
+      忠实翻译聊天消息。中文翻译成英文时，可在自然且合适的情况下使用
+      I'm、btw、idk 等常见易读的聊天简写。不强制把 you 写成 u，不额外添加俚语，
+      也不改变说话人的含义、语气、确定程度或意图。翻译成其他目标语言时正常忠实翻译。
+  zh-TW:
+    name: 英語聊天簡寫
+    description: 忠實翻譯聊天內容；中譯英時自然使用適度、易讀的日常簡寫。
+    details: >-
+      忠實翻譯聊天訊息。中文翻譯成英文時，可在自然且合適的情況下使用
+      I'm、btw、idk 等常見易讀的聊天簡寫。不強制把 you 寫成 u，不額外添加俚語，
+      也不改變說話人的含義、語氣、確定程度或意圖。翻譯成其他目標語言時正常忠實翻譯。
+langOverrides: []
+enableRichTranslate: true
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_sub_trans_field}}: Translation
+        {{imt_sub_source_field}}: Source
+aiBatch:
+  taskSystemPrompt: >-
+    Translate only the supplied chat message into {{to}}. Preserve the
+    speaker's meaning, point of view, tone, intent, negation, conditions,
+    probability, and factual details. When translating Chinese into English,
+    use natural, concise everyday chat English and light, familiar shorthand
+    where it genuinely fits, such as I'm, btw, or idk. Keep it readable; do not
+    force shorthand into every sentence, turn you into u, or add slang, emojis,
+    emotional emphasis, promises, or other meaning absent from the source.
+    Preserve names, identifiers, links, and time references. For any
+    non-English target, translate faithfully in natural language without
+    applying English chat shorthand. Output only the translation.
+    {{terms_prompt}}
+systemPrompt: >-
+  Translate only the supplied chat message into {{to}}. Preserve the speaker's
+  meaning, point of view, tone, intent, negation, conditions, probability, and
+  factual details. When translating Chinese into English, use natural, concise
+  everyday chat English and light, familiar shorthand where it genuinely fits,
+  such as I'm, btw, or idk. Keep it readable; do not force shorthand into every
+  sentence, turn you into u, or add slang, emojis, emotional emphasis,
+  promises, or other meaning absent from the source. Preserve names,
+  identifiers, links, and time references. For any non-English target,
+  translate faithfully in natural language without applying English chat
+  shorthand. Preserve formatting and output only the translation.
+  {{terms_prompt}}
+prompt: |-
+  Translate the following chat message into {{to}}. Preserve its meaning, tone, certainty, and details. Output only the translation.
+
+  {{text}}
+multipleSystemPrompt: >-
+  Translate only the supplied chat messages into {{to}}. Preserve each
+  speaker's meaning, point of view, tone, intent, negation, conditions,
+  probability, and factual details. When translating Chinese into English, use
+  natural, concise everyday chat English and light, familiar shorthand where
+  it genuinely fits, such as I'm, btw, or idk. Keep it readable; do not force
+  shorthand into every sentence, turn you into u, or add slang, emojis,
+  emotional emphasis, promises, or other meaning absent from the source.
+  Preserve names, identifiers, links, time references, formatting, and item
+  order. For any non-English target, translate faithfully in natural language
+  without applying English chat shorthand. Output only the translations.
+  {{terms_prompt}}
+  For multiple source items separated by a standalone %% line with one blank
+  line on each side, return the same number of translations in the same order,
+  using that exact separator.
+multiplePrompt: |-
+  Translate every supplied chat message into {{to}}. Return exactly one translation per item, in order, separated by the exact standalone %% separator. Preserve meaning, tone, certainty, and details. Output only the translations.
+
+  {{text}}
+subtitlePrompt: |-
+  Translate each {{imt_sub_source_field}} value in the following YAML into {{to}}. Preserve meaning, tone, item IDs, source fields, order, and identifying details. Fill the corresponding {{imt_sub_trans_field}} and return valid YAML only.
+
+  {{subtitle_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
+systemPrompt.add_v.[1.17.2]: >-
+  Translate only the supplied chat message into {{to}}. Preserve the speaker's
+  meaning, point of view, tone, intent, negation, conditions, probability, and
+  factual details. When translating Chinese into English, use natural, concise
+  everyday chat English and light, familiar shorthand where it genuinely fits,
+  such as I'm, btw, or idk. Keep it readable; do not force shorthand into every
+  sentence, turn you into u, or add slang, emojis, emotional emphasis,
+  promises, or other meaning absent from the source. Preserve names,
+  identifiers, links, and time references. For any non-English target,
+  translate faithfully in natural language without applying English chat
+  shorthand. Preserve formatting and output only the translation.
+  {{terms_prompt}}
+multipleSystemPrompt.add_v.[1.17.2]: >-
+  Translate only the supplied chat messages into {{to}}. Preserve each
+  speaker's meaning, point of view, tone, intent, negation, conditions,
+  probability, and factual details. When translating Chinese into English, use
+  natural, concise everyday chat English and light, familiar shorthand where
+  it genuinely fits, such as I'm, btw, or idk. Keep it readable; do not force
+  shorthand into every sentence, turn you into u, or add slang, emojis,
+  emotional emphasis, promises, or other meaning absent from the source.
+  Preserve names, identifiers, links, time references, formatting, and item
+  order. For any non-English target, translate faithfully in natural language
+  without applying English chat shorthand. Output only the translations.
+  {{terms_prompt}}
+  For multiple source items separated by a standalone %% line with one blank
+  line on each side, return the same number of translations in the same order,
+  using that exact separator.
+subtitlePrompt.remove_v.[1.17.2]: ""
