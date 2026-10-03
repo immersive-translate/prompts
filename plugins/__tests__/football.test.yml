@@ -1,0 +1,85 @@
+expertId: football
+cases:
+  - id: football-terms-vs-ordinary-language-cn
+    name: 自建：足球术语与普通语境对照
+    from: en
+    to: zh-CN
+    items:
+      - source: The winger was offside, and the referee awarded a free kick.
+        mustContainAny:
+          - [越位]
+          - [任意球]
+      - source: Please press the box flat and leave it by the door.
+        mustContainAny:
+          - [压平, 按扁, 压扁, 压扁平]
+    reviewCriteria:
+      - 足球语境中的 offside 是否译出越位含义，普通日常句中的 press 和 box 是否按普通语境翻译。
+      - 是否保留裁判判罚与日常请求各自的关系和语气。
+
+  - id: scores-and-aggregate-tw
+    name: 自建：比分方向与两回合总比分
+    from: en
+    to: zh-TW
+    items:
+      - source: Milan led 2-1 at halftime, but Porto drew level at 2-2.
+        mustMatch: [
+          '2\s*(?:[-–—:：比]|對)\s*1',
+          '2\s*(?:[-–—:：比]|對)\s*2',
+        ]
+        mustNotContain: [波爾多, 波尔多]
+        mustContainAny:
+          - [波圖, 波爾圖, Porto]
+          - [扳平, 追平, 追成, 追至, 扳成, 逼平]
+      - source: Manchester City won the first leg 1-0; the aggregate score is 2-2.
+        mustMatch: [
+          '1\s*(?:[-–—:：比]|對)\s*0',
+          '2\s*(?:[-–—:：比]|對)\s*2',
+        ]
+        mustContainAny:
+          - [首回合, 第一回合]
+          - [總比分, 總比數]
+    reviewCriteria:
+      - 是否保留主客/球队比分方向、半场领先后被扳平，以及首回合比分与总比分的区别。
+      - 是否避免根据比分自行补写晋级、胜负或客场进球规则。
+
+  - id: disallowed-goal-and-live-play-cn
+    name: 自建：取消进球与尚未结束的局势
+    from: en
+    to: zh-CN
+    items:
+      - source: The goal was ruled out for offside; the score remains 0-0.
+        mustContainAny:
+          - [
+              进球无效,
+              进球被判无效,
+              进球被取消,
+              进球因越位被判无效,
+              进球因越位被取消,
+              进球因越位被吹掉,
+            ]
+        mustMatch: ['0\s*(?:[-–—:：比]|对)\s*0']
+      - source: The attack is still developing, with the striker facing the goalkeeper.
+        minLengthRatio: 0.15
+        mustContainAny:
+          - [仍在, 还在, 正在, 尚在]
+          - [门将, 守门员]
+        mustNotContain: [一对一, 一對一, 单刀, 單刀]
+    reviewCriteria:
+      - 是否准确区分进球被取消与进球有效，并保留比分仍为 0-0。
+      - 第二句是否保留进攻仍在进行的未完成状态，没有擅自补出射门或进球结果。
+
+  - id: html-player-name-and-number-tw
+    name: 自建：HTML 球员姓名与号码格式
+    from: en
+    to: zh-TW
+    items:
+      - source: <a href="/players/7">No. 7</a> delivered the cross.
+        mustPreserve: ['<a href="/players/7">', "</a>", "/players/7", "7"]
+        mustContainAny:
+          - [傳中]
+        mustNotContain: [角球]
+      - source: The report credits <strong>Jordan Lee</strong> with 2 assists.
+        mustPreserve: ["<strong>", "</strong>", Jordan Lee, "2"]
+    reviewCriteria:
+      - HTML 標籤與連結是否有效保留，文字翻譯後仍位於原有標籤內。
+      - 球員姓名在沒有可確認慣用譯名時是否維持原樣，且沒有憑空補充身份資訊。
