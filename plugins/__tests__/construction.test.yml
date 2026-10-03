@@ -1,0 +1,68 @@
+expertId: construction
+cases:
+  - id: construction-material-context
+    name: Structural materials in context
+    from: en
+    to: zh-CN
+    items:
+      - source: "The project note specifies a steel beam supporting the concrete slab."
+        mustContainAny:
+          - [钢梁, 钢制梁]
+          - [混凝土板, 混凝土楼板]
+        minLengthRatio: 0.15
+      - source: "The site team placed a timber sample beside the steel column for review."
+        mustContainAny:
+          - [木材, 木质]
+          - [钢柱, 钢制柱]
+        minLengthRatio: 0.15
+    reviewCriteria:
+      - 是否结合结构语境准确表达 beam、slab、timber 与 column。
+      - 译文是否自然、忠实，未增加原文没有的施工或设计结论。
+  - id: construction-requirement-force
+    name: Requirement strength and conditions
+    from: en
+    to: zh-TW
+    items:
+      - source: "The project note says the connection shall be inspected before the pour, while the surface should remain dry during application."
+        minLengthRatio: 0.15
+      - source: "The temporary cover may be removed after review, but it must not be removed while the area remains restricted."
+        minLengthRatio: 0.15
+    reviewCriteria:
+      - 是否准确区分 shall 的强制要求与 should 的建议，以及 may 的许可；没有擅自升级或弱化义务。
+      - 是否保留 but、before、while 等条件关系，以及 restricted 状态下不得移除的否定要求。
+      - 是否使用繁体字形与符合目标地区习惯的工程用语。
+  - id: construction-values-units-tolerance
+    name: Values, unit symbols, and tolerance
+    from: en
+    to: zh-CN
+    items:
+      - source: "The project note records a panel thickness of 125 mm with a tolerance of ±2 mm."
+        mustPreserve: ["125 mm", "±2 mm"]
+        minLengthRatio: 0.15
+      - source: "The sample length is 2.40 m, and the recorded gap is 0.015 m."
+        mustPreserve: ["2.40 m", "0.015 m"]
+        minLengthRatio: 0.15
+    reviewCriteria:
+      - 数值、公差符号、小数位数、空格及单位符号是否逐字保留，未翻译成中文单位或换算。
+      - 是否忠实表达厚度、长度与间隙之间各自的对象关系，没有添加规范判断。
+  - id: construction-markup-and-identifiers
+    name: HTML, links, and drawing identifiers
+    from: en
+    to: zh-TW
+    items:
+      - source: "<a href=\"https://example.org/project-note\">See drawing ST-204, detail 03</a> for the panel reference."
+        mustPreserve: [
+          '<a href="https://example.org/project-note">',
+          ST-204,
+          "03",
+          "https://example.org/project-note",
+          "</a>",
+        ]
+        minLengthRatio: 0.15
+      - source: "Under project clause 7.2, model BX-14 is listed; the note does not assign it to the east wing."
+        mustPreserve: ["7.2", BX-14]
+        minLengthRatio: 0.15
+    reviewCriteria:
+      - HTML 标签、属性、链接及条目结构是否完整，图号、细节号、条款号和型号是否原样保留。
+      - 是否保留 not assign 的否定关系，且没有自行推断该型号属于东翼。
+      - 是否使用繁体字形与符合目标地区习惯的工程用语。
