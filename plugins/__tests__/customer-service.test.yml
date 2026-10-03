@@ -1,0 +1,60 @@
+expertId: customer-service
+cases:
+  - id: en-zhcn-clear-abbreviation-and-estimate
+    name: 明确缩写与预计送达
+    from: en
+    to: zh-CN
+    items:
+      - source: "I'm frustrated. The ETA for order ZX-18 was yesterday, but it still hasn't arrived. Pls check where it is."
+        mustPreserve: ["ZX-18"]
+      - source: "We can issue an RMA if the item is unused; please send a photo first."
+        mustContainAny:
+          - ["退货授权", "退货许可", RMA]
+    reviewCriteria:
+      - 是否结合包裹语境自然处理 ETA 和 Pls，保留昨天预计送达、至今未到的事实及客户不满，没有代替客服答复。
+      - 是否准确保留未使用条件、先发照片的要求，并仅在语境明确时处理 RMA。
+      - 是否只翻译原文，没有替客服承诺或补充政策。
+  - id: en-zhtw-refund-condition-and-html
+    name: 退款条件与 HTML 标记
+    from: en
+    to: zh-TW
+    items:
+      - source: "If the seal is broken, we can't refund the item; shipping fees are excluded either way."
+      - source: '<p>We expect dispatch within 2–3 business days; <a href="https://shop.example/track/ZX-41">track order ZX-41</a>.</p>'
+        mustPreserve: [
+          "<p>",
+          "</p>",
+          '<a href="https://shop.example/track/ZX-41">',
+          "</a>",
+          "https://shop.example/track/ZX-41",
+          "ZX-41",
+        ]
+    reviewCriteria:
+      - 是否准确保留封条破损时不能退款、运费始终不包含的范围与否定关系。
+      - 是否将预计发货时间表达为预计而非保证，并保留 HTML 结构、链接和订单编号。
+      - 繁体中文是否自然、专业，且未添加道歉或额外承诺。
+  - id: zhcn-en-negation-amount-and-responsibility
+    name: 否定、金额与责任主体
+    from: zh-CN
+    to: en
+    items:
+      - source: "我很不满，订单 ZX-204 的退款还没批准；即使包裹在周五前送达，我也不会取消这笔申请。"
+        mustPreserve: ["ZX-204"]
+      - source: "我们可以退回 US$18.40 的商品款，但不退国际运费；请由收件人联系承运商安排重新派送。"
+        mustPreserve: ["US$18.40"]
+    reviewCriteria:
+      - 是否保留客户不满、退款尚未批准，以及即使周五前送达也不会取消申请的让步与否定关系，没有改成客服视角。
+      - 是否区分商品款与国际运费，并准确保留由收件人联系承运商这一责任主体。
+      - 英文回复是否自然忠实，未把翻译变成客服决策或承诺。
+  - id: zhtw-en-estimate-conditions-and-markup
+    name: 预计时效、条件与标记
+    from: zh-TW
+    to: en
+    items:
+      - source: "若海關未要求補件，包裹預計會在 6 至 9 個工作天內送達；這不是保證日期。"
+      - source: "<div>若系統顯示 <strong>held</strong>，請回覆「CS」；我們目前無法確認原因。</div>"
+        mustPreserve: ["<div>", "</div>", "<strong>", "</strong>", "CS"]
+    reviewCriteria:
+      - 是否保留「若海關未要求補件」的條件、六至九個工作天的預計時效，以及非保證日期的語義。
+      - 是否保留 HTML 标签、CS 缩写与“目前无法确认原因”的限定；不擅自解释 held 或猜测 CS 含义。
+      - 英文是否自然且符合原文语气，没有添加客服道歉、政策或补救方案。
