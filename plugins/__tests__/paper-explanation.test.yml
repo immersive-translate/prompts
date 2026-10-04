@@ -1,0 +1,125 @@
+expertId: paper-explanation
+cases:
+  - id: math-definition-and-formula
+    name: 数学定义、公式与局部作用
+    from: en
+    to: zh-CN
+    items:
+      - source: "Let f: X → Y be L-Lipschitz if d_Y(f(x), f(y)) ≤ L d_X(x, y) for all x, y ∈ X. The constant L bounds how much f can expand distances."
+        mustPreserve: [
+          "f: X → Y",
+          "d_Y(f(x), f(y)) ≤ L d_X(x, y)",
+          "L",
+          "X",
+          "Y",
+        ]
+        mustMatch: [
+          '译文(?:(?!解读)[\s\S])*[\u4e00-\u9fff](?:(?!解读)[\s\S])*解读(?:\*\*)?\s*[:：]\s*(?:\*\*)?\s*(?!\*\*(?:\s|$))\S',
+        ]
+        maxLengthRatio: 5
+      - source: "For a differentiable function, ||∇f(x)||₂ ≤ M on the convex set C implies |f(x) − f(y)| ≤ M||x − y||₂ for x, y ∈ C. Here M is an upper bound on the gradient norm."
+        mustNotContain: [Lipschitz, 利普希茨, 利普希兹]
+        mustPreserve: [
+          "||∇f(x)||₂ ≤ M",
+          "|f(x) − f(y)| ≤ M||x − y||₂",
+          "x, y ∈ C",
+          "M",
+        ]
+        mustMatch: [
+          '译文(?:(?!解读)[\s\S])*[\u4e00-\u9fff](?:(?!解读)[\s\S])*解读(?:\*\*)?\s*[:：]\s*(?:\*\*)?\s*(?!\*\*(?:\s|$))\S',
+        ]
+        maxLengthRatio: 5
+    reviewCriteria:
+      - 定义与公式是否完整忠实，符号关系、量词和限定条件是否保留；不得把上界说成一定能达到的最大值
+      - 解读是否只说明文本明确给出的符号含义和局部关系，未擅自补充定理背景
+      - 译文主体是否已译为目标语言而非回显英文；每条解读是否仅对应当前原文，未解释或引用同批其他段落
+      - 译文与解读是否清晰分区且表达自然
+  - id: complexity-and-qualifications
+    name: 复杂度结论、限制与非因果表述
+    from: en
+    to: zh-CN
+    items:
+      - source: "The algorithm runs in O(n log n) time and O(n) space for inputs with distinct keys; the analysis does not cover duplicate keys or external-memory access."
+        mustContainAny:
+          - [
+              不同键,
+              不同的键,
+              相异键,
+              互异键,
+              键互不相同,
+              互不相同的键,
+              唯一键,
+            ]
+          - [重复键, 重复的键]
+          - [外部存储, 外存, 外部内存]
+        mustPreserve: ["O(n log n)", "O(n)"]
+        mustMatch: [
+          '译文(?:(?!解读)[\s\S])*[\u4e00-\u9fff](?:(?!解读)[\s\S])*解读(?:\*\*)?\s*[:：]\s*(?:\*\*)?\s*(?!\*\*(?:\s|$))\S',
+        ]
+        maxLengthRatio: 5
+      - source: "Our results are associated with lower error rates, but this observational study does not establish that the intervention caused the difference."
+        mustContainAny:
+          - [错误率, 误差率, 出错率]
+          - [观察性研究, 观察研究, 观测性研究, 观察型研究]
+        mustMatch: [
+          '译文(?:(?!解读)[\s\S])*[\u4e00-\u9fff](?:(?!解读)[\s\S])*解读(?:\*\*)?\s*[:：]\s*(?:\*\*)?\s*(?!\*\*(?:\s|$))\S',
+        ]
+        maxLengthRatio: 5
+    reviewCriteria:
+      - 是否保留复杂度、输入限制及未覆盖范围；不同的键不能扩大成所有数据均无重复；未覆盖某情况不等于已证明结论在该情况下不成立
+      - 普通词组是否已经译成中文；中文后附英文括注不算漏译，不能只因英文词组仍出现就判失败
+      - 是否保留相关性与因果结论的区别，没有把“未能证明因果”改成因果断言
+      - 大 O 上界是否被误说成精确正比关系；允许解释其不代表正比，不能仅按关键词判失败
+      - 解读是否未扩展成论文整体结论或建议
+  - id: theorem-condition-and-missing-context
+    name: 定理条件与缺失上下文
+    from: en
+    to: zh-TW
+    items:
+      - source: "Theorem. If G is a finite simple graph with maximum degree at most Δ, then χ(G) ≤ Δ + 1, where χ(G) is the minimum number of colors needed to color vertices so that adjacent vertices have different colors. The bound is stated only under these assumptions."
+        mustPreserve: ["G", "Δ", "χ(G) ≤ Δ + 1"]
+        mustMatch: [
+          '譯文(?:(?!解讀)[\s\S])*[\u4e00-\u9fff](?:(?!解讀)[\s\S])*解讀(?:\*\*)?\s*[:：]\s*(?:\*\*)?\s*(?!\*\*(?:\s|$))\S',
+        ]
+        maxLengthRatio: 5
+      - source: "The method is stable when κ(A) < τ. In this excerpt, neither κ nor τ is defined, and the norm used for stability is not specified."
+        mustPreserve: ["κ(A) < τ", "κ", "τ"]
+        mustMatch: [
+          '譯文(?:(?!解讀)[\s\S])*[\u4e00-\u9fff](?:(?!解讀)[\s\S])*解讀(?:\*\*)?\s*[:：]\s*(?:\*\*)?\s*(?!\*\*(?:\s|$))\S',
+        ]
+        maxLengthRatio: 5
+    reviewCriteria:
+      - 譯文正文是否已譯為繁體中文，而非將英文原文放在譯文標題下
+      - 是否完整保留定理的假設與結論，且沒有擴大適用範圍；不能將「條件成立時穩定」改成「穩定必須滿足該條件」
+      - 缺少定義與範數時，解讀是否明確標示無法從所給段落判定
+      - 是否避免猜測 κ、τ 的領域含義或整篇論文的用途，包括用「可能」列出條件數、曲率等候選定義
+  - id: html-identifiers-and-section-separation
+    name: HTML、程式識別符與分區
+    from: en
+    to: zh-TW
+    items:
+      - source: "<p>The parser preserves <code>nodeId</code> and returns <em>null</em> when the optional field is absent.</p>"
+        mustPreserve: [
+          "<p>",
+          "</p>",
+          "<code>",
+          "</code>",
+          "<em>",
+          "</em>",
+          "nodeId",
+          "null",
+        ]
+        mustMatch: [
+          '譯文(?:(?!解讀)[\s\S])*[\u4e00-\u9fff](?:(?!解讀)[\s\S])*解讀(?:\*\*)?\s*[:：]\s*(?:\*\*)?\s*(?!\*\*(?:\s|$))\S',
+        ]
+        maxLengthRatio: 6
+      - source: "If cache[key] is empty, the implementation retries once; this paragraph does not specify whether an empty string and a missing key are treated identically."
+        mustPreserve: ["cache[key]"]
+        mustMatch: [
+          '譯文(?:(?!解讀)[\s\S])*[\u4e00-\u9fff](?:(?!解讀)[\s\S])*解讀(?:\*\*)?\s*[:：]\s*(?:\*\*)?\s*(?!\*\*(?:\s|$))\S',
+        ]
+        maxLengthRatio: 5
+    reviewCriteria:
+      - HTML 標籤與程式識別符是否按原文保留，且相鄰譯文流暢
+      - 是否遵守每段分成譯文和解讀兩部分，未把解讀混入譯文
+      - 對 empty string 與 missing key 的關係是否保留原文的不確定性
