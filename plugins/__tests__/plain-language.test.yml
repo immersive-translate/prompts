@@ -1,0 +1,82 @@
+expertId: plain-language
+cases:
+  - id: numbers-conditions-and-negation
+    name: 数字、条件与否定
+    from: en
+    to: zh-CN
+    items:
+      - source: "Only if all 12 forms are signed by Friday may the team release the update; otherwise, it must not go live."
+        mustPreserve: ["12"]
+        mustNotContain: ["标题：", "解释：", "译文："]
+        maxLengthRatio: 5
+      - source: "The report does not say that every device failed: 3 of the 12 devices stopped only when the battery was below 5%."
+        mustPreserve: ["3", "12", "5%"]
+        mustNotContain: ["标题：", "解释：", "译文："]
+        maxLengthRatio: 5
+    reviewCriteria:
+      - 是否保留“只有在全部 12 份表格于周五前签署后才能发布”的条件，以及否则不得上线的否定
+      - 是否保留报告没有声称所有设备都故障、仅 3/12 台设备在电量低于 5% 时停止的范围
+      - 相较 common，表达是否更容易理解，同时没有删掉限定或改变意思
+  - id: causality-and-uncertainty
+    name: 因果关系与不确定性
+    from: en
+    to: zh-TW
+    items:
+      - source: "Because the road may be icy, the bus could arrive late; the notice does not confirm a delay."
+        mustNotContain: ["標題：", "解讀：", "譯文："]
+        maxLengthRatio: 5
+      - source: "The test result is consistent with a sensor fault, but it does not prove that the sensor caused the outage."
+        mustNotContain: ["標題：", "解讀：", "譯文："]
+        maxLengthRatio: 5
+    reviewCriteria:
+      - 是否保留結冰只是可能性、巴士可能遲到，以及通知未確認延誤
+      - 是否保留結果僅與感測器故障相符，並未證明感測器造成中斷
+      - 相較 common，因果、可能性和否定是否完整且更容易理解
+  - id: necessary-terms-without-guessing
+    name: 必要术语与不猜定义
+    from: en
+    to: zh-CN
+    items:
+      - source: "The cache stores recent results so the app can reuse them without asking the server again."
+        mustContainAny:
+          - ["缓存", "快取"]
+        mustNotContain: ["标题：", "术语：", "解释："]
+        maxLengthRatio: 5
+      - source: "The protocol calls this state 'quiescent'; the document gives no definition of that term."
+        mustContainAny:
+          - ["quiescent", "静止", "安静", "静默", "静息"]
+        mustNotContain: ["标题：", "术语：", "解释："]
+        maxLengthRatio: 5
+    reviewCriteria:
+      - 是否把 cache 用常见表达说明清楚，同时没有增加原文未提供的技术行为
+      - 原文未定义 quiescent 时，是否避免猜测其定义；可以保留术语或谨慎处理
+      - 译文是否只有一个完整改写结果，没有额外标题、原文副本或解读栏
+  - id: html-code-and-same-language
+    name: HTML、代码与中文同语改写
+    from: zh-TW
+    to: zh-TW
+    items:
+      - source: "<p>若伺服器回傳 <code>busy</code>，系統會保留 <strong>3 次</strong>重試機會。</p>"
+        mustDifferFromSource: false
+        mustContainAny:
+          - ["機會", "額度", "可", "允許"]
+        mustPreserve: [
+          "<p>",
+          "</p>",
+          "<code>",
+          "</code>",
+          "busy",
+          "<strong>",
+          "</strong>",
+          "3",
+        ]
+        mustNotContain: ["標題：", "解讀：", "譯文："]
+        maxLengthRatio: 5
+      - source: "這個設定只會在重新啟動後生效。"
+        mustDifferFromSource: false
+        mustNotContain: ["標題：", "解讀：", "譯文："]
+        maxLengthRatio: 5
+    reviewCriteria:
+      - HTML 標籤和 code 內容是否保留；保留重試機會不代表一定重試，不能新增實際執行行為
+      - 复杂中文是否更容易理解；已清楚简短的句子允许原样保留，不强迫同义替换
+      - 是否只輸出改寫內容，且沒有改變“只在重新啟動後生效”的限制

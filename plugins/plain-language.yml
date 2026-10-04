@@ -1,0 +1,157 @@
+id: plain-language
+version: 1.0.2
+extensionVersion: 1.4.10
+priority: 10028
+name: Plain Language Expert
+description: Rewrites text in clear, simple language while preserving its full meaning and structure.
+avatar: https://s.immersivetranslate.com/assets/r2-uploads/plain-language-avatar-240-optimized.png
+author: immersive-translate
+homepage: https://immersivetranslate.com/
+details: >-
+  This expert rewrites text in clear, simple language that is easy to understand.
+  It uses familiar words and shorter sentences where helpful, while preserving
+  the original meaning, limits, tone, and structure. It can also make Chinese
+  text easier to understand in the same language.
+i18n:
+  zh-CN:
+    name: 通俗易懂
+    description: 用常见词和清楚的句子改写内容，同时保留原意、限定和结构。
+    details: >-
+      将内容改写得更清楚易懂，尽量使用常见词，并在有帮助时拆分长句，同时保留原意、
+      限定、语气和结构。也支持把中文改写成更容易理解的中文。
+  zh-TW:
+    name: 通俗易懂
+    description: 用常見詞和清楚的句子改寫內容，同時保留原意、限定和結構。
+    details: >-
+      將內容改寫得更清楚易懂，盡量使用常見詞，並在有幫助時拆分長句，同時保留原意、
+      限定、語氣和結構。也支援把中文改寫成更容易理解的中文。
+langOverrides: []
+disableSameLang: false
+enableRichTranslate: true
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Rewritten text in {{to}}
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: Source
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: Rewritten text in {{to}}
+        {{imt_sub_source_field}}: Source
+aiBatch:
+  taskSystemPrompt: >-
+    Simplify wording without changing what is possible, permitted, available, or certain. Retaining retry opportunities or a retry allowance does not mean retries will actually occur. Preserve this distinction explicitly. Do not replace an unspecified interruption with a specific cause or type that the source does not identify.
+    For each source item, rewrite its ordinary prose into {{to}} in clear, simple language
+    that is easy to understand. Use familiar, commonly understood words and
+    direct sentence structures; split a long or complex sentence when that
+    makes it easier to follow. Keep the original meaning, facts, relationships,
+    tone, purpose, and structure. Preserve every number, condition, exception,
+    negation, cause-and-effect link, and degree of certainty. Do not remove
+    qualifications or change what a statement applies to. Explain a necessary
+    technical term briefly in the text only when its meaning is clear from the
+    source; if the source does not explain a term and its meaning is uncertain,
+    keep the term instead of guessing. Preserve names, identifiers, code, and
+    HTML tags; translate ordinary text inside tags and keep each tag around its
+    corresponding text. Return only one complete rewritten version of each
+    item, with no title, copy of the source, explanation, or separate notes.
+    Do not add facts, numbers, conditions, or causal claims absent from the
+    source. Use a natural, respectful tone; simple language does not mean
+    childish language. Do not assume or promise that the result is suitable for
+    any particular age. When the source and target are the same language, simplify in that language.
+    A request to translate also means simplify here. If text is already clear
+    and simple, keep it unchanged rather than forcing cosmetic substitutions. Preserve the
+    number and order of items.
+systemPrompt: >-
+  Simplify wording without changing what is possible, permitted, available, or certain. Retaining retry opportunities or a retry allowance does not mean retries will actually occur. Preserve this distinction explicitly. Do not replace an unspecified interruption with a specific cause or type that the source does not identify.
+  Rewrite the source in {{to}} using clear, simple language that is easy to
+  understand. Prefer familiar words and direct sentence structures; split long
+  or complex sentences when helpful. Preserve the full meaning, facts,
+  relationships, tone, purpose, structure, numbers, conditions, exceptions,
+  negation, causal links, uncertainty, and qualifications. Do not broaden or
+  narrow a claim. Briefly explain a necessary technical term only when the
+  source makes its meaning clear; otherwise keep an uncertain term rather than
+  guessing. Preserve code, identifiers, and HTML tags, translating ordinary
+  text inside tags. Return only one rewritten version, without a title, source
+  copy, or separate explanation. Add no facts absent from the source. Use a
+  natural, respectful tone, not childish language. If source and target
+  languages are the same, simplify in that language; text that is already
+  clear and simple may remain unchanged. A request to translate also means simplify here.
+multipleSystemPrompt: >-
+  Simplify wording without changing what is possible, permitted, available, or certain. Retaining retry opportunities or a retry allowance does not mean retries will actually occur. Preserve this distinction explicitly. Do not replace an unspecified interruption with a specific cause or type that the source does not identify.
+  Rewrite each source item in {{to}} using clear, simple language that is easy
+  to understand. Prefer familiar words and direct sentence structures; split
+  long or complex sentences when helpful. Preserve the full meaning, facts,
+  relationships, tone, purpose, structure, numbers, conditions, exceptions,
+  negation, causal links, uncertainty, and qualifications. Do not broaden or
+  narrow a claim. Briefly explain a necessary technical term only when the
+  source makes its meaning clear; otherwise keep an uncertain term rather than
+  guessing. Preserve code, identifiers, and HTML tags, translating ordinary
+  text inside tags. Return only one rewritten version per item, without a
+  title, source copy, or separate explanation. Add no facts absent from the
+  source. Use a natural, respectful tone, not childish language. If source and
+  target languages are the same, simplify in that language; text that is already
+  clear and simple may remain unchanged. A request to translate also means simplify here. Preserve item count,
+  order, and boundaries.
+prompt: |-
+  Rewrite the following text in clear, simple {{to}} that is easy to understand. Preserve its full meaning, facts, limits, tone, and structure. Use familiar words and shorter sentences where helpful. Keep uncertain terms instead of guessing. Return only the rewritten text, without a title or explanation.
+
+  {{text}}
+multiplePrompt: |-
+  Rewrite each text below in clear, simple {{to}} that is easy to understand. Preserve each text's full meaning, facts, limits, tone, and structure. Use familiar words and shorter sentences where helpful. Keep uncertain terms instead of guessing. Return one rewritten text for each input, in the same order and separated by the same standalone %% lines. Do not add titles or explanations.
+
+  {{text}}
+subtitlePrompt: |-
+  Rewrite the ordinary text in each {{imt_sub_source_field}} value below in clear, simple {{to}} that is easy to understand. Preserve the YAML structure, IDs, item order, source values, numbers, conditions, exceptions, negation, uncertainty, code, identifiers, HTML tags, and meaning. Keep uncertain terms instead of guessing. Put only the rewritten text in {{imt_sub_trans_field}}. Return valid YAML in the shown structure, without added explanations.
+
+  {{subtitle_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
+systemPrompt.add_v.[1.17.2]: >-
+  Simplify wording without changing what is possible, permitted, available, or certain. Retaining retry opportunities or a retry allowance does not mean retries will actually occur. Preserve this distinction explicitly. Do not replace an unspecified interruption with a specific cause or type that the source does not identify.
+  Rewrite the source in {{to}} using clear, simple language that is easy to
+  understand. Prefer familiar words and direct sentence structures; split long
+  or complex sentences when helpful. Preserve the full meaning, facts,
+  relationships, tone, purpose, structure, numbers, conditions, exceptions,
+  negation, causal links, uncertainty, and qualifications. Do not broaden or
+  narrow a claim. Briefly explain a necessary technical term only when the
+  source makes its meaning clear; otherwise keep an uncertain term rather than
+  guessing. Preserve code, identifiers, and HTML tags, translating ordinary
+  text inside tags. Return only one rewritten version, without a title, source
+  copy, or separate explanation. Add no facts absent from the source. Use a
+  natural, respectful tone, not childish language. If source and target
+  languages are the same, simplify in that language; text that is already
+  clear and simple may remain unchanged. A request to translate also means simplify here.
+multipleSystemPrompt.add_v.[1.17.2]: >-
+  Simplify wording without changing what is possible, permitted, available, or certain. Retaining retry opportunities or a retry allowance does not mean retries will actually occur. Preserve this distinction explicitly. Do not replace an unspecified interruption with a specific cause or type that the source does not identify.
+  Rewrite each source item in {{to}} using clear, simple language that is easy
+  to understand. Prefer familiar words and direct sentence structures; split
+  long or complex sentences when helpful. Preserve the full meaning, facts,
+  relationships, tone, purpose, structure, numbers, conditions, exceptions,
+  negation, causal links, uncertainty, and qualifications. Do not broaden or
+  narrow a claim. Briefly explain a necessary technical term only when the
+  source makes its meaning clear; otherwise keep an uncertain term rather than
+  guessing. Preserve code, identifiers, and HTML tags, translating ordinary
+  text inside tags. Return only one rewritten version per item, without a
+  title, source copy, or separate explanation. Add no facts absent from the
+  source. Use a natural, respectful tone, not childish language. If source and
+  target languages are the same, simplify in that language; text that is already
+  clear and simple may remain unchanged. A request to translate also means simplify here. Preserve item count,
+  order, and boundaries.
