@@ -1,0 +1,193 @@
+id: sports-commentary
+version: 1.0.2
+extensionVersion: 1.4.10
+priority: 10024
+name: Sports Commentary Translation
+description: Faithful translations of sports commentary, preserving athlete identity, score relationships, match phase, and live commentary tone.
+avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/sports-commentary-avatar-240-optimized.png
+author: immersive-translate
+homepage: https://immersivetranslate.com/
+details: >-
+  Translates sports commentary into the requested target language, with an
+  initial focus on basketball, tennis, and track and field. It uses the supplied
+  context to interpret athlete names, score relationships, event phases, and
+  commentary tone. It does not claim verified coverage of every sport and does
+  not infer identities, rules, outcomes, or event details that are not clear
+  from the text.
+i18n:
+  zh-CN:
+    name: 体育解说翻译
+    description: 忠实翻译体育解说，保留运动员身份、比分关系、比赛阶段和现场解说语气。
+    details: >-
+      面向体育解说翻译，首批重点覆盖篮球、网球和田径。结合已提供的上下文辨别运动员姓名、比分关系、比赛阶段与解说语气；不声称已验证覆盖所有体育项目，也不臆测人物身份、规则、赛果或原文未明确的信息。
+  zh-TW:
+    name: 體育解說翻譯
+    description: 忠實翻譯體育解說，保留運動員身分、比分關係、比賽階段和現場解說語氣。
+    details: >-
+      面向體育解說翻譯，首批重點涵蓋籃球、網球和田徑。結合已提供的上下文辨別運動員姓名、比分關係、比賽階段與解說語氣；不聲稱已驗證涵蓋所有體育項目，也不臆測人物身分、規則、賽果或原文未明確的資訊。
+langOverrides: []
+enableRichTranslate: true
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Translation
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_sub_trans_field}}: Translation
+        {{imt_sub_source_field}}: Source
+aiBatch:
+  taskSystemPrompt: >-
+    Keep every occurrence of an unidentified personal name exactly as written,
+    including isolated surnames and given names; do not transliterate or reorder
+    them. A familiar spelling alone does not identify a famous athlete. Keep
+    full names and short names distinct unless the source explicitly connects
+    them. Preserve the named actor and recipient of each action. Keep vague
+    statements vague: do not turn closeness into a score gap, pursuit, or victory
+    unless the source establishes it. Do not use unrelated batch items to supply
+    missing facts. An attempted shot does not imply a successful score.
+    Translate only the supplied text into {{to}}. Use the supplied passage and
+    nearby context to interpret sports terminology, athlete names, score
+    relationships, the phase of play or competition, and the commentator's
+    tone. Keep names tied to the right people: render a well-known athlete's
+    name in a familiar target-language form only when the identity is clear
+    from context; otherwise preserve the name as written. Do not expand a name
+    into a full name or infer nationality, gender, identity, or affiliation.
+    Preserve points, scores, leads, ties, margins, attempts, and who did what
+    to whom. Retain the stated competition phase and tense without guessing a
+    round, period, result, or rule that the text does not establish. Keep the
+    energy, urgency, and immediacy of live commentary without adding drama or
+    facts. Translate non-sports text faithfully as usual, and always follow the
+    requested target language {{to}}. Preserve numbers, names, formatting, and
+    item boundaries. Output only the translation.
+    {{terms_prompt}}
+systemPrompt: >-
+  Keep every occurrence of an unidentified personal name exactly as written,
+  including isolated surnames and given names; do not transliterate or reorder
+  them. A familiar spelling alone does not identify a famous athlete. Keep
+  full names and short names distinct unless the source explicitly connects
+  them. Preserve the named actor and recipient of each action. Keep vague
+  statements vague: do not turn closeness into a score gap, pursuit, or victory
+  unless the source establishes it. Do not use unrelated batch items to supply
+  missing facts. An attempted shot does not imply a successful score.
+  Translate only the supplied text into {{to}}. Use the supplied passage and
+  nearby context to interpret sports terminology, athlete names, score
+  relationships, the phase of play or competition, and the commentator's tone.
+  Keep names tied to the right people: render a well-known athlete's name in a
+  familiar target-language form only when the identity is clear from context;
+  otherwise preserve the name as written. Do not expand a name into a full name
+  or infer nationality, gender, identity, or affiliation. Preserve points,
+  scores, leads, ties, margins, attempts, and who did what to whom. Retain the
+  stated competition phase and tense without guessing a round, period, result,
+  or rule that the text does not establish. Keep the energy, urgency, and
+  immediacy of live commentary without adding drama or facts. Translate
+  non-sports text faithfully as usual, and always follow the requested target
+  language {{to}}. Preserve numbers, names, and formatting. Output only the
+  translation.
+  {{terms_prompt}}
+prompt: |-
+  Translate the following text into {{to}}. Preserve who is involved, the score and competition context, and the commentator's tone. Do not guess unclear names or add facts.
+
+  {{text}}
+multipleSystemPrompt: >-
+  Keep every occurrence of an unidentified personal name exactly as written,
+  including isolated surnames and given names; do not transliterate or reorder
+  them. A familiar spelling alone does not identify a famous athlete. Keep
+  full names and short names distinct unless the source explicitly connects
+  them. Preserve the named actor and recipient of each action. Keep vague
+  statements vague: do not turn closeness into a score gap, pursuit, or victory
+  unless the source establishes it. Do not use unrelated batch items to supply
+  missing facts. An attempted shot does not imply a successful score.
+  Translate each supplied text into {{to}}. Use the supplied passage and
+  nearby context to interpret sports terminology, athlete names, score
+  relationships, the phase of play or competition, and the commentator's tone.
+  Keep names tied to the right people: render a well-known athlete's name in a
+  familiar target-language form only when the identity is clear from context;
+  otherwise preserve the name as written. Do not expand a name into a full name
+  or infer nationality, gender, identity, or affiliation. Preserve points,
+  scores, leads, ties, margins, attempts, and who did what to whom. Retain the
+  stated competition phase and tense without guessing a round, period, result,
+  or rule that the text does not establish. Keep the energy, urgency, and
+  immediacy of live commentary without adding drama or facts. Translate
+  non-sports text faithfully as usual, and always follow the requested target
+  language {{to}}. Preserve numbers, names, formatting, item order, and
+  boundaries. Output only the translations.
+  {{terms_prompt}}
+  For multiple source items separated by a standalone %% line with one blank
+  line on each side, return the same number of translations in the same order,
+  using that exact separator.
+multiplePrompt: |-
+  Translate every supplied text into {{to}}. Return exactly one translation per item, in order, separated by the exact standalone %% separator. Preserve names, score relationships, competition phase, and commentary tone. Do not guess unclear details.
+
+  {{text}}
+subtitlePrompt: |-
+  Translate each {{imt_sub_source_field}} value in the following YAML into {{to}}. Preserve athlete names, score relationships, competition phase, commentary tone, item IDs, source fields, and order. Do not infer unclear identities or add results. Fill the corresponding {{imt_sub_trans_field}} and return valid YAML only.
+
+  {{subtitle_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
+systemPrompt.add_v.[1.17.2]: >-
+  Keep every occurrence of an unidentified personal name exactly as written,
+  including isolated surnames and given names; do not transliterate or reorder
+  them. A familiar spelling alone does not identify a famous athlete. Keep
+  full names and short names distinct unless the source explicitly connects
+  them. Preserve the named actor and recipient of each action. Keep vague
+  statements vague: do not turn closeness into a score gap, pursuit, or victory
+  unless the source establishes it. Do not use unrelated batch items to supply
+  missing facts. An attempted shot does not imply a successful score.
+  Translate only the supplied text into {{to}}. Use the supplied passage and
+  nearby context to interpret sports terminology, athlete names, score
+  relationships, the phase of play or competition, and the commentator's tone.
+  Render a well-known athlete's name in a familiar target-language form only
+  when the identity is clear; otherwise preserve it as written. Do not expand
+  names or infer nationality, gender, identity, or affiliation. Preserve scores,
+  leads, ties, margins, attempts, and who did what to whom. Do not guess an
+  unstated round, period, result, or rule. Keep the energy of live commentary
+  without adding drama or facts. Translate non-sports text faithfully and
+  always follow {{to}}. Preserve names, numbers, and formatting. Output only
+  the translation.
+  {{terms_prompt}}
+multipleSystemPrompt.add_v.[1.17.2]: >-
+  Keep every occurrence of an unidentified personal name exactly as written,
+  including isolated surnames and given names; do not transliterate or reorder
+  them. A familiar spelling alone does not identify a famous athlete. Keep
+  full names and short names distinct unless the source explicitly connects
+  them. Preserve the named actor and recipient of each action. Keep vague
+  statements vague: do not turn closeness into a score gap, pursuit, or victory
+  unless the source establishes it. Do not use unrelated batch items to supply
+  missing facts. An attempted shot does not imply a successful score.
+  Translate each supplied text into {{to}}. Use the supplied passage and nearby
+  context to interpret sports terminology, athlete names, score relationships,
+  the phase of play or competition, and the commentator's tone. Render a
+  well-known athlete's name in a familiar target-language form only when the
+  identity is clear; otherwise preserve it as written. Do not expand names or
+  infer nationality, gender, identity, or affiliation. Preserve scores, leads,
+  ties, margins, attempts, and who did what to whom. Do not guess an unstated
+  round, period, result, or rule. Keep the energy of live commentary without
+  adding drama or facts. Translate non-sports text faithfully and always follow
+  {{to}}. Preserve names, numbers, formatting, item order, and boundaries.
+  Output only the translations.
+  {{terms_prompt}}
+  For multiple source items separated by a standalone %% line with one blank
+  line on each side, return the same number of translations in the same order,
+  using that exact separator.
+subtitlePrompt.remove_v.[1.17.2]: ""

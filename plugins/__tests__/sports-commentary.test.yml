@@ -1,0 +1,54 @@
+expertId: sports-commentary
+cases:
+  - id: basketball-score-and-phase
+    name: 篮球比分与末节解说
+    from: en
+    to: zh-CN
+    items:
+      - source: The Lakers lead 98–96 with 12 seconds left in the fourth quarter.
+        mustPreserve: ["98", "96", "12"]
+      - source: Chen drives, draws the defender, and kicks it out to Rivera for three.
+        mustPreserve: [Chen, Rivera]
+    reviewCriteria:
+      - 比分、领先关系、剩余时间和第四节是否准确，是否将出手者及传球关系对应正确。
+      - 解说是否简洁、有现场感，且没有补写命中或最终赛果。
+
+  - id: tennis-set-score
+    name: 网球比分与赛末点
+    from: en
+    to: zh-CN
+    items:
+      - source: At 30–40, she saves the first match point with a backhand winner.
+        mustPreserve: ["30", "40"]
+      - source: Novak takes the opening set 6–4, but the second set is still level at 2–2.
+        mustPreserve: [Novak, "6", "4", "2"]
+    reviewCriteria:
+      - 网球分数与盘分关系、挽救赛末点的动作和比赛阶段是否准确。
+      - 解说是否自然，并保留转折语气而不推断最终胜负。
+
+  - id: athletics-attempts
+    name: 田赛试跳与径赛追赶
+    from: en
+    to: zh-TW
+    items:
+      - source: Maya clears 1.92 meters on her second attempt and moves into the lead.
+        mustPreserve: [Maya, "1.92"]
+      - source: Cole enters the final lap two seconds behind the leader, but the gap is closing.
+        mustPreserve: [Cole]
+    reviewCriteria:
+      - 是否保留田赛高度、第二次试跳和取得领先；径赛是否仍是落后领先者两秒且差距缩小，而非已经反超。
+      - 语气是否像现场播报，且未补充排名或赛果。
+
+  - id: ambiguous-name-and-fact-boundary
+    name: 姓名歧义与未确定赛果
+    from: en
+    to: zh-TW
+    items:
+      - source: Jordan Lee is back on court, and Lee passes to Jordan.
+        mustPreserve: [Jordan Lee, Lee, Jordan]
+        mustMatch:
+          - '\bJordan Lee\b[\s\S]*\bLee\b[\s\S]*\bJordan\b'
+      - source: They are close now. That could be enough.
+    reviewCriteria:
+      - 是否保留 Jordan Lee、Lee 与 Jordan 的原文指代歧义，不擅自认定其为同一人或确定人物关系，也不扩写姓名、性别或身份。
+      - 是否保留模糊指代和不确定语气，不臆测比分、胜负规则、比赛时段或结果。
