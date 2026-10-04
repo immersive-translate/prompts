@@ -1,0 +1,89 @@
+expertId: english-order-reading
+cases:
+  - id: discovery-phrase-order-zh-cn
+    name: 原样例：短语顺序与时间位置（简体）
+    from: en
+    to: zh-CN
+    items:
+      - source: Scientists discovered a new species in the deep ocean last week.
+        mustContainAny:
+          - [科学家, 科学家们]
+          - [发现]
+          - [新物种, 新的物种]
+          - [深海]
+          - [上周, 上星期]
+        mustMatch:
+          - '科学家[\s\S]*发现[\s\S]*深海[\s\S]*(?:上周|上星期)'
+      - source: By analyzing the data, we concluded that the hypothesis was incorrect.
+        mustContainAny:
+          - [分析, 分析了]
+          - [数据]
+          - [得出结论, 结论]
+          - [假设]
+    reviewCriteria:
+      - 第一条是否按 Scientists → discovered a new species → in the deep ocean → last week 的意群展开，尤其是否保留 last week 在句尾而不是改成常规中文的句首时间状语；与 common 基线对照时，专家输出应能看出英文顺序。
+      - 第二条是否按 By analyzing the data → we concluded → that the hypothesis was incorrect 展开，短语整体可理解，且没有把 that 当作“这”单独翻译。
+      - 是否用逗号或破折号清楚衔接意群，不添加英文括注、语法讲解、斜杠或空格拆词；词面顺序断言通过仍需检查含义与修饰关系。
+      - 是否保留 incorrect 的否定意义，没有译成“正确”；是否避免机械逐词拆译。
+
+  - id: negation-and-passive-zh-cn
+    name: 否定、时态与被动（简体）
+    from: en
+    to: zh-CN
+    items:
+      - source: The results were not explained by the team yesterday.
+        mustContainAny:
+          - [结果]
+      - source: She had never been told that the door was left unlocked.
+        minLengthRatio: 0.1
+        mustContainAny:
+          - [从来没有, 从未, 一直没有]
+          - [告诉, 告知]
+          - [门]
+          - [没锁, 未锁, 没有锁, 没上锁, 未上锁, 没有上锁]
+    reviewCriteria:
+      - 是否保留 not explained 的否定、were explained 的被动关系和 yesterday 的时间信息，没有改成团队主动解释或省去否定。
+      - 是否保留 had never been told 的过去完成语义与被动关系，以及 door was left unlocked 的未上锁状态；不得把未锁误成锁上。
+      - 中文是否大体跟随英文信息展开次序，同时短语保持成块可读；that 引导的内容从句是否保持完整主谓关系，不能把未上锁状态拆成插入语并添加“是那样的”等空泛内容。
+
+  - id: ambiguity-and-omitted-subject-zh-tw
+    name: 指代歧義與省略主語（繁體）
+    from: en
+    to: zh-TW
+    items:
+      - source: When Alex called Morgan, they said the report was not ready.
+        mustPreserve: [Alex, Morgan]
+      - source: After being reviewed, the proposal was rejected.
+        mustContainAny:
+          - [審查, 審閱]
+          - [提案]
+          - [拒絕, 否決, 駁回]
+    reviewCriteria:
+      - 第一條是否保留 they 的性別與指代歧義，不擅自判定是 Alex 或 Morgan、男性或女性；not ready 必須仍是否定狀態。
+      - 第二條不得為 After being reviewed 補出原文未指明的審查者或執行者；保留提案遭拒的被動關係。
+      - 是否按英文分句和意群順序呈現，避免為了中文自然度重排到看不出原文如何逐步展開。
+
+  - id: phrase-units-and-filler-words-zh-tw
+    name: 意群、虛詞與時間順序（繁體）
+    from: en
+    to: zh-TW
+    items:
+      - source: The book that you gave me is still on the table.
+        mustContainAny:
+          - [書]
+          - [給, 送]
+          - [桌上, 桌子上, 桌面上]
+          - [還, 仍, 依然]
+        mustMatch:
+          - '書[\s\S]*(?:給|送)[\s\S]*(?:桌上|桌子上|桌面上)'
+      - source: Although it was raining, the match continued until noon.
+        mustContainAny:
+          - [雖然, 儘管]
+          - [下雨, 下著雨, 下着雨]
+          - [比賽]
+          - [中午]
+    reviewCriteria:
+      - 第一句是否先呈現「那本書」，再用破折號等標點銜接「你給我的」，最後呈現「還在桌上」；不加英文括註或斜杠拆詞。
+      - 第一句是否將 that you gave me 作為修飾 book 的完整意群來理解，而不是把 that 單獨譯成「這」；still 的持續含義和 on the table 的位置關係均須保留。
+      - 第二句是否保留 although 的讓步關係，並呈現比賽持續到中午的時間終點，沒有把 until noon 誤解為中午才開始。
+      - 對照 common 基線檢查是否可見英文從句與主句的展開順序，短語是否作為單位理解，而非僅機械保留虛詞順序。
