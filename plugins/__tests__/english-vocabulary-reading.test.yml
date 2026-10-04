@@ -1,0 +1,94 @@
+expertId: english-vocabulary-reading
+cases:
+  - id: contextual-senses
+    name: Contextual word senses
+    from: en
+    to: zh-CN
+    items:
+      - source: "The pilot had to charge the tablet before the long flight, then charge each passenger for an extra meal."
+        mustMatch: [
+          '^\s*(?:(?:\*\*)?译文(?:\*\*)?\s*[:：](?:\*\*)?)?(?:(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\s\S])*(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\u4e00-\u9fff](?:(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\s\S])*词汇(?:\*\*)?\s*[:：](?:\*\*)?(?:(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\s\S])*\S\s*$',
+        ]
+        maxLengthRatio: 5
+      - source: "Maya kept the receipt in her coat pocket, although the shop had already refunded the full amount."
+        mustMatch: [
+          '^\s*(?:(?:\*\*)?译文(?:\*\*)?\s*[:：](?:\*\*)?)?(?:(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\s\S])*(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\u4e00-\u9fff](?:(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\s\S])*词汇(?:\*\*)?\s*[:：](?:\*\*)?(?:(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\s\S])*\S\s*$',
+        ]
+        maxLengthRatio: 5
+    reviewCriteria:
+      - 译文是否完整保留两个 charge 在不同句境中的含义和原文关系
+      - 词汇说明是否选自原文、解释当前语境中的词义；不要求固定选词或固定译法
+      - 是否按语境和学习价值选词，不强行凑足三项，也没有补充发音或例句
+      - 是否完整翻译原文，没有遗漏退款事实或擅自改变金额范围
+  - id: idiom-and-phrase-boundaries
+    name: Idioms and complete phrases
+    from: en
+    to: zh-TW
+    items:
+      - source: "After weeks of debate, the committee was still on the fence about whether to extend the trial."
+        mustMatch: [
+          '^\s*(?:(?:\*\*)?譯文(?:\*\*)?\s*[:：](?:\*\*)?)?(?:(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\s\S])*(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\u4e00-\u9fff](?:(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\s\S])*詞彙(?:\*\*)?\s*[:：](?:\*\*)?(?:(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\s\S])*\S\s*$',
+        ]
+        maxLengthRatio: 5
+      - source: "We ran out of time, so Nina put the final decision on hold until Monday."
+        mustMatch: [
+          '^\s*(?:(?:\*\*)?譯文(?:\*\*)?\s*[:：](?:\*\*)?)?(?:(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\s\S])*(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\u4e00-\u9fff](?:(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\s\S])*詞彙(?:\*\*)?\s*[:：](?:\*\*)?(?:(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\s\S])*\S\s*$',
+        ]
+        maxLengthRatio: 5
+    reviewCriteria:
+      - 是否將 on the fence 與 on hold 按完整短語和各自語境理解，而非拆成字面詞义
+      - 詞彙說明是否簡短並保留原文短語，且每段不超過三項
+      - 是否保留「尚未決定」與「延至星期一」的差異及各自主體
+      - 是否沒有補寫原文未提供的試驗背景或決策原因
+  - id: negation-and-quantities
+    name: Negation, conditions, and numbers
+    from: en
+    to: zh-CN
+    items:
+      - source: "The notice says visitors may not enter after 8 p.m.; staff can still use the north gate."
+        mustPreserve: ["8"]
+        mustMatch: [
+          '^\s*(?:(?:\*\*)?译文(?:\*\*)?\s*[:：](?:\*\*)?)?(?:(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\s\S])*(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\u4e00-\u9fff](?:(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\s\S])*词汇(?:\*\*)?\s*[:：](?:\*\*)?(?:(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\s\S])*\S\s*$',
+        ]
+        maxLengthRatio: 5
+      - source: "Only 3 of the 12 samples were damaged, and none of the labels had been removed."
+        mustPreserve: ["3", "12"]
+        mustMatch: [
+          '^\s*(?:(?:\*\*)?译文(?:\*\*)?\s*[:：](?:\*\*)?)?(?:(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\s\S])*(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\u4e00-\u9fff](?:(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\s\S])*词汇(?:\*\*)?\s*[:：](?:\*\*)?(?:(?!(?:译文|词汇)(?:\*\*)?\s*[:：])[\s\S])*\S\s*$',
+        ]
+        maxLengthRatio: 5
+    reviewCriteria:
+      - 是否準確保留禁止入內的時間、例外人員與入口，以及 3/12 的數量關係
+      - 是否保留 none 對標籤的否定，未將「未移除」改成「已移除」
+      - 词汇选择是否确实有助理解上下文，没有为了凑数解释时间或简单数字
+      - 是否每段均先完整翻譯，再於同一段末尾列出至多三項語境詞彙
+  - id: markup-identifiers-and-simple-text
+    name: HTML, identifiers, and simple text
+    from: en
+    to: zh-TW
+    items:
+      - source: "<p>The <code>retryCount</code> stays at 2 unless the server returns <em>busy</em>.</p>"
+        mustPreserve: [
+          "<p>",
+          "</p>",
+          "<code>",
+          "</code>",
+          "retryCount",
+          "2",
+          "<em>",
+          "</em>",
+        ]
+        mustMatch: [
+          '^\s*(?:(?:\*\*)?譯文(?:\*\*)?\s*[:：](?:\*\*)?)?(?:(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\s\S])*(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\u4e00-\u9fff](?:(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\s\S])*詞彙(?:\*\*)?\s*[:：](?:\*\*)?(?:(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\s\S])*\S\s*$',
+        ]
+        maxLengthRatio: 6
+      - source: "The window is open."
+        mustMatch: [
+          '^\s*(?:(?:\*\*)?譯文(?:\*\*)?\s*[:：](?:\*\*)?)?(?:(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\s\S])*(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\u4e00-\u9fff](?:(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\s\S])*詞彙(?:\*\*)?\s*[:：](?:\*\*)?(?:(?!(?:譯文|詞彙)(?:\*\*)?\s*[:：])[\s\S])*\S\s*$',
+        ]
+        maxLengthRatio: 4
+    reviewCriteria:
+      - HTML 標籤、retryCount 和數字是否保留；em 內普通詞 busy 可翻譯，譯文完整自然且不得重複或回顯原文
+      - 對簡單句是否如實翻譯，並明確表示沒有特別需要註釋的詞彙；不得硬湊生詞
+      - 詞彙解釋是否只依據對應 item，沒有借用同批其他段落的內容
+      - 各 item 是否有完整譯文及獨立詞彙欄，無重複譯文或原文回顯；譯文標題可省略，詞彙標題必須保留

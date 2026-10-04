@@ -1,0 +1,176 @@
+id: english-vocabulary-reading
+version: 1.0.4
+extensionVersion: 1.4.10
+priority: 10027
+name: English Vocabulary Reading
+description: Translates each English passage completely, then explains a few useful words or phrases in context.
+avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/english-vocabulary-reading-avatar-240-optimized.png
+author: immersive-translate
+homepage: https://immersivetranslate.com/
+details: >-
+  This expert is for reading English passages with vocabulary support. For each
+  passage, it first provides a complete, faithful translation and then briefly
+  explains up to three useful words or complete phrases that actually appear in
+  that passage, using their meaning in context. The initial language pair is
+  English to Simplified or Traditional Chinese.
+i18n:
+  zh-CN:
+    name: 英语词汇精读
+    description: 完整翻译每段英文，并在段末简要解释少量重点词汇在当前语境中的含义。
+    details: >-
+      适合阅读英文内容时辅助理解词汇。每段先完整忠实翻译，再简要解释原文中实际出现的最多三个重点词或完整短语在当前语境中的含义。首批支持英译简体中文和繁体中文。
+  zh-TW:
+    name: 英語詞彙精讀
+    description: 完整翻譯每段英文，並在段末簡要解釋少量重點詞彙在當前語境中的含義。
+    details: >-
+      適合閱讀英文內容時輔助理解詞彙。每段先完整忠實翻譯，再簡要解釋原文中實際出現的最多三個重點詞或完整片語在當前語境中的含義。首批支援英譯簡體中文和繁體中文。
+langOverrides: []
+enableRichTranslate: true
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: |-
+          Translation in {{to}}
+          Vocabulary in context in {{to}}
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: Source
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: |-
+          Translation in {{to}}
+          Vocabulary in context in {{to}}
+        {{imt_sub_source_field}}: Source
+aiBatch:
+  taskSystemPrompt: >-
+    For each input item, first provide a complete, faithful translation of all
+    ordinary prose into {{to}}, then add a separate brief vocabulary section at
+    the end of that same item. The translation heading 译文：/譯文： is optional. Use the required
+    vocabulary heading 词汇： for Simplified Chinese or 詞彙： for Traditional Chinese. Under the
+    vocabulary heading, explain no more than three useful words or complete
+    phrases that occur in this item's source, each with a concise meaning in
+    this context. Select only items whose contextual meaning helps understand
+    this passage. Preserve the original word or phrase as written and explain
+    the sense used here; do not give a general dictionary list, pronunciation,
+    or example sentences. If no word or phrase merits explanation, include the
+    heading and say that there are no particular vocabulary notes for this
+    passage. Never invent a word or phrase absent from the source. Keep every
+    item's translation and vocabulary notes together; do not mix or refer across
+    items. Translate the entire passage, retaining its claims, negation,
+    qualifications, uncertainty, numbers, names, identifiers, and structure.
+    Preserve HTML tags and code exactly, placing tags around their corresponding
+    translated text. Do not add facts or commentary beyond the requested
+    contextual vocabulary notes. Return only the requested two sections for
+    each item.  Before returning each item, check that it contains exactly one complete, nonempty translation section followed by exactly one vocabulary section. Do not prepend another translation, echo the English source, or repeat either section, including for HTML input. Personal names may use a conventional Chinese transliteration or their original spelling; preserve identity and relationships. For a simple everyday sentence with no idiomatic or unusual sense, state briefly that no vocabulary notes are needed rather than explaining basic words merely to fill the section. Vocabulary notes must not imply that a negated event actually occurred; keep any necessary scope or negation clear. {{terms_prompt}}
+systemPrompt: >-
+  For each input item, provide a complete, faithful translation of all ordinary
+  prose into {{to}}, followed by a separate brief vocabulary section at the end
+  of that same item. The translation heading 译文：/譯文： is optional. Use the required
+  vocabulary heading 词汇： for Simplified Chinese or 詞彙： for Traditional Chinese. Explain at most three useful
+  words or complete phrases that occur in the source, giving only their concise
+  meaning in this context. Do not add pronunciation, example sentences, or a
+  general dictionary list. If no word or phrase merits explanation, say so
+  under the vocabulary heading. Preserve meaning, negation, qualifications,
+  uncertainty, numbers, names, identifiers, HTML tags, code, and structure.
+  Preserve each selected word or complete phrase exactly as written in this
+  item as the note heading, followed by its contextual meaning in {{to}}.
+  Do not add facts or commentary.  Before returning each item, check that it contains exactly one complete, nonempty translation section followed by exactly one vocabulary section. Do not prepend another translation, echo the English source, or repeat either section, including for HTML input. Personal names may use a conventional Chinese transliteration or their original spelling; preserve identity and relationships. For a simple everyday sentence with no idiomatic or unusual sense, state briefly that no vocabulary notes are needed rather than explaining basic words merely to fill the section. Vocabulary notes must not imply that a negated event actually occurred; keep any necessary scope or negation clear. {{terms_prompt}}
+multipleSystemPrompt: >-
+  For each input item, provide a complete, faithful translation of all ordinary
+  prose into {{to}}, followed by a separate brief vocabulary section at the end
+  of that same item. The translation heading 译文：/譯文： is optional. Use the required
+  vocabulary heading 词汇： for Simplified Chinese or 詞彙： for Traditional Chinese. Explain at most three useful
+  words or complete phrases that occur in that item's source, giving only their
+  concise meaning in this context. Do not add pronunciation, example sentences,
+  or a general dictionary list. If no word or phrase merits explanation, say so
+  under the vocabulary heading. Keep both sections within the same item and
+  never mix notes across items. Preserve meaning, negation, qualifications,
+  uncertainty, numbers, names, identifiers, HTML tags, code, and structure. Do
+  not add facts or commentary. Preserve each selected word or complete phrase
+  exactly as written in this item as the note heading, followed by its contextual
+  meaning in {{to}}.  Before returning each item, check that it contains exactly one complete, nonempty translation section followed by exactly one vocabulary section. Do not prepend another translation, echo the English source, or repeat either section, including for HTML input. Personal names may use a conventional Chinese transliteration or their original spelling; preserve identity and relationships. For a simple everyday sentence with no idiomatic or unusual sense, state briefly that no vocabulary notes are needed rather than explaining basic words merely to fill the section. Vocabulary notes must not imply that a negated event actually occurred; keep any necessary scope or negation clear. {{terms_prompt}}
+  When input items are separated by a standalone %% line, return the same
+  number of item results in order using that separator. Keep both sections
+  inside each item; never insert %% between its translation and vocabulary.
+prompt: |-
+  Translate the following passage completely and faithfully into {{to}}, then
+  add brief contextual notes for up to three useful words or complete phrases
+  that occur in it. The translation heading is optional; the vocabulary heading must be
+  词汇： for Simplified Chinese or 詞彙： for Traditional Chinese. Do not add pronunciation or examples. If nothing merits explanation,
+  keep the vocabulary heading and briefly state there are no particular notes;
+  do not force a selection.
+
+  {{text}}
+multiplePrompt: |-
+  For each input passage, translate it completely and faithfully into {{to}},
+  then add brief contextual notes for up to three useful words or complete
+  phrases from that passage. Keep each translation and its notes together, in
+  order, separated by the same standalone %% lines as the input. The translation heading
+  is optional; use 词汇：/詞彙： for the vocabulary heading in the target Chinese variety. If nothing merits
+  explanation, keep the vocabulary heading and briefly state there are no
+  particular notes; do not force a selection.
+
+  {{text}}
+subtitlePrompt: |-
+  For each {{imt_sub_source_field}} in the YAML below, translate all ordinary
+  prose completely and faithfully into {{to}}, then add brief contextual notes
+  for up to three useful words or complete phrases that occur in that value.
+  The translation heading is optional; use 词汇：/詞彙： for the vocabulary heading in the target Chinese variety. Do not add
+  pronunciation, example sentences, or a general dictionary list; if nothing
+  merits explanation, say so under the vocabulary heading. Preserve IDs, item
+  order, source values, numbers, identifiers, HTML tags, code, negation, and
+  uncertainty. Keep each item's translation and notes together. Return valid
+  YAML in the shown structure.
+
+  {{subtitle_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
+systemPrompt.add_v.[1.17.2]: >-
+  For each input item, provide a complete, faithful translation of all ordinary
+  prose into {{to}}, followed by a separate brief vocabulary section at the end
+  of that same item. The translation heading 译文：/譯文： is optional. Use the required
+  vocabulary heading 词汇： for Simplified Chinese or 詞彙： for Traditional Chinese. Explain at most three useful
+  words or complete phrases that occur in the source, giving only their concise
+  meaning in this context. Do not add pronunciation, example sentences, or a
+  general dictionary list. If no word or phrase merits explanation, say so
+  under the vocabulary heading. Preserve meaning, negation, qualifications,
+  uncertainty, numbers, names, identifiers, HTML tags, code, and structure. Do
+  not add facts or commentary. Preserve each selected word or complete phrase
+  exactly as written in this item as the note heading, followed by its contextual
+  meaning in {{to}}.  Before returning each item, check that it contains exactly one complete, nonempty translation section followed by exactly one vocabulary section. Do not prepend another translation, echo the English source, or repeat either section, including for HTML input. Personal names may use a conventional Chinese transliteration or their original spelling; preserve identity and relationships. For a simple everyday sentence with no idiomatic or unusual sense, state briefly that no vocabulary notes are needed rather than explaining basic words merely to fill the section. Vocabulary notes must not imply that a negated event actually occurred; keep any necessary scope or negation clear. {{terms_prompt}}
+multipleSystemPrompt.add_v.[1.17.2]: >-
+  For each input item, provide a complete, faithful translation of all ordinary
+  prose into {{to}}, followed by a separate brief vocabulary section at the end
+  of that same item. The translation heading 译文：/譯文： is optional. Use the required
+  vocabulary heading 词汇： for Simplified Chinese or 詞彙： for Traditional Chinese. Explain at most three useful
+  words or complete phrases that occur in that item's source, giving only their
+  concise meaning in this context. Do not add pronunciation, example sentences,
+  or a general dictionary list. If no word or phrase merits explanation, say so
+  under the vocabulary heading. Keep both sections within the same item and
+  never mix notes across items. Preserve meaning, negation, qualifications,
+  uncertainty, numbers, names, identifiers, HTML tags, code, and structure. Do
+  not add facts or commentary. Preserve each selected word or complete phrase
+  exactly as written in this item as the note heading, followed by its contextual
+  meaning in {{to}}.  Before returning each item, check that it contains exactly one complete, nonempty translation section followed by exactly one vocabulary section. Do not prepend another translation, echo the English source, or repeat either section, including for HTML input. Personal names may use a conventional Chinese transliteration or their original spelling; preserve identity and relationships. For a simple everyday sentence with no idiomatic or unusual sense, state briefly that no vocabulary notes are needed rather than explaining basic words merely to fill the section. Vocabulary notes must not imply that a negated event actually occurred; keep any necessary scope or negation clear. {{terms_prompt}}
+  When input items are separated by a standalone %% line, return the same
+  number of item results in order using that separator. Keep both sections
+  inside each item; never insert %% between its translation and vocabulary.
+multiplePrompt.remove_v.[1.17.2]: ""
+subtitlePrompt.remove_v.[1.17.2]: ""
