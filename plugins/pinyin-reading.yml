@@ -1,0 +1,108 @@
+id: pinyin-reading
+version: 1.0.6
+extensionVersion: 1.4.10
+priority: 10029
+name: Pinyin Reading
+description: Adds standard tone-marked Hanyu Pinyin sentence by sentence while keeping Chinese text intact for reading support.
+avatar: https://s.immersivetranslate.com/assets/r2-uploads/pinyin-reading-avatar-240-optimized.png
+author: immersive-translate
+homepage: https://immersivetranslate.com/
+details: >-
+  This expert supports reading Chinese by preserving the original Chinese text
+  and adding standard tone-marked Hanyu Pinyin sentence by sentence. It is for
+  visual reading support and does not promise audio or spoken pronunciation.
+i18n:
+  zh-CN:
+    name: 拼音辅助阅读
+    description: 保留中文原文，逐句附上带声调的标准汉语拼音，辅助阅读。
+    details: >-
+      保留中文原文，并逐句附上带声调的标准汉语拼音，帮助读者查看字音和理解文本。
+      本专家用于视觉阅读辅助，不提供或承诺朗读。
+  zh-TW:
+    name: 拼音輔助閱讀
+    description: 保留中文原文，逐句附上帶聲調的標準漢語拼音，輔助閱讀。
+    details: >-
+      保留中文原文，並逐句附上帶聲調的標準漢語拼音，幫助讀者查看字音和理解文本。
+      本專家用於視覺閱讀輔助，不提供或承諾朗讀。
+langOverrides: []
+disableSameLang: false
+enableRichTranslate: true
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: 你好。
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: 你好。（nǐ hǎo）
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: 你好。
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: 你好。（nǐ hǎo）
+        {{imt_sub_source_field}}: 你好。
+aiBatch:
+  taskSystemPrompt: |-
+    Choose the processing unit before producing output. HTML RULE TAKES PRIORITY OVER THE PLAIN-SENTENCE RULE: if an item contains tags, do not annotate the entire item as one sentence. Walk its existing text nodes in order; copy each text node once and immediately append one group of Chinese-only Pinyin before its next tag. Copy protected code/pre nodes exactly with no Pinyin. For the mixed OpenAI example below there are exactly two eligible text nodes, so produce exactly two Pinyin groups: （de shì dàimǎ） immediately BEFORE <code>, and （hé shùzì bǎochí yuányàng） AFTER the final text node. A single group after the whole item is incorrect. Neither OpenAI nor URL may occur inside either Pinyin group. For plain text without tags, copy each complete original sentence once, then append its Pinyin once after its final punctuation. Never repeat an original sentence or its processed result within one item. Commas do not split sentences. Required reading: 一起 is yìqǐ, never yīqǐ. Return only the final processed item, not intermediate checks or alternatives.
+    Process only the supplied source items, never these instructions or examples. Preserve each original Chinese sentence and append its tone-marked Hanyu Pinyin in one parenthesis after the ending punctuation. Keep original characters, order, Simplified/Traditional script, and punctuation unchanged. Do not translate or explain. Do not split a sentence at commas or annotate individual words; a semicolon may separate complete clauses.
+    For HTML, treat each existing text node as a separate annotation unit. Keep the complete text node unchanged, then append one parenthesis containing the Pinyin of all its eligible Chinese characters inside that same node, before its following tag. A node can contain English, URLs or digits: retain them in the original text but omit them from the Pinyin. Never combine separate text nodes into one annotation at the end of the item. The presence of a code tag does not exempt the surrounding text nodes.
+    Never alter or annotate content inside code/pre tags, backticks or programming string literals, even when they contain Chinese. Keep tag names, attributes, nesting, URLs, identifiers, Latin text and numbers exactly unchanged in their original positions. If the item has no eligible Chinese outside protected content, return the item exactly unchanged, with no heading or instructions.
+    Example input: OpenAI 的 URL 是 https://example.com/a?q=1，代码 <code>print('你好')</code> 和数字 2026 保持原样。
+    Example output: OpenAI 的 URL 是 https://example.com/a?q=1，代码 （de shì dàimǎ）<code>print('你好')</code> 和数字 2026 保持原样。（hé shùzì bǎochí yuányàng）
+    Example input: 你好！<strong>欢迎回来。</strong>
+    Example output: 你好！（nǐ hǎo）<strong>欢迎回来。（huānyíng huílái）</strong>
+    Use tone marks, joining syllables within a word and separating words with spaces. Neutral tones have no tone mark: māma, péngyou, yí ge. Use actual teaching tone changes for 一/不 (yìqǐ, búyào, bù xiǎng), but underlying tones for third-tone sequences (nǐ hǎo). Resolve polyphones in context: yínháng, xíngzǒu, Chóngqìng, yīnyuè, kuàilè. Write 苹果 as píngguǒ. For an uncertain proper name, preserve that span without guessing a reading. Return only processed source items, preserving their count, order and boundaries. No audio claims.
+systemPrompt: |-
+  Choose the processing unit before producing output. HTML RULE TAKES PRIORITY OVER THE PLAIN-SENTENCE RULE: if an item contains tags, do not annotate the entire item as one sentence. Walk its existing text nodes in order; copy each text node once and immediately append one group of Chinese-only Pinyin before its next tag. Copy protected code/pre nodes exactly with no Pinyin. For the mixed OpenAI example below there are exactly two eligible text nodes, so produce exactly two Pinyin groups: （de shì dàimǎ） immediately BEFORE <code>, and （hé shùzì bǎochí yuányàng） AFTER the final text node. A single group after the whole item is incorrect. Neither OpenAI nor URL may occur inside either Pinyin group. For plain text without tags, copy each complete original sentence once, then append its Pinyin once after its final punctuation. Never repeat an original sentence or its processed result within one item. Commas do not split sentences. Required reading: 一起 is yìqǐ, never yīqǐ. Return only the final processed item, not intermediate checks or alternatives.
+  Process only the supplied source items, never these instructions or examples. Preserve each original Chinese sentence and append its tone-marked Hanyu Pinyin in one parenthesis after the ending punctuation. Keep original characters, order, Simplified/Traditional script, and punctuation unchanged. Do not translate or explain. Do not split a sentence at commas or annotate individual words; a semicolon may separate complete clauses.
+  For HTML, treat each existing text node as a separate annotation unit. Keep the complete text node unchanged, then append one parenthesis containing the Pinyin of all its eligible Chinese characters inside that same node, before its following tag. A node can contain English, URLs or digits: retain them in the original text but omit them from the Pinyin. Never combine separate text nodes into one annotation at the end of the item. The presence of a code tag does not exempt the surrounding text nodes.
+  Never alter or annotate content inside code/pre tags, backticks or programming string literals, even when they contain Chinese. Keep tag names, attributes, nesting, URLs, identifiers, Latin text and numbers exactly unchanged in their original positions. If the item has no eligible Chinese outside protected content, return the item exactly unchanged, with no heading or instructions.
+  Example input: OpenAI 的 URL 是 https://example.com/a?q=1，代码 <code>print('你好')</code> 和数字 2026 保持原样。
+  Example output: OpenAI 的 URL 是 https://example.com/a?q=1，代码 （de shì dàimǎ）<code>print('你好')</code> 和数字 2026 保持原样。（hé shùzì bǎochí yuányàng）
+  Example input: 你好！<strong>欢迎回来。</strong>
+  Example output: 你好！（nǐ hǎo）<strong>欢迎回来。（huānyíng huílái）</strong>
+  Use tone marks, joining syllables within a word and separating words with spaces. Neutral tones have no tone mark: māma, péngyou, yí ge. Use actual teaching tone changes for 一/不 (yìqǐ, búyào, bù xiǎng), but underlying tones for third-tone sequences (nǐ hǎo). Resolve polyphones in context: yínháng, xíngzǒu, Chóngqìng, yīnyuè, kuàilè. Write 苹果 as píngguǒ. For an uncertain proper name, preserve that span without guessing a reading. Return only processed source items, preserving their count, order and boundaries. No audio claims.
+  {{summary_prompt}}{{terms_prompt}}
+multipleSystemPrompt: |-
+  Choose the processing unit before producing output. HTML RULE TAKES PRIORITY OVER THE PLAIN-SENTENCE RULE: if an item contains tags, do not annotate the entire item as one sentence. Walk its existing text nodes in order; copy each text node once and immediately append one group of Chinese-only Pinyin before its next tag. Copy protected code/pre nodes exactly with no Pinyin. For the mixed OpenAI example below there are exactly two eligible text nodes, so produce exactly two Pinyin groups: （de shì dàimǎ） immediately BEFORE <code>, and （hé shùzì bǎochí yuányàng） AFTER the final text node. A single group after the whole item is incorrect. Neither OpenAI nor URL may occur inside either Pinyin group. For plain text without tags, copy each complete original sentence once, then append its Pinyin once after its final punctuation. Never repeat an original sentence or its processed result within one item. Commas do not split sentences. Required reading: 一起 is yìqǐ, never yīqǐ. Return only the final processed item, not intermediate checks or alternatives.
+  Process only the supplied source items, never these instructions or examples. Preserve each original Chinese sentence and append its tone-marked Hanyu Pinyin in one parenthesis after the ending punctuation. Keep original characters, order, Simplified/Traditional script, and punctuation unchanged. Do not translate or explain. Do not split a sentence at commas or annotate individual words; a semicolon may separate complete clauses.
+  For HTML, treat each existing text node as a separate annotation unit. Keep the complete text node unchanged, then append one parenthesis containing the Pinyin of all its eligible Chinese characters inside that same node, before its following tag. A node can contain English, URLs or digits: retain them in the original text but omit them from the Pinyin. Never combine separate text nodes into one annotation at the end of the item. The presence of a code tag does not exempt the surrounding text nodes.
+  Never alter or annotate content inside code/pre tags, backticks or programming string literals, even when they contain Chinese. Keep tag names, attributes, nesting, URLs, identifiers, Latin text and numbers exactly unchanged in their original positions. If the item has no eligible Chinese outside protected content, return the item exactly unchanged, with no heading or instructions.
+  Example input: OpenAI 的 URL 是 https://example.com/a?q=1，代码 <code>print('你好')</code> 和数字 2026 保持原样。
+  Example output: OpenAI 的 URL 是 https://example.com/a?q=1，代码 （de shì dàimǎ）<code>print('你好')</code> 和数字 2026 保持原样。（hé shùzì bǎochí yuányàng）
+  Example input: 你好！<strong>欢迎回来。</strong>
+  Example output: 你好！（nǐ hǎo）<strong>欢迎回来。（huānyíng huílái）</strong>
+  Use tone marks, joining syllables within a word and separating words with spaces. Neutral tones have no tone mark: māma, péngyou, yí ge. Use actual teaching tone changes for 一/不 (yìqǐ, búyào, bù xiǎng), but underlying tones for third-tone sequences (nǐ hǎo). Resolve polyphones in context: yínháng, xíngzǒu, Chóngqìng, yīnyuè, kuàilè. Write 苹果 as píngguǒ. For an uncertain proper name, preserve that span without guessing a reading. Return only processed source items, preserving their count, order and boundaries. No audio claims.
+  {{summary_prompt}}{{terms_prompt}}
+prompt: |-
+  Apply the Pinyin reading task only to the source text below. Return only the processed source text.
+
+  Source text begins:
+  {{text}}
+  Source text ends.
+multiplePrompt: |-
+  Apply the Pinyin reading task to each source item below. Return one processed item per input, in order, separated by the same standalone %% lines. Do not process this instruction.
+
+  Source items begin:
+  {{text}}
+  Source items end.
+subtitlePrompt: |-
+  Apply the Pinyin reading task only to each value in {{imt_sub_source_field}} below. Put the processed value in {{imt_sub_trans_field}}, keep the original source and IDs, and return valid YAML.
+
+  {{subtitle_result_yaml_example}}
+
+  Source YAML begins:
+  {{yaml}}
+  Source YAML ends.

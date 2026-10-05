@@ -1,0 +1,111 @@
+expertId: pinyin-reading
+cases:
+  - id: simplified-chinese-polyphones
+    name: 简体中文、多音字与词界
+    from: zh-CN
+    to: zh-CN
+    items:
+      - source: 银行里的工作人员在行走。
+        mustPreserve: [银行里的工作人员在行走。]
+        mustNotContain: ["标题：", "解释：", "朗读："]
+        mustMatch:
+          - "[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]"
+          - '^(?![\s\S]*银行里的工作人员在行走。[\s\S]*银行里的工作人员在行走。)'
+        maxLengthRatio: 7
+      - source: 重庆的音乐很好听，快乐的孩子也在听音乐。
+        mustPreserve: [
+          重庆的音乐很好听，快乐的孩子也在听音乐。,
+        ]
+        mustNotContain: ["标题：", "解释：", "朗读："]
+        mustMatch: ["[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]"]
+        maxLengthRatio: 7
+    reviewCriteria:
+      - 原文汉字、简体字形和标点是否完整保留，且按句附注拼音
+      - 银行/行走、重庆、音乐/快乐等多音字是否依上下文读对，拼音是否按词连写、词间留空格
+      - 相较 common，是否更适合辅助阅读且没有添加解释或朗读承诺
+  - id: traditional-chinese-polyphones
+    name: 繁体中文原文保留与多音字
+    from: zh-TW
+    to: zh-TW
+    items:
+      - source: 銀行裡的工作人員正在行走。
+        mustPreserve: [銀行裡的工作人員正在行走。]
+        mustNotContain: ["標題：", "解釋：", "朗讀："]
+        mustMatch: ["[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]"]
+        maxLengthRatio: 7
+      - source: 重慶的音樂很好聽，快樂的孩子也在聽音樂。
+        mustPreserve: [
+          重慶的音樂很好聽，快樂的孩子也在聽音樂。,
+        ]
+        mustNotContain: ["標題：", "解釋：", "朗讀："]
+        mustMatch: ["[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]"]
+        maxLengthRatio: 7
+    reviewCriteria:
+      - 原文漢字、繁體字形和標點是否完整保留，沒有轉成簡體，且按句附注拼音
+      - 銀行/行走、重慶、音樂/快樂等多音字是否依上下文讀對，拼音是否按詞連寫、詞間留空格
+      - 相較 common，是否更適合輔助閱讀且沒有添加解釋或朗讀承諾
+  - id: neutral-tone-and-tone-changes
+    name: 轻声、常用变调与三声本调
+    from: zh-CN
+    to: zh-CN
+    items:
+      - source: 妈妈和朋友一起去学校。
+        mustPreserve: [妈妈和朋友一起去学校。]
+        mustNotContain: ["标题：", "解释：", "朗读："]
+        mustMatch: ["[Mm]ā\\s*ma", "péng\\s*you", "yì\\s*qǐ"]
+        maxLengthRatio: 7
+      - source: 不要把一个苹果给他；你好，我不想去。
+        mustPreserve: [不要把一个苹果给他；, 你好，我不想去。]
+        mustNotContain: ["标题：", "解释：", "朗读："]
+        mustMatch: ["[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]"]
+        maxLengthRatio: 7
+    reviewCriteria:
+      - 妈妈、朋友等轻声音节是否不标调号，词内连写且词间有空格
+      - 一/不是否按教学常用实际变调标注，三声连续时是否仍按本调标注
+      - 原文是否完整并按句注音；相较 common 是否方便核对读音而不改写原文
+  - id: markup-code-and-non-chinese
+    name: 标点、HTML、代码与非中文保留
+    from: zh-CN
+    to: zh-CN
+    items:
+      - source: "你好！<strong>欢迎回来。</strong>"
+        mustPreserve: ["你好！", "<strong>", "欢迎回来。", "</strong>"]
+        mustNotContain: ["标题：", "解释：", "朗读："]
+        mustMatch: ["[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]"]
+        maxLengthRatio: 7
+      - source: "OpenAI 的 URL 是 https://example.com/a?q=1，代码 <code>print('你好')</code> 和数字 2026 保持原样。"
+        mustPreserve: [
+          OpenAI,
+          "https://example.com/a?q=1",
+          "<code>",
+          "print('你好')",
+          "</code>",
+          "2026",
+        ]
+        mustNotContain: ["标题：", "解释：", "朗读："]
+        mustMatch:
+          - '[（(][^<>]*[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ][^<>]*[）)]\s*<code>'
+          - "</code>[^<>]*[（(][^<>]*[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ][^<>]*[）)]"
+          - '^(?![\s\S]*<code>[\s\S]*<code>)'
+          - '^(?![\s\S]*https://example\.com/a\?q=1[\s\S]*https://example\.com/a\?q=1)'
+        maxLengthRatio: 7
+    reviewCriteria:
+      - 标点、HTML 标签及嵌套是否保留，拼音是否只加在现有中文文本节点中
+      - 非中文词、URL、代码和数字是否原样保留且未注音；代码内中文是否也保持原样
+      - 相较 common，中文注音是否有阅读帮助且没有损坏原文结构或添加说明
+  - id: non-chinese-unchanged
+    name: 非中文与代码原样保留
+    from: en
+    to: zh-CN
+    items:
+      - source: "OpenAI URL: https://example.com/a?q=1, version 2026."
+        mustPreserve: ["OpenAI URL: https://example.com/a?q=1, version 2026."]
+        mustDifferFromSource: false
+        maxLengthRatio: 1
+      - source: "<code>print('你好')</code>"
+        mustPreserve: ["<code>print('你好')</code>"]
+        mustDifferFromSource: false
+        maxLengthRatio: 1
+    reviewCriteria:
+      - 非中文原文是否完全原样返回，没有翻译或附加拼音
+      - 代码内中文是否保持原样且不注音
