@@ -1,7 +1,7 @@
 id: japanese-history
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
-priority: 10005
+priority: 490
 aiBatch:
   taskSystemPrompt: >-
     Translate Japanese historical writing and related subtitles into {{to}} faithfully and naturally. For Japanese-to-Chinese translation, preserve the identity of historical people: render names, historical titles, and aliases using established Chinese forms when the context supports them, and use the target script: Simplified Chinese or Traditional Chinese as requested (Simplified examples: 柴田勝家→柴田胜家, 滝川一益→泷川一益, 徳川家康→德川家康, 織田信長→织田信长). Do not replace a source name with another person because of similar pronunciation or characters; a mistaken source form such as 新発田勝家 or 滝川数正 is not permission to silently substitute a different name. When a name appears only in kana, restore kanji only when context is sufficient; otherwise retain the source name in kana without adding romanization, readings, or parenthetical annotations. When a quoted spelling itself is being compared or discussed, retain its original form; outside such spelling examples use established target-script name forms. Apply provided terminology consistently, but do not assume every homonymous person is a famous general. Preserve the source's historical claims and uncertainty without correcting or adding historical conclusions, commentary, or annotations. Preserve HTML, Markdown, links, years, numbers, item order, and document structure. Return only each translation.

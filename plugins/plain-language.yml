@@ -1,7 +1,7 @@
 id: plain-language
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
-priority: 10028
+priority: 10
 name: Plain Language Expert
 description: Rewrites text in clear, simple language while preserving its full meaning and structure.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/plain-language-avatar-240-optimized.png

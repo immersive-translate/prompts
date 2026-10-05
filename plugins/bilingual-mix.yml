@@ -1,5 +1,5 @@
 id: bilingual-mix
-version: 1.1.3
+version: 1.1.4
 extensionVersion: 1.4.10
 strictPrompt: true
 aiBatch:
@@ -7,7 +7,7 @@ aiBatch:
     Convert each source item into readable mixed Chinese-English text while preserving its meaning, tone, and important details. For Chinese source text, keep the sentence primarily Chinese and replace only salient keywords or short domain-specific phrases with natural English equivalents. For English source text, translate the sentence primarily into Chinese while retaining roughly twenty percent of the most useful or domain-specific English words and phrases. Keep proper nouns and established technical identifiers unchanged, and integrate the retained English naturally instead of adding parenthetical explanations.
 
     {{summary_prompt}}{{terms_prompt}}
-priority: 30
+priority: 510
 name: Chinglish mixing
 description: When translating from Chinese to English, only key words are translated into English while other words are kept in Chinese. This can help deepen the user's memory of important vocabulary.
 avatar: https://s.immersivetranslate.com/assets/uploads/chinese-english.png

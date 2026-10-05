@@ -1,7 +1,7 @@
 id: psychology
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
-priority: 10011
+priority: 340
 name: Psychology Translation Expert
 description: Context-aware translation for psychology, psychoanalysis, and transpersonal psychology, preserving each text's concepts, evidence level, and qualifications.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/psychology-avatar-240-optimized.png

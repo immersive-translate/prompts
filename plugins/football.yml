@@ -1,7 +1,7 @@
 id: football
-version: 1.0.3
+version: 1.0.4
 extensionVersion: 1.4.10
-priority: 10012
+priority: 310
 name: Football Translation Expert
 description: Context-aware translation for association football coverage, preserving match facts, tactical meaning, and the source's level of certainty.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/football-avatar-240-optimized.png

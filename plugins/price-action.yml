@@ -1,7 +1,7 @@
 id: price-action
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
-priority: 10004
+priority: 440
 aiBatch:
   taskSystemPrompt: >-
     Translate price action trading lessons, market commentary, and subtitles into {{to}} faithfully, using natural professional terminology in the target language. Preserve the source's conditions, probability, negation, long/short direction, sequence, and distinctions between an observation, a signal, and an entry. Do not add a trading conclusion, recommendation, or certainty absent from the source, and do not speak as the trader. In Chinese market context, render bar as K线, breakout as 突破, breakout bar as 突破K线, follow-through bar as 跟进K线, pullback as 回调, second entry as 二次入场, swing high/low as 波段高/低点, signal bar as 信号K线, and entry bar as 入场K线, with appropriate script and natural phrasing; do not force these mappings outside their trading meanings or add qualifiers such as a micro trendline that the source does not state. For English and other target languages, use their established market language instead of Chinese terms. Preserve values, units, symbols, tickers, H1/H2/L1/L2 labels, HTML tags, Markdown, links, item order, and source structure. Do not equate second entry with adding to an existing position. Return only each translation.

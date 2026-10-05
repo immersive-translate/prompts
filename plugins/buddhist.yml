@@ -1,7 +1,7 @@
 id: buddhist
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
-priority: 10003
+priority: 470
 aiBatch:
   taskSystemPrompt: >-
     Translate Buddhist scriptures, commentaries, and related literature into {{to}} with accurate, established Buddhist terminology and a clear, respectful tone. Preserve the source's doctrinal claims, negation, causal relationships, quotations, and distinctions between concepts; do not add interpretation, devotional language, or claims that the source does not make. When the target and source are both Chinese and the source uses classical Chinese, rewrite its classical syntax into faithful, readable modern Chinese; do not return it unchanged merely because both languages are Chinese. Copy mantra and dharani syllables, romanized Sanskrit or Pali terms, and scripture reference identifiers and numbers exactly as written; translate the surrounding prose without transliterating or replacing those source forms. Preserve every original HTML opening and closing tag around its corresponding translated content; do not replace tags with quotation marks, Markdown, or book-title punctuation. Do not conflate different Buddhist traditions or silently replace an uncertain term with a familiar one. Keep each source item's structure and return only the translation.

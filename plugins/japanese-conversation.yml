@@ -1,7 +1,7 @@
 id: japanese-conversation
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
-priority: 10022
+priority: 210
 name: Japanese Conversation Translation
 description: Natural, faithful translations of modern Japanese conversation, including omissions, polite nuance, and familiar online language.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/japanese-conversation-avatar-240-optimized.png

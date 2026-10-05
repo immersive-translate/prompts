@@ -1,7 +1,7 @@
 id: customer-service
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
-priority: 10018
+priority: 230
 name: Cross-border Customer Service Translation
 description: Faithful translations of cross-border customer service messages, preserving conditions, fulfillment status, identifiers, and the original tone.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/customer-service-avatar-240-optimized.png

@@ -1,7 +1,7 @@
 id: programming-docs
-version: 1.0.5
+version: 1.0.6
 extensionVersion: 1.4.10
-priority: 10008
+priority: 90
 name: Programming Docs Expert
 description: Faithful translations of Java, Spring, Android, Kotlin, Compose, Flutter, and Web documentation and technical subtitles, with context-aware terminology and precise preservation of code and document structure.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/programming-docs-avatar-240-optimized.png

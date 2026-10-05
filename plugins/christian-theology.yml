@@ -1,7 +1,7 @@
 id: christian-theology
-version: 1.0.6
+version: 1.0.7
 extensionVersion: 1.4.10
-priority: 10015
+priority: 480
 name: Christian Theology Translation
 description: Translates Christian theological writing with attention to tradition, context, scriptural references, and the distinction between theological and everyday usage.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/christian-theology-avatar-240-optimized.png

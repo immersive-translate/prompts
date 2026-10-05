@@ -1,7 +1,7 @@
 id: english-vocabulary-reading
-version: 1.0.4
+version: 1.0.5
 extensionVersion: 1.4.10
-priority: 10027
+priority: 100
 name: English Vocabulary Reading
 description: Translates each English passage completely, then explains a few useful words or phrases in context.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/english-vocabulary-reading-avatar-240-optimized.png

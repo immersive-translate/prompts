@@ -1,7 +1,7 @@
 id: mining
-version: 1.0.2
+version: 1.0.3
 extensionVersion: 1.4.10
-priority: 10016
+priority: 390
 name: Mining Translation
 description: Faithful translations of mining texts, preserving geological context, classifications, technical terms, values, and qualifications.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/mining-avatar-240-optimized.png

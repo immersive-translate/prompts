@@ -1,7 +1,7 @@
 id: paper-explanation
-version: 1.0.5
+version: 1.0.6
 extensionVersion: 1.4.10
-priority: 10026
+priority: 80
 name: Paper Translation and Explanation
 description: Translates and explains supplied academic passages in separate sections, preserving scholarly meaning and marking limits in the available context.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/paper-explanation-avatar-240-optimized.png

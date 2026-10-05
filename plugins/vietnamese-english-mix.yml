@@ -1,7 +1,7 @@
 id: vietnamese-english-mix
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
-priority: 10023
+priority: 560
 name: Vietnamese-English Mixing
 description: English-to-Vietnamese translations that retain useful English keywords and complete expressions to support vocabulary learning.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/vietnamese-english-mix-avatar-240-optimized.png

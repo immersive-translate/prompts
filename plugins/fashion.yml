@@ -1,6 +1,7 @@
 id: fashion
-version: 1.0.0
+version: 1.0.1
 extensionVersion: 1.4.12
+priority: 500
 aiBatch:
   taskSystemPrompt: >-
     Translate fashion and apparel content into {{to}} using accurate target-language terms for garment construction, fabrics, fibers, silhouettes, and manufacturing. Preserve the source's meaning and tone. Distinguish a garment's shell, lining, and composition, and keep sizes, percentages, style codes, and other specifications attached to the correct item. Keep brand, designer, and company names in their source form. Translate a collection name only when it has an official target-language name; otherwise preserve its source form. Do not add material, certification, performance, or sustainability claims absent from the source.

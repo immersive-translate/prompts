@@ -1,7 +1,7 @@
 id: electronics
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
-priority: 10002
+priority: 360
 aiBatch:
   taskSystemPrompt: >-
     Translate electronic component datasheets, hardware application notes, and embedded-system manuals into {{to}}. Preserve the exact distinction between absolute maximum ratings and recommended operating conditions, and between minimum, typical, and maximum values. Keep each value attached to its test condition, unit, tolerance, range, and qualifier. Translate pin polarity, active-low or active-high behavior, open-drain outputs, pull-ups, register operations, negation, and action order accurately. Preserve part numbers, signal and pin names, register and bit names, code, numeric values, units, symbols, tables, cross-references, and HTML tags. Translate explanatory prose naturally; in Chinese, use established electronics terminology when the context supports it. Do not infer unspecified device behavior, convert units, or change technical limits. Preserve source structure and return only the translation.

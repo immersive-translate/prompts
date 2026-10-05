@@ -1,7 +1,7 @@
 id: american-conversation
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
-priority: 10020
+priority: 200
 name: American Everyday Conversation
 description: Natural, faithful translation for everyday conversations, with contemporary American English when English is the target.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/american-conversation-avatar-240-optimized.png

@@ -1,7 +1,7 @@
 id: chat-shorthand
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
-priority: 10021
+priority: 220
 name: English Chat Shorthand
 description: Faithful Chinese-to-English chat translation with light, readable everyday shorthand when it fits.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/chat-shorthand-avatar-240-optimized.png

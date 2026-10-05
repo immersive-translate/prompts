@@ -1,7 +1,7 @@
 id: golf
-version: 1.0.1
+version: 1.0.2
 extensionVersion: 1.4.10
-priority: 10001
+priority: 410
 aiBatch:
   taskSystemPrompt: >-
     Translate golf rules, coaching, equipment, and tournament coverage into {{to}} with natural target-language golf terminology. Resolve polysemous words from their actual context: green may mean a putting green or a color; club may mean a golf club or an organization; course may mean a golf course or another kind of course; shot may mean a golf stroke or an ordinary shot. In Chinese golf contexts, use established terms such as 果岭, 球杆, 球场, and 击球 or 一杆 when they fit. Do not force golf meanings onto ordinary uses. Preserve player names, hole numbers, scores, par, distances, equipment specifications, and the source's factual relationships. Do not invent rules, outcomes, or coaching advice. Keep source formatting and return only the translation.

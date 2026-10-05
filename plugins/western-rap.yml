@@ -1,7 +1,7 @@
 id: western-rap
-version: 1.0.4
+version: 1.0.5
 extensionVersion: 1.4.10
-priority: 10014
+priority: 330
 name: Western Rap Translation Expert
 description: Faithfully translates English-language rap lyrics into the target language, preserving slang, wordplay, imagery, cultural references, voice, intensity, and lyric formatting without inventing meaning.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/western-rap-avatar-240-optimized.png

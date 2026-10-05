@@ -1,7 +1,7 @@
 id: pinyin-reading
-version: 1.0.6
+version: 1.0.7
 extensionVersion: 1.4.10
-priority: 10029
+priority: 550
 name: Pinyin Reading
 description: Adds standard tone-marked Hanyu Pinyin sentence by sentence while keeping Chinese text intact for reading support.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/pinyin-reading-avatar-240-optimized.png

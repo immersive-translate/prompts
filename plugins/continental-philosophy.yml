@@ -1,7 +1,7 @@
 id: continental-philosophy
-version: 1.0.3
+version: 1.0.4
 extensionVersion: 1.4.10
-priority: 10009
+priority: 460
 name: Continental Philosophy Translation Expert
 description: Faithful, context-aware translations of modern and contemporary continental philosophy, with careful handling of concepts, names, and argument structure.
 avatar: ""

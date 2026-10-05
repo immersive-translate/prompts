@@ -1,7 +1,7 @@
 id: chemistry
-version: 1.0.5
+version: 1.0.6
 extensionVersion: 1.4.10
-priority: 10010
+priority: 380
 name: Chemistry and Chemical Engineering Translation Expert
 description: Faithful translations of chemistry and chemical engineering texts, preserving scientific notation, process conditions, and technical meaning.
 avatar: https://s.immersivetranslate.com/assets/r2-uploads/assets/r2-uploads/chemistry-avatar-240-optimized.png
