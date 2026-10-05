@@ -1,0 +1,112 @@
+expertId: shakespeare-verse
+cases:
+  - id: source-example-facts-and-unfulfilled-promise
+    name: 原申请示例：事实与未兑现承诺
+    from: en
+    to: en
+    items:
+      - source: "In 2011, Matthew, then a junior official in one of China's most powerful finance ministries, treated himself and his bride to a two-week honeymoon at the resort destination of Maui, in the Hawaiian islands."
+        mustPreserve: [Matthew, Maui]
+        mustContainAny: [
+          ["two weeks", "two-week", "fortnight", "fourteen days"],
+        ]
+        maxLengthRatio: 5
+      - source: "Near the end of their stay, he assured his new wife that they would travel to a different country each year to celebrate their special day, a promise he would never be able to keep."
+        maxLengthRatio: 5
+    reviewCriteria:
+      - 是否保留年份、人物身份、度蜜月地点与两周时长，以及每年去不同国家庆祝的承诺和“永远无法兑现”这一结局
+      - 是否避免把承诺改成已经发生的旅行，或补入原文没有的情感与事件
+      - 是否呈现莎士比亚风格的诗歌语气，同时事实准确性优先于押韵和格律
+  - id: chinese-source-fixed-english-output
+    name: 中文输入与固定英文输出
+    from: zh-CN
+    to: zh-CN
+    items:
+      - source: "清晨，林间的钟声响起；守门人说，北门仍然关闭。"
+        mustContainAny: [
+          ["morning", "dawn", "morn"],
+          [
+            "north gate",
+            "Northern Gate",
+            "northern gate",
+            "northern portal",
+            "north portal",
+          ],
+        ]
+        mustNotContain: ["北门"]
+        maxLengthRatio: 8
+      - source: "她说，若船在日落前归来，他们便会在港口等候；她没有说船一定会回来。"
+        mustContainAny: [
+          [
+            "sunset",
+            "set of sun",
+            "sun's decline",
+            "sun’s decline",
+            "sun sank",
+            "sun descendeth",
+            "sun sets",
+            "sun goes down",
+          ],
+          ["if", "should"],
+        ]
+        maxLengthRatio: 8
+    reviewCriteria:
+      - 即使界面目标语言为中文，是否仍输出英文诗歌
+      - 是否保留北门仍关闭，以及等待条件只是船在日落前归来的假设
+      - 是否没有把“没有说一定回来”改成确定会回来
+      - 是否采用古典、抒情的诗歌语气而没有为凑韵改变事实
+  - id: negation-modality-and-quantity
+    name: 否定、情态与数量
+    from: en
+    to: en
+    items:
+      - source: "The team may send no more than three letters, and it must not claim that the final reply has arrived."
+        mustContainAny: [["three", "3"]]
+        maxLengthRatio: 6
+      - source: "If either witness cannot attend, the hearing could be delayed; no delay has yet been confirmed."
+        maxLengthRatio: 6
+    reviewCriteria:
+      - 是否保留最多三封信的数量上限，而非恰好三封或更多
+      - 是否保留不得声称最终回复已到达的否定
+      - 是否保留证人无法出席这一条件、听证会可能延期，以及目前尚未确认延期
+      - 是否没有为了诗体把可能性写成确定事实
+  - id: html-url-and-code
+    name: HTML、网址与代码保留
+    from: en
+    to: en
+    items:
+      - source: '<p>If the <a href="https://example.com/report">report</a> says <code>READY</code>, wait; it does not authorize a launch.</p>'
+        mustPreserve: [
+          "<p>",
+          "</p>",
+          '<a href="https://example.com/report">',
+          "</a>",
+          "<code>",
+          "</code>",
+          "https://example.com/report",
+          READY,
+        ]
+        mustNotContain: ["launch is authorized"]
+        maxLengthRatio: 6
+      - source: "The log records <code>retry=false</code>; it does not say that another attempt occurred."
+        mustPreserve: ["<code>retry=false</code>"]
+        maxLengthRatio: 6
+    reviewCriteria:
+      - 是否逐 item 保留 HTML 标签、href 属性、网址与 code 内容，只改写普通文本
+      - 是否保留等待指令且没有把报告误写成授权发布
+      - 是否保留 retry=false 和“没有说明发生了另一次尝试”的语义
+  - id: short-english-same-language
+    name: 简短英文同语改写
+    from: en
+    to: en
+    items:
+      - source: "The moon is bright tonight."
+        mustDifferFromSource: true
+        maxLengthRatio: 8
+      - source: "We leave at dawn."
+        mustDifferFromSource: true
+        maxLengthRatio: 8
+    reviewCriteria:
+      - 英文源文和英文目标相同时，是否仍执行英文诗风改写而非原样返回
+      - 是否保持月色明亮与黎明出发两个简单事实，没有添加新的事件或情绪
+      - 是否能看出诗歌化表达；不以使用 thou 或其他固定古词作为必要标准

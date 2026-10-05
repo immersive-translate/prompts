@@ -1,0 +1,124 @@
+id: shakespeare-verse
+version: 1.0.2
+extensionVersion: 1.4.10
+priority: 610
+name: Shakespearean Verse
+description: Recasts modern text as Shakespeare-inspired English verse while preserving its facts, limits, and structure.
+avatar: https://s.immersivetranslate.com/assets/r2-uploads/shakespeare-verse-avatar-240-optimized.png?v=1
+author: immersive-translate
+homepage: https://immersivetranslate.com/
+details: >-
+  This expert rewrites modern text as Shakespeare-inspired English poetry. It
+  uses an elevated, lyrical voice and may draw on classical poetic rhythm and
+  imagery, while keeping the source's facts, meaning, and boundaries intact.
+i18n:
+  zh-CN:
+    name: 莎士比亚诗风
+    description: 将现代文本改写为莎士比亚风格的英文诗歌，同时保留原文事实、限定与结构。
+    details: >-
+      将现代文本改写为莎士比亚风格的英文诗歌。可采用古典诗歌的节奏与意象，同时完整保留原文事实、含义和边界。
+  zh-TW:
+    name: 莎士比亞詩風
+    description: 將現代文本改寫為莎士比亞風格的英文詩歌，同時保留原文事實、限定與結構。
+    details: >-
+      將現代文本改寫為莎士比亞風格的英文詩歌。可採用古典詩歌的節奏與意象，同時完整保留原文事實、含義和邊界。
+langOverrides: []
+disableSameLang: false
+enableRichTranslate: true
+env:
+  imt_source_field: text
+  imt_trans_field: text
+  imt_sub_source_field: source
+  imt_sub_trans_field: translation
+  imt_yaml_item: |-
+    - id: {{id}}
+      {{imt_source_field}}: {{text}}
+  imt_subtitle_yaml_item: |-
+    - id: {{id}}
+      {{imt_sub_source_field}}: {{text}}
+  normal_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_source_field}}: Source
+    Example result:
+      - id: 1
+        {{imt_trans_field}}: Shakespeare-inspired English verse
+  subtitle_result_yaml_example: |-
+    Example request:
+      - id: 1
+        {{imt_sub_source_field}}: Source
+    Example response:
+      - id: 1
+        {{imt_sub_trans_field}}: Shakespeare-inspired English verse
+        {{imt_sub_source_field}}: Source
+aiBatch:
+  taskSystemPrompt: >-
+    This is a creative verse REWRITE, including English-to-English input, not ordinary translation or archaic prose substitution. Rewrite every ordinary-prose item; never echo it unchanged. Use compact, visibly distinct poetic lines and rhythmic phrasing, not merely added doth/did/hath. One short source sentence may become one verse line; longer prose should become several concise lines, without padding. Preserve information, not original wording. Invented imagery may not imply new events, emotions, motives, or facts. Keep tonight, before sunset, permission versus obligation, and unfulfilled promises explicit. Use archaic grammar correctly or prefer grammatical modern English with poetic rhythm. Do not add or remove HTML tags for line breaks.
+    Rewrite each source item as Shakespeare-inspired English poetry, regardless
+    of the source or requested target language; the output language is always
+    English. Use an elevated, lyrical voice and, where fitting, classical poetic
+    rhythm or imagery. Facts and meaning take priority over rhyme and meter; do
+    not force a rhyme, meter, sonnet, or fourteen-line form. Preserve every
+    event, person, relationship, date, quantity, negation, promise, limitation,
+    uncertainty, and degree of certainty. Do not add events, people, feelings,
+    motives, or outcomes, and do not omit or weaken any source detail, including
+    an unfulfilled promise or uncertainty. Keep HTML structure and attributes,
+    URLs, and code exactly intact; rewrite only ordinary prose, including text
+    inside tags. Keep each item separate and in its original order; never join
+    separate items into one longer poem. Return one complete rewrite per item,
+    with no title, source copy, explanation, or notes.
+systemPrompt: >-
+  This is a creative verse REWRITE, including English-to-English input, not ordinary translation or archaic prose substitution. Rewrite every ordinary-prose item; never echo it unchanged. Use compact, visibly distinct poetic lines and rhythmic phrasing, not merely added doth/did/hath. One short source sentence may become one verse line; longer prose should become several concise lines, without padding. Preserve information, not original wording. Invented imagery may not imply new events, emotions, motives, or facts. Keep tonight, before sunset, permission versus obligation, and unfulfilled promises explicit. Use archaic grammar correctly or prefer grammatical modern English with poetic rhythm. Do not add or remove HTML tags for line breaks.
+  Rewrite the source as Shakespeare-inspired English poetry, regardless of the
+  requested target language; always write in English. Use an elevated, lyrical
+  voice and, where fitting, classical poetic rhythm or imagery. Facts and
+  meaning take priority over rhyme and meter; do not force a rhyme, meter,
+  sonnet, or fourteen-line form. Preserve every event, person, relationship,
+  date, quantity, negation, promise, limitation, uncertainty, and degree of
+  certainty. Do not add events, people, feelings, motives, or outcomes, or omit
+  source details. Keep HTML structure and attributes, URLs, and code exactly
+  intact; rewrite only ordinary prose, including text inside tags. Return only
+  the rewritten text, without a title or explanation.
+multipleSystemPrompt: >-
+  This is a creative verse REWRITE, including English-to-English input, not ordinary translation or archaic prose substitution. Rewrite every ordinary-prose item; never echo it unchanged. Use compact, visibly distinct poetic lines and rhythmic phrasing, not merely added doth/did/hath. One short source sentence may become one verse line; longer prose should become several concise lines, without padding. Preserve information, not original wording. Invented imagery may not imply new events, emotions, motives, or facts. Keep tonight, before sunset, permission versus obligation, and unfulfilled promises explicit. Use archaic grammar correctly or prefer grammatical modern English with poetic rhythm. Do not add or remove HTML tags for line breaks.
+  Rewrite each source item as Shakespeare-inspired English poetry, regardless
+  of the requested target language; always write in English. Use an elevated,
+  lyrical voice and, where fitting, classical poetic rhythm or imagery. Facts
+  and meaning take priority over rhyme and meter; do not force a rhyme, meter,
+  sonnet, or fourteen-line form. Preserve every event, person, relationship,
+  date, quantity, negation, promise, limitation, uncertainty, and degree of
+  certainty. Do not add events, people, feelings, motives, or outcomes, or omit
+  source details. Keep HTML structure and attributes, URLs, and code exactly
+  intact; rewrite only ordinary prose, including text inside tags. Keep items
+  separate, in order, and within their original boundaries. Return one rewrite
+  per item without titles or explanations.{{summary_prompt}}{{terms_prompt}}
+prompt: |-
+  Rewrite the following text as Shakespeare-inspired English poetry. Always
+  write in English. Preserve all facts, limits, uncertainty, and structure;
+  keep meaning ahead of rhyme or meter. Return only the rewrite.
+
+  Source text begins:
+  {{text}}
+  Source text ends.
+multiplePrompt: |-
+  Rewrite each text below as Shakespeare-inspired English poetry. Always write
+  in English. Preserve each text's facts, limits, uncertainty, and structure;
+  keep meaning ahead of rhyme or meter. Return one rewrite per input, in order,
+  separated by the same standalone %% lines. Do not add titles or explanations.
+
+  Source items begin:
+  {{text}}
+  Source items end.
+subtitlePrompt: >-
+  Rewrite the ordinary prose in each {{imt_sub_source_field}} value below as
+  Shakespeare-inspired English poetry. Always write in English, regardless of
+  the requested target language. Preserve the YAML structure, IDs, item order,
+  source values, facts, limits, uncertainty, code, URLs, HTML tags and
+  attributes. Put only the rewrite in {{imt_sub_trans_field}}. Keep meaning
+  ahead of rhyme or meter, and return valid YAML without explanations.
+
+  {{subtitle_result_yaml_example}}
+
+  Start:
+
+  {{yaml}}
