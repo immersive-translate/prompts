@@ -1,10 +1,13 @@
 id: ebook
-version: 1.1.4
+version: 1.1.5
 extensionVersion: 1.4.10
 priority: 60
 aiBatch:
-  taskSystemPrompt: >-
+  taskSystemPrompt: |-
     Translate eBook content into {{to}} as polished prose appropriate to its genre and intended audience. Preserve narrative voice, characterization, dialogue register, literary devices, metaphors, emotional nuance, and culturally significant elements. Within each source item, preserve the meaning and relationships of headings, captions, footnotes, and cross-references, and use established translations for recurring names and concepts when available.
+
+
+    For every translatable item, translate all prose into {{to}}. Do not substitute another language or leave source-language prose untranslated. Preserve only content that should remain unchanged, such as proper names, code, identifiers, and protected placeholders. Apply this target-language requirement to every item independently, including short or ambiguous items.
 
     {{title_prompt}}{{summary_prompt}}{{terms_prompt}}
 name: eBook Translation Expert
