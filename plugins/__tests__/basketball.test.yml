@@ -1,0 +1,421 @@
+# 自动检查仅覆盖保留的词面/结构约束；专业语义与附注限制见 reviewCriteria。
+# 按用户要求调整自动门槛；GLM tag=標記 仍是已知误译，不代表质量验收通过。
+expertId: basketball
+cases:
+  - id: en-zh-CN-tactics
+    name: 英译简中：挡拆、外弹与弱侧协防（基础自动检查）
+    from: en
+    to: zh-CN
+    items:
+      - source: Chen sets a screen for Rivera, then rolls to the rim. The defense switches rather than traps the ball handler.
+        mustContainAny:
+          - [Chen, 陈]
+          - [Rivera, 里维拉, 里韦拉, 里弗拉]
+          - [掩护, 挡拆]
+          - [顺下, 切入, 切向, 篮下]
+          - [换防, 交换防守]
+          - [包夹, 夹击]
+      - source: On the next possession, Chen runs a pick-and-pop and stays outside the paint instead of rolling to the basket.
+        mustContainAny:
+          - [Chen, 陈]
+          - [外弹, 外拆, 外拉]
+          - [禁区, 油漆区, 三秒区, 外线, 外围]
+        mustNotContain: [油漆涂料, 三分线外, 超过三分线]
+      - source: The weak-side defender tags the roller, then recovers to the corner shooter without conceding an open three.
+        mustContainAny:
+          - [弱侧]
+          - [底角, 角落]
+          - [三分]
+    reviewCriteria:
+      - 自动绿灯仅表示本用例保留的词面与结构检查通过；tag 的短暂协防含义、底角专业表达和不附英文解释仍须人工评审，未评审不能判质量合格。
+      - 已知风险：GLM 繁中可能将 tag 译为標記，这是实际误译；本次按用户要求转人工检查，自动绿灯不表示该错误已修复。
+      - 掩护、顺下与外弹是否区分准确，换防是否被误译为包夹；不得改变否定关系。
+      - 弱侧防守者先协防顺下者再回位的顺序、目的与没有放出空位三分的关系是否完整；不得补写出手或命中。
+      - tag 须表达临时协防阻挡顺下者或传球路线，不能仅写跟防；不添加协防(Tag)或Tag(协防)等任一顺序的双语解释。
+      - 与同文本 common 相比，战术译法是否自然、专业，避免字面翻译 paint 或 tag；corner shooter 应采用底角射手，角落写法主要按专业表达审校，与新增位置事实分开判断。
+      - 外线或外围措辞可供审校，但仍须保留禁区外的范围，不能推定站在三分线外；标记不是本条 tag 的协防动作。
+
+  - id: en-zh-CN-facts
+    name: 英译简中：比分方向、数据与人物身份（基础自动检查）
+    from: en
+    to: zh-CN
+    items:
+      - source: With 12 seconds left in the fourth quarter, the Comets have 96 points and their opponents have 98; the Comets trail by two. Rivera kicks it out to Chen for a potential game-winning three.
+        mustPreserve: ["98", "96", "12"]
+        mustContainAny:
+          - [Comets, 彗星]
+          - [Rivera, 里维拉, 里韦拉, 里弗拉]
+          - [Chen, 陈]
+          - [落后]
+          - [第四节, 第4节, 第４节, 末节]
+        mustMatch:
+          - '(?:96\s*(?:比|[–—−－:：-])\s*98|(?:Comets|彗星)[^\d。！？\n]{0,12}96\s*分)'
+          - '(?:96\s*(?:比|[–—−－:：-])\s*98|对手[^\d。！？\n]{0,12}98\s*分)'
+          - '(?:(?:可能|有机会|有機會|有望|可望|或许|或許|可以|能够|能夠|能|准备|準備|尝试|嘗試|寻求|尋求|争取|爭取|希望|若|如果|假如|一旦|只要)|(?:投[进進中]|命中|射[进進])(?!了)[^。！？；;\n]{0,12}(?:就|便|才|则|則|的话|的話))'
+          - '^(?![\s\S]*(?:^|[。！？；;\n])(?!(?:(?!(?:投[进進中]|命中|射[进進]))[^\n。！？；;])*(?:可能|有机会|有機會|有望|可望|或许|或許|可以|能够|能夠|能|准备|準備|尝试|嘗試|寻求|尋求|争取|爭取|希望|若|如果|假如|一旦|只要))[^\n。！？；;]*(?!(?:投[进進中]|命中|射[进進])(?!了)[^。！？；;\n]{0,12}(?:就|便|才|则|則|的话|的話))(?:投[进進中]|命中|射[进進]))'
+        mustNotContain: [踢, 底角, 底线外, 底線外, 边线外, 邊線外, 界外]
+      - source: 'Chen: PTS 24, REB 8, AST 11, TOV 3, TS% 62.5%, +/- -7. His team leads the series 2–1, but lost this game: his team scored 99 points and the opponents scored 101.'
+        mustPreserve: ["24", "8", "11", "3", "62.5", "2", "1", "101", "99"]
+        mustContainAny:
+          - [Chen, 陈]
+        mustMatch:
+          - '(?:(?:PTS|得分)[^\d]{0,12}24(?!\d)|24\s*(?:分|得分))'
+          - '(?:(?:REB|篮板)[^\d]{0,12}8(?!\d)|8\s*(?:个\s*)?篮板)'
+          - '(?:(?:AST|助攻)[^\d]{0,12}11(?!\d)|11\s*(?:次\s*)?助攻)'
+          - '(?:(?:TOV|失误)[^\d]{0,12}3(?!\d)|3\s*(?:次\s*)?失误)'
+          - '(?:TS%|真实(?:投篮)?命中率)[^\d]{0,12}62\.5\s*[%％]'
+          - '(?:\+/[-−－–]|正负值)[^\d+\-−－–]{0,12}(?:[-−－–]|负)\s*7(?!\d|\.\d)'
+      - source: Jordan Lee boxes out, and Lee secures the rebound. Jordan is still on the bench.
+        mustContainAny:
+          - [卡位, 挡住]
+          - [篮板]
+          - [替补席, 板凳席, 替补区, 板凳区, 板凳]
+        mustMatch:
+          - '(?:Jordan Lee|乔丹[·・\s]*李|乔登[·・\s]*李)[\s\S]*(?:Lee|李)[\s\S]*(?:Jordan|乔丹|乔登)'
+        mustNotContain: [Michael, 迈克尔, 公牛, 长椅, 長椅, 长凳, 長凳]
+      - source: Rivera passes to Chen, who is standing at the three-point line. Chen has not taken a shot yet; the game is still in progress.
+        mustContainAny:
+          - [Rivera, 里维拉, 里韦拉, 里弗拉]
+          - [Chen, 陈]
+          - [三分]
+        mustMatch:
+          - '(?:尚未|还未|还没|还没有|未曾|没有|未)[^。！？\n]{0,12}(?:出手|投篮|投出|投球)'
+        mustNotContain: [三分线外, 三分线内, 三分線外, 三分線內]
+    reviewCriteria:
+      - 自动绿灯仅表示本用例保留的词面与结构检查通过；不附英文术语解释、完整动作关系及潜在出手阶段仍须人工评审，未评审不能判质量合格。
+      - 必须仍为 Comets 落后且比赛未结束；传球后的潜在致胜三分不能被补写为已经命中或赢球。
+      - Comets 得 96 分、对手得 98 分，必须落后两分；检查分数与双方的对应关系，不能仅检查数字存在。
+      - 数据标签允许保留英文或准确本地化，但各项数值与负号须对应；球队本场得 99 分、对手 101 分，不能与系列赛领先混同。
+      - 姓名可以一致音译，但不能将 Jordan 认定为 Michael Jordan，不能擅自合并 Jordan Lee、Lee 和 Jordan 的身份；卡位与拿到篮板不能混同。
+      - 传球寻求潜在制胜三分不等于已经出手；新增明确未出手条目须保留 Chen 尚未投篮及比赛仍在进行。
+      - kicks it out 在此为传球给 Chen，不能译成用脚踢；三分线上的位置不能变成三分线外。姓名分隔符不决定身份，须逐一核对卡位者、取得篮板者与替补席上的人。
+      - 潜在致胜三分条目没有底角位置，不得由分球或三分推断底角；逐次保留姓名及动作归属，不得漏掉 Rivera 或误拼为 Riverra。
+      - 不添加原文没有的 kick-out 等英文括号注释；三分线上不能变成线内或线外。
+      - 潜在致胜球须保留机会或条件；有机会投进、若投进、投进就能赢均可，不能写成已投进。不得新增底线外、边线外等位置；box-out 双语括号也不得新增。
+      - 人物卡位和篮板条目中的 bench 仍是篮球替补席，即使没有 team 修饰也不能译成长椅；独立姓名和动作主体必须保留。
+
+  - id: en-zh-CN-context
+    name: 英译简中：篮球习语、普通语义与格式
+    from: en
+    to: zh-CN
+    items:
+      - source: '<a href="https://example.com/play?id=7">Rivera</a> hit a shot from downtown, but his next attempt was an air ball. **Not a turnover.**'
+        mustPreserve: ['<a href="https://example.com/play?id=7">', '</a>', '**']
+        mustContainAny:
+          - [Rivera, 里维拉, 里韦拉, 里弗拉]
+          - [三分]
+          - [三不沾, 三不粘, 篮外空心, 没有碰到, 没碰到]
+          - [失误]
+        mustNotContain: [市中心, 空气球, 面包, 麵包]
+      - source: The editor checked the screen, painted the bench, and discussed staff turnover downtown. Keep `{{player_id}}` unchanged.
+        mustPreserve: ['`{{player_id}}`']
+        mustContainAny:
+          - [长凳, 长椅, 板凳, 凳子, 木凳]
+          - [员工, 人员, 职员, 人事]
+          - [编辑, 编者]
+          - [市中心, 市区, 城区, 闹市区, 城中心, 城中, 市内]
+        mustMatch:
+          - '(?:[刷漆涂塗喷噴]|上色|彩[绘繪])'
+        mustNotContain: [挡拆, 换防, 三分, 球员流失, 失误, 替补席, 板凳席, 板凳区, 禁区, 禁區, 人墙, 人牆]
+      - source: The librarian repainted a wooden bench beside the reading-room window and checked the computer display. Staff turnover at the library stayed low.
+        mustContainAny:
+          - [长凳, 长椅, 板凳, 凳子, 木凳]
+          - [员工, 人员, 职员, 人事]
+          - [屏幕, 显示屏, 显示器]
+        mustNotContain: [掩护, 挡拆, 换防, 失误, 替补席, 板凳席, 板凳区]
+      - source: Rivera returned to the team's bench after a turnover. A substitute was waiting to enter the game.
+        mustContainAny:
+          - [Rivera, 里维拉, 里韦拉, 里弗拉]
+          - [替补席, 板凳席, 板凳, 替补区]
+          - [替补, 候补]
+          - [失误]
+      - source: In the park, a child kicked a football to a friend with the right foot.
+        mustContainAny:
+          - [足球]
+          - [踢, 右脚, 右足]
+    reviewCriteria:
+      - downtown 必须保留三分属性，不能只写远投；air ball 与 turnover 按篮球语境处理，保留第二次出手未命中与不是失误的否定关系。
+      - 非篮球文本是否仍指屏幕、长凳、员工流动和市中心，不能因专家身份强套篮球术语。
+      - 同批图书馆木制长凳与球队替补席须按各自语境判断；图书馆低人员流动不能变成低球权失误，等待上场不能变成已经上场。
+      - 链接目标、标签、加粗标记与占位符是否完整；专业性不能以损害语义或格式为代价。
+      - 每条日常文字也须翻成简体中文，不得原样返回英文；电脑显示屏不是展陈。公园足球条目是用右脚踢球，不能因 kick-out 规则改成篮球手传。
+      - 简中 airball 使用三不沾或准确等义描述，不能借用繁中面包用语；木凳可进入人工长度精度审校。
+      - 日常条目须保留编辑检查屏幕、刷漆与市中心的含义，不得添加禁区或人墙；日常板凳不能写成板凳席，不能借板凳子串通过席位误译。
+
+  - id: en-zh-TW-tactics
+    name: 英译繁中：擋拆、外彈與弱邊協防（基础自动检查）
+    from: en
+    to: zh-TW
+    items:
+      - source: Chen sets a screen for Rivera, then rolls to the rim. The defense switches rather than traps the ball handler.
+        mustContainAny:
+          - [Chen, 陳]
+          - [Rivera, 里維拉, 里韋拉, 李維拉, 李韋拉]
+          - [掩護, 擋拆, 設擋]
+          - [順下, 切入, 切向, 籃下]
+          - [換防, 交換防守]
+          - [包夾, 夾擊]
+      - source: On the next possession, Chen runs a pick-and-pop and stays outside the paint instead of rolling to the basket.
+        mustContainAny:
+          - [Chen, 陳]
+          - [外彈, 外拆, 外拉]
+          - [禁區, 油漆區, 三秒區, 外線, 外圍]
+        mustNotContain: [三分線外, 超過三分線]
+      - source: The weak-side defender tags the roller, then recovers to the corner shooter without conceding an open three.
+        mustContainAny:
+          - [弱邊, 弱側]
+          - [底角, 角落]
+          - [三分]
+    reviewCriteria:
+      - 自动绿灯仅表示本用例保留的词面与结构检查通过；tag 的短暂协防含义、底角专业表达和不附英文解释仍须人工评审，未评审不能判质量合格。
+      - 已知风险：GLM 繁中可能将 tag 译为標記，这是实际误译；本次按用户要求转人工检查，自动绿灯不表示该错误已修复。
+      - 是否使用自然的繁體中文籃球用語，而非僅將簡體文案換字；擋拆順下、外彈、換防與包夾須區分。
+      - 協防與回位的動作主體、順序及沒有放出空檔三分的否定關係是否保留。
+      - tag 須表達短暫協防阻擋順下者或傳球路線，不只是跟防；不額外補上協防(Tag)或Tag(協防)等任一順序的雙語解釋。
+      - 與同文本 common 相比，專業術語是否有收益，不能增加原文沒有的戰術細節；corner shooter 應採底角射手，角落寫法主要按專業表達審校，與新增位置事實分開判斷。
+      - 外線或外圍措辭可供審校，但仍須保留禁區外的範圍，不能推定站在三分線外；標記不是本條 tag 的協防動作。
+
+  - id: en-zh-TW-facts
+    name: 英译繁中：比分方向、數據與身分歧義（基础自动检查）
+    from: en
+    to: zh-TW
+    items:
+      - source: With 12 seconds left in the fourth quarter, the Comets have 96 points and their opponents have 98; the Comets trail by two. Rivera kicks it out to Chen for a potential game-winning three.
+        mustPreserve: ["98", "96", "12"]
+        mustContainAny:
+          - [Comets, 彗星]
+          - [Rivera, 里維拉, 里韋拉, 李維拉, 李韋拉]
+          - [Chen, 陳]
+          - [落後]
+          - [第四節, 第4節, 第４節, 末節]
+        mustMatch:
+          - '(?:96\s*(?:比|[–—−－:：-])\s*98|(?:Comets|彗星)[^\d。！？\n]{0,12}96\s*分)'
+          - '(?:96\s*(?:比|[–—−－:：-])\s*98|對手[^\d。！？\n]{0,12}98\s*分)'
+          - '(?:(?:可能|有机会|有機會|有望|可望|或许|或許|可以|能够|能夠|能|准备|準備|尝试|嘗試|寻求|尋求|争取|爭取|希望|若|如果|假如|一旦|只要)|(?:投[进進中]|命中|射[进進])(?!了)[^。！？；;\n]{0,12}(?:就|便|才|则|則|的话|的話))'
+          - '^(?![\s\S]*(?:^|[。！？；;\n])(?!(?:(?!(?:投[进進中]|命中|射[进進]))[^\n。！？；;])*(?:可能|有机会|有機會|有望|可望|或许|或許|可以|能够|能夠|能|准备|準備|尝试|嘗試|寻求|尋求|争取|爭取|希望|若|如果|假如|一旦|只要))[^\n。！？；;]*(?!(?:投[进進中]|命中|射[进進])(?!了)[^。！？；;\n]{0,12}(?:就|便|才|则|則|的话|的話))(?:投[进進中]|命中|射[进進]))'
+        mustNotContain: [踢, 底角, 底线外, 底線外, 边线外, 邊線外, 界外]
+      - source: 'Chen: PTS 24, REB 8, AST 11, TOV 3, TS% 62.5%, +/- -7. His team leads the series 2–1, but lost this game: his team scored 99 points and the opponents scored 101.'
+        mustPreserve: ["24", "8", "11", "3", "62.5", "2", "1", "101", "99"]
+        mustContainAny:
+          - [Chen, 陳]
+        mustMatch:
+          - '(?:(?:PTS|得分)[^\d]{0,12}24(?!\d)|24\s*(?:分|得分))'
+          - '(?:(?:REB|籃板)[^\d]{0,12}8(?!\d)|8\s*(?:個\s*)?籃板)'
+          - '(?:(?:AST|助攻)[^\d]{0,12}11(?!\d)|11\s*(?:次\s*)?助攻)'
+          - '(?:(?:TOV|失誤)[^\d]{0,12}3(?!\d)|3\s*(?:次\s*)?失誤)'
+          - '(?:TS%|真實(?:投籃)?命中率)[^\d]{0,12}62\.5\s*[%％]'
+          - '(?:\+/[-−－–]|正負值)[^\d+\-−－–]{0,12}(?:[-−－–]|負)\s*7(?!\d|\.\d)'
+      - source: Jordan Lee boxes out, and Lee secures the rebound. Jordan is still on the bench.
+        mustContainAny:
+          - [卡位, 擋住]
+          - [籃板]
+          - [替補席, 板凳席, 替補區, 板凳區, 板凳]
+        mustMatch:
+          - '(?:Jordan Lee|喬丹[·・\s]*李|喬登[·・\s]*李)[\s\S]*(?:Lee|李)[\s\S]*(?:Jordan|喬丹|喬登)'
+        mustNotContain: [Michael, 麥可, 麥克, 邁克爾, 公牛, 长椅, 長椅, 长凳, 長凳]
+      - source: Rivera passes to Chen, who is standing at the three-point line. Chen has not taken a shot yet; the game is still in progress.
+        mustContainAny:
+          - [Rivera, 里維拉, 里韋拉, 李維拉, 李韋拉]
+          - [Chen, 陳]
+          - [三分]
+        mustMatch:
+          - '(?:尚未|還未|還沒|還沒有|未曾|沒有|未)[^。！？\n]{0,12}(?:出手|投籃|投出|投球)'
+        mustNotContain: [三分线外, 三分线内, 三分線外, 三分線內]
+    reviewCriteria:
+      - 自动绿灯仅表示本用例保留的词面与结构检查通过；不附英文术语解释、完整动作关系及潜在出手阶段仍须人工评审，未评审不能判质量合格。
+      - Comets 得 96 分、對手得 98 分，必須落後兩分；剩餘時間和末節須準確，不得把可能的致勝三分寫成已命中。
+      - 系列賽領先與本場 99 比 101 落敗須區分；標籤可以保留英文或準確本地化，但各項數值、百分比與負號必須對應。
+      - 姓名可一致音譯，但不能把 Jordan 猜成 Michael Jordan，不能擅自合併全名與短名的身分；卡位與取得籃板須區分。
+      - 傳球尋求潛在致勝三分不等於已經出手；新增明確未出手條目須保留 Chen 尚未投籃及比賽仍在進行。
+      - kicks it out 在此為傳球給 Chen，不能譯成用腳踢；三分線上的位置不能變成三分線外。姓名分隔符不決定身分，須逐一核對卡位者、取得籃板者與板凳上的人。
+      - 潛在致勝三分條目沒有底角位置，不得由分球或三分推斷底角；逐次保留姓名及動作歸屬，不得漏掉 Rivera 或誤拼為 Riverra。
+      - 不添加原文沒有的 kick-out 等英文括號註釋；三分線上不能變成線內或線外。
+      - 潛在致勝球須保留機會或條件；有機會投進、若投進、投進就能贏均可，不能寫成已投進。不得新增底線外、邊線外等位置；box-out 雙語括號也不得新增。
+      - 人物卡位和籃板條目中的 bench 仍是籃球替補席，即使沒有 team 修飾也不能譯成長椅；獨立姓名和動作主體必須保留。
+
+  - id: en-zh-TW-context
+    name: 英译繁中：慣用語、日常語義與格式
+    from: en
+    to: zh-TW
+    items:
+      - source: '<a href="https://example.com/play?id=7">Rivera</a> hit a shot from downtown, but his next attempt was an air ball. **Not a turnover.**'
+        mustPreserve: ['<a href="https://example.com/play?id=7">', '</a>', '**']
+        mustContainAny:
+          - [Rivera, 里維拉, 里韋拉, 李維拉, 李韋拉]
+          - [三分]
+          - [麵包, 三不沾, 三不粘, 籃外空心, 沒有碰到, 沒碰到]
+          - [失誤]
+        mustNotContain: [市中心, 空氣球]
+      - source: The editor checked the screen, painted the bench, and discussed staff turnover downtown. Keep `{{player_id}}` unchanged.
+        mustPreserve: ['`{{player_id}}`']
+        mustContainAny:
+          - [長凳, 長椅, 板凳, 凳子, 木凳]
+          - [員工, 人員, 職員, 人事]
+          - [編輯, 編者]
+          - [市中心, 市區, 城區, 鬧市區, 城中心, 城中, 市內]
+        mustMatch:
+          - '(?:[刷漆涂塗喷噴]|上色|彩[绘繪])'
+        mustNotContain: [擋拆, 換防, 三分, 球員流失, 失誤, 替補席, 板凳席, 板凳區, 禁區, 禁区, 人牆, 人墙]
+      - source: The librarian repainted a wooden bench beside the reading-room window and checked the computer display. Staff turnover at the library stayed low.
+        mustContainAny:
+          - [長凳, 長椅, 板凳, 凳子, 木凳]
+          - [員工, 人員, 職員, 人事]
+          - [螢幕, 顯示器, 顯示屏]
+        mustNotContain: [掩護, 擋拆, 換防, 失誤, 替補席, 板凳席, 板凳區]
+      - source: Rivera returned to the team's bench after a turnover. A substitute was waiting to enter the game.
+        mustContainAny:
+          - [Rivera, 里維拉, 里韋拉, 李維拉, 李韋拉]
+          - [板凳, 替補席, 替補區]
+          - [替補, 候補]
+          - [失誤]
+      - source: In the park, a child kicked a football to a friend with the right foot.
+        mustContainAny:
+          - [足球]
+          - [踢, 右腳, 右足]
+    reviewCriteria:
+      - downtown 必須保留三分屬性，不能只寫遠投；air ball 允許麵包、籃外空心等自然說法，須保留未命中與不是失誤的區別。
+      - 非籃球內容是否忠實採用螢幕、長凳、員工流動和市中心等日常語義。
+      - 同批圖書館木製長凳與球隊板凳席須採各自詞義；圖書館低人員流動不能變成低球權失誤，等待上場不能變成已上場。
+      - HTML 連結、Markdown 和占位符是否完整；與 common 相比不得出現語義或格式退步。
+      - 每條日常文字也須翻成繁體中文，不得原樣返回英文；電腦顯示屏不是展陳。公園足球條目是用右腳踢球，不能因 kick-out 規則改成籃球手傳。
+      - 日常條目須保留編輯檢查螢幕、刷漆與市中心的含義，不得添加禁區或人牆；日常板凳不能寫成板凳席，不能借板凳子串通過席位誤譯；木凳可進入人工長度精度審校。
+
+  - id: zh-CN-en-tactics
+    name: 中译英：挡拆战术与攻防关系
+    from: zh-CN
+    to: en
+    items:
+      - source: Chen 给 Rivera 做掩护后顺下，防守方选择换防，而不是包夹持球人。
+        mustPreserve: [Chen, Rivera]
+        mustMatch:
+          - '(?:[Ss]creen|[Pp]ick)'
+          - '(?:[Rr]oll|[Dd]iv(?:e|es|ing))'
+          - '[Ss]witch'
+          - '(?:[Tt]rap|[Dd]ouble(?:[- ]team)?)'
+      - source: 下一回合，Chen 挡拆后外弹，留在禁区外，并没有顺下到篮下。
+        mustPreserve: [Chen]
+        mustMatch:
+          - '(?:[Pp]ick[- ]and[- ]pop|[Pp]op(?:s|ped|ping)? (?:out|to|after (?:a |the )?(?:screen|pick|ball screen)))'
+          - '(?:[Pp]aint|[Kk]ey|[Ll]ane|[Pp]erimeter)'
+          - '(?:(?:[Ii]nstead of|[Rr]ather than|[Ww]ithout)[^.?!]{0,20}(?:roll|cut)|(?:[Nn]ot|[Nn]ever)[^.?!]{0,35}(?:roll|cut))'
+      - source: 弱侧防守人先协防顺下球员，再回到底角射手身边，没有漏掉空位三分。
+        mustMatch:
+          - '[Ww]eak[- ]?side'
+          - '[Cc]orner'
+          - '[Tt]hree'
+    reviewCriteria:
+      - screen、roll、pick-and-pop、switch 和 trap/double-team 是否自然准确；pop 可有不同句式，但不能误写为先顺下再外弹，也不能反转否定关系。
+      - weak-side help 与回位的主语、顺序和目的是否保留；没有放出空位三分应自然表达为不给空位三分机会，不能只机械写 did not leave the open three。
+      - perimeter 可为自然外围表达，但须审校禁区外的范围，不能添加 beyond the three-point line；不得改变原文站位。
+
+  - id: zh-CN-en-facts
+    name: 中译英：比分、统计与未确定赛果
+    from: zh-CN
+    to: en
+    items:
+      - source: 第四节还剩 12 秒，Comets 以 96–98 落后。Rivera 突破分球给 Chen，后者准备投出可能反超比分的三分球。
+        mustPreserve: [Comets, Rivera, Chen, "96", "98", "12"]
+        mustMatch:
+          - '(?:[Tt]rail|[Bb]ehind|[Dd]own)'
+          - '(?:[Ff]ourth|4th) (?:quarter|period)'
+          - '^(?![\s\S]*\b[Gg]ame[- ]winning\b)'
+      - source: 'Chen 的数据：PTS 24、REB 8、AST 11、TOV 3、TS% 62.5%、+/- -7。球队系列赛 2–1 领先，但本场 99–101 输球。'
+        mustPreserve: [Chen, "24", "8", "11", "3", "62.5", "2", "1", "99", "101"]
+        mustMatch:
+          - '(?:(?:PTS|[Pp]oints)\s*[:=]?\s*24(?!\d|\.\d)|(?<![\d.+\-−－–])24\s+(?:PTS|[Pp]oints)\b)'
+          - '(?:(?:REB|[Rr]ebounds)\s*[:=]?\s*8(?!\d|\.\d)|(?<![\d.+\-−－–])8\s+(?:REB|[Rr]ebounds)\b)'
+          - '(?:(?:AST|[Aa]ssists)\s*[:=]?\s*11(?!\d|\.\d)|(?<![\d.+\-−－–])11\s+(?:AST|[Aa]ssists)\b)'
+          - '(?:(?:TOV|[Tt]urnovers)\s*[:=]?\s*3(?!\d|\.\d)|(?<![\d.+\-−－–])3\s+(?:TOV|[Tt]urnovers)\b)'
+          - '(?:(?:TS%?|[Tt]rue[- ]shooting(?: percentage| rate)?)\s*[:=]?\s*62\.5\s*[%％]|(?<![\d.+\-−－–])62\.5\s*[%％]\s*(?:TS%?|[Tt]rue[- ]shooting(?: percentage| rate)?))'
+          - '(?:(?:\+/[-−－–]|[Pp]lus[-/ –−－]minus)\s*[:=]?\s*(?:(?:of|was|is)\s+)?[-−－–]\s*7(?!\d|\.\d)|(?<![\d.+\-−－–])[-−－–]\s*7\s*(?:\+/[-−－–]|[Pp]lus[-/ –−－]minus))'
+      - source: Jordan Lee 负责卡位，Lee 拿到篮板。Jordan 仍坐在替补席上。
+        mustPreserve: [Jordan Lee]
+        mustMatch:
+          - '\bJordan Lee\b[\s\S]*\bLee\b[\s\S]*\bJordan\b'
+          - '\b[Bb]ox(?:es|ed|ing)?[- ]out\b'
+          - '[Rr]ebound'
+          - '\b[Bb]ench\b'
+        mustNotContain: [Michael, Bulls, on the substitutes, on substitutes]
+      - source: Alex Chen 负责卡位，Morgan Wu 拿到篮板。Taylor 仍坐在替补席上。
+        mustPreserve: [Alex Chen, Morgan Wu, Taylor]
+        mustMatch:
+          - '\b[Bb]ox(?:es|ed|ing)?[- ]out\b'
+          - '[Rr]ebound'
+          - '[Bb]ench'
+        mustNotContain: [on the substitutes, on substitutes]
+    reviewCriteria:
+      - 第四节、落后方与剩余时间是否正确；Chen 只是准备出手，不能补写投篮命中或已反超。
+      - 统计标签允许完整名称或缩写，数值在前或在后均可，但数值、百分比和正负号必须对应；系列赛领先与本场失利须区分，不能变成 per-game 数据。
+      - 不扩写 Jordan 的身份；卡位和得到篮板的动作主语须保持原文关系。
+      - 不能用 Jordan Lee 中的 Lee 子串代替原文另一次 Lee 提及；即使姓名词面都保留，也须检查每个动作的主语。新增 Alex Chen、Morgan Wu、Taylor 对照不得合并、交换卡位者与篮板获得者。
+      - 可能反超比分不能升级为制胜或绝杀，即使保留 potential 也不等义；box-out 名词和 box out 动词形式均可，仍须核对动作主语。
+      - 坐在替补席须为 on the bench 等席位表达，不能写成坐在替补球员身上；普通长椅同样不能泛化为 furniture。
+
+  - id: zh-CN-en-context
+    name: 中译英：习语、普通语义与格式
+    from: zh-CN
+    to: en
+    items:
+      - source: '<a href="https://example.com/play?id=7">Rivera</a> 投进一记三分球，但下一次出手是三不沾。**这不是失误。**'
+        mustPreserve: [Rivera, '<a href="https://example.com/play?id=7">', '</a>', '**']
+        mustMatch:
+          - '(?:[Tt]hree[- ]pointer|[Tt]hree|[Bb]eyond the arc|\b[Dd]owntown\b)'
+          - '(?:[Aa]ir ?ball|[Hh]it neither (?:the )?rim nor (?:the )?backboard|[Mm]iss(?:ed|es|ing)? (?:both )?(?:the )?rim and (?:the )?backboard)'
+          - '[Tt]urnover'
+      - source: 编辑检查屏幕、给长凳刷漆，并在市中心讨论员工流动。保留 `{{player_id}}` 不变。
+        mustPreserve: ['`{{player_id}}`']
+        mustMatch:
+          - '(?:[Ss]taff|[Ee]mployee|[Pp]ersonnel|[Ww]orkforce)'
+          - '(?:[Dd]owntown|[Cc]ity cent(?:er|re))'
+          - '\b[Ee]ditors?\b'
+          - '\b[Bb]ench(?:es)?\b'
+          - '(?:[Ss]creen|[Dd]isplay|[Mm]onitor)'
+        mustNotContain: [pick-and-roll, pick-and-pop, three-pointer]
+    reviewCriteria:
+      - 三分球和三不沾是否采用自然篮球英语；不能误称 block，也不能丢掉不是失误的否定关系。
+      - 普通文本的 screen、bench、turnover 和 downtown 是否仍为日常语义，保留格式和占位符。
+      - 编辑是检查屏幕和刷漆的人，不能改为 Edit the screen 等命令句；downtown 在本组篮球句中可表示三分，在普通句中仍为市中心。
+
+  - id: zh-TW-en-terminology
+    name: 繁中译英：本地术语与数值
+    from: zh-TW
+    to: en
+    items:
+      - source: Chen 擋拆後外彈出手，但投了麵包；Rivera 卡位後抓下進攻籃板。
+        mustPreserve: [Chen, Rivera]
+        mustMatch:
+          - '(?:[Pp]ick[- ]and[- ]pop|[Pp]op(?:s|ped|ping)? (?:out|to|after (?:a |the )?(?:screen|pick|ball screen))|[Pp]opped and shot|[Pp]opping on (?:the )?pick[- ]and[- ]roll)'
+          - '(?:[Mm]issed everything\b|[Aa]ir ?ball|[Hh]it neither (?:the )?rim nor (?:the )?backboard|[Mm]iss(?:ed|es|ing)? (?:both )?(?:the )?rim and (?:the )?backboard)'
+          - '[Oo]ffensive (?:rebound|board)'
+          - '^(?![\s\S]*\b(?:[Tt]hree(?:[- ](?:point(?:er)?|pointer))?|3[- ]?point(?:er)?|[Dd]owntown|[Bb]eyond the arc)\b)'
+        mustNotContain: [bread, toast]
+      - source: Rivera 全場送出 11 次助攻、發生 3 次失誤，正負值為 -7，並非每場平均數據。
+        mustPreserve: [Rivera, "11", "3"]
+        mustMatch:
+          - '[Aa]ssist'
+          - '[Tt]urnover'
+          - '(?:(?:\+/[-−－–]|[Pp]lus[-/ –−－]minus)\s*[:=]?\s*(?:(?:of|was|is)\s+)?[-−－–]\s*7(?!\d|\.\d)|(?<![\d.+\-−－–])[-−－–]\s*7\s*(?:\+/[-−－–]|[Pp]lus[-/ –−－]minus))'
+          - '(?:[Pp]er[- ]game (?:averages?|stats|statistics|figures|data)|averages? (?:per|for each) game)'
+          - '(?:[Nn]ot|[Ii]nstead of|[Rr]ather than)[^.?!]{0,30}(?:per[- ]game|for each game)'
+        mustNotContain: [season, Season]
+      - source: Chen 投了麵包，球完全沒碰到框或板；Rivera 下一次出手打鐵，球砸到籃框後彈出。
+        mustPreserve: [Chen, Rivera]
+        mustMatch:
+          - '(?:[Aa]ir ?ball|[Hh]it neither (?:the )?rim nor (?:the )?backboard|[Mm]iss(?:ed|es|ing)? (?:both )?(?:the )?rim and (?:the )?backboard)'
+          - '(?:[Bb]rick|(?:[Hh]it|[Bb]ounc(?:ed|es|ing)|[Cc]lang(?:ed|s|ing)|[Rr]attl(?:ed|es))[^.?!]{0,25}(?:rim|iron)|(?:rim|iron)[^.?!]{0,25}[Bb]ounc(?:ed|es|ing)[^.?!]{0,12}(?:out|off|away))'
+      - source: 麵包店的店員坐在木製長凳上吃麵包，並查看螢幕上的排班表。
+        mustMatch:
+          - '[Bb]read'
+          - '[Bb]ench'
+          - '(?:[Ss]creen|[Dd]isplay|[Mm]onitor)'
+        mustNotContain: [airball, air ball, three-pointer, pick-and-roll, pick-and-pop]
+    reviewCriteria:
+      - 籃球麵包須保留 airball 完全沒碰框或板的含義，允許等義描述，不能僅用 brick、missed badly 或 missed the shot completely 等一般投失；擋拆外彈、卡位與進攻籃板的主體及順序須保留。
+      - 助攻、失誤和正負值是否正確，單場數據不能變成場均，對照 common 確認收益。
+      - 對照條目中 Chen 的麵包與 Rivera 碰框彈出的打鐵須區分，不能把兩次都譯成 airball 或一般投失。
+      - 麵包店的麵包仍為食物，長凳與螢幕為日常物件，不能受同批籃球條目污染。
+      - “并非每场平均数据”的每场及否定限定须完整保留，不能替换成未给出的 season averages；负号可为 Unicode 等义符号，但不能丢失或变成正七。
+      - 碰框彈出允許 rattled the rim、rim then bounced out 等等義描述；仍需核對是 Rivera 的球，不能把 Chen 的麵包也改成碰框。
+      - 首條單次出手的 missed everything 可表達麵包；不能放寬為 missed badly 或一般投失，仍須核對動作主體。
+      - 首條外彈出手未指定三分，不得加 three、3-point、downtown 或 beyond the arc；仍須保留投籃與麵包，不能把擋拆外彈寫成先順下再外彈。
+      - 本條外彈允許 popped and shot、popping on the pick-and-roll 等動詞句式；仍須核對人物、出手、麵包及進攻籃板，不因句式通過就認定所有戰術順序與自然度正確。
