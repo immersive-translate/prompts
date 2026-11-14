@@ -1,0 +1,49 @@
+expertId: traditional-cantonese
+cases:
+  - id: cantonese-source-to-simplified
+    name: 粤语源归一为标准书面中文
+    from: yue
+    to: zh-CN
+    items:
+      - source: '運輸署今日宣布，的士同小巴嘅收費會喺下個月一號起調整，有市民話唔能夠接受加幅咁大。'
+        mustContainAny: [[运输署, 運輸署], [的士, 出租车], [小巴, 小型巴士, 公共小巴], [下月, 下个月, 12 月 1 日], [加幅, 涨幅, 加价幅度], [市民]]
+        mustNotContain: [嘅, 咗, 喺, 唔, 佢, 咁]
+        maxLengthRatio: 2
+      - source: '佢哋話，公司唔會裁員，但會暫停招聘，直到市況好轉。'
+        mustContainAny: [[不会裁员, 不裁员], [暂停招聘], [市况, 市场状况, 市道]]
+        mustNotContain: [佢, 唔, 咗, 嘅]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 粤语字形与语法是否改写为标准现代书面中文，且未保留方言形式或另加括注
+      - 机构名与数字是否准确，是否出现原文没有的增补或评论
+
+  - id: traditional-punctuation-and-characters
+    name: 繁体字与繁体标点转换
+    from: zh-TW
+    to: zh-CN
+    items:
+      - source: '「我們不會改變立場，」陳茂波說。「這是我們的底線。」'
+        mustContainAny: [[陈茂波, 陳茂波], ['“我们', 我们]]
+        mustNotContain: ['「', '」', '说']
+        maxLengthRatio: 2
+      - source: '該公司發現，部分乾貨樣本的包裝已經發霉，需即時下架。'
+        mustContainAny: [[干货], [发霉, 發霉], [下架]]
+        mustNotContain: [乾貨, 發霉, 已经]
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 繁体字是否按《通用规范汉字表》转为简体，一对多映射是否正确
+      - 「」是否转为简体全角 “”，汉字与标点之间是否没有多余空格，句末标点位置是否得当
+
+  - id: simplified-source-to-english
+    name: 简体中文源译为英文
+    from: zh-CN
+    to: en
+    items:
+      - source: '政府今日公布，本港第三季經濟增長3.8%，財政司司長陳茂波表示，全年增長有望達標。'
+        mustPreserve: ['3.8']
+        mustContainAny: [[Financial Secretary], [third quarter, Q3], [full-year, annual, whole year], [on target, target, forecast]]
+        mustNotContain: ['It is reported that', 'It is learned that']
+        maxLengthRatio: 2
+    reviewCriteria:
+      - 机构职衔是否采用通行英文译名，数字与比例是否准确
+      - 是否以新闻英文写出，未使用中文式的模糊引述或无来源的评述
